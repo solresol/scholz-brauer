@@ -1,50 +1,79 @@
 # Scholz–Brauer research
 
-Computational and formal experiments around the Scholz–Brauer conjecture
+The programme studies
 
 \[
-  \ell(2^n-1) \le n-1+\ell(n),
+  \ell(2^n-1) \le n-1+\ell(n) \qquad (n>0),
 \]
 
 where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
+Computational claims must have independently checkable certificates; a short
+witness, its optimality, and the Scholz upper bound are separate claims.
 
-The research strategy is to keep computational claims certificate-based, use failed stronger statements to expose structure, and formalise the reusable parts in Lean.
+## Verified status — 17 September 2026
 
-## Current computational focus
+The first daily run found only the initial README. Its advertised Python
+library, experiments, results and Lean infrastructure did not exist. The claim
+that this repository already reproduced a Brauer lift has been withdrawn.
 
-The classical Brauer construction proves the bound whenever `n` has an optimal star/Brauer chain. The first number for which this route fails is `n = 12509`: published exhaustive data give `ℓ(12509)=17` but shortest star-chain length `ℓ*(12509)=18`. The code in this repository verifies explicit certificates and reproduces the corresponding one-step deficit: lifting a shortest star chain gives a chain for `2^12509-1` of length `12526`, whereas the Scholz target is `12525`.
+The repository now has a Lean certificate generator that starts at 1 and
+replays explicit summand pairs, rejecting unavailable summands or non-increasing
+steps. Kernel-checked theorems establish that successful replay gives an addition
+chain, with exactly one addition per pair, and therefore an upper bound on `ℓ`.
 
-This makes two structural frontiers especially useful:
+The published chain
 
-1. **Hansen / non-star lifts.** Explain exactly how the known optimal Hansen chain for 12509 recovers the missing step, then implement that lift as a checked certificate generator.
-2. **Beyond Hansen.** Neill Clift's computations report that all `n < 5,784,689` are Hansen numbers, while `5,784,689` is not. This is a natural first target for testing stronger structural classes.
+```text
+1, 2, 4, 6, 12, 13, 24, 48, 96, 192, 384, 768, 781,
+1562, 3124, 6248, 12496, 12509
+```
 
-## Formalisation status
+has been checked by Lean replay, by direct evaluation of the upstream
+addition-chain predicate, and independently using Python integers. It proves
+`ℓ(12509) ≤ 17`. The reused doubling lemma also proves `14 ≤ ℓ(12509)`.
+The step `24 = 12 + 12` after `13` makes this particular chain non-star.
 
-Do not start addition chains from scratch in Lean. In 2026 the `google-deepmind/formal-conjectures` project added:
+**Not established here:** `ℓ(12509)=17`, the shortest star length 18, a Hansen
+classification of this witness, or any chain for `2^12509-1`. In particular,
+we have not yet generated the length-12526 star lift or length-12525 Hansen lift.
+The initial claim about 5,784,689 being the first non-Hansen number remains a
+literature lead pending direct primary-source verification; it is not a local
+result or a claim about the current research frontier.
 
-- `FormalConjecturesForMathlib/NumberTheory/AdditionChain.lean`, defining `IsAdditionChain`, `additionChainSteps`, `additionChainLength`, and basic upper/lower-bound lemmas;
-- `FormalConjectures/Wikipedia/ScholzConjecture.lean`, stating the conjecture and proving the first values of `ℓ`.
+## Reproduce
 
-Future Lean work here should reuse or adapt that implementation, then add star chains, Hansen-style witnesses, and constructive lifts.
+```sh
+cd lean
+lake build
+lake env lean Audit.lean
+cd ..
+python3 scripts/check_12509.py
+```
 
-## Repository layout
+Lean 4.27.0, mathlib and transitive dependencies are pinned. See `lean/README.md`
+for setup, licence attribution and the adaptation from Google DeepMind's
+formal-conjectures implementation. Its open Scholz theorem is an uncompiled
+reference and is not imported into the proofs.
 
-- `src/addition_chains.py` — exact certificate checking, small exhaustive search, and the Brauer lift.
-- `experiments/` — reproducible computational runs.
-- `results/` — dated results and literature notes.
-- `lean/` — future Lean work.
+## Files and next work
 
-## Sources / data landmarks
+- `lean/ScholzBrauer/AdditionChain.lean`: adapted upstream definitions and lemmas.
+- `lean/ScholzBrauer/Certificate.lean`: replay generator, soundness and length proofs.
+- `lean/ScholzBrauer/Example12509.lean`: concrete witness and numerical bounds.
+- `scripts/check_12509.py`: independent exact check, including invalid fixtures.
+- `results/`: dated verification evidence and source notes.
+- `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-- Achim Flammenkamp, [Shortest Addition Chains](https://wwwhomes.uni-bielefeld.de/achim/addition_chain.html).
-- Neill M. Clift, *Calculating optimal addition chains*, Computing 91 (2011), 265–284.
-- [OEIS A349044](https://oeis.org/A349044), non-Brauer numbers and explicit 12509 certificates.
-- Neill Clift, [Scholz-Brauer notes](https://www.additionchains.com/ScholzBrauer.html).
-- Google DeepMind, [formal-conjectures issue #2217](https://github.com/google-deepmind/formal-conjectures/issues/2217).
+Next: construct and check star/Brauer lifts, then the Hansen lift for 12509.
+Only after these work should structural obstructions and larger documented
+non-Hansen cases become computational targets. See `TODO.md` for the next
+experiment and formal lemma.
 
-## Immediate next experiments
+## Sources
 
-- Implement a precise Hansen-chain witness/checker and its Mersenne lift; reproduce the length-12525 certificate symbolically for `n=12509`.
-- Test structural classes (Hansen, quasi-closed/related variants) against exact optimal-chain data, prioritising the known non-Brauer numbers and then `n=5,784,689`.
-- Separate three questions in all reporting: existence of *some* short chain, proof of optimality of a chain, and proof of the Scholz upper bound. A certificate establishes only the first unless an independent lower bound is supplied.
+- [OEIS A349044](https://oeis.org/A349044): the explicit witness checked here;
+  optimality statements remain separately sourced claims.
+- [Flammenkamp, Shortest Addition Chains](https://wwwhomes.uni-bielefeld.de/achim/addition_chain.html).
+- [Clift, Scholz–Brauer notes](https://www.additionchains.com/ScholzBrauer.html):
+  retrieval failed on this run; revisit before relying on its detailed claims.
+- [formal-conjectures, inspected revision](https://github.com/google-deepmind/formal-conjectures/tree/40e7c98697de6f66b8cbdbf641749ab39ed9c152).

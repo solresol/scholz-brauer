@@ -1,0 +1,8 @@
+✔ [744/748] Built ScholzBrauer.AdditionChain (6.6s)
+✔ [745/748] Built ScholzBrauer.Certificate (1.7s)
+✔ [746/748] Built ScholzBrauer.Example12509 (1.6s)
+✔ [747/748] Built ScholzBrauer (1.2s)
+Build completed successfully (748 jobs).
+real 16.07
+user 4.69
+sys 3.38

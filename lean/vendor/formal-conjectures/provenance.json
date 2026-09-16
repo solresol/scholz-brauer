@@ -1,0 +1,31 @@
+{
+  "revision": "40e7c98697de6f66b8cbdbf641749ab39ed9c152",
+  "access_date": "2026-09-17",
+  "files": [
+    {
+      "path": "FormalConjecturesForMathlib/NumberTheory/AdditionChain.lean",
+      "url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/40e7c98697de6f66b8cbdbf641749ab39ed9c152/FormalConjecturesForMathlib/NumberTheory/AdditionChain.lean",
+      "sha256": "12d7724f25ec543778e472c13f90490623378ff2d9fd19fe34c7eb77ec2b5e04"
+    },
+    {
+      "path": "FormalConjectures/Wikipedia/ScholzConjecture.lean",
+      "url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/40e7c98697de6f66b8cbdbf641749ab39ed9c152/FormalConjectures/Wikipedia/ScholzConjecture.lean",
+      "sha256": "4155a3e2df71784bbf1326cf243689b3b25130cdac49237ee5b510a57912bb86"
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/40e7c98697de6f66b8cbdbf641749ab39ed9c152/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "lean-toolchain",
+      "url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/40e7c98697de6f66b8cbdbf641749ab39ed9c152/lean-toolchain",
+      "sha256": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+    },
+    {
+      "path": "lakefile.toml",
+      "url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/40e7c98697de6f66b8cbdbf641749ab39ed9c152/lakefile.toml",
+      "sha256": "ebe6baca2edfacd491b91474438282fe6b711998f5e86798277e1850515bbb5f"
+    }
+  ]
+}
