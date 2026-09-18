@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 18 September 2026
+## Verified status — 19 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -42,8 +42,15 @@ with at most six steps and endpoint at most 32, binary lifts for exponents
 
 **Not established here:** `ℓ(12509)=17`, the shortest star length 18, a Hansen
 classification, or the length-12525 Hansen lift. The checked 12526 upper bound
-does not establish the Scholz bound for 12509. The lift is not yet formalised
-in Lean.
+does not establish the Scholz bound for 12509. The complete lift is not yet
+formalised in Lean.
+
+Lean now proves one constructive Brauer block: from a valid chain ending at
+`2^a-1` and containing `2^b-1`, an explicit replay certificate reaches
+`2^(a+b)-1`, adds exactly `b+1` entries, and retains all prior values.
+The stored-value invariant and telescoping length proof for a whole star
+source remain to be formalised.
+
 The initial claim about 5,784,689 being the first non-Hansen number remains a
 literature lead pending direct primary-source verification; it is not a local
 result or a claim about the current research frontier.
@@ -70,6 +77,7 @@ reference and is not imported into the proofs.
 - `lean/ScholzBrauer/AdditionChain.lean`: adapted upstream definitions and lemmas.
 - `lean/ScholzBrauer/Certificate.lean`: replay generator, soundness and length proofs.
 - `lean/ScholzBrauer/Example12509.lean`: concrete witness and numerical bounds.
+- `lean/ScholzBrauer/BrauerBlock.lean`: doubling and single-block replay proofs.
 - `scripts/check_12509.py`: independent exact check, including invalid fixtures.
 - `scripts/star_lift.py`: star/Brauer lift to explicit summand-index pairs.
 - `scripts/check_certificate.py`: independent replay and value-only star checker.

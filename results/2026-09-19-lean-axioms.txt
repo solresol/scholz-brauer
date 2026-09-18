@@ -1,0 +1,18 @@
+'ScholzBrauer.append_sum' depends on axioms: [propext, Quot.sound]
+'ScholzBrauer.replay_sound' depends on axioms: [propext, Quot.sound]
+'ScholzBrauer.replay_length' depends on axioms: [propext, Quot.sound]
+'ScholzBrauer.replay_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ScholzBrauer.certificate_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ScholzBrauer.chain12509_direct' does not depend on any axioms
+'ScholzBrauer.length12509_le_seventeen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ScholzBrauer.fourteen_le_length12509' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ScholzBrauer.doublingSteps_length' depends on axioms: [propext]
+'ScholzBrauer.doublingSteps_replay' depends on axioms: [propext, Quot.sound]
+'ScholzBrauer.replayFrom_append' depends on axioms: [propext, Quot.sound]
+'ScholzBrauer.mersenne_block_identity' depends on axioms: [propext, Quot.sound]
+'ScholzBrauer.brauerBlock_length' depends on axioms: [propext]
+'ScholzBrauer.brauerBlock_replay' depends on axioms: [propext, Quot.sound]
+'ScholzBrauer.brauerBlock_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+real 11.44
+user 1.42
+sys 1.73

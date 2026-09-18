@@ -1,0 +1,155 @@
+{
+  "run_date": "2026-09-19T08:04:46.872864+10:00",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "scripts/check_12509.py"
+      ],
+      "exit_code": 0,
+      "runtime_seconds": 0.034337,
+      "stdout": {
+        "endpoint": 12509,
+        "additions": 17,
+        "nonstar_step_indices_zero_based": [
+          6
+        ],
+        "parents_zero_based": [
+          [
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              2
+            ]
+          ],
+          [
+            [
+              3,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              4
+            ]
+          ],
+          [
+            [
+              4,
+              4
+            ]
+          ],
+          [
+            [
+              6,
+              6
+            ]
+          ],
+          [
+            [
+              7,
+              7
+            ]
+          ],
+          [
+            [
+              8,
+              8
+            ]
+          ],
+          [
+            [
+              9,
+              9
+            ]
+          ],
+          [
+            [
+              10,
+              10
+            ]
+          ],
+          [
+            [
+              5,
+              11
+            ]
+          ],
+          [
+            [
+              12,
+              12
+            ]
+          ],
+          [
+            [
+              13,
+              13
+            ]
+          ],
+          [
+            [
+              14,
+              14
+            ]
+          ],
+          [
+            [
+              15,
+              15
+            ]
+          ],
+          [
+            [
+              5,
+              16
+            ]
+          ]
+        ],
+        "negative_checks": 7,
+        "seed": null,
+        "exhaustive_search": false,
+        "optimality_proved": false,
+        "scholz_bound_proved": false,
+        "runtime_seconds": 0.000485
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/check_certificate.py",
+        "results/2026-09-18-12509-star-certificate.json",
+        "--exponent",
+        "12509",
+        "--additions",
+        "12526",
+        "--require-star"
+      ],
+      "exit_code": 0,
+      "runtime_seconds": 0.087833,
+      "stdout": {
+        "certificate_sha256": "23579925c4d136e24311c57f7ccc33ef8873ae96463d815b0e386821d6f4bf1b",
+        "exponent": 12509,
+        "additions": 12526,
+        "endpoint_bit_length": 12509,
+        "exact_endpoint_verified": true,
+        "value_only_star_check": true,
+        "optimality_proved": false
+      },
+      "stderr": ""
+    }
+  ]
+}

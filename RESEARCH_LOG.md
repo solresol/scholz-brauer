@@ -1,5 +1,43 @@
 # Research log
 
+## 2026-09-19 — Saturday — Lean certificate for one Brauer block
+
+Australia/Sydney, approximately 08:01–08:07 AEST. Read the automation memory,
+README, TODO, prior logs/results, Lean/Python sources and vendored upstream
+implementation, statement and licence. No on-disk AGENTS.md was found; followed
+the supplied instructions. Verified clean `main`, correct solresol origin and
+no competing research process, acquired the exclusive `.git` run lock, fetched
+origin and fast-forward-only merged (already up to date at `df17939`).
+
+**Increment.** Added `BrauerBlock.lean`: executable doubling certificates,
+replay composition, and a conditional constructive block theorem. From a valid
+chain ending at `2^a-1` and containing `2^b-1`, it proves successful replay to
+`2^(a+b)-1`, exactly `b+1` new additions, and retention of all old values.
+The corresponding numerical upper-bound corollary is also proved. Reused the
+upstream addition-chain API and local certificate proofs. Toolchain and
+dependency pins are unchanged; extended `Audit.lean` to cover the new theorems.
+
+**Verification.** Final `lake build`: 749 jobs, 11.97 seconds. Axiom audit:
+11.44 seconds; only standard Lean axioms, with no `sorry`, custom axiom,
+`native_decide`, or assumed Scholz statement. Five kernel-evaluated examples
+cover successful, empty-doubling and rejected blocks. Reran the two independent
+Python checks for the 17-step 12509 witness and the stored 12526-step Mersenne
+certificate; both passed, including seven invalid fixtures and value-only star
+validation. Rechecked all upstream snapshot hashes and reopened the pinned
+primary source definitions and statement. Development path/elaboration errors
+and final evidence are recorded in `results/2026-09-19-brauer-block.md`.
+
+**Conclusion and limits.** One general Brauer block is now formalised. Whole
+star-chain induction, its telescoping length, and the formal 12509 Mersenne
+instance remain unproved. No equivalence between Python index certificates and
+Lean summand-value certificates, new 12509 bound, optimality, Hansen result,
+counterexample or novelty is claimed. No failed mathematical hypothesis arose.
+
+**Next.** Sunday integration; then compose blocks over checked star-source
+steps and prove the `n-1+r` total. Hansen primary-source retrieval and the
+12525 certificate remain the next computational target. Reviewed the complete
+staged source, evidence and documentation diff before committing.
+
 ## 2026-09-18 — Friday — explicit star/Brauer lift certificate
 
 Australia/Sydney, approximately 11:05–11:15 AEST. Read the prior run memory,

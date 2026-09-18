@@ -1,0 +1,6 @@
+✔ [747/749] Built ScholzBrauer.BrauerBlock (7.8s)
+✔ [748/749] Built ScholzBrauer (1.5s)
+Build completed successfully (749 jobs).
+real 11.97
+user 3.01
+sys 2.53

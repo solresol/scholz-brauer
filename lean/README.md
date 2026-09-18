@@ -10,8 +10,8 @@ lake env lean Audit.lean
 
 Lean is pinned to 4.27.0 and mathlib to
 `a3a10db0e9d66acbebf76c5e6a135066525ac900` (v4.27.0).
-`lake-manifest.json` pins the transitive dependencies. The upstream project
-currently uses Lean/mathlib 4.33.1; this small adaptation uses the already
+`lake-manifest.json` pins the transitive dependencies. The inspected upstream revision
+uses Lean/mathlib 4.33.1; this small adaptation uses the already
 available 4.27.0 toolchain.
 
 `ScholzBrauer/AdditionChain.lean` adapts the Apache-2.0 implementation from
@@ -44,3 +44,20 @@ directly against the upstream predicate. The proved numerical result is
 `14 ≤ additionChainLength 12509 ≤ 17`. Neither optimality nor the Scholz bound for
 `2^12509 - 1` is proved. `Audit.lean` reports the dependencies of the key theorems.
 The independent Python check is `python3 ../scripts/check_12509.py`.
+
+`BrauerBlock.lean` provides the next constructive layer:
+
+- `doublingSteps`: an executable summand-value certificate; replay is proved
+  to succeed from any valid endpoint, retain all old values, and end at `2^k*a`;
+- `replayFrom_append`: composition of arbitrary certificate replays;
+- `brauerBlock_replay`: given a valid chain ending at `2^a-1` and containing
+  `2^b-1`, replay a block to `2^(a+b)-1` with exactly `b+1` new entries;
+- `brauerBlock_upper_bound`: if the starting chain has `r` additions, the
+  extended endpoint has minimum addition-chain length at most `r+b+1`.
+
+Membership of the stored value is a hypothesis checked by replay, not an
+assumed version of the conjecture. Its availability throughout a complete
+star lift and the telescoping total length remain future work. The Lean
+certificate names summand values; no equivalence with the Python index-format
+certificate generator has been proved. Five kernel-evaluated examples cover
+zero doublings, two successful blocks, and absent/zero stored values.
