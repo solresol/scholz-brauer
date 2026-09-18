@@ -1,5 +1,49 @@
 # Research log
 
+## 2026-09-18 — Friday — explicit star/Brauer lift certificate
+
+Australia/Sydney, approximately 11:05–11:15 AEST. Read the prior run memory,
+README, TODO, research log, dated evidence and actual Python/Lean sources.
+No applicable on-disk AGENTS.md was found; followed the supplied instructions.
+Verified origin `git@github.com:solresol/scholz-brauer.git` and clean `main` at
+`9208036`. Fetch and fast-forward-only merge reported already up to date.
+No competing research process or run lock was found; acquired a temporary
+exclusive lock in `.git` before editing.
+
+**Increment.** Added a star-chain Mersenne lift generator and a separate generic
+summand-index replay checker, plus a value-only star checker and deterministic
+bounded verifier. Rechecked the OEIS 18-step star witness for 12509 and Brauer's
+original 1939 construction. Saved the complete 12,526-pair certificate and
+source fixture. The generator accepts `[1]` and rejects non-star input before
+emitting pairs. See `results/2026-09-18-star-lift.md` for the construction,
+source URLs/access dates, certificate format, commands and SHA-256.
+
+**Checks.** Python 3.9.6, standard library only, exact integers, no random seed.
+`python3 scripts/verify_star_lift.py --output results/2026-09-18-star-lift-checks.json`
+passed in 0.318886 seconds: all 842 star prefixes with at most six steps and
+endpoint at most 32; binary lifts for 1..256; the saved 12509 certificate;
+23 negative checks. Standalone certificate replay and value-only checking
+verified exactly 12,526 additions and endpoint `2^12509-1`. Reran the existing
+`python3 scripts/check_12509.py`; the 17-step witness and seven negative checks
+passed. No Lean files changed and no Lean build was run today.
+
+The first verifier run caught an incorrect negative fixture: a chosen non-star
+summand pair can have a star alternative (`6=3+3=5+1`). Corrected the fixture
+and retained the alternative-decomposition case as a positive regression.
+No failed mathematical hypothesis or conjecture counterexample was found.
+
+**Conclusion and limits.** Checked witness: `ell(2^12509-1) <= 12526`.
+This is neither an optimum nor the Scholz bound for 12509. The length-12525
+target and Hansen construction remain work to do. Enumeration was exhaustive
+only within the stated star-prefix test family, not an optimality search.
+No novelty or current-frontier claim is made. Direct retrieval of Clift's
+page failed again; search-index text was not used to certify larger cases.
+
+**Next.** Saturday: prove the doubling-block endpoint and length in Lean,
+using `append_sum`. Next computational step: retrieve Hansen's primary
+construction and attempt the 12525 certificate. Reviewed the full code/document
+diff and replayed every pair of the generated certificate before committing.
+
 ## 2026-09-17 — Thursday — Lean certificate foundation
 
 Started about 08:01 AEST (Australia/Sydney). This is the first daily run.

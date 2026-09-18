@@ -1,0 +1,7 @@
+{
+  "chain": [1, 2, 3, 4, 7, 11, 18, 25, 43, 86, 172, 344, 688, 1376, 1401, 2777, 5554, 6955, 12509],
+  "source_url": "https://oeis.org/A349044",
+  "access_date": "2026-09-18",
+  "source_locator": "EXAMPLE, 18-step star chain",
+  "claim": "Explicit witness only; optimality not established by this data"
+}
