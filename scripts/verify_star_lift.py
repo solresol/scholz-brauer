@@ -5,11 +5,13 @@ Exhaust all star-chain prefixes of at most six steps and endpoint at most 32,
 then test binary star witnesses for 1..256 and the saved 12509 certificate.
 """
 import argparse
+from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
 import platform
 import time
+from zoneinfo import ZoneInfo
 
 from check_12509 import check_chain
 from check_certificate import check_document, check_star_values, replay_indices
@@ -59,6 +61,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     started = time.perf_counter()
+    run_time = datetime.now(ZoneInfo("Australia/Sydney"))
     root = Path(__file__).resolve().parents[1]
 
     # Small manually derived answers catch indexing/step-count regressions.
@@ -122,7 +125,9 @@ def main():
     check_document(without_source, exponent=12509, additions=12526)
 
     report = {
-        "date_australia_sydney": "2026-09-18", "python": platform.python_version(),
+        "date_australia_sydney": run_time.date().isoformat(),
+        "started_at_australia_sydney": run_time.isoformat(),
+        "python": platform.python_version(),
         "dependencies": "Python standard library only", "seed": None,
         "exhaustive_star_prefixes": {"max_steps": 6, "max_endpoint": 32,
                                      "count": exhaustive_count,

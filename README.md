@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 19 September 2026
+## Verified status — 20 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -51,6 +51,13 @@ Lean now proves one constructive Brauer block: from a valid chain ending at
 The stored-value invariant and telescoping length proof for a whole star
 source remain to be formalised.
 
+Sunday integration reran these checks together, including the Lean build and
+15-theorem axiom audit. The local bounds put `12508 + ℓ(12509)` in
+`[12522, 12525]`. Even a future 12525-step witness would need the matching
+lower bound `ℓ(12509) ≥ 17`, or another argument linking its length to
+`ℓ(12509)`, before it proves the conjectured inequality. See
+`results/2026-09-20-integration.md` for the evidence map and remaining gaps.
+
 The initial claim about 5,784,689 being the first non-Hansen number remains a
 literature lead pending direct primary-source verification; it is not a local
 result or a claim about the current research frontier.
@@ -58,14 +65,14 @@ result or a claim about the current research frontier.
 ## Reproduce
 
 ```sh
-cd lean
-lake build
-lake env lean Audit.lean
-cd ..
-python3 scripts/check_12509.py
-python3 scripts/check_certificate.py results/2026-09-18-12509-star-certificate.json --exponent 12509 --additions 12526 --require-star
-python3 scripts/verify_star_lift.py --output results/2026-09-18-star-lift-checks.json
+python3 scripts/verify_integration.py --output results/integration-local.json
 ```
+
+Choose a fresh output path: the integration runner refuses to overwrite an
+existing report. It runs the three Python checks, `lake build` and
+`lake env lean Audit.lean` (from `lean/`), verifies the toolchain version and
+vendored source hashes, and records input hashes, commands and exact outputs.
+The small-check report now uses the actual Australia/Sydney run date.
 
 Lean 4.27.0, mathlib and transitive dependencies are pinned. See `lean/README.md`
 for setup, licence attribution and the adaptation from Google DeepMind's
@@ -82,6 +89,7 @@ reference and is not imported into the proofs.
 - `scripts/star_lift.py`: star/Brauer lift to explicit summand-index pairs.
 - `scripts/check_certificate.py`: independent replay and value-only star checker.
 - `scripts/verify_star_lift.py`: bounded exhaustive and regression checks.
+- `scripts/verify_integration.py`: combined reproducible evidence and axiom audit.
 - `data/12509-star.json`: published source chain and attribution.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
@@ -97,5 +105,5 @@ experiment and formal lemma.
   optimality statements remain separately sourced claims.
 - [Flammenkamp, Shortest Addition Chains](https://wwwhomes.uni-bielefeld.de/achim/addition_chain.html).
 - [Clift, Scholz–Brauer notes](https://www.additionchains.com/ScholzBrauer.html):
-  retrieval failed on this run; revisit before relying on its detailed claims.
+  retrieval failed on 17–18 September; revisit before relying on its detailed claims.
 - [formal-conjectures, inspected revision](https://github.com/google-deepmind/formal-conjectures/tree/40e7c98697de6f66b8cbdbf641749ab39ed9c152).

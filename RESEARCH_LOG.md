@@ -1,5 +1,45 @@
 # Research log
 
+## 2026-09-20 — Sunday — integrate evidence and tighten claim limits
+
+Australia/Sydney, approximately 08:00–08:06 AEST. Read prior automation memory,
+README, TODO, dated results/log and actual Python/Lean sources, upstream
+definition/statement snapshots and licence. No applicable on-disk AGENTS.md;
+followed the supplied instructions. Clean main, correct solresol origin, no
+competing process or lock. Fetch and ff-only merge were already up to date at
+1678d95; acquired `.git/scholz-brauer-research.lock` before editing.
+
+**Increment.** Added one reproducible integration command with input hashes,
+five vendored hash checks, three Python checks, pinned Lean build/version and
+15-theorem axiom audit. It rejects missing/unapproved axiom entries and refuses
+existing report paths. Fixed the small verifier's hard-coded 18 September date.
+Reconciled the README and roadmap against current evidence; dated historical
+reports and the complete Mersenne certificate were preserved.
+
+**Checks.** Integration passed in 14.365812 seconds: 842 bounded star prefixes,
+binary exponents 1..256, seven witness negatives and 23 lift negatives, exact
+12526-pair replay and value-only star check; Lean build passed 749 jobs in
+5.411261 seconds and the axiom audit in 7.704705 seconds. Python 3.9.6 and
+Lean 4.27.0; dependency pins unchanged. Four bad audit fixtures rejected, two
+valid audit fixtures accepted; existing-output refusal preserved report bytes.
+No source inputs changed during integration. Reopened OEIS A349044 and matched
+both published lists, noting its erroneous non-star-step index gloss. See
+`results/2026-09-20-integration.md` and the accompanying full JSON evidence.
+
+**Conclusion and limits.** No new chain bound or Lean theorem. Locally,
+12508+ell(12509) is in [12522,12525]. Even the planned 12525 witness needs
+ell(12509)>=17 or another sufficient argument before it proves Scholz at 12509.
+The current 12526 witness does not decide that inequality. Explicitly retained
+Friday's rejected test-design assumption about chosen parents versus alternative
+star decompositions; no failed research conjecture or counterexample occurred.
+Hansen classification, optimality and the whole-star Lean lift remain open
+tasks here, with no claim about the current literature frontier.
+
+**Next.** Monday: primary Hansen construction and checked stored-value
+requirements. Tuesday: compose blocks and prove the whole-star invariant and
+telescoping length. Reviewed the full source, report and documentation diff
+before committing; no larger non-Hansen work scheduled yet.
+
 ## 2026-09-19 — Saturday — Lean certificate for one Brauer block
 
 Australia/Sydney, approximately 08:01–08:07 AEST. Read the automation memory,
