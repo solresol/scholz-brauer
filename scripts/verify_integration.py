@@ -67,7 +67,9 @@ def main():
                     | set((ROOT / "lean/vendor/formal-conjectures").iterdir())
                     | {ROOT / "lean/lean-toolchain", ROOT / "lean/lakefile.toml",
                        ROOT / "lean/lake-manifest.json", ROOT / "data/12509-star.json",
-                       ROOT / "results/2026-09-18-12509-star-certificate.json"})
+                       ROOT / "data/12509-hansen.json",
+                       ROOT / "results/2026-09-18-12509-star-certificate.json",
+                       ROOT / "results/2026-09-21-12509-hansen-certificate.json"})
     hashes = {str(p.relative_to(ROOT)): sha256(p) for p in inputs}
     vendor = ROOT / "lean/vendor/formal-conjectures"
     provenance = json.loads((vendor / "provenance.json").read_text())
@@ -83,6 +85,8 @@ def main():
     with tempfile.TemporaryDirectory(prefix=".integration-", dir=ROOT) as temporary:
         small = json.loads(run([sys.executable, "scripts/verify_star_lift.py",
                                "--output", str(Path(temporary) / "small.json")]))
+        hansen = json.loads(run([sys.executable, "scripts/verify_hansen_lift.py",
+                                "--output", str(Path(temporary) / "hansen.json")]))
     if small["date_australia_sydney"] < run_time.date().isoformat():
         raise ValueError("small-check report has a stale run date")
     if small["exhaustive_star_prefixes"]["count"] != 842:
@@ -109,15 +113,16 @@ def main():
         "input_sha256": hashes, "vendored_hashes_checked": len(provenance["files"]),
         "audited_theorems": audited, "commands": commands,
         "witness": witness, "certificate": certificate, "small_checks": small,
+        "hansen_checks": hansen,
         "claim_boundary": {
             "local_ell_12509_bounds": [14, 17],
             "scholz_rhs_interval_from_local_bounds": [12522, 12525],
-            "checked_mersenne_witness_additions": certificate["additions"],
+            "checked_mersenne_witness_additions": hansen["published_examples"][0]["additions"],
             "target_if_ell_12509_equals_17": 12525,
             "optimality_proved": False, "scholz_at_12509_proved": False,
             "whole_star_lift_formalised": False,
-            "note": "Bounds 14 and 17 refer to the audited Lean theorems. A future "
-                    "12525-step witness alone would still need ell(12509)>=17, "
+            "note": "Bounds 14 and 17 refer to the audited Lean theorems. The checked "
+                    "12525-step witness still needs ell(12509)>=17, "
                     "or another argument linking its length to ell(12509)."},
         "runtime_seconds": round(time.perf_counter() - started, 6)}
     with args.output.open("x") as output:

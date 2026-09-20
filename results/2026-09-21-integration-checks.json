@@ -1,0 +1,477 @@
+{
+  "started_at_australia_sydney": "2026-09-21T08:06:00.889872+10:00",
+  "weekday_australia_sydney": "Monday",
+  "base_commit": "13cd88935b331ffc293e0a19d30d656009e472a6",
+  "python": "3.9.6",
+  "lean": "Lean (version 4.27.0, arm64-apple-darwin24.6.0, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)",
+  "seed": null,
+  "input_sha256": {
+    "data/12509-hansen.json": "417cf5ff5532bdd550b7d16ee89cdddd422ec8cb5c3b2887912cf85c74e0bfd5",
+    "data/12509-star.json": "b4ac7590edb442ffbeebcc885297d7e3d21142a9f3fa2fb2868e23f73b7bd193",
+    "lean/Audit.lean": "3e48f959a4da6c63dc70b37564697d14d0f4109b0d17a88c9315b5dd48730c04",
+    "lean/ScholzBrauer/AdditionChain.lean": "63a89bc429cdc048943f198322433244337936e042c40f7b6ab0c94dc4c18751",
+    "lean/ScholzBrauer/BrauerBlock.lean": "6f417437ad6a92ee0e9f1b893095a75564854094653975d18aedb4280ee91e34",
+    "lean/ScholzBrauer/Certificate.lean": "b25dcf8c25d109dc1d716829e189e653279817adff09186cd68d78c04f803c79",
+    "lean/ScholzBrauer/Example12509.lean": "4bdd569795b7958d422817a932a9cef5de8cfbe1d2cc4eee3d44980001a6d542",
+    "lean/ScholzBrauer.lean": "ab6da4cb5fc1a316f590631fdd81bc48bfb4af6ac16d1160c5cce8d502b7d85a",
+    "lean/lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5",
+    "lean/lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8",
+    "lean/lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "lean/vendor/formal-conjectures/AdditionChain.lean": "12d7724f25ec543778e472c13f90490623378ff2d9fd19fe34c7eb77ec2b5e04",
+    "lean/vendor/formal-conjectures/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "lean/vendor/formal-conjectures/ScholzConjecture.lean": "4155a3e2df71784bbf1326cf243689b3b25130cdac49237ee5b510a57912bb86",
+    "lean/vendor/formal-conjectures/lakefile.toml": "ebe6baca2edfacd491b91474438282fe6b711998f5e86798277e1850515bbb5f",
+    "lean/vendor/formal-conjectures/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+    "lean/vendor/formal-conjectures/provenance.json": "81c70c3ab8ce9362a23e647c0a4c072ed8995262363edeaf89d5195b0c995c76",
+    "results/2026-09-18-12509-star-certificate.json": "23579925c4d136e24311c57f7ccc33ef8873ae96463d815b0e386821d6f4bf1b",
+    "results/2026-09-21-12509-hansen-certificate.json": "3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11",
+    "scripts/check_12509.py": "6a5f8b77f01f022046202fd4576c3c51525eeb24d4ab0fa3b148582b2e9b6aab",
+    "scripts/check_certificate.py": "aa2f15a7f67a04641b83a36739136f448330cdc543d603a1de83057e71431d40",
+    "scripts/hansen_lift.py": "0e31315d4be4b72773ab91f24c7df2ed7e589945666fdb0b8ad55a9db5f22066",
+    "scripts/star_lift.py": "c39d29cda7b7192ef3481744718438e9b80157bd645c23f54f7031ad8dc5862b",
+    "scripts/verify_hansen_lift.py": "73d3883a7f678e91898b07e64d6b45bbfd83f66e34d3f9a3be076492a21980c0",
+    "scripts/verify_integration.py": "b11b87c06038681405aed1aedae267ce83675d088982ddbb20b4ddadbdb19d8f",
+    "scripts/verify_star_lift.py": "f4854170eb73c4b1e860c03d1e236b6bb540ff6fb932d4aeb2cbc8ce70e09363"
+  },
+  "vendored_hashes_checked": 5,
+  "audited_theorems": 15,
+  "commands": [
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/check_12509.py"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_seconds": 0.028722,
+      "output": "{\n  \"endpoint\": 12509,\n  \"additions\": 17,\n  \"nonstar_step_indices_zero_based\": [\n    6\n  ],\n  \"parents_zero_based\": [\n    [\n      [\n        0,\n        0\n      ]\n    ],\n    [\n      [\n        1,\n        1\n      ]\n    ],\n    [\n      [\n        1,\n        2\n      ]\n    ],\n    [\n      [\n        3,\n        3\n      ]\n    ],\n    [\n      [\n        0,\n        4\n      ]\n    ],\n    [\n      [\n        4,\n        4\n      ]\n    ],\n    [\n      [\n        6,\n        6\n      ]\n    ],\n    [\n      [\n        7,\n        7\n      ]\n    ],\n    [\n      [\n        8,\n        8\n      ]\n    ],\n    [\n      [\n        9,\n        9\n      ]\n    ],\n    [\n      [\n        10,\n        10\n      ]\n    ],\n    [\n      [\n        5,\n        11\n      ]\n    ],\n    [\n      [\n        12,\n        12\n      ]\n    ],\n    [\n      [\n        13,\n        13\n      ]\n    ],\n    [\n      [\n        14,\n        14\n      ]\n    ],\n    [\n      [\n        15,\n        15\n      ]\n    ],\n    [\n      [\n        5,\n        16\n      ]\n    ]\n  ],\n  \"negative_checks\": 7,\n  \"seed\": null,\n  \"exhaustive_search\": false,\n  \"optimality_proved\": false,\n  \"scholz_bound_proved\": false,\n  \"runtime_seconds\": 0.000455\n}\n"
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/check_certificate.py",
+        "results/2026-09-18-12509-star-certificate.json",
+        "--exponent",
+        "12509",
+        "--additions",
+        "12526",
+        "--require-star"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_seconds": 0.07854,
+      "output": "{\n  \"certificate_sha256\": \"23579925c4d136e24311c57f7ccc33ef8873ae96463d815b0e386821d6f4bf1b\",\n  \"exponent\": 12509,\n  \"additions\": 12526,\n  \"endpoint_bit_length\": 12509,\n  \"exact_endpoint_verified\": true,\n  \"value_only_star_check\": true,\n  \"optimality_proved\": false\n}\n"
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/verify_star_lift.py",
+        "--output",
+        "/Users/gregb/Documents/devel/scholz-brauer/.integration-3lu4ei3t/small.json"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_seconds": 0.223034,
+      "output": "{\n  \"date_australia_sydney\": \"2026-09-21\",\n  \"started_at_australia_sydney\": \"2026-09-21T08:06:01.047667+10:00\",\n  \"python\": \"3.9.6\",\n  \"dependencies\": \"Python standard library only\",\n  \"seed\": null,\n  \"exhaustive_star_prefixes\": {\n    \"max_steps\": 6,\n    \"max_endpoint\": 32,\n    \"count\": 842,\n    \"input_sha256\": \"0fa36c67173ea9136775ee1f10541a40226ac48297eed56db61ca0a25c73168d\"\n  },\n  \"binary_exponents\": {\n    \"first\": 1,\n    \"last\": 256,\n    \"count\": 256\n  },\n  \"all_parent_pair_value_checks\": \"binary lifts for n=1..16; published star input\",\n  \"negative_checks\": 23,\n  \"published_input\": {\n    \"exponent\": 12509,\n    \"additions\": 18\n  },\n  \"lift\": {\n    \"additions\": 12526,\n    \"endpoint_bit_length\": 12509,\n    \"exact_endpoint_verified\": true,\n    \"independent_value_star_check\": true,\n    \"certificate_sha256\": \"23579925c4d136e24311c57f7ccc33ef8873ae96463d815b0e386821d6f4bf1b\"\n  },\n  \"optimality_proved\": false,\n  \"scholz_bound_for_12509_proved\": false,\n  \"lean_lift_formalised\": false,\n  \"runtime_seconds\": 0.171992\n}\n"
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/verify_hansen_lift.py",
+        "--output",
+        "/Users/gregb/Documents/devel/scholz-brauer/.integration-3lu4ei3t/hansen.json"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_seconds": 1.61143,
+      "output": "{\n  \"started_at_australia_sydney\": \"2026-09-21T08:06:01.270559+10:00\",\n  \"weekday_australia_sydney\": \"Monday\",\n  \"python\": \"3.9.6\",\n  \"dependencies\": \"standard library only\",\n  \"seed\": null,\n  \"input_sha256\": {\n    \"scripts/verify_hansen_lift.py\": \"73d3883a7f678e91898b07e64d6b45bbfd83f66e34d3f9a3be076492a21980c0\",\n    \"scripts/hansen_lift.py\": \"0e31315d4be4b72773ab91f24c7df2ed7e589945666fdb0b8ad55a9db5f22066\",\n    \"scripts/check_certificate.py\": \"aa2f15a7f67a04641b83a36739136f448330cdc543d603a1de83057e71431d40\",\n    \"scripts/check_12509.py\": \"6a5f8b77f01f022046202fd4576c3c51525eeb24d4ab0fa3b148582b2e9b6aab\",\n    \"scripts/star_lift.py\": \"c39d29cda7b7192ef3481744718438e9b80157bd645c23f54f7031ad8dc5862b\",\n    \"data/12509-hansen.json\": \"417cf5ff5532bdd550b7d16ee89cdddd422ec8cb5c3b2887912cf85c74e0bfd5\",\n    \"results/2026-09-21-12509-hansen-certificate.json\": \"3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11\"\n  },\n  \"exhaustive_family\": {\n    \"sources\": 1051,\n    \"masks\": 30582,\n    \"accepted_underlinings\": 5248,\n    \"non_hansen_sources\": 7,\n    \"star_comparisons\": 842,\n    \"max_steps\": 6,\n    \"max_endpoint\": 32,\n    \"input_sha256\": \"e4ca17632407bfccedd9598b04982f0d3edff0ce29f072a384eb7d042985918f\"\n  },\n  \"structural_regressions\": [\n    {\n      \"chain\": [\n        1,\n        2,\n        4,\n        8,\n        9,\n        12,\n        17,\n        29\n      ],\n      \"hansen\": true,\n      \"masks_checked\": 64,\n      \"underlined_indices\": [\n        0,\n        1,\n        2,\n        3,\n        6,\n        7\n      ]\n    },\n    {\n      \"chain\": [\n        1,\n        2,\n        4,\n        8,\n        9,\n        13,\n        16,\n        29\n      ],\n      \"hansen\": false,\n      \"masks_checked\": 64,\n      \"underlined_indices\": null\n    }\n  ],\n  \"published_examples\": [\n    {\n      \"source\": \"oeis\",\n      \"source_additions\": 17,\n      \"underlined_indices\": [\n        0,\n        1,\n        3,\n        4,\n        6,\n        7,\n        8,\n        9,\n        10,\n        11,\n        12,\n        13,\n        14,\n        15,\n        16,\n        17\n      ],\n      \"max_shifts\": [\n        1,\n        4,\n        0,\n        6,\n        12,\n        0,\n        24,\n        48,\n        96,\n        192,\n        384,\n        13,\n        781,\n        1562,\n        3124,\n        6248,\n        13,\n        0\n      ],\n      \"doublings\": 12508,\n      \"additions\": 12525,\n      \"exact_endpoint_verified\": true\n    },\n    {\n      \"source\": \"clift\",\n      \"source_additions\": 17,\n      \"underlined_indices\": [\n        0,\n        1,\n        2,\n        3,\n        4,\n        6,\n        7,\n        8,\n        9,\n        10,\n        11,\n        12,\n        13,\n        14,\n        16,\n        17\n      ],\n      \"max_shifts\": [\n        1,\n        2,\n        4,\n        8,\n        16,\n        0,\n        32,\n        64,\n        128,\n        256,\n        512,\n        17,\n        1041,\n        2082,\n        8328,\n        0,\n        17,\n        0\n      ],\n      \"doublings\": 12508,\n      \"additions\": 12525,\n      \"exact_endpoint_verified\": true\n    }\n  ],\n  \"negative_checks\": 21,\n  \"certificate_sha256\": \"3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11\",\n  \"endpoint_bit_length\": 12509,\n  \"optimality_proved\": false,\n  \"scholz_at_12509_proved\": false,\n  \"hansen_lift_formalised_in_lean\": false,\n  \"runtime_seconds\": 1.560489\n}\n"
+    },
+    {
+      "argv": [
+        "lake",
+        "build"
+      ],
+      "cwd": "lean",
+      "exit_code": 0,
+      "runtime_seconds": 5.695999,
+      "output": "Build completed successfully (749 jobs).\n"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "Audit.lean"
+      ],
+      "cwd": "lean",
+      "exit_code": 0,
+      "runtime_seconds": 7.757748,
+      "output": "'ScholzBrauer.append_sum' depends on axioms: [propext, Quot.sound]\n'ScholzBrauer.replay_sound' depends on axioms: [propext, Quot.sound]\n'ScholzBrauer.replay_length' depends on axioms: [propext, Quot.sound]\n'ScholzBrauer.replay_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.certificate_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.chain12509_direct' does not depend on any axioms\n'ScholzBrauer.length12509_le_seventeen' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.fourteen_le_length12509' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.doublingSteps_length' depends on axioms: [propext]\n'ScholzBrauer.doublingSteps_replay' depends on axioms: [propext, Quot.sound]\n'ScholzBrauer.replayFrom_append' depends on axioms: [propext, Quot.sound]\n'ScholzBrauer.mersenne_block_identity' depends on axioms: [propext, Quot.sound]\n'ScholzBrauer.brauerBlock_length' depends on axioms: [propext]\n'ScholzBrauer.brauerBlock_replay' depends on axioms: [propext, Quot.sound]\n'ScholzBrauer.brauerBlock_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "cwd": "lean",
+      "exit_code": 0,
+      "runtime_seconds": 0.969033,
+      "output": "Lean (version 4.27.0, arm64-apple-darwin24.6.0, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)\n"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "runtime_seconds": 0.007338,
+      "output": "13cd88935b331ffc293e0a19d30d656009e472a6\n"
+    }
+  ],
+  "witness": {
+    "endpoint": 12509,
+    "additions": 17,
+    "nonstar_step_indices_zero_based": [
+      6
+    ],
+    "parents_zero_based": [
+      [
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          2
+        ]
+      ],
+      [
+        [
+          3,
+          3
+        ]
+      ],
+      [
+        [
+          0,
+          4
+        ]
+      ],
+      [
+        [
+          4,
+          4
+        ]
+      ],
+      [
+        [
+          6,
+          6
+        ]
+      ],
+      [
+        [
+          7,
+          7
+        ]
+      ],
+      [
+        [
+          8,
+          8
+        ]
+      ],
+      [
+        [
+          9,
+          9
+        ]
+      ],
+      [
+        [
+          10,
+          10
+        ]
+      ],
+      [
+        [
+          5,
+          11
+        ]
+      ],
+      [
+        [
+          12,
+          12
+        ]
+      ],
+      [
+        [
+          13,
+          13
+        ]
+      ],
+      [
+        [
+          14,
+          14
+        ]
+      ],
+      [
+        [
+          15,
+          15
+        ]
+      ],
+      [
+        [
+          5,
+          16
+        ]
+      ]
+    ],
+    "negative_checks": 7,
+    "seed": null,
+    "exhaustive_search": false,
+    "optimality_proved": false,
+    "scholz_bound_proved": false,
+    "runtime_seconds": 0.000455
+  },
+  "certificate": {
+    "certificate_sha256": "23579925c4d136e24311c57f7ccc33ef8873ae96463d815b0e386821d6f4bf1b",
+    "exponent": 12509,
+    "additions": 12526,
+    "endpoint_bit_length": 12509,
+    "exact_endpoint_verified": true,
+    "value_only_star_check": true,
+    "optimality_proved": false
+  },
+  "small_checks": {
+    "date_australia_sydney": "2026-09-21",
+    "started_at_australia_sydney": "2026-09-21T08:06:01.047667+10:00",
+    "python": "3.9.6",
+    "dependencies": "Python standard library only",
+    "seed": null,
+    "exhaustive_star_prefixes": {
+      "max_steps": 6,
+      "max_endpoint": 32,
+      "count": 842,
+      "input_sha256": "0fa36c67173ea9136775ee1f10541a40226ac48297eed56db61ca0a25c73168d"
+    },
+    "binary_exponents": {
+      "first": 1,
+      "last": 256,
+      "count": 256
+    },
+    "all_parent_pair_value_checks": "binary lifts for n=1..16; published star input",
+    "negative_checks": 23,
+    "published_input": {
+      "exponent": 12509,
+      "additions": 18
+    },
+    "lift": {
+      "additions": 12526,
+      "endpoint_bit_length": 12509,
+      "exact_endpoint_verified": true,
+      "independent_value_star_check": true,
+      "certificate_sha256": "23579925c4d136e24311c57f7ccc33ef8873ae96463d815b0e386821d6f4bf1b"
+    },
+    "optimality_proved": false,
+    "scholz_bound_for_12509_proved": false,
+    "lean_lift_formalised": false,
+    "runtime_seconds": 0.171992
+  },
+  "hansen_checks": {
+    "started_at_australia_sydney": "2026-09-21T08:06:01.270559+10:00",
+    "weekday_australia_sydney": "Monday",
+    "python": "3.9.6",
+    "dependencies": "standard library only",
+    "seed": null,
+    "input_sha256": {
+      "scripts/verify_hansen_lift.py": "73d3883a7f678e91898b07e64d6b45bbfd83f66e34d3f9a3be076492a21980c0",
+      "scripts/hansen_lift.py": "0e31315d4be4b72773ab91f24c7df2ed7e589945666fdb0b8ad55a9db5f22066",
+      "scripts/check_certificate.py": "aa2f15a7f67a04641b83a36739136f448330cdc543d603a1de83057e71431d40",
+      "scripts/check_12509.py": "6a5f8b77f01f022046202fd4576c3c51525eeb24d4ab0fa3b148582b2e9b6aab",
+      "scripts/star_lift.py": "c39d29cda7b7192ef3481744718438e9b80157bd645c23f54f7031ad8dc5862b",
+      "data/12509-hansen.json": "417cf5ff5532bdd550b7d16ee89cdddd422ec8cb5c3b2887912cf85c74e0bfd5",
+      "results/2026-09-21-12509-hansen-certificate.json": "3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11"
+    },
+    "exhaustive_family": {
+      "sources": 1051,
+      "masks": 30582,
+      "accepted_underlinings": 5248,
+      "non_hansen_sources": 7,
+      "star_comparisons": 842,
+      "max_steps": 6,
+      "max_endpoint": 32,
+      "input_sha256": "e4ca17632407bfccedd9598b04982f0d3edff0ce29f072a384eb7d042985918f"
+    },
+    "structural_regressions": [
+      {
+        "chain": [
+          1,
+          2,
+          4,
+          8,
+          9,
+          12,
+          17,
+          29
+        ],
+        "hansen": true,
+        "masks_checked": 64,
+        "underlined_indices": [
+          0,
+          1,
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      {
+        "chain": [
+          1,
+          2,
+          4,
+          8,
+          9,
+          13,
+          16,
+          29
+        ],
+        "hansen": false,
+        "masks_checked": 64,
+        "underlined_indices": null
+      }
+    ],
+    "published_examples": [
+      {
+        "source": "oeis",
+        "source_additions": 17,
+        "underlined_indices": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "max_shifts": [
+          1,
+          4,
+          0,
+          6,
+          12,
+          0,
+          24,
+          48,
+          96,
+          192,
+          384,
+          13,
+          781,
+          1562,
+          3124,
+          6248,
+          13,
+          0
+        ],
+        "doublings": 12508,
+        "additions": 12525,
+        "exact_endpoint_verified": true
+      },
+      {
+        "source": "clift",
+        "source_additions": 17,
+        "underlined_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17
+        ],
+        "max_shifts": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          0,
+          32,
+          64,
+          128,
+          256,
+          512,
+          17,
+          1041,
+          2082,
+          8328,
+          0,
+          17,
+          0
+        ],
+        "doublings": 12508,
+        "additions": 12525,
+        "exact_endpoint_verified": true
+      }
+    ],
+    "negative_checks": 21,
+    "certificate_sha256": "3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11",
+    "endpoint_bit_length": 12509,
+    "optimality_proved": false,
+    "scholz_at_12509_proved": false,
+    "hansen_lift_formalised_in_lean": false,
+    "runtime_seconds": 1.560489
+  },
+  "claim_boundary": {
+    "local_ell_12509_bounds": [
+      14,
+      17
+    ],
+    "scholz_rhs_interval_from_local_bounds": [
+      12522,
+      12525
+    ],
+    "checked_mersenne_witness_additions": 12525,
+    "target_if_ell_12509_equals_17": 12525,
+    "optimality_proved": false,
+    "scholz_at_12509_proved": false,
+    "whole_star_lift_formalised": false,
+    "note": "Bounds 14 and 17 refer to the audited Lean theorems. The checked 12525-step witness still needs ell(12509)>=17, or another argument linking its length to ell(12509)."
+  },
+  "runtime_seconds": 16.384824
+}

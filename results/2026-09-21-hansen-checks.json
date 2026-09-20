@@ -1,0 +1,164 @@
+{
+  "started_at_australia_sydney": "2026-09-21T08:05:18.395564+10:00",
+  "weekday_australia_sydney": "Monday",
+  "python": "3.9.6",
+  "dependencies": "standard library only",
+  "seed": null,
+  "input_sha256": {
+    "scripts/verify_hansen_lift.py": "73d3883a7f678e91898b07e64d6b45bbfd83f66e34d3f9a3be076492a21980c0",
+    "scripts/hansen_lift.py": "0e31315d4be4b72773ab91f24c7df2ed7e589945666fdb0b8ad55a9db5f22066",
+    "scripts/check_certificate.py": "aa2f15a7f67a04641b83a36739136f448330cdc543d603a1de83057e71431d40",
+    "scripts/check_12509.py": "6a5f8b77f01f022046202fd4576c3c51525eeb24d4ab0fa3b148582b2e9b6aab",
+    "scripts/star_lift.py": "c39d29cda7b7192ef3481744718438e9b80157bd645c23f54f7031ad8dc5862b",
+    "data/12509-hansen.json": "417cf5ff5532bdd550b7d16ee89cdddd422ec8cb5c3b2887912cf85c74e0bfd5",
+    "results/2026-09-21-12509-hansen-certificate.json": "3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11"
+  },
+  "exhaustive_family": {
+    "sources": 1051,
+    "masks": 30582,
+    "accepted_underlinings": 5248,
+    "non_hansen_sources": 7,
+    "star_comparisons": 842,
+    "max_steps": 6,
+    "max_endpoint": 32,
+    "input_sha256": "e4ca17632407bfccedd9598b04982f0d3edff0ce29f072a384eb7d042985918f"
+  },
+  "structural_regressions": [
+    {
+      "chain": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        12,
+        17,
+        29
+      ],
+      "hansen": true,
+      "masks_checked": 64,
+      "underlined_indices": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "chain": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        13,
+        16,
+        29
+      ],
+      "hansen": false,
+      "masks_checked": 64,
+      "underlined_indices": null
+    }
+  ],
+  "published_examples": [
+    {
+      "source": "oeis",
+      "source_additions": 17,
+      "underlined_indices": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "max_shifts": [
+        1,
+        4,
+        0,
+        6,
+        12,
+        0,
+        24,
+        48,
+        96,
+        192,
+        384,
+        13,
+        781,
+        1562,
+        3124,
+        6248,
+        13,
+        0
+      ],
+      "doublings": 12508,
+      "additions": 12525,
+      "exact_endpoint_verified": true
+    },
+    {
+      "source": "clift",
+      "source_additions": 17,
+      "underlined_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17
+      ],
+      "max_shifts": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        0,
+        32,
+        64,
+        128,
+        256,
+        512,
+        17,
+        1041,
+        2082,
+        8328,
+        0,
+        17,
+        0
+      ],
+      "doublings": 12508,
+      "additions": 12525,
+      "exact_endpoint_verified": true
+    }
+  ],
+  "negative_checks": 21,
+  "certificate_sha256": "3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11",
+  "endpoint_bit_length": 12509,
+  "optimality_proved": false,
+  "scholz_at_12509_proved": false,
+  "hansen_lift_formalised_in_lean": false,
+  "runtime_seconds": 1.864757
+}

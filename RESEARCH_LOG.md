@@ -1,5 +1,46 @@
 # Research log
 
+## 2026-09-21 — Monday — Hansen certificate improves 12509 bound
+
+Australia/Sydney, approximately 08:01–08:09 AEST. Read automation memory,
+README, TODO, recent evidence/log and actual Python/Lean sources. No applicable
+on-disk AGENTS.md; followed supplied instructions. Clean main, correct origin,
+no competing process or run lock; acquired the exclusive `.git` lock, fetched
+and fast-forward-only merged (already up to date at 13cd889).
+
+**Increment.** Retrieved Clift's primary exposition of Hansen underlining and
+edge labelling. Implemented a complete detector over source values and a lift
+that explicitly stores all required shifted Mersenne values, then sorts them
+into an ordinary summand-index certificate. Re-fetched and matched both the
+OEIS and Clift 17-step lists for 12509. Both yield **12,525 additions**; saved
+the full OEIS-based certificate. Extended the integrated verifier and updated
+the roadmap. Hansen's original article scan remained inaccessible; no claim
+to have inspected its proof. Full construction, source details and limits:
+`results/2026-09-21-hansen-lift.md`.
+
+**Checks.** Exhaustive small family: 1,051 sources (<=6 steps, endpoint<=32),
+30,582 masks, all 5,248 accepted markings lifted and independently checked.
+DP matched the brute-force oracle; 842 all-marked star lifts matched the old
+generator. Seven sources had no underlining, which says nothing about their
+endpoint's optimal-chain classification. Two known structural examples at 29,
+21 negative checks, both 12509 witnesses and exact stored-certificate replay
+passed. Standalone verifier: 1.864757s. Integration: 16.384824s, including the
+previous checks, pinned Lean build (749 jobs), 15-theorem axiom audit and five
+vendor hashes. No Lean changes or new formal theorem. Both new CLIs refused
+existing output without changing bytes. Complete input hashes and command
+outputs are saved in the dated JSON reports.
+
+**Conclusion and limits.** Improved checked numerical bound:
+`ell(2^12509-1) <= 12525`. Still no local proof of `ell(12509)=17` or of the
+Scholz bound at 12509: the locally bounded RHS is [12522,12525]. No novelty,
+minimum Mersenne length, non-Hansen number or conjecture counterexample claim.
+No failed new hypothesis; structural regressions confirm documented examples.
+
+**Next.** Tuesday: whole-star Lean induction and length telescoping. Next
+computational day: auditable optimality evidence for 12509, with bounded
+exclusion searches only if needed. Hansen formalisation follows the star
+proof; larger cases remain deferred. Complete diff reviewed before commit.
+
 ## 2026-09-20 — Sunday — integrate evidence and tighten claim limits
 
 Australia/Sydney, approximately 08:00–08:06 AEST. Read prior automation memory,
