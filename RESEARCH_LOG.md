@@ -1,5 +1,43 @@
 # Research log
 
+## 2026-09-22 — Tuesday — whole-star constructive Lean proof
+
+Australia/Sydney, approximately 08:00–08:09 AEST. Read automation memory,
+README, TODO, recent reports/log and the actual sources, including upstream
+definitions, Scholz statement and Apache-2.0 licence. No on-disk AGENTS.md;
+followed supplied instructions. Clean main at c9c2c49, correct origin, no
+competing process; acquired exclusive `.git` run lock, fetched and ff-only
+merged (already up to date).
+
+**Increment.** Added checked star-source increments and explicit whole-lift
+certificates in `StarLift.lean`. Proved source validity, endpoint and length,
+successful lift replay, stored Mersenne membership and exactly `n-1+r`
+additions, including `[1]`. Proved the conditional Scholz corollary when the
+source is optimal. Rechecked OEIS's 18-step 12509 list and instantiated the
+general proof to obtain the formal bound `ell(2^12509-1) <= 12526`.
+Expanded the axiom audit and corrected stale formalisation metadata in the
+Python-only verifier. Full account: `results/2026-09-22-star-lift-lean.md`.
+
+**Checks.** New Lean module and instance compiled (750 jobs). Final integration
+passed in 12.915720 seconds: cached build 2.416202s, all 28 theorem axiom
+audits 7.024810s, previous Python star/Hansen enumerations, both saved large
+certificates and five vendor hashes. No `sorry`, custom axiom or `native_decide`
+in compiled local sources; only standard axioms in the audit. Seven new small
+examples cover the singleton, complete replay and invalid increments. Source
+and increment lists match the existing JSON fixture exactly. Dependency pins
+unchanged; complete command outputs and input hashes retained. Development
+normalisation errors were fixed without weakening the claims. Full diff reviewed.
+
+**Conclusion and limits.** Complete star construction is now formalised, with
+a numerical Lean bound at 12509. Monday's 12525 Python Hansen bound is stronger
+and still not formalised. Neither optimality nor Scholz at 12509 is established;
+local source bounds remain [14,17]. No novelty, new best numerical bound,
+counterexample or failed mathematical hypothesis is claimed.
+
+**Next.** Wednesday: primary optimality data and methodology. Thursday: checked
+Hansen underlining and its anchor invariant. The whole-star invariant is done;
+larger non-Hansen cases remain deferred.
+
 ## 2026-09-21 — Monday — Hansen certificate improves 12509 bound
 
 Australia/Sydney, approximately 08:01–08:09 AEST. Read automation memory,

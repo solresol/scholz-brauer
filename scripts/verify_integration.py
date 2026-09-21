@@ -120,7 +120,9 @@ def main():
             "checked_mersenne_witness_additions": hansen["published_examples"][0]["additions"],
             "target_if_ell_12509_equals_17": 12525,
             "optimality_proved": False, "scholz_at_12509_proved": False,
-            "whole_star_lift_formalised": False,
+            "whole_star_lift_formalised": True,
+            "lean_mersenne_12509_upper_bound": 12526,
+            "hansen_lift_formalised": False,
             "note": "Bounds 14 and 17 refer to the audited Lean theorems. The checked "
                     "12525-step witness still needs ell(12509)>=17, "
                     "or another argument linking its length to ell(12509)."},

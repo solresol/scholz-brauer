@@ -16,3 +16,17 @@ import ScholzBrauer
 #print axioms ScholzBrauer.brauerBlock_length
 #print axioms ScholzBrauer.brauerBlock_replay
 #print axioms ScholzBrauer.brauerBlock_upper_bound
+
+#print axioms ScholzBrauer.starSourceFrom_length
+#print axioms ScholzBrauer.starSourceFrom_endpoint
+#print axioms ScholzBrauer.starSourceFrom_valid
+#print axioms ScholzBrauer.starCertificateFrom_length
+#print axioms ScholzBrauer.starCertificateFrom_replay
+#print axioms ScholzBrauer.starLift_certificate
+#print axioms ScholzBrauer.starLift_upper_bound
+#print axioms ScholzBrauer.scholz_of_optimal_star
+#print axioms ScholzBrauer.starIncrements12509_checked
+#print axioms ScholzBrauer.starSource12509_eq
+#print axioms ScholzBrauer.starChain12509_valid
+#print axioms ScholzBrauer.starLift12509_certificate
+#print axioms ScholzBrauer.mersenne12509_length_le_12526

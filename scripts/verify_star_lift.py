@@ -140,7 +140,8 @@ def main():
                  "exact_endpoint_verified": True, "independent_value_star_check": True,
                  "certificate_sha256": hashlib.sha256(raw).hexdigest()},
         "optimality_proved": False, "scholz_bound_for_12509_proved": False,
-        "lean_lift_formalised": False,
+        "lean_proof_checked_by_this_command": False,
+        "python_lean_certificate_equivalence_proved": False,
         "runtime_seconds": round(time.perf_counter() - started, 6)}
     args.output.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))

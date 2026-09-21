@@ -56,8 +56,33 @@ The independent Python check is `python3 ../scripts/check_12509.py`.
   extended endpoint has minimum addition-chain length at most `r+b+1`.
 
 Membership of the stored value is a hypothesis checked by replay, not an
-assumed version of the conjecture. Its availability throughout a complete
-star lift and the telescoping total length remain future work. The Lean
+assumed version of the conjecture. The Lean
 certificate names summand values; no equivalence with the Python index-format
 certificate generator has been proved. Five kernel-evaluated examples cover
 zero doublings, two successful blocks, and absent/zero stored values.
+
+`StarLift.lean` now proves the complete construction:
+
+- `IsStarFrom source a bs` checks that each increment is already stored in
+  the source prefix; `starSourceFrom` constructs the resulting source list.
+  Source validity, endpoint `a+sum(bs)` and exact source length are proved.
+- `starCertificateFrom` concatenates explicit Brauer blocks. Its length is
+  `sum(bs)+length(bs)` for any inputs; correctness requires checked increments.
+- `starCertificateFrom_replay` proves successful replay, chain validity,
+  endpoint, exact length, retention of the initial target chain, and membership
+  of every source Mersenne value throughout the completed lift.
+- `starLift_certificate` and `starLift_upper_bound` specialise to `[1]`, giving
+  exactly `n-1+r` additions and the resulting numerical bound. The empty
+  increment list covers `n=1` without a separate exception.
+- `scholz_of_optimal_star` proves the conjectured inequality under an explicit
+  minimum-source-length hypothesis. No optimality theorem is assumed globally.
+
+`Example12509.lean` also checks the published 18-step star source and applies
+the general theorem to prove `additionChainLength (2^12509-1) ≤ 12526` and
+successful replay of its explicit certificate. It does not expand the entire
+large certificate for closed kernel evaluation. The independently checked
+Python Hansen bound of 12525 is stronger and is not yet formalised.
+Seven small kernel-checked examples cover the singleton source, a complete
+two-block replay, and zero, unavailable and future increments. `Audit.lean`
+now covers 28 named theorems; standard axiom dependencies are checked by the
+integration runner.
