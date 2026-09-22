@@ -42,7 +42,9 @@ which Lean's kernel checks.
 `Example12509.lean` replays a published 17-step witness and also checks the list
 directly against the upstream predicate. The proved numerical result is
 `14 ≤ additionChainLength 12509 ≤ 17`. Neither optimality nor the Scholz bound for
-`2^12509 - 1` is proved. `Audit.lean` reports the dependencies of the key theorems.
+`2^12509 - 1` is proved in Lean. The 23 September C++/Python exhaustive searches
+and Hansen certificate establish both computationally; they are not imported
+into these Lean proofs. `Audit.lean` reports the dependencies of the key theorems.
 The independent Python check is `python3 ../scripts/check_12509.py`.
 
 `BrauerBlock.lean` provides the next constructive layer:

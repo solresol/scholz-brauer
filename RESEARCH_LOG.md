@@ -1,5 +1,48 @@
 # Research log
 
+## 2026-09-23 — Wednesday — exact exclusion closes the 12509 gap
+
+Australia/Sydney, starting 08:00 AEST. Read automation memory, supplied AGENTS
+instructions, README, TODO, dated evidence/log and actual source. No applicable
+on-disk AGENTS.md; clean main at 50a8f57, correct solresol origin, no competing
+research process. Acquired the exclusive `.git` run lock; fetched and ff-only
+merged (already current). Rechecked Clift's primary account and chain, Knuth's
+search source, Flammenkamp's methodology/data page and OEIS's witness lists.
+Direct OEIS HTTP requests failed; no inaccessible optimality table was trusted.
+
+**Increment.** Added a bounded C++17 exhaustive value-chain search, independently
+written Python decision procedure, unpruned small oracle and checkpoint tests.
+Both traversals exclude **every chain of at most 16 additions for 12509**,
+completing after **1,345,873 prefixes**. Combining this with the checked
+17-step source and saved Hansen certificate establishes ell(12509)=17 and
+`ell(2^12509-1)<=12525=12508+ell(12509)` computationally. The optimal marked
+source now also establishes the Hansen-number classification locally.
+See `results/2026-09-23-optimality.md` for the completeness argument and limits.
+
+**Checks.** Standalone verification passed in 16.561875s (C++ exclusion
+0.152061s; Python exclusion 12.714011s). Python 3.11.6, Apple clang 21.0.0,
+standard libraries, exact integers, no seed or imported optimum. Both engines
+match all 576 target/limit decisions against 78,758 unpruned prefixes. All
+132 optimal chains for 29 are partitioned by checkpoint frontiers at five
+caps; every pending subtree is restarted and checked. Ten invalid requests,
+zero/exact-budget boundaries, a non-star searched suffix, and full Mersenne
+certificate replay pass. Development corrected a test that wrongly expected
+a budget stop when the eighth visited node already held an eight-entry witness.
+Source hashes and exact commands/outputs are retained in the dated reports.
+Full integration passed in 30.853803s, including repeated exclusions, prior
+lift checks, the pinned Lean build, 28 axiom audits and five vendor hashes.
+Existing-report refusal preserved bytes; all recorded source hashes match.
+Final review added an explicit C++ header and a tested Python -O rejection guard;
+verification was rerun on the final source bytes. Full source/document diff and
+all generated command records were reviewed before commit.
+
+**Limits and next.** This is computational exhaustion, not a new Lean theorem
+or novelty claim. Lean source bounds remain [14,17]; its Mersenne bound remains
+12526. The star optimum 18 is still a literature claim. No universal Scholz
+proof, minimum Mersenne length or counterexample is claimed. Thursday's Hansen
+underlining invariant remains next, followed by formalising exclusion evidence.
+Larger non-Hansen cases remain deferred. Prior dated evidence is preserved.
+
 ## 2026-09-22 — Tuesday — whole-star constructive Lean proof
 
 Australia/Sydney, approximately 08:00–08:09 AEST. Read automation memory,

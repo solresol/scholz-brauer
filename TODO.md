@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-22 (Tuesday, Australia/Sydney).
+Updated 2026-09-23 (Wednesday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -26,16 +26,22 @@ Updated 2026-09-22 (Tuesday, Australia/Sydney).
 - [x] Prove the conditional Scholz corollary for an optimal checked star source;
   audit all new theorems and distinguish the formal 12526 bound from Python's 12525.
 
+- [x] Exclude all <=16-step chains for 12509 with two independent exact traversals;
+  cross-check 576 small decisions against unpruned enumeration and test restart
+  frontier coverage. Combine with the saved lift to establish Scholz at 12509
+  computationally, without treating the search as a Lean proof.
+
 ## Next informative increments
 
-1. **Optimality (Wednesday computational increment):** obtain auditable primary
-   data/lower-bound certificates for
-   ell(12509)=17 and ell*(12509)=18. The present local lower bound is only 14.
-   The checked 12525-step witness is only a numerical upper bound until ell(12509)>=17
-   or another sufficient argument is established. The locally proved interval
-   for the Scholz right side is [12522,12525]. Start with published exhaustive
-   search data and its methodology; bound and checkpoint any attempted local
-   exclusion of chains of length <=16. A timeout is not a lower bound.
+1. **Optimality formal certificate:** the Wednesday computational exclusion is
+   complete: independent C++ and Python traversals exhaust all chains of at most
+   16 steps for 12509. Together with the witnesses this establishes ell(12509)=17
+   and Scholz at 12509 computationally. Next design a Lean-checkable exclusion
+   certificate or prove completeness of a small exact enumerator; the current
+   search transcript is reproducible evidence, not a kernel proof. Keep the
+   Lean interval [14,17] distinct from the computational optimum 17.
+   Excluding star chains of at most 17 steps is optional later work: the star
+   optimum 18 remains a literature claim and is unnecessary for this instance.
 2. **Hansen formalisation (Thursday):** define a decidable underlining certificate
    over source values, check the 17-step 12509 marking, and prove the
    latest-underlined-anchor invariant. Then formalise stored shifted Mersenne
@@ -52,7 +58,8 @@ Updated 2026-09-22 (Tuesday, Australia/Sydney).
 
 Bounded exhaustive star-prefix enumeration verifies the lift implementation;
 it is not an optimal-chain search. No failed mathematical hypothesis or conjecture
-counterexample has been recorded yet. Tuesday's expanded integration passed. The rejected
+counterexample has been recorded yet. Wednesday's expanded integration includes
+both exclusion searches. The rejected
 test-design assumption that non-star chosen parent indices imply non-star values
 remains explicitly retired: 6=3+3 can also be 5+1 in [1,2,3,5,6].
 The whole-star invariant is proved; do not repeat it. The bridge between Lean's

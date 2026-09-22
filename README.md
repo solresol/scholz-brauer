@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 22 September 2026
+## Verified status — 23 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -48,10 +48,19 @@ checks cover 1,051 source chains with at most six steps and endpoint at most 32:
 30,582 marking masks and all 5,248 accepted underlinings. These are tests of
 classification and construction, not searches for minimum chain lengths.
 
-**Not established here:** `ℓ(12509)=17`, the shortest star length 18, or the
-Scholz bound for 12509. A Hansen *chain* of length 17 does not establish that
-12509 is a Hansen *number* without optimality evidence. The complete star lift
-is now formalised in Lean; the Hansen lift is not.
+Two independent exhaustive searches now exclude **every chain of at most 16
+additions for 12509**. Each completes after 1,345,873 visited prefixes, using
+only the at-most-doubling bound and all earlier summand pairs. Combined with
+the checked 17-step witness, this establishes **`ℓ(12509)=17` computationally**.
+The saved Hansen lift therefore establishes the Scholz inequality at 12509:
+`ℓ(2^12509-1) ≤ 12525 = 12508 + ℓ(12509)`. The checked optimal source also
+establishes that 12509 is a Hansen number.
+
+**Not established here:** a Lean optimality proof, a Lean Hansen lift, the
+minimum Mersenne-chain length, or the shortest star length 18. The general
+conjecture remains outside these results. See
+`results/2026-09-23-optimality.md` for the search completeness argument,
+independent checks, resource limits and distinction from a kernel-checked proof.
 
 Lean now proves one constructive Brauer block: from a valid chain ending at
 `2^a-1` and containing `2^b-1`, an explicit replay certificate reaches
@@ -64,15 +73,15 @@ Instantiating the rechecked 18-step source gives the kernel-checked bound
 `ℓ(2^12509-1) ≤ 12526`. The stronger 12525 bound above is independently
 checked in Python and has not yet been proved in Lean.
 
-Integration includes both Python lifts, the Lean build and 28-theorem axiom
-audit. The local bounds put `12508 + ℓ(12509)` in `[12522, 12525]`. The new
-12525-step witness still needs the matching lower bound `ℓ(12509) ≥ 17`, or
-another sufficient argument, before it proves the conjectured inequality.
-See `results/2026-09-21-hansen-lift.md` for the construction, checks and limits.
-See `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
+Integration includes both Python lifts, both exhaustive exclusions, the Lean
+build and 28-theorem axiom audit. The **Lean-only** source bounds remain
+`14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
+right-side interval `[12522,12525]` describes the Lean evidence alone.
+See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
+limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's page was retrieved on 21 September. Its claim that 5,784,689 is the
-first non-Hansen number remains a literature claim; the larger data and
+Clift's page and its 17-step source were rechecked on 23 September. Its claim
+that 5,784,689 is the first non-Hansen number remains a literature claim; the larger data and
 optimality search have not been independently checked here.
 
 ## Reproduce
@@ -82,11 +91,13 @@ python3 scripts/verify_integration.py --output results/integration-local.json
 ```
 
 Choose a fresh output path: the integration runner refuses to overwrite an
-existing report. It runs the four Python checks, `lake build` and
+existing report. It runs the existing Python checks, compiles the C++17 search
+and compares it with a separate Python traversal, then runs `lake build` and
 `lake env lean Audit.lean` (from `lean/`), verifies the toolchain version and
 vendored source hashes, and records input hashes, commands and exact outputs.
 The small-check report now uses the actual Australia/Sydney run date.
 
+The search needs a C++17 compiler; the recorded run uses Apple clang 21.0.0.
 Lean 4.27.0, mathlib and transitive dependencies are pinned. See `lean/README.md`
 for setup, licence attribution and the adaptation from Google DeepMind's
 formal-conjectures implementation. Its open Scholz theorem is an uncompiled
@@ -106,15 +117,18 @@ reference and is not imported into the proofs.
 - `scripts/verify_star_lift.py`: bounded exhaustive and regression checks.
 - `scripts/hansen_lift.py`: complete underlining detector and stored-shift lift.
 - `scripts/verify_hansen_lift.py`: independent mask oracle and exact lift checks.
+- `scripts/search_chain.cpp`: bounded exact search with restartable pending prefixes.
+- `scripts/verify_search.py`: independent Python search, unpruned small oracle,
+  checkpoint checks and the optional `--research` 12509 exclusion.
 - `scripts/verify_integration.py`: combined reproducible evidence and axiom audit.
 - `data/12509-star.json`: published source chain and attribution.
 - `data/12509-hansen.json`: two rechecked 17-step sources and retrieval hashes.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: obtain auditable optimality evidence for 12509 and formalise the Hansen
-lift, starting with its underlining invariant. Larger
-non-Hansen searches remain deferred. See `TODO.md` for the next increment.
+Next: formalise the Hansen lift, starting with its underlining invariant,
+then turn the exhaustive exclusion into a kernel-checkable lower-bound proof.
+Larger non-Hansen searches remain deferred. See `TODO.md` for the next increment.
 
 ## Sources
 

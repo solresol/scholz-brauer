@@ -2,7 +2,7 @@
 """Rerun the small research checks and record their evidence together.
 
 Run from any directory with Python >= 3.9 and the pinned Lake environment.
-No optimality search, new mathematical proof, or network retrieval is performed.
+Includes two bounded exhaustive optimality checks for 12509; no network retrieval.
 The output is created only after every check passes; existing reports are refused.
 """
 import argparse
@@ -62,6 +62,7 @@ def main():
 
     # Record exact inputs, including local modifications beyond the base commit.
     inputs = sorted(set((ROOT / "scripts").glob("*.py"))
+                    | set((ROOT / "scripts").glob("*.cpp"))
                     | set((ROOT / "lean").glob("*.lean"))
                     | set((ROOT / "lean/ScholzBrauer").glob("*.lean"))
                     | set((ROOT / "lean/vendor/formal-conjectures").iterdir())
@@ -87,6 +88,10 @@ def main():
                                "--output", str(Path(temporary) / "small.json")]))
         hansen = json.loads(run([sys.executable, "scripts/verify_hansen_lift.py",
                                 "--output", str(Path(temporary) / "hansen.json")]))
+        search_path = Path(temporary) / "search.json"
+        run([sys.executable, "scripts/verify_search.py", "--research",
+             "--output", str(search_path)])
+        search = json.loads(search_path.read_text())
     if small["date_australia_sydney"] < run_time.date().isoformat():
         raise ValueError("small-check report has a stale run date")
     if small["exhaustive_star_prefixes"]["count"] != 842:
@@ -113,19 +118,24 @@ def main():
         "input_sha256": hashes, "vendored_hashes_checked": len(provenance["files"]),
         "audited_theorems": audited, "commands": commands,
         "witness": witness, "certificate": certificate, "small_checks": small,
-        "hansen_checks": hansen,
+        "hansen_checks": hansen, "search_checks": search,
         "claim_boundary": {
-            "local_ell_12509_bounds": [14, 17],
-            "scholz_rhs_interval_from_local_bounds": [12522, 12525],
+            "lean_ell_12509_bounds": [14, 17],
+            "computational_ell_12509_bounds": [17, 17],
+            "scholz_rhs_from_computational_optimality": 12525,
             "checked_mersenne_witness_additions": hansen["published_examples"][0]["additions"],
             "target_if_ell_12509_equals_17": 12525,
-            "optimality_proved": False, "scholz_at_12509_proved": False,
+            "optimality_computationally_established": True,
+            "scholz_at_12509_computationally_established": True,
+            "optimality_or_scholz_at_12509_formalised": False,
             "whole_star_lift_formalised": True,
             "lean_mersenne_12509_upper_bound": 12526,
             "hansen_lift_formalised": False,
-            "note": "Bounds 14 and 17 refer to the audited Lean theorems. The checked "
-                    "12525-step witness still needs ell(12509)>=17, "
-                    "or another argument linking its length to ell(12509)."},
+            "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
+                    "exclude every chain of at most 16 additions for 12509. "
+                    "Together with the 17-step source and 12525-step Mersenne "
+                    "certificate, this establishes the numerical Scholz instance "
+                    "computationally; the exclusion is not a Lean proof."},
         "runtime_seconds": round(time.perf_counter() - started, 6)}
     with args.output.open("x") as output:
         output.write(json.dumps(report, indent=2) + "\n")

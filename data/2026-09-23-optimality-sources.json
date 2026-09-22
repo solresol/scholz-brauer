@@ -1,0 +1,41 @@
+[
+  {
+    "url": "https://oeis.org/A003313/b003313.txt",
+    "error": "HTTP Error 403: Forbidden",
+    "web_tool_status": "Opened table, but exact row retrieval failed; no row used as evidence."
+  },
+  {
+    "url": "https://oeis.org/A349044",
+    "error": "HTTP Error 403: Forbidden",
+    "web_tool_status": "Opened with web tool on 2026-09-23; manually matched both published lists in EXAMPLE against the local fixtures. Direct HTTP bytes unavailable."
+  },
+  {
+    "url": "https://www.additionchains.com/ScholzBrauer.html",
+    "accessed_at_australia_sydney": "2026-09-23T08:05:06.005478+10:00",
+    "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+    "bytes": 24158,
+    "version": "live content; retrieved SHA-256 recorded",
+    "fixture_chain_matches": true
+  },
+  {
+    "url": "https://additionchains.com/Calculating.html",
+    "accessed_at_australia_sydney": "2026-09-23T08:05:06.732044+10:00",
+    "sha256": "a1295204a1802024ef4ce6c8ee97374c85756fd2a00bec6394807add6e430c53",
+    "bytes": 47963,
+    "version": "live content; retrieved SHA-256 recorded"
+  },
+  {
+    "url": "https://wwwhomes.uni-bielefeld.de/achim/addition_chain.html",
+    "accessed_at_australia_sydney": "2026-09-23T08:05:09.663255+10:00",
+    "sha256": "b33ec92e4db492efe14a718ab641325a19225af799b26e8207d7164c872f8891",
+    "bytes": 44311,
+    "version": "live content; retrieved SHA-256 recorded"
+  },
+  {
+    "url": "https://www-cs-faculty.stanford.edu/~knuth/programs/achain0.w",
+    "accessed_at_australia_sydney": "2026-09-23T08:05:10.771299+10:00",
+    "sha256": "c1230588a0213e30abd0426f2e0e61c48fc32785f1c5a8c2f0be94fde390f52a",
+    "bytes": 10206,
+    "version": "live content; retrieved SHA-256 recorded"
+  }
+]
