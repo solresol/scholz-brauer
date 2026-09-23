@@ -69,6 +69,7 @@ def main():
                     | {ROOT / "lean/lean-toolchain", ROOT / "lean/lakefile.toml",
                        ROOT / "lean/lake-manifest.json", ROOT / "data/12509-star.json",
                        ROOT / "data/12509-hansen.json",
+                       ROOT / "data/2026-09-24-hansen-sources.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json"})
     hashes = {str(p.relative_to(ROOT)): sha256(p) for p in inputs}
@@ -131,6 +132,8 @@ def main():
             "whole_star_lift_formalised": True,
             "lean_mersenne_12509_upper_bound": 12526,
             "hansen_lift_formalised": False,
+            "hansen_underlining_checker_formalised": True,
+            "hansen_latest_marked_anchor_formalised": True,
             "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "
                     "Together with the 17-step source and 12525-step Mersenne "

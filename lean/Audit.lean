@@ -30,3 +30,19 @@ import ScholzBrauer
 #print axioms ScholzBrauer.starChain12509_valid
 #print axioms ScholzBrauer.starLift12509_certificate
 #print axioms ScholzBrauer.mersenne12509_length_le_12526
+
+#print axioms ScholzBrauer.hansenSourceFrom_length
+#print axioms ScholzBrauer.hansenPairsFrom_length
+#print axioms ScholzBrauer.hansenPairsFrom_replay
+#print axioms ScholzBrauer.hansenSourceFrom_valid
+#print axioms ScholzBrauer.hansenAnchorFrom_latest
+#print axioms ScholzBrauer.hansenSourceFrom_endpoint
+#print axioms ScholzBrauer.hansenMarksFrom_stored_max
+#print axioms ScholzBrauer.hansenFrom_split
+#print axioms ScholzBrauer.hansen_latest_anchor_step
+#print axioms ScholzBrauer.hansen_final_mark
+#print axioms ScholzBrauer.hansen12509_checked
+#print axioms ScholzBrauer.hansenSource12509_eq
+#print axioms ScholzBrauer.hansen12509_source_replay
+#print axioms ScholzBrauer.hansen12509_marks
+#print axioms ScholzBrauer.hansen12509_source_count

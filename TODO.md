@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-23 (Wednesday, Australia/Sydney).
+Updated 2026-09-24 (Thursday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -31,6 +31,11 @@ Updated 2026-09-23 (Wednesday, Australia/Sydney).
   frontier coverage. Combine with the saved lift to establish Scholz at 12509
   computationally, without treating the search as a Lean proof.
 
+- [x] Formalise a decidable Hansen marking checker, source replay and exact
+  source length; prove the latest-marked-anchor invariant at every source cut,
+  stored-mark maximum and mandatory final mark. Check the 17-step 12509 marking
+  in Lean and match it to the saved Python certificate.
+
 ## Next informative increments
 
 1. **Optimality formal certificate:** the Wednesday computational exclusion is
@@ -42,15 +47,16 @@ Updated 2026-09-23 (Wednesday, Australia/Sydney).
    Lean interval [14,17] distinct from the computational optimum 17.
    Excluding star chains of at most 17 steps is optional later work: the star
    optimum 18 remains a literature claim and is unnecessary for this instance.
-2. **Hansen formalisation (Thursday):** define a decidable underlining certificate
-   over source values, check the 17-step 12509 marking, and prove the
-   latest-underlined-anchor invariant. Then formalise stored shifted Mersenne
-   values and telescoping of maximal shifts. Reuse `mersenne_block_identity`
-   and the addition-chain/replay API; the simple sequential star blocks alone
-   do not handle interleaved Hansen nodes. Monday's
-   report contains a mathematical construction argument; it is not a Lean
-   theorem. Retrieve Hansen's original 1959 article when accessible; this
-   Monday run used Clift's primary exposition, while the original scan was unavailable.
+2. **Hansen lift formalisation:** Thursday's underlining certificate and
+   latest-marked-anchor invariant are complete; do not repeat them. Next define
+   the maximum stored shift for each marked source value, prove that between
+   successive marked values a<h all shifts are at most h-a and the step to h
+   attains h-a, then telescope the total to n-1. Subsequently formalise the
+   shifted Mersenne nodes, distinctness, sorted replay and n-1+r count. Reuse
+   `mersenne_block_identity` and the source/replay API; simple sequential star
+   blocks do not handle interleaved Hansen nodes. Monday's construction argument
+   is not a Lean lift theorem. Retrieve Hansen's original 1959 article when
+   accessible; the current criterion uses Clift's rechecked primary exposition.
 3. **Later:** independently check Clift's non-Hansen data before
    scheduling larger cases such as 5,784,689. Do not infer a current frontier
    from the initial README or from failure to find a witness. The source page

@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 23 September 2026
+## Verified status — 24 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -73,14 +73,21 @@ Instantiating the rechecked 18-step source gives the kernel-checked bound
 `ℓ(2^12509-1) ≤ 12526`. The stronger 12525 bound above is independently
 checked in Python and has not yet been proved in Lean.
 
+Lean now also checks Hansen underlining over source values. It proves source
+replay correctness, exact source length, the marked endpoint, and that every
+step uses the latest marked value already stored in its prefix. The 17-step
+12509 source and its marking are kernel checked, including retention of 12
+as anchor through the unmarked value 13. This is the foundation for the Hansen
+lift, not yet a formal Mersenne construction or optimality proof.
+
 Integration includes both Python lifts, both exhaustive exclusions, the Lean
-build and 28-theorem axiom audit. The **Lean-only** source bounds remain
+build and 43-theorem axiom audit. The **Lean-only** source bounds remain
 `14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
 right-side interval `[12522,12525]` describes the Lean evidence alone.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's page and its 17-step source were rechecked on 23 September. Its claim
+Clift's page and both published 17-step sources were rechecked on 24 September. Its claim
 that 5,784,689 is the first non-Hansen number remains a literature claim; the larger data and
 optimality search have not been independently checked here.
 
@@ -109,6 +116,8 @@ reference and is not imported into the proofs.
 - `lean/ScholzBrauer/Certificate.lean`: replay generator, soundness and length proofs.
 - `lean/ScholzBrauer/Example12509.lean`: concrete witness and numerical bounds.
 - `lean/ScholzBrauer/BrauerBlock.lean`: doubling and single-block replay proofs.
+- `lean/ScholzBrauer/Hansen.lean`: decidable marking checker, source replay,
+  latest-marked-anchor invariant and final-mark proof.
 - `lean/ScholzBrauer/StarLift.lean`: checked source increments, complete replay,
   stored-value invariant, exact count and conditional Scholz corollary.
 - `scripts/check_12509.py`: independent exact check, including invalid fixtures.
@@ -126,8 +135,9 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: formalise the Hansen lift, starting with its underlining invariant,
-then turn the exhaustive exclusion into a kernel-checkable lower-bound proof.
+Next: formalise the stored shifted Mersenne nodes and telescoping shift count
+for the Hansen lift; its underlining invariant is now proved. Then turn the
+exhaustive exclusion into a kernel-checkable lower-bound proof.
 Larger non-Hansen searches remain deferred. See `TODO.md` for the next increment.
 
 ## Sources

@@ -1,0 +1,14 @@
+{
+  "accessed_at_australia_sydney": "2026-09-24T08:05:50.910719+10:00",
+  "url": "https://www.additionchains.com/ScholzBrauer.html",
+  "version": "live page, no immutable revision",
+  "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+  "clift_chain_matches_existing_fixture": true,
+  "oeis_recheck": {
+    "url": "https://oeis.org/A349044",
+    "method": "web open, A349044 example list matches saved chain",
+    "access_date": "2026-09-24"
+  },
+  "criterion": "Every new value uses the latest previously underlined value as a summand; final value underlined. First value marked implicitly.",
+  "hansen_original_article_inspected": false
+}

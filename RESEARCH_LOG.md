@@ -1,5 +1,39 @@
 # Research log
 
+## 2026-09-24 — Thursday — Hansen marking and anchor invariant in Lean
+
+Australia/Sydney, approximately 08:00–08:12 AEST. Read automation memory,
+supplied AGENTS instructions, README, TODO, recent logs/results and actual
+source, including upstream definitions, Scholz statement and licence. No
+applicable on-disk AGENTS.md. Clean main at f598388, correct solresol origin,
+no competing process or lock. Acquired the exclusive run lock, fetched and
+ff-only merged (already current). Rechecked Clift's criterion and both
+published 17-step source lists; no original Hansen scan or larger data used.
+
+**Increment.** Added a decidable Hansen marking checker, source replay and
+length proofs, latest-marked-anchor identity, stored-mark maximum, continuation
+at arbitrary source cuts and explicit final-mark theorem. Checked the 12509
+marking, source replay and 17-step count in Lean. The marking and all oriented
+parent indices match the saved Python certificate. Ten general and five
+concrete theorems are new. See `results/2026-09-24-hansen-underlining-lean.md`.
+
+**Checks.** Final build completed 751 jobs. Combined integration passed in
+29.925100s, including 43 theorem axiom audits (standard axioms only), five
+vendor hashes, all prior lift tests and both independent <=16-step exclusions.
+Nine new kernel-evaluated examples cover valid and invalid markings. The
+fixture match took 0.003964s. Python3.11.6; Lean4.27.0/mathlib pins unchanged;
+exact arithmetic, no seed. All final source hashes and commands are retained.
+Development corrected syntax/normalisation and HTML-whitespace checks; no
+mathematical hypothesis failed. Reviewed the complete code/document diff and
+structured evidence before commit.
+
+**Limits and next.** Underlining is formalised; the Hansen Mersenne lift,
+its shift count and source optimality are not. Lean bounds remain [14,17]
+and Mersenne <=12526; computational ell(12509)=17 and Scholz at 12509 were
+rechecked. Next prove each marked interval's maximum shift, then telescope
+the count to n-1 and construct sorted shifted nodes. For computational work,
+prepare Lean-checkable exclusion evidence. Larger non-Hansen cases stay deferred.
+
 ## 2026-09-23 — Wednesday — exact exclusion closes the 12509 gap
 
 Australia/Sydney, starting 08:00 AEST. Read automation memory, supplied AGENTS

@@ -86,5 +86,26 @@ large certificate for closed kernel evaluation. The independently checked
 Python Hansen bound of 12525 is stronger and is not yet formalised.
 Seven small kernel-checked examples cover the singleton source, a complete
 two-block replay, and zero, unavailable and future increments. `Audit.lean`
-now covers 28 named theorems; standard axiom dependencies are checked by the
+now covers 43 named theorems; standard axiom dependencies are checked by the
 integration runner.
+
+`Hansen.lean` checks a marking certificate given as `(value, Bool)` entries,
+with initial value 1 marked implicitly. `IsHansenFrom` requires strict growth
+and a decomposition using the latest marked value and any stored value.
+Acceptance enforces a marked endpoint. It is decidable and does not assume
+optimality. Its proved API includes:
+
+- successful source replay via `hansenPairsFrom`, source validity under the
+  upstream predicate, and exactly one addition per source entry;
+- `hansenAnchorFrom_latest` and `hansen_latest_anchor_step`: at every cut the
+  carried anchor is the latest actual mark, is stored, and is a summand of
+  the next step;
+- stored marked values bounded by the final anchor, splitting an accepted
+  certificate, and an explicit theorem forcing the final flag to be true.
+
+Nine kernel-evaluated boundary/regression examples accompany the general
+proofs. Five new named 12509 theorems check its marking, source list, replay,
+marked-value list and 17-step count. The marking matches the saved Python
+Hansen certificate. No detector completeness theorem or Python/Lean format
+isomorphism is claimed. The large Hansen Mersenne lift and source optimality
+remain outside Lean. See `../results/2026-09-24-hansen-underlining-lean.md`.

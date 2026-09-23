@@ -1,4 +1,5 @@
 import ScholzBrauer.StarLift
+import ScholzBrauer.Hansen
 
 namespace ScholzBrauer
 
@@ -28,6 +29,33 @@ theorem fourteen_le_length12509 : 14 ≤ additionChainLength 12509 := by
     chain12509 chain12509_valid (by decide) (by decide)
   have h := lt_additionChainLength_of_two_pow_lt (r := 13) hne (by decide)
   omega
+
+/-- Marking from the independently checked Hansen certificate of 2026-09-21.
+The OEIS source values were rechecked on 2026-09-24. Values 4 and 13 are
+unmarked; in particular 24 uses the retained anchor 12 after the value 13. -/
+def hansenSteps12509 : List MarkedStep :=
+  [(2, true), (4, false), (6, true), (12, true), (13, false),
+   (24, true), (48, true), (96, true), (192, true), (384, true),
+   (768, true), (781, true), (1562, true), (3124, true), (6248, true),
+   (12496, true), (12509, true)]
+
+theorem hansen12509_checked : IsHansenFrom [1] 1 hansenSteps12509 := by decide
+
+theorem hansenSource12509_eq : hansenSourceFrom [1] hansenSteps12509 = chain12509 :=
+  by decide
+
+/-- Another checked source replay, using the latest marked summand each time.
+This is not a proof of the large Hansen lift or source optimality. -/
+theorem hansen12509_source_replay :
+    replay (hansenPairsFrom 1 hansenSteps12509) = some chain12509 := by
+  simpa [replay, hansenSource12509_eq] using hansenPairsFrom_replay hansen12509_checked
+
+theorem hansen12509_marks : hansenMarksFrom 1 hansenSteps12509 =
+    [1, 2, 6, 12, 24, 48, 96, 192, 384, 768, 781, 1562, 3124, 6248, 12496, 12509] :=
+  by decide
+
+theorem hansen12509_source_count : (hansenPairsFrom 1 hansenSteps12509).length = 17 :=
+  by decide
 
 /-- The published 18-step star source from OEIS A349044, rechecked 2026-09-22.
 This is a witness; no minimum star-length assertion is used. -/
