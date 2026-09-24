@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-24 (Thursday, Australia/Sydney).
+Updated 2026-09-25 (Friday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -36,14 +36,23 @@ Updated 2026-09-24 (Thursday, Australia/Sydney).
   stored-mark maximum and mandatory final mark. Check the 17-step 12509 marking
   in Lean and match it to the saved Python certificate.
 
+- [x] Generate a portable exclusion DAG for 12509 and independently check every
+  rule, complete split and context of shared nodes. Compare all 576 small
+  decisions against unpruned enumeration and test malformed, omitted-branch,
+  shared-context and budget cases. Save reproducible evidence and integrate it.
+
 ## Next informative increments
 
 1. **Optimality formal certificate:** the Wednesday computational exclusion is
    complete: independent C++ and Python traversals exhaust all chains of at most
    16 steps for 12509. Together with the witnesses this establishes ell(12509)=17
-   and Scholz at 12509 computationally. Next design a Lean-checkable exclusion
-   certificate or prove completeness of a small exact enumerator; the current
-   search transcript is reproducible evidence, not a kernel proof. Keep the
+   and Scholz at 12509 computationally. Friday's portable certificate and
+   independent Python checker are complete. Next formalise the three exclusion
+   rules (`bound`, `gap`, `split`), prove checker soundness for arbitrary valid
+   prefixes against upstream `IsAdditionChain`, and kernel-check 7 with limit 3.
+   Then evaluate the 12509 DAG with measured resource limits; sharing syntax
+   does not permit caching truth by node id across different prefixes.
+   The saved proof object is not yet a kernel proof. Keep the
    Lean interval [14,17] distinct from the computational optimum 17.
    Excluding star chains of at most 17 steps is optional later work: the star
    optimum 18 remains a literature claim and is unnecessary for this instance.

@@ -1,0 +1,281 @@
+{
+  "started_at_australia_sydney": "2026-09-25T08:07:30.946549+10:00",
+  "weekday_australia_sydney": "Friday",
+  "python": "3.9.6",
+  "dependencies": "Python standard library",
+  "seed": null,
+  "input_sha256": {
+    "scripts/verify_exclusion.py": "34a227aa34ee73b1a7f27f606c7afaaca2491874ceef7996802399b005c571d3",
+    "scripts/exclusion_certificate.py": "5457ee77ab9845b97e9ff784a8dc77ba15034fa13328a1673f111c890112d8b3",
+    "scripts/check_exclusion.py": "b518b16a0ad4d018881247d76a7273eef8c2aeede407fa5cc1d8c124e1246482",
+    "scripts/check_12509.py": "6a5f8b77f01f022046202fd4576c3c51525eeb24d4ab0fa3b148582b2e9b6aab",
+    "scripts/verify_hansen_lift.py": "73d3883a7f678e91898b07e64d6b45bbfd83f66e34d3f9a3be076492a21980c0",
+    "results/2026-09-25-12509-exclusion-certificate.json": "516a54800a296da300cc15da318c40b06b08a18270c93b8467f3f843a8b074e9"
+  },
+  "oracle": {
+    "max_steps": 8,
+    "max_endpoint": 64,
+    "prefixes": 78758
+  },
+  "small_exclusions": 374,
+  "small_witnesses": 202,
+  "negative_cases": [
+    {
+      "case": "invalid format=v0",
+      "error": "unknown format"
+    },
+    {
+      "case": "invalid target=8",
+      "error": "statement mismatch"
+    },
+    {
+      "case": "invalid target=True",
+      "error": "statement mismatch"
+    },
+    {
+      "case": "invalid max_steps=4",
+      "error": "statement mismatch"
+    },
+    {
+      "case": "invalid max_steps=3.0",
+      "error": "statement mismatch"
+    },
+    {
+      "case": "invalid root=-1",
+      "error": "root must be final node"
+    },
+    {
+      "case": "invalid root=True",
+      "error": "root must be final node"
+    },
+    {
+      "case": "invalid root=1000",
+      "error": "root must be final node"
+    },
+    {
+      "case": "invalid nodes=[]",
+      "error": "empty or invalid node table"
+    },
+    {
+      "case": "unexpected field",
+      "error": "invalid fields"
+    },
+    {
+      "case": "invalid rule ['bound', 0]",
+      "error": "invalid rule"
+    },
+    {
+      "case": "invalid rule ['unknown']",
+      "error": "invalid rule"
+    },
+    {
+      "case": "invalid rule ['split', None]",
+      "error": "invalid rule"
+    },
+    {
+      "case": "invalid rule []",
+      "error": "invalid node"
+    },
+    {
+      "case": "invalid rule ['gap', 0]",
+      "error": "invalid rule"
+    },
+    {
+      "case": "invalid edge [2, 2]",
+      "error": "reference must point strictly backwards"
+    },
+    {
+      "case": "invalid edge [2, -1]",
+      "error": "reference must point strictly backwards"
+    },
+    {
+      "case": "invalid edge [True, 0]",
+      "error": "unsorted, repeated or out-of-range child"
+    },
+    {
+      "case": "invalid edge [2, True]",
+      "error": "reference must point strictly backwards"
+    },
+    {
+      "case": "invalid edge [2, 0, 0]",
+      "error": "invalid edge"
+    },
+    {
+      "case": "invalid edge [8, 0]",
+      "error": "unsorted, repeated or out-of-range child"
+    },
+    {
+      "case": "omitted branch",
+      "error": "split does not cover exactly the feasible next values"
+    },
+    {
+      "case": "duplicated branch",
+      "error": "unsorted, repeated or out-of-range child"
+    },
+    {
+      "case": "unreachable node",
+      "error": "unreachable nodes in certificate"
+    },
+    {
+      "case": "false bound",
+      "error": "false doubling bound"
+    },
+    {
+      "case": "gap too early",
+      "error": "gap rule requires exactly one remaining step"
+    },
+    {
+      "case": "available target summands",
+      "error": "target has available summands"
+    },
+    {
+      "case": "reached singleton target",
+      "error": "certificate tries to exclude a reached target"
+    },
+    {
+      "case": "split without remaining steps",
+      "error": "split after step limit"
+    },
+    {
+      "case": "checker zero budget",
+      "error": "checker budget reached; no exclusion accepted"
+    },
+    {
+      "case": "shared gap rechecked in each context",
+      "error": "target has available summands"
+    },
+    {
+      "case": "checker just below sufficient budget",
+      "error": "checker budget reached; no exclusion accepted"
+    }
+  ],
+  "budget_cases": [
+    {
+      "budget": 0,
+      "status": "budget"
+    },
+    {
+      "budget": 1,
+      "status": "budget"
+    },
+    {
+      "budget": 2,
+      "status": "budget"
+    },
+    {
+      "budget": 3,
+      "status": "excluded"
+    }
+  ],
+  "invalid_generator_requests": 7,
+  "commands": [
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/exclusion_certificate.py",
+        "7",
+        "3",
+        "--node-budget",
+        "0",
+        "--output",
+        "/Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"budget\",\n  \"visited\": 0,\n  \"node_budget\": 0,\n  \"witness\": null,\n  \"runtime_seconds\": 2e-06\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/exclusion_certificate.py",
+        "7",
+        "4",
+        "--output",
+        "/Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"witness\",\n  \"visited\": 4,\n  \"node_budget\": 2000000,\n  \"witness\": [\n    1,\n    2,\n    3,\n    4,\n    7\n  ],\n  \"runtime_seconds\": 1.3e-05\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/exclusion_certificate.py",
+        "7",
+        "3",
+        "--output",
+        "/Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"excluded\",\n  \"visited\": 3,\n  \"node_budget\": 2000000,\n  \"witness\": null,\n  \"runtime_seconds\": 1.3e-05,\n  \"certificate_path\": \"/Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json\",\n  \"distinct_nodes\": 3\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/exclusion_certificate.py",
+        "7",
+        "3",
+        "--output",
+        "/Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/exclusion_certificate.py\", line 91, in <module>\n    main()\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/exclusion_certificate.py\", line 79, in main\n    raise FileExistsError(args.output)\nFileExistsError: /Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json\n"
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "-O",
+        "scripts/check_exclusion.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json",
+        "--target",
+        "7",
+        "--max-steps",
+        "3"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"excluded\",\n  \"target\": 7,\n  \"max_steps\": 3,\n  \"distinct_nodes\": 3,\n  \"checked_occurrences\": 3,\n  \"rule_occurrences\": {\n    \"bound\": 0,\n    \"gap\": 1,\n    \"split\": 2\n  },\n  \"visit_budget\": 2000000,\n  \"runtime_seconds\": 1.1e-05,\n  \"lean_proof\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "-O",
+        "scripts/check_exclusion.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.exclusion-v720tp1i/proof.json",
+        "--target",
+        "7",
+        "--max-steps",
+        "3"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/check_exclusion.py\", line 111, in <module>\n    main()\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/check_exclusion.py\", line 104, in main\n    result = check_exclusion(json.loads(args.certificate.read_text()),\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/check_exclusion.py\", line 88, in check_exclusion\n    check(root, [1], max_steps)\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/check_exclusion.py\", line 62, in check\n    require(chain[-1] * (1 << left) < target, \"false doubling bound\")\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/check_exclusion.py\", line 16, in require\n    raise ValueError(message)\nValueError: false doubling bound\n"
+    }
+  ],
+  "regenerated_12509": {
+    "status": "excluded",
+    "visited": 1345873,
+    "node_budget": 2000000,
+    "witness": null,
+    "runtime_seconds": 12.572508
+  },
+  "saved_12509": {
+    "status": "excluded",
+    "target": 12509,
+    "max_steps": 16,
+    "distinct_nodes": 29437,
+    "checked_occurrences": 1345873,
+    "rule_occurrences": {
+      "bound": 0,
+      "gap": 481259,
+      "split": 864614
+    },
+    "visit_budget": 2000000,
+    "runtime_seconds": 13.591166,
+    "lean_proof": false
+  },
+  "certificate_bytes": 2464503,
+  "runtime_seconds": 26.833186
+}

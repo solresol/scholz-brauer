@@ -71,7 +71,8 @@ def main():
                        ROOT / "data/12509-hansen.json",
                        ROOT / "data/2026-09-24-hansen-sources.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
-                       ROOT / "results/2026-09-21-12509-hansen-certificate.json"})
+                       ROOT / "results/2026-09-21-12509-hansen-certificate.json",
+                       ROOT / "results/2026-09-25-12509-exclusion-certificate.json"})
     hashes = {str(p.relative_to(ROOT)): sha256(p) for p in inputs}
     vendor = ROOT / "lean/vendor/formal-conjectures"
     provenance = json.loads((vendor / "provenance.json").read_text())
@@ -93,6 +94,10 @@ def main():
         run([sys.executable, "scripts/verify_search.py", "--research",
              "--output", str(search_path)])
         search = json.loads(search_path.read_text())
+        exclusion_path = Path(temporary) / "exclusion.json"
+        run([sys.executable, "scripts/verify_exclusion.py",
+             "--output", str(exclusion_path)])
+        exclusion = json.loads(exclusion_path.read_text())
     if small["date_australia_sydney"] < run_time.date().isoformat():
         raise ValueError("small-check report has a stale run date")
     if small["exhaustive_star_prefixes"]["count"] != 842:
@@ -120,6 +125,7 @@ def main():
         "audited_theorems": audited, "commands": commands,
         "witness": witness, "certificate": certificate, "small_checks": small,
         "hansen_checks": hansen, "search_checks": search,
+        "exclusion_certificate_checks": exclusion,
         "claim_boundary": {
             "lean_ell_12509_bounds": [14, 17],
             "computational_ell_12509_bounds": [17, 17],
@@ -134,6 +140,7 @@ def main():
             "hansen_lift_formalised": False,
             "hansen_underlining_checker_formalised": True,
             "hansen_latest_marked_anchor_formalised": True,
+            "portable_exclusion_certificate_checked": True,
             "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "
                     "Together with the 17-step source and 12525-step Mersenne "

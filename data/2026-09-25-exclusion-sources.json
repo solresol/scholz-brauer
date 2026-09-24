@@ -1,0 +1,24 @@
+[
+  {
+    "url": "https://www.additionchains.com/ScholzBrauer.html",
+    "accessed_at_australia_sydney": "2026-09-25T08:06:55.999212+10:00",
+    "version": "live source; no immutable revision",
+    "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+    "bytes": 24158,
+    "clift_fixture_matches": true
+  },
+  {
+    "url": "https://www-cs-faculty.stanford.edu/~knuth/programs/achain-all.w",
+    "accessed_at_australia_sydney": "2026-09-25T08:06:57.262491+10:00",
+    "version": "live source; no immutable revision",
+    "sha256": "8c0564a77e05be879600c5cb17d007fcc6a5b00f50eaf2214082106d89b830a9",
+    "bytes": 11015
+  },
+  {
+    "url": "https://oeis.org/A349044",
+    "accessed_at_australia_sydney": "2026-09-25T08:06:58.746960+10:00",
+    "version": "live source; no immutable revision",
+    "direct_fetch_error": "HTTP Error 403: Forbidden",
+    "web_tool_check": "Opened 2026-09-25 AEST; both 17-step OEIS and 18-step star lists match local fixtures. The erroneous non-star index gloss is not used."
+  }
+]

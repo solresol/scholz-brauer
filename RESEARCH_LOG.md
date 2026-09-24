@@ -1,5 +1,46 @@
 # Research log
 
+## 2026-09-25 — Friday — portable exclusion proof object
+
+Australia/Sydney, approximately 08:02–08:16 AEST. Read automation memory,
+repository instructions, README, TODO, recent evidence/log and actual search
+and Lean certificate sources. Clean main at c003e36, correct solresol origin,
+no competing process or run lock. Acquired the exclusive run lock, fetched and
+ff-only merged (already current). Rechecked Clift, OEIS chain lists and Knuth's
+primary search source; no published minimum-length table was imported.
+
+**Increment.** Added an exhaustive exclusion-certificate generator, independent
+checker and regression suite. Saved the 12509/16 proof object: 29,437 shared
+nodes, 2,464,503 bytes, covering 1,345,873 contextual occurrences. Rules are
+an exact doubling bound, missing last-step summands and complete next-value
+splits. Sharing syntax never bypasses checking each chain context. Documented
+rule soundness and the remaining Lean interface in
+`results/2026-09-25-exclusion-certificate.md`; integrated saved-proof checking.
+
+**Checks.** All 576 small decisions match 78,758 unpruned prefixes: 374
+exclusions, 202 witnesses. All 32 rejection cases, seven invalid generator
+inputs, exact/insufficient budgets, no-file-on-witness/budget and overwrite
+protection passed. An adversarial shared-node proof for 15 is correctly
+rejected. Standalone checker checks survive Python -O. Final deterministic
+regeneration matched the saved object in 12.572508s; checking took 13.591166s;
+the dedicated verifier took 26.833186s. Full integration passed in 51.246500s,
+including both prior 12509 exclusions, all lift regressions, five vendor hashes,
+pinned Lean build and 43 standard-axiom audits. Python 3.9.6; exact integers,
+no seed, unchanged Lean pins. All final input hashes matched. Reviewed full
+source/document diffs and structured proof/report data before commit.
+
+**Conclusion and limits.** The existing computational optimum 17 and Scholz
+instance at 12509 now have portable exclusion evidence. No new numerical bound
+or Lean theorem. Lean source bounds remain [14,17], Mersenne bound 12526.
+No conjecture counterexample or novelty claim. The regression retires the
+possible implementation shortcut of caching proof truth solely by shared node
+id; it is not a failed mathematical hypothesis about addition chains.
+
+**Next.** Prove the three exclusion rules and context-sensitive checker soundness
+against upstream IsAdditionChain, then kernel-check 7/3 before scaling to 12509.
+Saturday's Hansen shift maximum and telescoping count remain scheduled; the
+underlining invariant is complete and larger non-Hansen work stays deferred.
+
 ## 2026-09-24 — Thursday — Hansen marking and anchor invariant in Lean
 
 Australia/Sydney, approximately 08:00–08:12 AEST. Read automation memory,

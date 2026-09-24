@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 24 September 2026
+## Verified status — 25 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -56,6 +56,16 @@ The saved Hansen lift therefore establishes the Scholz inequality at 12509:
 `ℓ(2^12509-1) ≤ 12525 = 12508 + ℓ(12509)`. The checked optimal source also
 establishes that 12509 is a Hansen number.
 
+The exclusion now also has a portable JSON certificate and an independent
+checker. Its 29,437 shared proof nodes cover all 1,345,873 prefix occurrences;
+each occurrence is rechecked in its own chain context. The certificate excludes
+all chains with at most 16 additions for 12509 using doubling bounds, missing
+final summands and complete next-value splits. Regression checks compare all
+576 target/limit decisions for targets 1–64 and limits 0–8 with unpruned
+enumeration, and reject corrupted certificates. This makes the exclusion
+independently replayable; checker soundness has not yet been formalised in Lean.
+See `results/2026-09-25-exclusion-certificate.md` for the format and proof argument.
+
 **Not established here:** a Lean optimality proof, a Lean Hansen lift, the
 minimum Mersenne-chain length, or the shortest star length 18. The general
 conjecture remains outside these results. See
@@ -80,14 +90,14 @@ step uses the latest marked value already stored in its prefix. The 17-step
 as anchor through the unmarked value 13. This is the foundation for the Hansen
 lift, not yet a formal Mersenne construction or optimality proof.
 
-Integration includes both Python lifts, both exhaustive exclusions, the Lean
-build and 43-theorem axiom audit. The **Lean-only** source bounds remain
+Integration includes both Python lifts, both exhaustive exclusions, the portable
+exclusion checker, the Lean build and 43-theorem axiom audit. The **Lean-only** source bounds remain
 `14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
 right-side interval `[12522,12525]` describes the Lean evidence alone.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's page and both published 17-step sources were rechecked on 24 September. Its claim
+Clift's page and both published 17-step sources were rechecked on 25 September. Its claim
 that 5,784,689 is the first non-Hansen number remains a literature claim; the larger data and
 optimality search have not been independently checked here.
 
@@ -105,6 +115,12 @@ vendored source hashes, and records input hashes, commands and exact outputs.
 The small-check report now uses the actual Australia/Sydney run date.
 
 The search needs a C++17 compiler; the recorded run uses Apple clang 21.0.0.
+The saved exclusion can also be checked without a compiler or search generator:
+
+```sh
+python3 scripts/check_exclusion.py results/2026-09-25-12509-exclusion-certificate.json --target 12509 --max-steps 16
+```
+
 Lean 4.27.0, mathlib and transitive dependencies are pinned. See `lean/README.md`
 for setup, licence attribution and the adaptation from Google DeepMind's
 formal-conjectures implementation. Its open Scholz theorem is an uncompiled
@@ -129,6 +145,10 @@ reference and is not imported into the proofs.
 - `scripts/search_chain.cpp`: bounded exact search with restartable pending prefixes.
 - `scripts/verify_search.py`: independent Python search, unpruned small oracle,
   checkpoint checks and the optional `--research` 12509 exclusion.
+- `scripts/exclusion_certificate.py`: bounded exclusion-DAG generator.
+- `scripts/check_exclusion.py`: independent, context-sensitive proof-object checker.
+- `scripts/verify_exclusion.py`: small exhaustive comparisons, corruption and
+  budget checks, saved proof replay and optional deterministic regeneration.
 - `scripts/verify_integration.py`: combined reproducible evidence and axiom audit.
 - `data/12509-star.json`: published source chain and attribution.
 - `data/12509-hansen.json`: two rechecked 17-step sources and retrieval hashes.
@@ -137,7 +157,8 @@ reference and is not imported into the proofs.
 
 Next: formalise the stored shifted Mersenne nodes and telescoping shift count
 for the Hansen lift; its underlining invariant is now proved. Then turn the
-exhaustive exclusion into a kernel-checkable lower-bound proof.
+portable exclusion rules into a kernel-checked lower-bound proof, starting with
+checker soundness and a small instance such as 7 before evaluating the large DAG.
 Larger non-Hansen searches remain deferred. See `TODO.md` for the next increment.
 
 ## Sources
