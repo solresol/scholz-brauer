@@ -70,6 +70,7 @@ def main():
                        ROOT / "lean/lake-manifest.json", ROOT / "data/12509-star.json",
                        ROOT / "data/12509-hansen.json",
                        ROOT / "data/2026-09-24-hansen-sources.json",
+                       ROOT / "data/2026-09-26-hansen-shift-sources.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
                        ROOT / "results/2026-09-25-12509-exclusion-certificate.json"})
@@ -140,6 +141,8 @@ def main():
             "hansen_lift_formalised": False,
             "hansen_underlining_checker_formalised": True,
             "hansen_latest_marked_anchor_formalised": True,
+            "hansen_shift_maximum_and_telescope_formalised": True,
+            "lean_hansen_12509_shift_budget": 12525,
             "portable_exclusion_certificate_checked": True,
             "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "

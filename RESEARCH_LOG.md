@@ -1,5 +1,37 @@
 # Research log
 
+## 2026-09-26 — Saturday — Hansen shift accounting in Lean
+
+Australia/Sydney, starting 08:02 AEST. Read automation memory, repository
+instructions, current roadmap/log, source and recent evidence. Clean main at
+742db0e, correct origin, no competing research process. Fetched and ff-only
+merged (already current), then acquired the exclusive run lock. Rechecked
+Clift's construction and published chain fixtures, retaining retrieval metadata.
+
+**Increment.** Added executable shift demands/maxima and per-mark caps, with
+eight general Lean theorems: prefix bound by next mark, maximum equal to the
+marked gap, demand bounds, cap/mark alignment and telescoping to n-1. Three
+12509 specialisations prove the cap list, shift sum 12508 and allocation budget
+12525. Eight kernel examples cover the empty source extension, retained anchors,
+Clift's 29 example and an invalid decreasing request. Updated the Hansen verifier
+to compare interval maxima with all 5248 accepted small underlinings and match
+the concrete Lean source/marks/caps to the saved JSON.
+
+**Checks.** Full integration passed in 47.006420s: all 752 Lean build jobs,
+54 standard-axiom theorem audits, five vendor hashes, all lift regressions,
+both exhaustive <=16-step 12509 exclusions and the portable exclusion checker.
+Python3.9.6; Lean4.27.0 and dependency pins unchanged; exact integers, no seed.
+No forbidden proof placeholders or custom axioms in compiled sources. Final
+input hashes match; full code/docs diffs and evidence inspected before commit.
+See `results/2026-09-26-hansen-shift-lean.md` and the dated integration JSON.
+
+**Limits and next.** The formal budget does not yet supply distinct lifted nodes
+or sorted replay. Lean bounds remain source [14,17] and Mersenne <=12526;
+computational optimum17 and Scholz at12509 are reconfirmed. No new numerical
+bound, novelty or counterexample claim. Next prove shifted-node distinctness
+using odd parts, then summand availability and replay. Exclusion soundness and
+7/3 remain a separate next formal task; larger non-Hansen cases stay deferred.
+
 ## 2026-09-25 — Friday — portable exclusion proof object
 
 Australia/Sydney, approximately 08:02–08:16 AEST. Read automation memory,

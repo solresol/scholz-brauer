@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 25 September 2026
+## Verified status — 26 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -90,14 +90,21 @@ step uses the latest marked value already stored in its prefix. The 17-step
 as anchor through the unmarked value 13. This is the foundation for the Hansen
 lift, not yet a formal Mersenne construction or optimality proof.
 
+Lean now also proves that the maximum requested shift between successive
+marks `a < h` is `h-a`, and that these maxima sum to `n-1`. For 12509
+the proved shift sum is 12508, giving an allocation budget of 12525 after
+adding the 17 source steps. This is a count identity: distinctness of the
+shifted nodes and their successful sorted replay remain to be formalised.
+See `results/2026-09-26-hansen-shift-lean.md`.
+
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 43-theorem axiom audit. The **Lean-only** source bounds remain
+exclusion checker, the Lean build and 54-theorem axiom audit. The **Lean-only** source bounds remain
 `14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
 right-side interval `[12522,12525]` describes the Lean evidence alone.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's page and both published 17-step sources were rechecked on 25 September. Its claim
+Clift's page and both published 17-step sources were rechecked on 26 September. Its claim
 that 5,784,689 is the first non-Hansen number remains a literature claim; the larger data and
 optimality search have not been independently checked here.
 
@@ -134,6 +141,8 @@ reference and is not imported into the proofs.
 - `lean/ScholzBrauer/BrauerBlock.lean`: doubling and single-block replay proofs.
 - `lean/ScholzBrauer/Hansen.lean`: decidable marking checker, source replay,
   latest-marked-anchor invariant and final-mark proof.
+- `lean/ScholzBrauer/HansenShift.lean`: exact demand maxima, per-mark shift caps,
+  telescoping shift sum and allocation budget.
 - `lean/ScholzBrauer/StarLift.lean`: checked source increments, complete replay,
   stored-value invariant, exact count and conditional Scholz corollary.
 - `scripts/check_12509.py`: independent exact check, including invalid fixtures.
@@ -155,8 +164,8 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: formalise the stored shifted Mersenne nodes and telescoping shift count
-for the Hansen lift; its underlining invariant is now proved. Then turn the
+Next: formalise distinctness and sorted replay of the shifted Mersenne nodes
+for the Hansen lift; its underlining invariant and shift count are now proved. Then turn the
 portable exclusion rules into a kernel-checked lower-bound proof, starting with
 checker soundness and a small instance such as 7 before evaluating the large DAG.
 Larger non-Hansen searches remain deferred. See `TODO.md` for the next increment.

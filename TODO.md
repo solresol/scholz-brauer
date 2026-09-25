@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-25 (Friday, Australia/Sydney).
+Updated 2026-09-26 (Saturday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -41,6 +41,11 @@ Updated 2026-09-25 (Friday, Australia/Sydney).
   decisions against unpruned enumeration and test malformed, omitted-branch,
   shared-context and budget cases. Save reproducible evidence and integrate it.
 
+- [x] Prove in Lean that each marked interval has maximum shift equal to its
+  endpoint gap, and telescope the shift caps to n-1. Specialise the count to
+  12509: 12508 shifted copies plus 17 source steps gives budget 12525. Match
+  marked caps to the saved JSON and check all 5248 accepted small underlinings.
+
 ## Next informative increments
 
 1. **Optimality formal certificate:** the Wednesday computational exclusion is
@@ -56,12 +61,13 @@ Updated 2026-09-25 (Friday, Australia/Sydney).
    Lean interval [14,17] distinct from the computational optimum 17.
    Excluding star chains of at most 17 steps is optional later work: the star
    optimum 18 remains a literature claim and is unnecessary for this instance.
-2. **Hansen lift formalisation:** Thursday's underlining certificate and
-   latest-marked-anchor invariant are complete; do not repeat them. Next define
-   the maximum stored shift for each marked source value, prove that between
-   successive marked values a<h all shifts are at most h-a and the step to h
-   attains h-a, then telescope the total to n-1. Subsequently formalise the
-   shifted Mersenne nodes, distinctness, sorted replay and n-1+r count. Reuse
+2. **Hansen lift formalisation:** the underlining certificate, latest-marked
+   anchor invariant, shift maximum and telescoping count are complete. Do not
+   repeat them. Next define shifted nodes `(a,k)` with value `2^k*(2^a-1)`
+   and prove distinctness for positive source exponents (unique odd part).
+   Then prove availability of each summand, sorted replay and the resulting
+   n-1+r chain length. The proved 12525 allocation budget alone is not an
+   addition-chain bound. Reuse
    `mersenne_block_identity` and the source/replay API; simple sequential star
    blocks do not handle interleaved Hansen nodes. Monday's construction argument
    is not a Lean lift theorem. Retrieve Hansen's original 1959 article when

@@ -1,5 +1,5 @@
 import ScholzBrauer.StarLift
-import ScholzBrauer.Hansen
+import ScholzBrauer.HansenShift
 
 namespace ScholzBrauer
 
@@ -56,6 +56,25 @@ theorem hansen12509_marks : hansenMarksFrom 1 hansenSteps12509 =
 
 theorem hansen12509_source_count : (hansenPairsFrom 1 hansenSteps12509).length = 17 :=
   by decide
+
+/-- Per-mark maxima, in the same order as `hansen12509_marks`. Unmarked
+values 4 and 13 have no shift allocation; the final marked value has cap zero. -/
+theorem hansen12509_shift_caps : hansenShiftCaps 1 hansenSteps12509 =
+    [1, 4, 6, 12, 24, 48, 96, 192, 384, 13, 781, 1562, 3124, 6248, 13, 0] :=
+  by decide
+
+/-- Specialisation of the general telescoping theorem, not a large replay. -/
+theorem hansen12509_shift_sum : (hansenShiftCaps 1 hansenSteps12509).sum = 12508 :=
+  hansenShiftCaps_sum hansen12509_checked (by decide :
+    hansenAnchorFrom 1 hansenSteps12509 = 12509)
+
+/-- This is the verified allocation budget. Lifted-node distinctness and
+sorted replay are still required before it gives a Mersenne length bound. -/
+theorem hansen12509_shift_budget :
+    (hansenShiftCaps 1 hansenSteps12509).sum + hansenSteps12509.length = 12525 := by
+  have h := hansenShiftCaps_budget hansen12509_checked (by decide :
+    hansenAnchorFrom 1 hansenSteps12509 = 12509)
+  simpa [hansenSteps12509] using h
 
 /-- The published 18-step star source from OEIS A349044, rechecked 2026-09-22.
 This is a witness; no minimum star-length assertion is used. -/

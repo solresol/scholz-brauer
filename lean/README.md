@@ -86,7 +86,7 @@ large certificate for closed kernel evaluation. The independently checked
 Python Hansen bound of 12525 is stronger and is not yet formalised.
 Seven small kernel-checked examples cover the singleton source, a complete
 two-block replay, and zero, unavailable and future increments. `Audit.lean`
-now covers 43 named theorems; standard axiom dependencies are checked by the
+now covers 54 named theorems; standard axiom dependencies are checked by the
 integration runner.
 
 `Hansen.lean` checks a marking certificate given as `(value, Bool)` entries,
@@ -109,3 +109,18 @@ marked-value list and 17-step count. The marking matches the saved Python
 Hansen certificate. No detector completeness theorem or Python/Lean format
 isomorphism is claimed. The large Hansen Mersenne lift and source optimality
 remain outside Lean. See `../results/2026-09-24-hansen-underlining-lean.md`.
+
+`HansenShift.lean` proves the shift accounting independently of the future
+Mersenne replay. `hansenShiftDemands` lists consumers of the current anchor
+through the next mark, and `hansenShiftMax` computes their maximum. For any
+valid source prefix and accepted continuation, that maximum is exactly the
+next-mark gap. `hansenShiftCaps` gives one cap per marked value, ending in zero;
+its head is the actual maximum and its sum plus the initial anchor equals the
+final anchor. Starting at 1 gives sum `n-1`.
+
+Eight general theorems, eight kernel-evaluated examples and three 12509
+specialisations cover the count. The concrete cap list matches the saved
+Python certificate at its marked indices, with zero at every unmarked index.
+The sum 12508 and budget 12525 are proved, but shifted-node distinctness and
+sorted replay remain open implementation work. The numerical Lean bound
+remains 12526 and the source optimum remains unformalised.

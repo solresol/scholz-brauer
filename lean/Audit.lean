@@ -46,3 +46,15 @@ import ScholzBrauer
 #print axioms ScholzBrauer.hansen12509_source_replay
 #print axioms ScholzBrauer.hansen12509_marks
 #print axioms ScholzBrauer.hansen12509_source_count
+
+#print axioms ScholzBrauer.hansenNextMark_bounds_prefix
+#print axioms ScholzBrauer.hansenShiftMax_eq_gap
+#print axioms ScholzBrauer.hansenShiftDemands_le_max
+#print axioms ScholzBrauer.hansenShiftCaps_head
+#print axioms ScholzBrauer.hansenShiftCaps_length
+#print axioms ScholzBrauer.hansenShiftCaps_telescope
+#print axioms ScholzBrauer.hansenShiftCaps_sum
+#print axioms ScholzBrauer.hansenShiftCaps_budget
+#print axioms ScholzBrauer.hansen12509_shift_caps
+#print axioms ScholzBrauer.hansen12509_shift_sum
+#print axioms ScholzBrauer.hansen12509_shift_budget

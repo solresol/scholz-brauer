@@ -7,6 +7,7 @@ import itertools
 import json
 from pathlib import Path
 import platform
+import re
 import time
 from zoneinfo import ZoneInfo
 
@@ -58,6 +59,42 @@ def reject(function, *args, **kwargs):
     raise AssertionError("invalid input accepted")
 
 
+def check_shift_gaps(chain, marks, shifts):
+    """Independent interval calculation, including zero caps at unmarked values."""
+    expected = [0] * len(chain)
+    for left, right in zip(marks, marks[1:]):
+        demands = [chain[i] - chain[left] for i in range(left + 1, right + 1)]
+        gap = chain[right] - chain[left]
+        if max(demands) != gap or any(b not in chain[:i]
+                for i, b in zip(range(left + 1, right + 1), demands)):
+            raise AssertionError("marked interval has an invalid shift request")
+        expected[left] = gap
+    if shifts != expected or sum(expected) != chain[-1] - 1:
+        raise AssertionError("stored shifts differ from telescoping interval maxima")
+    return [expected[i] for i in marks]
+
+
+def check_lean_shift_fixture(document):
+    """Compare explicit Lean literals with one JSON fixture, not a format theorem."""
+    text = (ROOT / "lean/ScholzBrauer/Example12509.lean").read_text()
+    step_text = re.search(r"def hansenSteps12509 : List MarkedStep :=\s*\[(.*?)\]",
+                          text, re.DOTALL).group(1)
+    steps = re.findall(r"\((\d+), (true|false)\)", step_text)
+    chain = [1] + [int(v) for v, _ in steps]
+    marks = [0] + [i for i, (_, flag) in enumerate(steps, 1) if flag == "true"]
+    cap_text = re.search(r"theorem hansen12509_shift_caps :.*?=\s*\[(.*?)\]",
+                         text, re.DOTALL).group(1)
+    caps = [int(v.strip()) for v in cap_text.split(",")]
+    if chain != document["source_chain"] or marks != document["underlined_indices"]:
+        raise AssertionError("Lean source or marking differs from the saved fixture")
+    expected = check_shift_gaps(chain, marks, document["max_shifts"])
+    if caps != expected:
+        raise AssertionError("Lean marked caps differ from saved maximum shifts")
+    return {"marked_caps": caps, "shift_sum": sum(caps),
+            "source_steps": len(steps), "allocation_budget": sum(caps) + len(steps),
+            "general_format_equivalence_proved": False}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
@@ -68,7 +105,8 @@ def main():
     run_time = datetime.now(ZoneInfo("Australia/Sydney"))
     paths = [Path(__file__).resolve(), ROOT / "scripts/hansen_lift.py",
              ROOT / "scripts/check_certificate.py", ROOT / "scripts/check_12509.py",
-             ROOT / "scripts/star_lift.py", ROOT / "data/12509-hansen.json", SAVED]
+             ROOT / "scripts/star_lift.py", ROOT / "data/12509-hansen.json", SAVED,
+             ROOT / "lean/ScholzBrauer/Example12509.lean"]
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
               for p in paths}
     digest = hashlib.sha256()
@@ -87,6 +125,7 @@ def main():
         for marks in expected:
             counts["accepted_underlinings"] += 1
             document = hansen_lift(chain, marks)
+            check_shift_gaps(chain, marks, document["max_shifts"])
             values = check_document(document, exponent=chain[-1],
                                     additions=chain[-1] + len(chain) - 2)
             check_chain(values)  # Recover ALL parent pairs without generator indices.
@@ -120,6 +159,7 @@ def main():
         if chain[-1] != 12509 or len(parents) != 17:
             raise AssertionError("published input differs")
         document = hansen_lift(chain)
+        check_shift_gaps(chain, document["underlined_indices"], document["max_shifts"])
         check_document(document, exponent=12509, additions=12525)
         examples.append({"source": entry["name"], "source_additions": len(parents),
                          "underlined_indices": document["underlined_indices"],
@@ -127,6 +167,7 @@ def main():
                          "doublings": sum(document["max_shifts"]),
                          "additions": document["additions"], "exact_endpoint_verified": True})
     document = json.loads(SAVED.read_text())
+    lean_shift_fixture = check_lean_shift_fixture(document)
     if document != hansen_lift(fixture["chain"]):
         raise AssertionError("saved certificate is not reproducible")
     values = check_document(document, exponent=12509, additions=12525)
@@ -157,6 +198,8 @@ def main():
               "exhaustive_family": dict(counts, max_steps=6, max_endpoint=32,
                                         input_sha256=digest.hexdigest()),
               "structural_regressions": structural, "published_examples": examples,
+              "shift_gap_checks_small_family": counts["accepted_underlinings"],
+              "lean_shift_fixture": lean_shift_fixture,
               "negative_checks": negatives,
               "certificate_sha256": hashes[str(SAVED.relative_to(ROOT))],
               "endpoint_bit_length": values[-1].bit_length(),
