@@ -1,0 +1,23 @@
+{
+  "accessed_at_australia_sydney": "2026-09-27T08:04:50.027227+10:00",
+  "method": "web open; chain lists compared with local JSON fixtures",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "version": "live page; no immutable revision",
+      "fixture": "data/12509-hansen.json additional_fixture.chain",
+      "chain_matches": true
+    },
+    {
+      "url": "https://oeis.org/A349044",
+      "version": "live page; no immutable entry revision recorded",
+      "fixtures": [
+        "data/12509-hansen.json chain",
+        "data/12509-star.json chain"
+      ],
+      "chains_match": true
+    }
+  ],
+  "scope": "Published chain values only; no imported optimality table, larger case, novelty or frontier claim.",
+  "hansen_original_article_inspected": false
+}

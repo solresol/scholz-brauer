@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 26 September 2026
+## Verified status — 27 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -104,7 +104,7 @@ right-side interval `[12522,12525]` describes the Lean evidence alone.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's page and both published 17-step sources were rechecked on 26 September. Its claim
+Clift's page and both published 17-step sources were rechecked on 27 September. Its claim
 that 5,784,689 is the first non-Hansen number remains a literature claim; the larger data and
 optimality search have not been independently checked here.
 
@@ -119,7 +119,13 @@ existing report. It runs the existing Python checks, compiles the C++17 search
 and compares it with a separate Python traversal, then runs `lake build` and
 `lake env lean Audit.lean` (from `lean/`), verifies the toolchain version and
 vendored source hashes, and records input hashes, commands and exact outputs.
-The small-check report now uses the actual Australia/Sydney run date.
+The small-check report uses the actual Australia/Sydney run date. Integration
+also independently replays the Hansen certificate and checks that source witness,
+both exhausted searches, portable exclusion and Mersenne replay agree on the
+12509 statement. It rejects incomplete searches, mismatched targets and a lift
+longer than 12525 before reporting the numerical Scholz instance. These report
+consistency checks do not replace certificate checking or prove checker soundness.
+See `results/2026-09-27-weekly-integration.md` for the week's evidence map.
 
 The search needs a C++17 compiler; the recorded run uses Apple clang 21.0.0.
 The saved exclusion can also be checked without a compiler or search generator:
@@ -158,7 +164,10 @@ reference and is not imported into the proofs.
 - `scripts/check_exclusion.py`: independent, context-sensitive proof-object checker.
 - `scripts/verify_exclusion.py`: small exhaustive comparisons, corruption and
   budget checks, saved proof replay and optional deterministic regeneration.
-- `scripts/verify_integration.py`: combined reproducible evidence and axiom audit.
+- `scripts/verify_integration.py`: combined reproducible evidence, checked
+  composition of the numerical conclusion, and axiom audit.
+- `scripts/verify_evidence_composition.py`: mismatched/incomplete report regressions,
+  including rejection of the star-only 12526 bound as evidence for 12525.
 - `data/12509-star.json`: published source chain and attribution.
 - `data/12509-hansen.json`: two rechecked 17-step sources and retrieval hashes.
 - `results/`: dated verification evidence and source notes.

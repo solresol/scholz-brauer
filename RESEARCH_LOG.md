@@ -1,5 +1,36 @@
 # Research log
 
+## 2026-09-27 — Sunday — checked composition of weekly evidence
+
+Australia/Sydney, starting 08:02 AEST. Clean main at ea78286, correct
+solresol/scholz-brauer origin, no competing research process or lock. Read
+prior run memory, current instructions, source, roadmap and dated results;
+fetch/ff-only was already current. Acquired the exclusive run lock.
+
+**Increment.** Reconciled the week's computational and Lean claims in
+`results/2026-09-27-weekly-integration.md`. Integration now explicitly matches
+the witness, both exhaustive search statements, full search root/frontier,
+portable exclusion and standalone Hansen replay before composing its numerical
+conclusion. Hashes bind the Hansen replays to the saved input. Added 26 altered
+and eight missing-field report cases, checked normally and under Python -O.
+No previous numerical claim needed withdrawing; this closes an integration
+consistency gap, not a mathematical or checker-soundness gap.
+
+**Checks.** Full integration passed in 55.145647s: both 1345873-visit exhaustive
+12509 exclusions, portable proof replay, small lift/search oracles, 752-job Lean
+build, 54 standard-axiom audits and five vendor hashes. Python3.9.6,
+Lean4.27.0, pinned dependencies unchanged, exact integers and no seed. All 39
+input hashes match. Rechecked published chain lists on Clift/OEIS with dated
+source metadata. Reviewed complete source/docs diff and structured evidence.
+
+**Conclusion and next.** Computational ell(12509)=17 and the 12525-step
+Mersenne witness still establish Scholz at 12509. Lean source bounds remain
+[14,17], actual Mersenne bound 12526, Hansen allocation budget 12525. No new
+bound or theorem. Retired parent-choice/value-star and shared-node-context
+shortcuts explicitly; no failed mathematical hypothesis. Monday: bounded
+Python-index to Lean-value replay fixtures. Tuesday: shifted-node injectivity;
+then sorted replay. Exclusion soundness remains separate, larger cases deferred.
+
 ## 2026-09-26 — Saturday — Hansen shift accounting in Lean
 
 Australia/Sydney, starting 08:02 AEST. Read automation memory, repository

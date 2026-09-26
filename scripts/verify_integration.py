@@ -40,6 +40,51 @@ def check_axioms(output, expected):
     return len(entries)
 
 
+def compose_12509_evidence(witness, mersenne, research, exclusion):
+    """Combine fresh checker results; these summaries are not proof objects.
+
+    The runner must execute the independent checkers first. Reject mismatched
+    statements, incomplete searches and a lift too long for the claimed bound.
+    This does not establish checker soundness or any Lean theorem.
+    """
+    def expect(record, key, value):
+        actual = record.get(key)
+        if type(actual) is not type(value) or actual != value:
+            raise ValueError(f"evidence mismatch for {key}: expected {value!r}")
+
+    expect(witness, "endpoint", 12509)
+    expect(witness, "additions", 17)
+    if not isinstance(research, dict):
+        raise ValueError("missing exhaustive research results")
+    limit = witness["additions"] - 1
+    for name in ("cpp", "python"):
+        result = research[name]
+        expect(result, "target", witness["endpoint"])
+        expect(result, "max_steps", limit)
+        expect(result, "status", "exhausted")
+        expect(result, "witness", [] if name == "cpp" else None)
+    expect(research["cpp"], "prefix", [1])
+    if any(type(x) is not int for x in research["cpp"]["prefix"]):
+        raise ValueError("invalid search root")
+    expect(research["cpp"], "pending_prefixes", [])
+    expect(exclusion, "status", "excluded")
+    expect(exclusion, "target", witness["endpoint"])
+    expect(exclusion, "max_steps", limit)
+    expect(mersenne, "exponent", witness["endpoint"])
+    expect(mersenne, "exact_endpoint_verified", True)
+    additions = mersenne.get("additions")
+    rhs = witness["endpoint"] - 1 + witness["additions"]
+    if type(additions) is not int or not 0 <= additions <= rhs:
+        raise ValueError("Mersenne witness does not establish the Scholz bound")
+    return {
+        "computational_ell_12509_bounds": [limit + 1, witness["additions"]],
+        "scholz_rhs_from_computational_optimality": rhs,
+        "checked_mersenne_witness_additions": additions,
+        "optimality_computationally_established": True,
+        "scholz_at_12509_computationally_established": True,
+        "portable_exclusion_certificate_checked": True}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
@@ -71,6 +116,7 @@ def main():
                        ROOT / "data/12509-hansen.json",
                        ROOT / "data/2026-09-24-hansen-sources.json",
                        ROOT / "data/2026-09-26-hansen-shift-sources.json",
+                       ROOT / "data/2026-09-27-integration-sources.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
                        ROOT / "results/2026-09-25-12509-exclusion-certificate.json"})
@@ -86,6 +132,14 @@ def main():
         sys.executable, "scripts/check_certificate.py",
         "results/2026-09-18-12509-star-certificate.json",
         "--exponent", "12509", "--additions", "12526", "--require-star"]))
+    mersenne_path = "results/2026-09-21-12509-hansen-certificate.json"
+    mersenne = json.loads(run([
+        sys.executable, "scripts/check_certificate.py", mersenne_path,
+        "--exponent", "12509", "--additions", "12525"]))
+    if mersenne["certificate_sha256"] != hashes[mersenne_path]:
+        raise ValueError("Mersenne replay differs from hashed integration input")
+    run([sys.executable, "scripts/verify_evidence_composition.py"])
+    run([sys.executable, "-O", "scripts/verify_evidence_composition.py"])
     with tempfile.TemporaryDirectory(prefix=".integration-", dir=ROOT) as temporary:
         small = json.loads(run([sys.executable, "scripts/verify_star_lift.py",
                                "--output", str(Path(temporary) / "small.json")]))
@@ -99,6 +153,10 @@ def main():
         run([sys.executable, "scripts/verify_exclusion.py",
              "--output", str(exclusion_path)])
         exclusion = json.loads(exclusion_path.read_text())
+    computational = compose_12509_evidence(
+        witness, mersenne, search["research"], exclusion["saved_12509"])
+    if hansen["certificate_sha256"] != mersenne["certificate_sha256"]:
+        raise ValueError("Hansen regression and standalone replay used different certificates")
     if small["date_australia_sydney"] < run_time.date().isoformat():
         raise ValueError("small-check report has a stale run date")
     if small["exhaustive_star_prefixes"]["count"] != 842:
@@ -125,16 +183,13 @@ def main():
         "input_sha256": hashes, "vendored_hashes_checked": len(provenance["files"]),
         "audited_theorems": audited, "commands": commands,
         "witness": witness, "certificate": certificate, "small_checks": small,
+        "hansen_certificate_replay": mersenne,
         "hansen_checks": hansen, "search_checks": search,
         "exclusion_certificate_checks": exclusion,
         "claim_boundary": {
+            **computational,
             "lean_ell_12509_bounds": [14, 17],
-            "computational_ell_12509_bounds": [17, 17],
-            "scholz_rhs_from_computational_optimality": 12525,
-            "checked_mersenne_witness_additions": hansen["published_examples"][0]["additions"],
             "target_if_ell_12509_equals_17": 12525,
-            "optimality_computationally_established": True,
-            "scholz_at_12509_computationally_established": True,
             "optimality_or_scholz_at_12509_formalised": False,
             "whole_star_lift_formalised": True,
             "lean_mersenne_12509_upper_bound": 12526,
@@ -143,7 +198,6 @@ def main():
             "hansen_latest_marked_anchor_formalised": True,
             "hansen_shift_maximum_and_telescope_formalised": True,
             "lean_hansen_12509_shift_budget": 12525,
-            "portable_exclusion_certificate_checked": True,
             "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "
                     "Together with the 17-step source and 12525-step Mersenne "

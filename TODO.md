@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-26 (Saturday, Australia/Sydney).
+Updated 2026-09-27 (Sunday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -46,7 +46,20 @@ Updated 2026-09-26 (Saturday, Australia/Sydney).
   12509: 12508 shifted copies plus 17 source steps gives budget 12525. Match
   marked caps to the saved JSON and check all 5248 accepted small underlinings.
 
+- [x] Integrate the 21–26 September evidence with explicit matching of source,
+  exclusions and Mersenne witness; rerun full integration and adversarial report
+  checks. Keep computational optimality, formal shift budget and formal Mersenne
+  bound separate in the weekly evidence map.
+
 ## Next informative increments
+
+**Next scheduled work:** Monday, generate small Hansen lifts as Lean
+summand-value replay certificates from the independently checked index format.
+Use the singleton source and Clift's interleaving example at 29, with an explicit
+size cap, and kernel-check their replays. This tests the interface needed by the
+formal lift; finite examples do not prove general format equivalence. Tuesday,
+prove injectivity of `(a,k) ↦ 2^k*(2^a-1)` for positive `a` as the next general
+Hansen lemma. Do not repeat the completed anchor or shift-count theorems.
 
 1. **Optimality formal certificate:** the Wednesday computational exclusion is
    complete: independent C++ and Python traversals exhaust all chains of at most
@@ -85,3 +98,9 @@ test-design assumption that non-star chosen parent indices imply non-star values
 remains explicitly retired: 6=3+3 can also be 5+1 in [1,2,3,5,6].
 The whole-star invariant is proved; do not repeat it. The bridge between Lean's
 summand-value certificates and Python's summand-index format remains unproved.
+
+The second retired implementation shortcut is caching exclusion truth by shared
+node id alone: Friday's adversarial context case refutes it. Neither shortcut
+is a failed mathematical conjecture. A 12525 shift allocation is not yet a Lean
+chain, and a valid 12526-step star witness alone does not establish the desired
+12525 numerical bound; Sunday's composition regressions enforce the latter.
