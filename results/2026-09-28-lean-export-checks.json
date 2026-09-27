@@ -1,0 +1,330 @@
+{
+  "started_at_australia_sydney": "2026-09-28T08:03:58.619622+10:00",
+  "weekday_australia_sydney": "Monday",
+  "python": "3.9.6",
+  "seed": null,
+  "limits": {
+    "max_exponent": 64,
+    "max_additions": 128
+  },
+  "exhaustive_family": {
+    "sources": 1051,
+    "masks": 30582,
+    "exported_underlinings": 5248,
+    "max_source_steps": 6,
+    "max_endpoint": 32,
+    "rendered_sha256": "4df72ab94bfcdc74f7cf4a1521a4d057dfbd3cd3234b04c00710a14ffed49a4b"
+  },
+  "negative_checks": 28,
+  "fixtures": [
+    {
+      "name": "singleton",
+      "exponent": 1,
+      "additions": 0,
+      "underlined_indices": [
+        0
+      ],
+      "max_shifts": [
+        0
+      ],
+      "values": [
+        1
+      ],
+      "index_certificate": {
+        "format": "addition-chain-indices-v1",
+        "start": 1,
+        "target": {
+          "kind": "mersenne",
+          "exponent": 1
+        },
+        "additions": 0,
+        "source_chain": [
+          1
+        ],
+        "underlined_indices": [
+          0
+        ],
+        "source_parents": [],
+        "max_shifts": [
+          0
+        ],
+        "pairs": []
+      }
+    },
+    {
+      "name": "interleaved29",
+      "exponent": 29,
+      "additions": 35,
+      "underlined_indices": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      "max_shifts": [
+        1,
+        2,
+        4,
+        9,
+        0,
+        0,
+        12,
+        0
+      ],
+      "values": [
+        1,
+        2,
+        3,
+        6,
+        12,
+        15,
+        30,
+        60,
+        120,
+        240,
+        255,
+        510,
+        511,
+        1020,
+        2040,
+        4080,
+        4095,
+        8160,
+        16320,
+        32640,
+        65280,
+        130560,
+        131071,
+        262142,
+        524284,
+        1048568,
+        2097136,
+        4194272,
+        8388544,
+        16777088,
+        33554176,
+        67108352,
+        134216704,
+        268433408,
+        536866816,
+        536870911
+      ],
+      "index_certificate": {
+        "format": "addition-chain-indices-v1",
+        "start": 1,
+        "target": {
+          "kind": "mersenne",
+          "exponent": 29
+        },
+        "additions": 35,
+        "source_chain": [
+          1,
+          2,
+          4,
+          8,
+          9,
+          12,
+          17,
+          29
+        ],
+        "underlined_indices": [
+          0,
+          1,
+          2,
+          3,
+          6,
+          7
+        ],
+        "source_parents": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "max_shifts": [
+          1,
+          2,
+          4,
+          9,
+          0,
+          0,
+          12,
+          0
+        ],
+        "pairs": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            0
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            5
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            20,
+            20
+          ],
+          [
+            21,
+            12
+          ],
+          [
+            22,
+            22
+          ],
+          [
+            23,
+            23
+          ],
+          [
+            24,
+            24
+          ],
+          [
+            25,
+            25
+          ],
+          [
+            26,
+            26
+          ],
+          [
+            27,
+            27
+          ],
+          [
+            28,
+            28
+          ],
+          [
+            29,
+            29
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            31,
+            31
+          ],
+          [
+            32,
+            32
+          ],
+          [
+            33,
+            33
+          ],
+          [
+            34,
+            16
+          ]
+        ]
+      }
+    }
+  ],
+  "fixture_source_sha256": "af167dd7cb121a7bf5d0ee38ec8fc206bf78d7aa916295a077e5046570fcd362",
+  "lean_build_run_by_this_script": false,
+  "general_format_equivalence_proved": false,
+  "hansen_lift_formalised": false,
+  "runtime_seconds": 0.937847
+}

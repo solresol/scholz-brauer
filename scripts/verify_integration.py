@@ -117,6 +117,8 @@ def main():
                        ROOT / "data/2026-09-24-hansen-sources.json",
                        ROOT / "data/2026-09-26-hansen-shift-sources.json",
                        ROOT / "data/2026-09-27-integration-sources.json",
+                       ROOT / "data/2026-09-28-hansen-export-sources.json",
+                       ROOT / "data/hansen-replay-fixtures.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
                        ROOT / "results/2026-09-25-12509-exclusion-certificate.json"})
@@ -145,6 +147,11 @@ def main():
                                "--output", str(Path(temporary) / "small.json")]))
         hansen = json.loads(run([sys.executable, "scripts/verify_hansen_lift.py",
                                 "--output", str(Path(temporary) / "hansen.json")]))
+        export_path = Path(temporary) / "export.json"
+        run([sys.executable, "scripts/verify_lean_export.py", "--output", str(export_path)])
+        export = json.loads(export_path.read_text())
+        run([sys.executable, "-O", "scripts/verify_lean_export.py",
+             "--output", str(Path(temporary) / "export-optimized.json")])
         search_path = Path(temporary) / "search.json"
         run([sys.executable, "scripts/verify_search.py", "--research",
              "--output", str(search_path)])
@@ -185,6 +192,7 @@ def main():
         "witness": witness, "certificate": certificate, "small_checks": small,
         "hansen_certificate_replay": mersenne,
         "hansen_checks": hansen, "search_checks": search,
+        "lean_export_checks": export,
         "exclusion_certificate_checks": exclusion,
         "claim_boundary": {
             **computational,
@@ -194,6 +202,8 @@ def main():
             "whole_star_lift_formalised": True,
             "lean_mersenne_12509_upper_bound": 12526,
             "hansen_lift_formalised": False,
+            "lean_hansen_replay_fixture_exponents": [1, 29],
+            "general_index_value_equivalence_formalised": False,
             "hansen_underlining_checker_formalised": True,
             "hansen_latest_marked_anchor_formalised": True,
             "hansen_shift_maximum_and_telescope_formalised": True,

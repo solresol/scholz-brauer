@@ -58,3 +58,12 @@ import ScholzBrauer
 #print axioms ScholzBrauer.hansen12509_shift_caps
 #print axioms ScholzBrauer.hansen12509_shift_sum
 #print axioms ScholzBrauer.hansen12509_shift_budget
+
+#print axioms ScholzBrauer.Exported.fixture_singleton_replay
+#print axioms ScholzBrauer.Exported.fixture_singleton_count
+#print axioms ScholzBrauer.Exported.fixture_singleton_valid
+#print axioms ScholzBrauer.Exported.fixture_singleton_bound
+#print axioms ScholzBrauer.Exported.fixture_interleaved29_replay
+#print axioms ScholzBrauer.Exported.fixture_interleaved29_count
+#print axioms ScholzBrauer.Exported.fixture_interleaved29_valid
+#print axioms ScholzBrauer.Exported.fixture_interleaved29_bound

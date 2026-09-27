@@ -1,0 +1,69 @@
+{
+  "started_at_australia_sydney": "2026-09-28T08:05:41.377331+10:00",
+  "commands": [
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/gregb/Documents/devel/scholz-brauer/scripts/export_lean_certificate.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/certificate.json",
+        "/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/Export.lean",
+        "--name",
+        "cli29",
+        "--exponent",
+        "29",
+        "--additions",
+        "35"
+      ],
+      "cwd": "/Users/gregb/Documents/devel/scholz-brauer",
+      "exit_code": 0,
+      "output": "{\"output\": \"/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/Export.lean\", \"exponent\": 29, \"additions\": 35, \"lean_build_run\": false}\n",
+      "runtime_seconds": 0.033998
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/Export.lean"
+      ],
+      "cwd": "/Users/gregb/Documents/devel/scholz-brauer/lean",
+      "exit_code": 0,
+      "output": "",
+      "runtime_seconds": 10.99637
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/gregb/Documents/devel/scholz-brauer/scripts/export_lean_certificate.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/certificate.json",
+        "/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/Export.lean",
+        "--name",
+        "cli29",
+        "--exponent",
+        "29",
+        "--additions",
+        "35"
+      ],
+      "cwd": "/Users/gregb/Documents/devel/scholz-brauer",
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/export_lean_certificate.py\", line 94, in <module>\n    main()\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/export_lean_certificate.py\", line 83, in main\n    raise FileExistsError(args.output)\nFileExistsError: /Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/Export.lean\n",
+      "runtime_seconds": 0.042032
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/Corrupted.lean"
+      ],
+      "cwd": "/Users/gregb/Documents/devel/scholz-brauer/lean",
+      "exit_code": 1,
+      "output": "/Users/gregb/Documents/devel/scholz-brauer/.export-cli-g4099450/Corrupted.lean:48:65: error: Tactic `decide` proved that the proposition\n  replay fixture_cli29_steps = some fixture_cli29_values\nis false\n",
+      "runtime_seconds": 1.997486
+    }
+  ],
+  "corrupted_value_replay_rejected_by_lean": true,
+  "existing_output_preserved": true,
+  "successful_export_sha256": "e3a6e4335637c14257204e268f16b0f09943ae2d153a59ad6ab6bb3fd094a109",
+  "runtime_seconds": 13.071722
+}

@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-27 (Sunday, Australia/Sydney).
+Updated 2026-09-28 (Monday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -51,15 +51,18 @@ Updated 2026-09-27 (Sunday, Australia/Sydney).
   checks. Keep computational optimality, formal shift budget and formal Mersenne
   bound separate in the weekly evidence map.
 
+- [x] Export checked index certificates to bounded Lean value fixtures; kernel-check
+  singleton and Clift interleaving-29 replays, independently read back all 5248
+  small accepted underlinings, and reject corrupted emitted replay in Lean.
+
 ## Next informative increments
 
-**Next scheduled work:** Monday, generate small Hansen lifts as Lean
-summand-value replay certificates from the independently checked index format.
-Use the singleton source and Clift's interleaving example at 29, with an explicit
-size cap, and kernel-check their replays. This tests the interface needed by the
-formal lift; finite examples do not prove general format equivalence. Tuesday,
-prove injectivity of `(a,k) ↦ 2^k*(2^a-1)` for positive `a` as the next general
-Hansen lemma. Do not repeat the completed anchor or shift-count theorems.
+**Next scheduled work:** Tuesday, prove injectivity of
+`(a,k) ↦ 2^k*(2^a-1)` for positive `a`, using unique odd parts. Then prove
+summand availability and sorted replay for the general Hansen lift. The bounded
+Python-index to Lean-value exporter and the singleton/interleaving-29 fixtures
+are complete; their finite replays do not prove general format equivalence.
+Do not repeat the completed anchor, shift-count or fixture work.
 
 1. **Optimality formal certificate:** the Wednesday computational exclusion is
    complete: independent C++ and Python traversals exhaust all chains of at most

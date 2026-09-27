@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 27 September 2026
+## Verified status — 28 September 2026
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -97,14 +97,23 @@ adding the 17 source steps. This is a count identity: distinctness of the
 shifted nodes and their successful sorted replay remain to be formalised.
 See `results/2026-09-26-hansen-shift-lean.md`.
 
+A bounded exporter now converts independently checked Python summand indices
+into Lean summand-value fixtures. Kernel replay checks the singleton lift and
+Clift's interleaving source `[1,2,4,8,9,12,17,29]`, giving the concrete bound
+`ℓ(2^29-1) ≤ 35`. Python export/readback checks cover all 5,248 accepted small
+underlinings. These are finite replay witnesses, not a general Hansen lift or
+an index/value equivalence theorem; no source or Mersenne optimum is claimed.
+The exporter caps exponents at 64 and additions at 128 before integer replay.
+See `results/2026-09-28-hansen-export.md`.
+
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 54-theorem axiom audit. The **Lean-only** source bounds remain
+exclusion checker, the Lean build and 62-theorem axiom audit. The **Lean-only** source bounds remain
 `14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
 right-side interval `[12522,12525]` describes the Lean evidence alone.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's page and both published 17-step sources were rechecked on 27 September. Its claim
+Clift's page and both published 17-step sources were rechecked on 28 September. Its claim
 that 5,784,689 is the first non-Hansen number remains a literature claim; the larger data and
 optimality search have not been independently checked here.
 
@@ -166,6 +175,10 @@ reference and is not imported into the proofs.
   budget checks, saved proof replay and optional deterministic regeneration.
 - `scripts/verify_integration.py`: combined reproducible evidence, checked
   composition of the numerical conclusion, and axiom audit.
+- `scripts/export_lean_certificate.py`: bounded checked index-to-value Lean export.
+- `scripts/verify_lean_export.py`: exhaustive small export/readback and saved-fixture checks.
+- `lean/ScholzBrauer/HansenReplayFixtures.lean`: generated kernel replay witnesses
+  for exponents 1 and 29, including interleaved shifted values.
 - `scripts/verify_evidence_composition.py`: mismatched/incomplete report regressions,
   including rejection of the star-only 12526 bound as evidence for 12525.
 - `data/12509-star.json`: published source chain and attribution.

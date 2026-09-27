@@ -1,5 +1,38 @@
 # Research log
 
+## 2026-09-28 — Monday — bounded export to Lean replay fixtures
+
+Australia/Sydney, starting about 08:01 AEST. Read applicable instructions,
+automation memory, current roadmap/log, recent results and actual sources.
+Clean main at 597643f, correct origin, no competing research process or run
+lock. Acquired exclusive lock, fetched and fast-forward-only merged (already
+current). Rechecked Clift/OEIS sources and vendored upstream definitions/licence.
+
+**Increment.** Added bounded Python-index to Lean-value export, with independent
+integer validation before output. Saved singleton and interleaving-29 fixtures;
+eight named kernel-checked replay/count/validity/bound theorems give the finite
+35-step bound for `2^29-1`. Independent readback checks all 5248 accepted small
+underlinings (1051 sources, 30582 masks), plus 28 negative cases, normally and
+under Python -O. CLI output compiled; overwriting was refused; corrupting an
+emitted summand was independently rejected by Lean. General equivalence and
+Hansen generator correctness are not proved by these finite examples.
+
+**Checks.** Full integration 43.108120s: 753 build jobs, 62 standard-axiom audits,
+five vendor hashes, 44 input hashes, both 1345873-prefix exhaustive exclusions,
+portable proof replay and all small regressions. Exact arithmetic, no seed,
+Python3.9.6, Lean4.27.0 and unchanged dependency pins. A mistaken preliminary
+root-directory Lake invocation began an unpinned toolchain download/install;
+it was terminated with exit143 and supplies no build evidence. Every successful
+Lean check used the pinned lean/ directory. Complete diffs and evidence reviewed.
+See `results/2026-09-28-hansen-export.md` for commands, timings and limitations.
+
+**Conclusion and next.** Finite Lean Mersenne bound at29 is35; no optimum claim.
+Computational ell(12509)=17 and Scholz at12509 are reconfirmed. Lean source
+interval[14,17], Mersenne bound12526 and Hansen count budget12525 are unchanged.
+No new counterexample, failed mathematical hypothesis or novelty claim.
+Tuesday: shifted-node injectivity, then summand availability and sorted replay;
+do not repeat completed fixture work. Exclusion soundness and larger cases deferred.
+
 ## 2026-09-27 — Sunday — checked composition of weekly evidence
 
 Australia/Sydney, starting 08:02 AEST. Clean main at ea78286, correct

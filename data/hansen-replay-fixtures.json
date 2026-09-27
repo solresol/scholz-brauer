@@ -1,0 +1,16 @@
+{
+  "purpose": "Finite Python index to Lean value replay fixtures; no general equivalence claim",
+  "source_metadata": "data/2026-09-28-hansen-export-sources.json",
+  "cases": [
+    {
+      "name": "singleton",
+      "source_chain": [1],
+      "underlined_indices": [0]
+    },
+    {
+      "name": "interleaved29",
+      "source_chain": [1, 2, 4, 8, 9, 12, 17, 29],
+      "underlined_indices": [0, 1, 2, 3, 6, 7]
+    }
+  ]
+}
