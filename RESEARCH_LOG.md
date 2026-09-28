@@ -1,5 +1,39 @@
 # Research log
 
+## 2026-09-29 — Tuesday — positive shifted-node injectivity in Lean
+
+Australia/Sydney, starting about 08:02 AEST. Read applicable instructions,
+automation memory, roadmap/log, recent evidence and actual sources. Clean
+main at 97a558a, correct origin and no competing research process or lock.
+Acquired exclusive run lock; fetch/ff-only reported already current.
+Reinspected upstream definitions/Scholz statement/licences and rechecked
+Clift/OEIS published witnesses, keeping source metadata.
+
+**Increment.** Added `HansenNodes.lean` with seven general theorems: odd
+Mersenne remainder, unique power-of-two/odd-part decomposition, injectivity
+of `(a,k) ↦ 2^k*(2^a-1)` for positive a, positivity, doubling/base-sum
+identities and duplicate-free value conversion. Six examples cover essential
+boundaries, the 29 interleaving windows and arbitrary shifts of the 12/13
+families in the 12509 source. Reused mathlib and the existing Brauer identity;
+no dependency changes or assumed conjecture. Updated integration's audited
+imports and explicit claim boundaries, README and roadmap.
+
+**Checks.** Full integration passed in 56.332228s: 754 build jobs, 69
+standard-axiom theorem audits, 46 input and five vendor hashes, both
+1345873-prefix exclusions, portable exclusion replay and independent Hansen
+replay, all small oracles and negative checks. Lean4.27.0/Python3.9.6, exact
+arithmetic, no seed. Initial proof elaboration/rewrite errors were repaired;
+final source has no proof placeholders. Full diffs and evidence reviewed.
+Details and commands: `results/2026-09-29-hansen-nodes-lean.md`.
+
+**Conclusion and next.** Positive shifted values are formally collision-free.
+The allocated family, summand membership and sorted replay remain to be
+formalised. Computational optimum17 and Scholz at12509 are reconfirmed;
+Lean source[14,17], Mersenne12526 and Hansen budget12525 are unchanged.
+No novelty or counterexample claim. Wednesday: labelled allocation/dependency
+certificate for29/12509; next Lean step is summand availability and sorted
+replay. Exclusion soundness and larger non-Hansen work remain deferred.
+
 ## 2026-09-28 — Monday — bounded export to Lean replay fixtures
 
 Australia/Sydney, starting about 08:01 AEST. Read applicable instructions,

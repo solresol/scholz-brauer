@@ -67,3 +67,11 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Exported.fixture_interleaved29_count
 #print axioms ScholzBrauer.Exported.fixture_interleaved29_valid
 #print axioms ScholzBrauer.Exported.fixture_interleaved29_bound
+
+#print axioms ScholzBrauer.mersenne_mod_two
+#print axioms ScholzBrauer.two_pow_mul_odd_unique
+#print axioms ScholzBrauer.shiftedMersenne_eq_iff
+#print axioms ScholzBrauer.shiftedMersenne_pos
+#print axioms ScholzBrauer.shiftedMersenne_succ
+#print axioms ScholzBrauer.shiftedMersenne_base_sum
+#print axioms ScholzBrauer.shiftedMersenne_nodup

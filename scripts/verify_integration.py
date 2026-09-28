@@ -118,6 +118,7 @@ def main():
                        ROOT / "data/2026-09-26-hansen-shift-sources.json",
                        ROOT / "data/2026-09-27-integration-sources.json",
                        ROOT / "data/2026-09-28-hansen-export-sources.json",
+                       ROOT / "data/2026-09-29-hansen-nodes-sources.json",
                        ROOT / "data/hansen-replay-fixtures.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
@@ -207,6 +208,8 @@ def main():
             "hansen_underlining_checker_formalised": True,
             "hansen_latest_marked_anchor_formalised": True,
             "hansen_shift_maximum_and_telescope_formalised": True,
+            "positive_shifted_mersenne_injectivity_formalised": True,
+            "hansen_sorted_replay_formalised": False,
             "lean_hansen_12509_shift_budget": 12525,
             "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "

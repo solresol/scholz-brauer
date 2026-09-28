@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-28 (Monday, Australia/Sydney).
+Updated 2026-09-29 (Tuesday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -55,14 +55,20 @@ Updated 2026-09-28 (Monday, Australia/Sydney).
   singleton and Clift interleaving-29 replays, independently read back all 5248
   small accepted underlinings, and reject corrupted emitted replay in Lean.
 
+- [x] Prove positive shifted-Mersenne injectivity and duplicate-free value
+  conversion in Lean; prove positivity and local doubling/base-sum identities.
+  Audit all seven new theorems; keep allocation and sorted replay separate.
+
 ## Next informative increments
 
-**Next scheduled work:** Tuesday, prove injectivity of
-`(a,k) ↦ 2^k*(2^a-1)` for positive `a`, using unique odd parts. Then prove
-summand availability and sorted replay for the general Hansen lift. The bounded
-Python-index to Lean-value exporter and the singleton/interleaving-29 fixtures
-are complete; their finite replays do not prove general format equivalence.
-Do not repeat the completed anchor, shift-count or fixture work.
+**Next scheduled work:** Wednesday, expose the Hansen allocation as labelled
+nodes `(source exponent, shift)` with labelled summand dependencies. Check
+closure, endpoint and count independently for 29 and 12509 within explicit
+budgets. This supplies an inspectable allocation interface for the next Lean
+step. Arithmetic injectivity is now proved for all positive exponents; do not
+repeat a finite collision search, completed shift counts or export fixtures.
+Next formal step: prove allocated summand membership, then derive successful
+sorted replay using positivity and the local sum identities.
 
 1. **Optimality formal certificate:** the Wednesday computational exclusion is
    complete: independent C++ and Python traversals exhaust all chains of at most
@@ -78,10 +84,11 @@ Do not repeat the completed anchor, shift-count or fixture work.
    Excluding star chains of at most 17 steps is optional later work: the star
    optimum 18 remains a literature claim and is unnecessary for this instance.
 2. **Hansen lift formalisation:** the underlining certificate, latest-marked
-   anchor invariant, shift maximum and telescoping count are complete. Do not
-   repeat them. Next define shifted nodes `(a,k)` with value `2^k*(2^a-1)`
-   and prove distinctness for positive source exponents (unique odd part).
-   Then prove availability of each summand, sorted replay and the resulting
+   anchor invariant, shift maximum, telescoping count and shifted-node
+   injectivity are complete. `HansenNodes.lean` proves distinctness for
+   positive exponents and supplies the local sum identities. Next define the
+   allocated label family, prove it is duplicate-free and contains each
+   required summand, then prove sorted replay and the resulting
    n-1+r chain length. The proved 12525 allocation budget alone is not an
    addition-chain bound. Reuse
    `mersenne_block_identity` and the source/replay API; simple sequential star

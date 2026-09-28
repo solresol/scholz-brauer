@@ -1,0 +1,29 @@
+{
+  "accessed_at_australia_sydney": "2026-09-29T08:05:38.841430+10:00",
+  "method": "web open; published source lists and Hansen construction inspected",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "version": "live page; no immutable revision",
+      "scope": "Rechecked 12509 source and the interleaving source [1,2,4,8,9,12,17,29]; retained existing fixtures. No larger chain data imported."
+    },
+    {
+      "url": "https://oeis.org/A349044",
+      "version": "live page; no immutable entry revision recorded",
+      "scope": "Rechecked the 17-step ordinary and 18-step star source lists against local fixtures; optimality claims not used as proof."
+    }
+  ],
+  "formal_conjectures_revision": "40e7c98697de6f66b8cbdbf641749ab39ed9c152",
+  "mathlib_revision": "a3a10db0e9d66acbebf76c5e6a135066525ac900",
+  "local_sources_inspected": [
+    "lean/vendor/formal-conjectures/AdditionChain.lean",
+    "lean/vendor/formal-conjectures/ScholzConjecture.lean",
+    "lean/vendor/formal-conjectures/LICENSE",
+    "lean/.lake/packages/mathlib/Mathlib/Data/Nat/Basic.lean",
+    "lean/.lake/packages/mathlib/Mathlib/Data/List/Nodup.lean",
+    "lean/.lake/packages/mathlib/LICENSE"
+  ],
+  "licence": "Apache-2.0 for both inspected Lean upstreams",
+  "hansen_original_article_inspected": false,
+  "frontier_or_novelty_claim": false
+}
