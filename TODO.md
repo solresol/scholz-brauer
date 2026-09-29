@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-29 (Tuesday, Australia/Sydney).
+Updated 2026-09-30 (Wednesday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -59,16 +59,20 @@ Updated 2026-09-29 (Tuesday, Australia/Sydney).
   conversion in Lean; prove positivity and local doubling/base-sum identities.
   Audit all seven new theorems; keep allocation and sorted replay separate.
 
+- [x] Expose bounded labelled Hansen allocations and their summand dependencies.
+  Independently check complete families, closure, count, endpoint and sorted
+  replay for 29 and both 12509 sources; compare all 5248 small underlinings,
+  reject corrupted objects and save reproducible 29/12509 allocations.
+
 ## Next informative increments
 
-**Next scheduled work:** Wednesday, expose the Hansen allocation as labelled
-nodes `(source exponent, shift)` with labelled summand dependencies. Check
-closure, endpoint and count independently for 29 and 12509 within explicit
-budgets. This supplies an inspectable allocation interface for the next Lean
-step. Arithmetic injectivity is now proved for all positive exponents; do not
-repeat a finite collision search, completed shift counts or export fixtures.
-Next formal step: prove allocated summand membership, then derive successful
-sorted replay using positivity and the local sum identities.
+**Next scheduled work:** Thursday, define the finite allocated label family in
+Lean using the checked interface in `results/2026-09-30-hansen-allocation.md`.
+Prove base-node membership, predecessor-shift membership, and availability of
+both summands of each source-base node from the latest-anchor/shift-cap lemmas.
+Then derive successful sorted replay using positivity and local sum identities.
+Wednesday's independent checker and saved labelled allocations are complete;
+do not repeat finite collision searches, shift counts or export fixtures.
 
 1. **Optimality formal certificate:** the Wednesday computational exclusion is
    complete: independent C++ and Python traversals exhaust all chains of at most
@@ -86,7 +90,9 @@ sorted replay using positivity and the local sum identities.
 2. **Hansen lift formalisation:** the underlining certificate, latest-marked
    anchor invariant, shift maximum, telescoping count and shifted-node
    injectivity are complete. `HansenNodes.lean` proves distinctness for
-   positive exponents and supplies the local sum identities. Next define the
+   positive exponents and supplies the local sum identities. The labelled
+   Python certificate now independently checks the precise family and required
+   dependencies for all small fixtures and 29/12509. Next define the
    allocated label family, prove it is duplicate-free and contains each
    required summand, then prove sorted replay and the resulting
    n-1+r chain length. The proved 12525 allocation budget alone is not an

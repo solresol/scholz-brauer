@@ -1,0 +1,216 @@
+{
+  "started_at_australia_sydney": "2026-09-30T08:07:03.718253+10:00",
+  "weekday_australia_sydney": "Wednesday",
+  "python": "3.9.6",
+  "dependencies": "standard library only",
+  "seed": null,
+  "input_sha256": {
+    "data/12509-hansen.json": "417cf5ff5532bdd550b7d16ee89cdddd422ec8cb5c3b2887912cf85c74e0bfd5",
+    "data/2026-09-30-hansen-allocation-sources.json": "27535ad40bf72c3b27671f8059f64d3a3c857a685765d0d538f21401554dad0e",
+    "data/hansen-replay-fixtures.json": "502d53f2166760fc06e179dedd789ae19ec043e5e32078a2c7381088025fb60b",
+    "results/2026-09-21-12509-hansen-certificate.json": "3662884e8f514fb682c6407ebe3593d724471183c9d21d09aa11e37342fe0c11",
+    "results/2026-09-30-12509-hansen-allocation.json": "d002aa8bb8eb40ab783f96603b2cafbe159e69e901ab243b4686b3f2aa1ef9b1",
+    "results/2026-09-30-29-hansen-allocation.json": "e83628e1cbbc179cbd15e84ed0b38e69b5b6e12d0710e65fd7b27be2c806d391",
+    "scripts/check_12509.py": "6a5f8b77f01f022046202fd4576c3c51525eeb24d4ab0fa3b148582b2e9b6aab",
+    "scripts/check_certificate.py": "aa2f15a7f67a04641b83a36739136f448330cdc543d603a1de83057e71431d40",
+    "scripts/check_exclusion.py": "b518b16a0ad4d018881247d76a7273eef8c2aeede407fa5cc1d8c124e1246482",
+    "scripts/check_hansen_allocation.py": "f21fb5f85b25361c68c0d9b22fc2d0b8096a5f0645ec4b082032a8d1ad122997",
+    "scripts/exclusion_certificate.py": "5457ee77ab9845b97e9ff784a8dc77ba15034fa13328a1673f111c890112d8b3",
+    "scripts/export_lean_certificate.py": "37679fd7d030634ed1c3b7a5cfdb0a9ad6b430fac187704ea6555b28caa658b9",
+    "scripts/hansen_allocation.py": "8f6868356f0ae5b51a73ce1234408ca9a76ae7be9cd237d6fdeb36624627151b",
+    "scripts/hansen_lift.py": "0e31315d4be4b72773ab91f24c7df2ed7e589945666fdb0b8ad55a9db5f22066",
+    "scripts/star_lift.py": "c39d29cda7b7192ef3481744718438e9b80157bd645c23f54f7031ad8dc5862b",
+    "scripts/verify_evidence_composition.py": "62d57757d1a6dc037aaabe5e9541d59bc3dff9916a54081bde52a6f361d599d3",
+    "scripts/verify_exclusion.py": "34a227aa34ee73b1a7f27f606c7afaaca2491874ceef7996802399b005c571d3",
+    "scripts/verify_hansen_allocation.py": "54cc5e3e86b28fd01aa4f30828aebb6d586ac3af9c0018a5b3da038f81d2d17e",
+    "scripts/verify_hansen_lift.py": "ca82806df1701ba60c2d87dba9aa54c05dca99fc4fc7295d28bb7b8fda9523b9",
+    "scripts/verify_integration.py": "9e461c1417dd42634b96a446d823f5580fb66f35d09f66b5c758bf34482c485e",
+    "scripts/verify_lean_export.py": "7998917d3ff8c7fdf919e54d68bf2f8188dde18c5ece6bee4251089544674676",
+    "scripts/verify_search.py": "cf6f83cd1ce5b0ed25f61c6f88db616302ca6f604e29b9ccbd91a3e2a19fabe1",
+    "scripts/verify_star_lift.py": "6584c1f28f95f8c49ee2aa82e01c7f4dd0fccd8357537c3ceac8cdbdd7e26e49"
+  },
+  "budgets": {
+    "max_exponent": 16384,
+    "max_nodes": 20000,
+    "cli_max_bytes": 4000000
+  },
+  "exhaustive_family": {
+    "sources": 1051,
+    "masks": 30582,
+    "accepted_underlinings": 5248,
+    "non_hansen_sources": 7,
+    "max_steps": 6,
+    "max_endpoint": 32
+  },
+  "examples": [
+    {
+      "exponent": 1,
+      "source_steps": 0,
+      "nodes": 1,
+      "doubling_nodes": 0,
+      "base_sum_nodes": 0,
+      "additions": 0,
+      "dependency_edges_with_multiplicity": 0,
+      "closure_count_endpoint_checked": true,
+      "ordinary_replay_checked": true,
+      "label_order_is_numeric_order": true,
+      "general_allocation_soundness_formalised": false,
+      "source_optimality_checked": false,
+      "mersenne_optimality_checked": false
+    },
+    {
+      "exponent": 29,
+      "source_steps": 7,
+      "nodes": 36,
+      "doubling_nodes": 28,
+      "base_sum_nodes": 7,
+      "additions": 35,
+      "dependency_edges_with_multiplicity": 70,
+      "closure_count_endpoint_checked": true,
+      "ordinary_replay_checked": true,
+      "label_order_is_numeric_order": false,
+      "general_allocation_soundness_formalised": false,
+      "source_optimality_checked": false,
+      "mersenne_optimality_checked": false
+    },
+    {
+      "exponent": 12509,
+      "source_steps": 17,
+      "nodes": 12526,
+      "doubling_nodes": 12508,
+      "base_sum_nodes": 17,
+      "additions": 12525,
+      "dependency_edges_with_multiplicity": 25050,
+      "closure_count_endpoint_checked": true,
+      "ordinary_replay_checked": true,
+      "label_order_is_numeric_order": false,
+      "general_allocation_soundness_formalised": false,
+      "source_optimality_checked": false,
+      "mersenne_optimality_checked": false
+    },
+    {
+      "exponent": 12509,
+      "source_steps": 17,
+      "nodes": 12526,
+      "doubling_nodes": 12508,
+      "base_sum_nodes": 17,
+      "additions": 12525,
+      "dependency_edges_with_multiplicity": 25050,
+      "closure_count_endpoint_checked": true,
+      "ordinary_replay_checked": true,
+      "label_order_is_numeric_order": false,
+      "general_allocation_soundness_formalised": false,
+      "source_optimality_checked": false,
+      "mersenne_optimality_checked": false
+    }
+  ],
+  "corruptions_rejected": [
+    "format='wrong'",
+    "target_exponent=28",
+    "target_exponent=True",
+    "additions=34",
+    "additions=35.0",
+    "source_chain=None",
+    "source_chain=[True, 2, 4, 8, 9, 12, 17, 29]",
+    "source_chain=[1, 2, 4, 8, 9, 13, 16, 29]",
+    "source_chain=[1, 2, 4, 8, 9, 12, 17, 30]",
+    "underlined_indices=[0, 1, 2, 3, 4, 6, 7]",
+    "underlined_indices=[0, 1, 2, 3, 6]",
+    "underlined_indices=[False, 1, 2, 3, 6, 7]",
+    "underlined_indices=[0, 1, 2, 3, 3, 6, 7]",
+    "shift_caps=[1, 2, 4, 4, 8, 0, 12, 0]",
+    "nodes=None",
+    "missing node",
+    "extra node",
+    "duplicate replacing node",
+    "missing seed",
+    "seed dependencies",
+    "seed summands field absent",
+    "boolean cap",
+    "node label=[0, 0]",
+    "node label=[True, 1]",
+    "node label=[1, 999999999]",
+    "node label=[1, -1]",
+    "node label=[1]",
+    "node summands=None",
+    "node summands=[[1, 1], [1, 1]]",
+    "node summands=[[1, 999999999], [1, 0]]",
+    "node summands=[[True, 0], [1, 0]]",
+    "node summands=[[1, 0]]",
+    "wrong base dependency",
+    "missing format",
+    "missing source_chain",
+    "missing underlined_indices",
+    "missing shift_caps",
+    "missing target_exponent",
+    "missing additions",
+    "missing nodes"
+  ],
+  "generator_negatives": 12,
+  "budget_and_expectation_negatives": 14,
+  "cli_checks": [
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/hansen_allocation.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/source.json",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/allocation.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"allocation\": \"/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/allocation.json\", \"nodes\": 36, \"exponent\": 29}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/check_hansen_allocation.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/allocation.json",
+        "--exponent",
+        "29",
+        "--additions",
+        "35"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"exponent\": 29,\n  \"source_steps\": 7,\n  \"nodes\": 36,\n  \"doubling_nodes\": 28,\n  \"base_sum_nodes\": 7,\n  \"additions\": 35,\n  \"dependency_edges_with_multiplicity\": 70,\n  \"closure_count_endpoint_checked\": true,\n  \"ordinary_replay_checked\": true,\n  \"label_order_is_numeric_order\": false,\n  \"general_allocation_soundness_formalised\": false,\n  \"source_optimality_checked\": false,\n  \"mersenne_optimality_checked\": false,\n  \"allocation_sha256\": \"e83628e1cbbc179cbd15e84ed0b38e69b5b6e12d0710e65fd7b27be2c806d391\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/hansen_allocation.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/source.json",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/allocation.json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 66, in <module>\n    main()\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 53, in main\n    raise FileExistsError(args.output)\nFileExistsError: /Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/allocation.json\n"
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/hansen_allocation.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/source.json",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/allocation.json",
+        "--max-nodes",
+        "35"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 66, in <module>\n    main()\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 57, in main\n    result = allocate(source[\"chain\"], source.get(\"underlined_indices\"),\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 22, in allocate\n    raise ValueError(\"allocation exceeds budget\")\nValueError: allocation exceeds budget\n"
+    },
+    {
+      "argv": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "scripts/hansen_allocation.py",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/source.json",
+        "/Users/gregb/Documents/devel/scholz-brauer/.allocation-d1gwpues/allocation.json"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 66, in <module>\n    main()\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 57, in main\n    result = allocate(source[\"chain\"], source.get(\"underlined_indices\"),\n  File \"/Users/gregb/Documents/devel/scholz-brauer/scripts/hansen_allocation.py\", line 26, in allocate\n    raise ValueError(\"source has no Hansen underlining\")\nValueError: source has no Hansen underlining\n"
+    }
+  ],
+  "source_optimality_checked": false,
+  "general_allocation_soundness_formalised": false,
+  "runtime_seconds": 1.873857
+}

@@ -119,7 +119,10 @@ def main():
                        ROOT / "data/2026-09-27-integration-sources.json",
                        ROOT / "data/2026-09-28-hansen-export-sources.json",
                        ROOT / "data/2026-09-29-hansen-nodes-sources.json",
+                       ROOT / "data/2026-09-30-hansen-allocation-sources.json",
                        ROOT / "data/hansen-replay-fixtures.json",
+                       ROOT / "results/2026-09-30-29-hansen-allocation.json",
+                       ROOT / "results/2026-09-30-12509-hansen-allocation.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
                        ROOT / "results/2026-09-25-12509-exclusion-certificate.json"})
@@ -153,6 +156,12 @@ def main():
         export = json.loads(export_path.read_text())
         run([sys.executable, "-O", "scripts/verify_lean_export.py",
              "--output", str(Path(temporary) / "export-optimized.json")])
+        allocation_path = Path(temporary) / "allocation.json"
+        run([sys.executable, "scripts/verify_hansen_allocation.py",
+             "--output", str(allocation_path)])
+        allocation = json.loads(allocation_path.read_text())
+        run([sys.executable, "-O", "scripts/verify_hansen_allocation.py",
+             "--output", str(Path(temporary) / "allocation-optimized.json")])
         search_path = Path(temporary) / "search.json"
         run([sys.executable, "scripts/verify_search.py", "--research",
              "--output", str(search_path)])
@@ -194,6 +203,7 @@ def main():
         "hansen_certificate_replay": mersenne,
         "hansen_checks": hansen, "search_checks": search,
         "lean_export_checks": export,
+        "hansen_allocation_checks": allocation,
         "exclusion_certificate_checks": exclusion,
         "claim_boundary": {
             **computational,
@@ -210,6 +220,8 @@ def main():
             "hansen_shift_maximum_and_telescope_formalised": True,
             "positive_shifted_mersenne_injectivity_formalised": True,
             "hansen_sorted_replay_formalised": False,
+            "labelled_hansen_allocation_independently_checked": True,
+            "general_hansen_allocation_soundness_formalised": False,
             "lean_hansen_12509_shift_budget": 12525,
             "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "

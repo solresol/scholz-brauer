@@ -1,5 +1,40 @@
 # Research log
 
+## 2026-09-30 — Wednesday — labelled Hansen allocation and dependency checker
+
+Australia/Sydney, starting about 08:01 AEST. Read applicable instructions,
+automation memory, current README/roadmap/log, recent results and actual
+Python/Lean sources. Clean main at 817a464, correct solresol origin, no
+competing research process or lock. Acquired exclusive run lock; fetch/ff-only
+was already current. Rechecked primary Clift/OEIS sources; Clift retrieval
+needed curl after web-tool errors and matched the earlier page hash.
+
+**Increment.** Added a bounded label-only Hansen allocation generator and an
+independent family/closure/count/endpoint checker, compiling to ordinary index
+replay. Saved complete graphs for 29 and 12509. The checker reconstructs caps
+from marked gaps independently of the generator's demand maxima. Documented
+the finite family and exact summand rules as the next Lean interface. Added
+the verifier to integration and updated README/roadmap.
+
+**Checks.** All 5248 accepted small underlinings from 1051 source chains and
+30582 masks match the existing lift. Singleton, 29 and both published 12509
+sources pass; saved graphs regenerate, and node reversal preserves replay.
+40 corruptions, 12 generator negatives and 14 budget/statement negatives pass
+normally and under Python -O; CLI overwrite/no-file checks pass. Full
+integration 54.070592s: 52 input/five vendor hashes, both 1345873-prefix
+exclusions, portable replay, 754 Lean build jobs and 69 standard-axiom audits.
+Python3.9.6, Lean4.27.0, exact integers/no seed, unchanged pins. Full code/docs
+diffs and structured certificates/reports reviewed. Details and commands:
+`results/2026-09-30-hansen-allocation.md`.
+
+**Conclusion and next.** Saved 29/12509 allocations have 36/12526 nodes and
+35/12525 additions. They reconfirm existing witnesses; no new optimum or
+numerical bound. Integration retains computational ell12509=17 and Scholz
+at12509, with Lean source[14,17] and Mersenne12526. No new counterexample,
+failed mathematical hypothesis or novelty claim. Thursday: define the
+allocated label family in Lean and prove base/shift/summand membership, then
+sorted replay. Exclusion soundness and larger non-Hansen work remain deferred.
+
 ## 2026-09-29 — Tuesday — positive shifted-node injectivity in Lean
 
 Australia/Sydney, starting about 08:02 AEST. Read applicable instructions,
