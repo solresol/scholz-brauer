@@ -120,6 +120,7 @@ def main():
                        ROOT / "data/2026-09-28-hansen-export-sources.json",
                        ROOT / "data/2026-09-29-hansen-nodes-sources.json",
                        ROOT / "data/2026-09-30-hansen-allocation-sources.json",
+                       ROOT / "data/2026-10-01-hansen-lift-sources.json",
                        ROOT / "data/hansen-replay-fixtures.json",
                        ROOT / "results/2026-09-30-29-hansen-allocation.json",
                        ROOT / "results/2026-09-30-12509-hansen-allocation.json",
@@ -211,19 +212,20 @@ def main():
             "target_if_ell_12509_equals_17": 12525,
             "optimality_or_scholz_at_12509_formalised": False,
             "whole_star_lift_formalised": True,
-            "lean_mersenne_12509_upper_bound": 12526,
-            "hansen_lift_formalised": False,
+            "lean_mersenne_12509_upper_bound": 12525,
+            "hansen_lift_formalised": True,
             "lean_hansen_replay_fixture_exponents": [1, 29],
             "general_index_value_equivalence_formalised": False,
             "hansen_underlining_checker_formalised": True,
             "hansen_latest_marked_anchor_formalised": True,
             "hansen_shift_maximum_and_telescope_formalised": True,
             "positive_shifted_mersenne_injectivity_formalised": True,
-            "hansen_sorted_replay_formalised": False,
+            "hansen_sorted_replay_formalised": True,
             "labelled_hansen_allocation_independently_checked": True,
-            "general_hansen_allocation_soundness_formalised": False,
+            "general_hansen_allocation_soundness_formalised": True,
             "lean_hansen_12509_shift_budget": 12525,
-            "note": "Lean source bounds remain [14,17]. Two exhaustive searches "
+            "note": "Lean proves the general Hansen lift and the 12525 Mersenne bound. "
+                    "Lean source bounds remain [14,17]. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "
                     "Together with the 17-step source and 12525-step Mersenne "
                     "certificate, this establishes the numerical Scholz instance "

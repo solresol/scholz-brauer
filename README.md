@@ -10,7 +10,19 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 30 September 2026
+## Verified status — 1 October 2026
+
+**Milestone 1 is complete.** Lean proves the general Hansen lift: for an
+accepted marked source with `r` additions ending at `n`, every required node
+and summand is allocated, sorting produces an addition chain, and a successful
+summand-value replay has exactly `n-1+r` additions. Applying it to the checked
+17-step source proves **`ℓ(2^12509-1) ≤ 12525` in Lean**. See
+`results/2026-10-01-hansen-lift-lean.md` and `lean/ScholzBrauer/HansenLift.lean`.
+
+**Milestone 2 is next.** Lean still proves only `14 ≤ ℓ(12509) ≤ 17`.
+The optimum 17 and the full numerical Scholz instance remain computational
+results until exclusion-certificate soundness and the lower bound are kernel
+checked. No minimum Mersenne-chain length or general conjecture is claimed.
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -66,8 +78,9 @@ enumeration, and reject corrupted certificates. This makes the exclusion
 independently replayable; checker soundness has not yet been formalised in Lean.
 See `results/2026-09-25-exclusion-certificate.md` for the format and proof argument.
 
-**Not established here:** a Lean optimality proof, a Lean Hansen lift, the
-minimum Mersenne-chain length, or the shortest star length 18. The general
+**Not established here:** a Lean optimality proof, an end-to-end Lean Scholz
+instance at 12509, the minimum Mersenne-chain length, or the shortest star
+length 18. The general
 conjecture remains outside these results. See
 `results/2026-09-23-optimality.md` for the search completeness argument,
 independent checks, resource limits and distinction from a kernel-checked proof.
@@ -80,21 +93,21 @@ Mersenne value, and proves exactly `n-1+r` additions for a checked `r`-step
 source ending at `n`, including `[1]`. A conditional corollary proves Scholz
 when that star source is optimal; it does not assert universal optimality.
 Instantiating the rechecked 18-step source gives the kernel-checked bound
-`ℓ(2^12509-1) ≤ 12526`. The stronger 12525 bound above is independently
-checked in Python and has not yet been proved in Lean.
+`ℓ(2^12509-1) ≤ 12526`. The stronger 12525 bound is now proved in Lean
+by the general Hansen lift.
 
 Lean now also checks Hansen underlining over source values. It proves source
 replay correctness, exact source length, the marked endpoint, and that every
 step uses the latest marked value already stored in its prefix. The 17-step
 12509 source and its marking are kernel checked, including retention of 12
-as anchor through the unmarked value 13. This is the foundation for the Hansen
-lift, not yet a formal Mersenne construction or optimality proof.
+as anchor through the unmarked value 13. This marking proof now supplies the
+source hypothesis of the general Hansen lift. It does not prove source optimality.
 
 Lean now also proves that the maximum requested shift between successive
 marks `a < h` is `h-a`, and that these maxima sum to `n-1`. For 12509
 the proved shift sum is 12508, giving an allocation budget of 12525 after
-adding the 17 source steps. This is a count identity: successful allocation and sorted replay still need
-to be formalised. Distinctness of positive shifted-node labels is now proved below.
+adding the 17 source steps. This count identity is now realised by the
+allocation and sorted replay proofs in `HansenAllocation.lean` and `HansenLift.lean`.
 See `results/2026-09-26-hansen-shift-lean.md`.
 
 A bounded exporter now converts independently checked Python summand indices
@@ -109,8 +122,8 @@ See `results/2026-09-28-hansen-export.md`.
 Lean now proves that `2^k*(2^a-1)` uniquely determines both `a` and `k` when
 `a > 0`, and that duplicate-free positive node labels map to duplicate-free
 values. The new API also proves positivity, doubling and the base-node sum
-identity. This removes the collision issue; it does not yet prove allocation
-of every required summand, sorted replay or the 12525 bound in Lean.
+identity. This removes the collision issue and is reused by the completed
+general lift.
 See `results/2026-09-29-hansen-nodes-lean.md`.
 
 The Hansen allocation now has a separate labelled certificate: each node
@@ -119,20 +132,24 @@ independent checker reconstructs caps from marked gaps, checks the complete
 family and dependency closure, then sorts by exact value and replays the
 ordinary certificate. Saved allocations for 29 and 12509 reproduce the existing
 35- and 12525-step witnesses. All 5248 accepted small underlinings also agree
-with the existing generator. This is a checked interface for Lean allocation
-and membership work, not a general Lean lift theorem or a new numerical bound.
+with the existing generator. This checked interface guided the completed
+Lean allocation proof.
+The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 69-theorem axiom audit. The **Lean-only** source bounds remain
+exclusion checker, the Lean build and 94-theorem axiom audit. The **Lean-only**
+source bounds remain
 `14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
 right-side interval `[12522,12525]` describes the Lean evidence alone.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's page and both published 17-step sources were rechecked on 30 September. Its claim
-that 5,784,689 is the first non-Hansen number remains a literature claim; the larger data and
-optimality search have not been independently checked here.
+Clift's criterion and the OEIS 17-step source were rechecked on 1 October.
+Both published 17-step sources were last rechecked together on 30 September.
+Clift's claim that 5,784,689 is the first non-Hansen number remains a literature
+claim; the larger data and optimality search have not been independently
+checked here.
 
 ## Reproduce
 
@@ -175,6 +192,10 @@ reference and is not imported into the proofs.
   latest-marked-anchor invariant and final-mark proof.
 - `lean/ScholzBrauer/HansenShift.lean`: exact demand maxima, per-mark shift caps,
   telescoping shift sum and allocation budget.
+- `lean/ScholzBrauer/HansenAllocation.lean`: finite labels, distinctness, exact
+  count, endpoint envelope and summand closure.
+- `lean/ScholzBrauer/HansenLift.lean`: sorted chain, successful replay, exact
+  Hansen count, upper bound and conditional Scholz theorem.
 - `lean/ScholzBrauer/HansenNodes.lean`: positive shifted-node injectivity,
   duplicate-free value conversion and local sum identities.
 - `lean/ScholzBrauer/StarLift.lean`: checked source increments, complete replay,
@@ -210,12 +231,10 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: formalise allocation, summand availability and sorted replay of the
-shifted Mersenne nodes. The underlining invariant, shift count and positive-node
-distinctness are now proved. Then turn the
-portable exclusion rules into a kernel-checked lower-bound proof, starting with
-checker soundness and a small instance such as 7 before evaluating the large DAG.
-Larger non-Hansen searches remain deferred. See `TODO.md` for the next increment.
+Next: formalise the portable exclusion rules and their soundness against the
+upstream addition-chain definition. Kernel-check target 7 with limit 3 before
+attempting the 12509 DAG. Combine the resulting optimum with the now-proved
+12525 bound. Larger non-Hansen searches remain deferred. See `TODO.md`.
 
 ## Sources
 

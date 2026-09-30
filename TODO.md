@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-09-30 (Wednesday, Australia/Sydney).
+Updated 2026-10-01 (Thursday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -64,59 +64,55 @@ Updated 2026-09-30 (Wednesday, Australia/Sydney).
   replay for 29 and both 12509 sources; compare all 5248 small underlinings,
   reject corrupted objects and save reproducible 29/12509 allocations.
 
-## Next informative increments
+## Milestone 1 — general Hansen lift: COMPLETE
 
-**Next scheduled work:** Thursday, define the finite allocated label family in
-Lean using the checked interface in `results/2026-09-30-hansen-allocation.md`.
-Prove base-node membership, predecessor-shift membership, and availability of
-both summands of each source-base node from the latest-anchor/shift-cap lemmas.
-Then derive successful sorted replay using positivity and local sum identities.
-Wednesday's independent checker and saved labelled allocations are complete;
-do not repeat finite collision searches, shift counts or export fixtures.
+- [x] Define the finite allocated label family and prove base/shift membership.
+- [x] Prove positive exponents, no duplicate labels or values, and exact size.
+- [x] Prove availability of both summands for every non-seed node, including
+  retained anchors across unmarked values.
+- [x] Prove the endpoint envelope and both endpoint memberships.
+- [x] Prove sorted chain validity, successful replay and exactly `n-1+r` additions.
+- [x] Apply the general theorem to the 17-step source for 12509, proving
+  `ell(2^12509-1) ≤ 12525` in Lean. Audit all dependencies.
 
-1. **Optimality formal certificate:** the Wednesday computational exclusion is
-   complete: independent C++ and Python traversals exhaust all chains of at most
-   16 steps for 12509. Together with the witnesses this establishes ell(12509)=17
-   and Scholz at 12509 computationally. Friday's portable certificate and
-   independent Python checker are complete. Next formalise the three exclusion
-   rules (`bound`, `gap`, `split`), prove checker soundness for arbitrary valid
-   prefixes against upstream `IsAdditionChain`, and kernel-check 7 with limit 3.
-   Then evaluate the 12509 DAG with measured resource limits; sharing syntax
-   does not permit caching truth by node id across different prefixes.
-   The saved proof object is not yet a kernel proof. Keep the
-   Lean interval [14,17] distinct from the computational optimum 17.
-   Excluding star chains of at most 17 steps is optional later work: the star
-   optimum 18 remains a literature claim and is unnecessary for this instance.
-2. **Hansen lift formalisation:** the underlining certificate, latest-marked
-   anchor invariant, shift maximum, telescoping count and shifted-node
-   injectivity are complete. `HansenNodes.lean` proves distinctness for
-   positive exponents and supplies the local sum identities. The labelled
-   Python certificate now independently checks the precise family and required
-   dependencies for all small fixtures and 29/12509. Next define the
-   allocated label family, prove it is duplicate-free and contains each
-   required summand, then prove sorted replay and the resulting
-   n-1+r chain length. The proved 12525 allocation budget alone is not an
-   addition-chain bound. Reuse
-   `mersenne_block_identity` and the source/replay API; simple sequential star
-   blocks do not handle interleaved Hansen nodes. Monday's construction argument
-   is not a Lean lift theorem. Retrieve Hansen's original 1959 article when
-   accessible; the current criterion uses Clift's rechecked primary exposition.
-3. **Later:** independently check Clift's non-Hansen data before
-   scheduling larger cases such as 5,784,689. Do not infer a current frontier
-   from the initial README or from failure to find a witness. The source page
-   is now accessible, but its larger examples have not been imported or checked.
+`HansenAllocation.lean` and `HansenLift.lean` complete the proof obligations.
+The replay theorem exhibits a summand-value certificate for the explicit sorted
+chain; it does not claim equality with the saved Python index certificate.
+No further exporters, allocation checkers or small Hansen enumeration are needed.
 
-Bounded exhaustive star-prefix enumeration verifies the lift implementation;
-it is not an optimal-chain search. No failed mathematical hypothesis or conjecture
-counterexample has been recorded yet. Wednesday's expanded integration includes
-both exclusion searches. The rejected
-test-design assumption that non-star chosen parent indices imply non-star values
-remains explicitly retired: 6=3+3 can also be 5+1 in [1,2,3,5,6].
-The whole-star invariant is proved; do not repeat it. The bridge between Lean's
-summand-value certificates and Python's summand-index format remains unproved.
+## Milestone 2 — end-to-end Lean Scholz at 12509: ACTIVE
 
-The second retired implementation shortcut is caching exclusion truth by shared
-node id alone: Friday's adversarial context case refutes it. Neither shortcut
-is a failed mathematical conjecture. A 12525 shift allocation is not yet a Lean
-chain, and a valid 12526-step star witness alone does not establish the desired
-12525 numerical bound; Sunday's composition regressions enforce the latter.
+1. Formalise the portable exclusion rules (`bound`, `gap`, `split`) and prove
+   soundness for arbitrary valid prefixes against upstream `IsAdditionChain`.
+   Reuse the existing JSON proof object and independent Python checker; add
+   infrastructure only if a precise kernel-evaluation blocker requires it.
+2. Kernel-check target 7 with limit 3 before evaluating the large certificate.
+3. Kernel-check the 12509 lower bound with measured resource limits, obtaining
+   `ell(12509)=17`; combine with `mersenne12509_length_le_12525`.
+
+The two exhaustive searches and portable DAG already establish optimality
+computationally. Lean source bounds remain `[14,17]`. The Mersenne upper bound
+12525 is now a Lean theorem. Sharing certificate syntax does not permit caching
+truth by node id across different prefixes. Excluding 17-step star chains is
+unnecessary for this milestone; star optimum 18 remains a literature claim.
+
+## Milestone 3 — a specific extension beyond Hansen: DEFERRED
+
+Start with a small documented non-Hansen chain and state an explicit stronger
+hypothesis that a bounded exact experiment can refute. Check the source data,
+record exact bounds and structural obstructions or failed hypotheses. Move to
+larger documented cases only after that experiment and infrastructure are sound.
+Clift's 5784689 data and optimality claims have not been independently checked;
+no frontier or novelty claim follows from this repository's results.
+
+## Retained constraints and failed shortcuts
+
+- Sequential whole-anchor blocks fail when shifted values interleave with
+  later source bases. The completed lift allocates first, then sorts by value.
+- Non-star chosen parent indices do not imply non-star values: in
+  `[1,2,3,5,6]`, both `6=3+3` and `6=5+1` are possible.
+- Exclusion truth cannot be cached by DAG node alone across different prefixes.
+- Finite construction tests are not optimality searches. A witness bound and
+  source optimality are separate obligations. Neither unsuccessful search nor
+  timeout proves exclusion.
+- No mathematical extension hypothesis has yet been tested or refuted.

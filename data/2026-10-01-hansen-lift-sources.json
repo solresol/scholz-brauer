@@ -1,0 +1,25 @@
+{
+  "accessed_at_australia_sydney": "2026-10-01T08:11:24.120503+10:00",
+  "sources": [
+    {
+      "url": "https://oeis.org/A349044",
+      "version": "live page; no immutable entry revision recorded",
+      "method": "web open",
+      "scope": "Rechecked the ordinary 17-step 12509 list against chain12509. Published optimality claims are not Lean hypotheses."
+    },
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "version": "live page; no immutable revision",
+      "method": "web open",
+      "scope": "Rechecked latest-underlined-anchor criterion and marked endpoint. No larger non-Hansen data used."
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/tree/40e7c98697de6f66b8cbdbf641749ab39ed9c152",
+      "version": "40e7c98697de6f66b8cbdbf641749ab39ed9c152",
+      "method": "inspected vendored source, statement and Apache-2.0 licence; hashes checked by integration",
+      "scope": "Reuses IsAdditionChain, additionChainLength and additionChainLength_le. Open Scholz statement remains uncompiled and unimported."
+    }
+  ],
+  "hansen_original_article_inspected": false,
+  "frontier_or_novelty_claim": false
+}

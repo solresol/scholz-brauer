@@ -1,5 +1,5 @@
 import ScholzBrauer.StarLift
-import ScholzBrauer.HansenShift
+import ScholzBrauer.HansenLift
 
 namespace ScholzBrauer
 
@@ -31,7 +31,7 @@ theorem fourteen_le_length12509 : 14 ≤ additionChainLength 12509 := by
   omega
 
 /-- Marking from the independently checked Hansen certificate of 2026-09-21.
-The OEIS source values were rechecked on 2026-09-24. Values 4 and 13 are
+The OEIS source values were rechecked on 2026-10-01. Values 4 and 13 are
 unmarked; in particular 24 uses the retained anchor 12 after the value 13. -/
 def hansenSteps12509 : List MarkedStep :=
   [(2, true), (4, false), (6, true), (12, true), (13, false),
@@ -68,8 +68,7 @@ theorem hansen12509_shift_sum : (hansenShiftCaps 1 hansenSteps12509).sum = 12508
   hansenShiftCaps_sum hansen12509_checked (by decide :
     hansenAnchorFrom 1 hansenSteps12509 = 12509)
 
-/-- This is the verified allocation budget. Lifted-node distinctness and
-sorted replay are still required before it gives a Mersenne length bound. -/
+/-- The shift budget, now realised by `hansenLift12509_certificate` below. -/
 theorem hansen12509_shift_budget :
     (hansenShiftCaps 1 hansenSteps12509).sum + hansenSteps12509.length = 12525 := by
   have h := hansenShiftCaps_budget hansen12509_checked (by decide :
@@ -113,5 +112,31 @@ theorem mersenne12509_length_le_12526 : additionChainLength (2 ^ 12509 - 1) ≤ 
 example : replay [(1, 2)] = none := by decide
 example : replay [(1, 1), (1, 1)] = none := by decide
 example : replay [] = some [1] := by decide
+
+/-- Application of the general lift, without expanding the large Mersenne
+values or assuming the source witness is optimal. -/
+theorem hansenLift12509_chain :
+    IsAdditionChain (hansenLift hansenSteps12509) ∧
+    (hansenLift hansenSteps12509).getLast? = some (2 ^ 12509 - 1) ∧
+    (hansenLift hansenSteps12509).length = 12526 := by
+  have h := hansenLift_chain hansen12509_checked
+    (by decide : hansenAnchorFrom 1 hansenSteps12509 = 12509)
+  simpa only [show hansenSteps12509.length = 17 from rfl, Nat.reduceSub, Nat.reduceAdd] using h
+
+theorem hansenLift12509_certificate :
+    ∃ cert : List Step, replay cert = some (hansenLift hansenSteps12509) ∧
+      cert.length = 12525 ∧
+      (hansenLift hansenSteps12509).getLast? = some (2 ^ 12509 - 1) := by
+  have h := hansenLift_certificate hansen12509_checked
+    (by decide : hansenAnchorFrom 1 hansenSteps12509 = 12509)
+  simpa only [show hansenSteps12509.length = 17 from rfl, Nat.reduceSub, Nat.reduceAdd] using h
+
+/-- The 12525 upper bound is kernel checked. Source optimality and therefore
+the end-to-end Scholz instance still require the exclusion soundness proof. -/
+theorem mersenne12509_length_le_12525 :
+    additionChainLength (2 ^ 12509 - 1) ≤ 12525 := by
+  have h := hansenLift_upper_bound hansen12509_checked
+    (by decide : hansenAnchorFrom 1 hansenSteps12509 = 12509)
+  simpa only [show hansenSteps12509.length = 17 from rfl, Nat.reduceSub, Nat.reduceAdd] using h
 
 end ScholzBrauer

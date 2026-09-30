@@ -6,3 +6,5 @@ import ScholzBrauer.Hansen
 import ScholzBrauer.HansenShift
 import ScholzBrauer.HansenReplayFixtures
 import ScholzBrauer.HansenNodes
+import ScholzBrauer.HansenAllocation
+import ScholzBrauer.HansenLift

@@ -1,5 +1,40 @@
 # Research log
 
+## 2026-10-01 — Thursday — general Hansen lift completed in Lean
+
+Australia/Sydney, starting about 08:00 AEST. Read automation memory, repository
+instructions, current roadmap/log/results and actual proofs. Clean main at
+9496351, correct solresol origin, no competing process; exclusive run lock
+acquired. Fetch/fast-forward-only merge was already current. Reinspected the
+pinned upstream definitions/statement/licence; rechecked OEIS source and Clift
+criterion. No dependency or toolchain changes.
+
+**Milestone 1 completed.** `HansenAllocation.lean` proves base and predecessor
+membership, positive exponents, no duplicate labels, exact allocated length,
+endpoint envelope and both summands for every non-seed node. The ambient
+allocation invariant handles retained anchors across unmarked values.
+`HansenLift.lean` proves sorted chain validity, successful summand-value replay,
+exactly `n-1+r` additions and the Mersenne upper bound. It reuses existing marking,
+shift-accounting, injectivity and local-sum proofs. Applying it to the 17-step
+12509 source proves `ell(2^12509-1) ≤ 12525` in Lean. The replay certificate is
+existential for the explicit sorted chain; Python-format equivalence is not claimed.
+
+**Checks.** Full build passed 756 jobs. Existing integration ran once, passing
+in 43.178642s: 94 standard-axiom audits, 55 input/five vendor hashes, the existing
+exhaustive exclusions and certificate/construction checks. Lean4.27.0,
+Python3.11.6, exact integers, no seed; all subprocesses exited zero. No sorry,
+custom axiom, native_decide or assumed target. The singleton mergeSort reduction
+needed proved simp rules instead of decide; no mathematical hypothesis failed.
+Full source/docs and structured evidence reviewed before commit. Details:
+`results/2026-10-01-hansen-lift-lean.md`.
+
+**Limits and next.** General Hansen lift and 12525 bound are now kernel checked.
+Lean source bounds remain [14,17]; ell12509=17 and the full Scholz instance are
+still computational results. No Mersenne optimum or novelty claim. Milestone 2
+is active: exclusion-rule soundness, then kernel-check7/3, then12509 lower bound17.
+Larger non-Hansen work remains deferred. No new infrastructure or experiments
+were needed to close this milestone.
+
 ## 2026-09-30 — Wednesday — labelled Hansen allocation and dependency checker
 
 Australia/Sydney, starting about 08:01 AEST. Read applicable instructions,

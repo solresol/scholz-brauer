@@ -204,7 +204,7 @@ def main():
               "certificate_sha256": hashes[str(SAVED.relative_to(ROOT))],
               "endpoint_bit_length": values[-1].bit_length(),
               "optimality_proved": False, "scholz_at_12509_proved": False,
-              "hansen_lift_formalised_in_lean": False,
+              "general_lean_lift_checked_by_this_script": False,
               "runtime_seconds": round(time.perf_counter() - started, 6)}
     with args.output.open("x") as output:
         output.write(json.dumps(report, indent=2) + "\n")

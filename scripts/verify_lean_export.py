@@ -148,7 +148,7 @@ def main():
               "fixture_source_sha256": hashlib.sha256(source.encode()).hexdigest(),
               "lean_build_run_by_this_script": False,
               "general_format_equivalence_proved": False,
-              "hansen_lift_formalised": False,
+              "general_lean_lift_checked_by_this_script": False,
               "runtime_seconds": round(time.perf_counter() - started, 6)}
     with args.output.open("x") as output:
         output.write(json.dumps(report, indent=2) + "\n")
