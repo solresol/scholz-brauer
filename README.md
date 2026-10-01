@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 1 October 2026
+## Verified status — 2 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -19,10 +19,12 @@ summand-value replay has exactly `n-1+r` additions. Applying it to the checked
 17-step source proves **`ℓ(2^12509-1) ≤ 12525` in Lean**. See
 `results/2026-10-01-hansen-lift-lean.md` and `lean/ScholzBrauer/HansenLift.lean`.
 
-**Milestone 2 is next.** Lean still proves only `14 ≤ ℓ(12509) ≤ 17`.
-The optimum 17 and the full numerical Scholz instance remain computational
-results until exclusion-certificate soundness and the lower bound are kernel
-checked. No minimum Mersenne-chain length or general conjecture is claimed.
+**Milestone 2 is active.** Exclusion-certificate soundness is now proved in
+Lean for arbitrary valid prefixes, and the small certificate proves `ℓ(7)=4`.
+Lean still proves only `14 ≤ ℓ(12509) ≤ 17`: the large exclusion certificate
+has not been kernel checked. The optimum 17 and the full numerical Scholz
+instance therefore remain computational results. No minimum Mersenne-chain
+length or general conjecture is claimed.
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -75,7 +77,9 @@ all chains with at most 16 additions for 12509 using doubling bounds, missing
 final summands and complete next-value splits. Regression checks compare all
 576 target/limit decisions for targets 1–64 and limits 0–8 with unpruned
 enumeration, and reject corrupted certificates. This makes the exclusion
-independently replayable; checker soundness has not yet been formalised in Lean.
+independently replayable. `Exclusion.lean` now proves soundness of a Lean
+checker for the same bound/gap/split rules; evaluation of this large certificate
+remains outstanding. No equivalence with the Python program is assumed.
 See `results/2026-09-25-exclusion-certificate.md` for the format and proof argument.
 
 **Not established here:** a Lean optimality proof, an end-to-end Lean Scholz
@@ -138,7 +142,7 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 94-theorem axiom audit. The **Lean-only**
+exclusion checker, the Lean build and 106-theorem axiom audit. The **Lean-only**
 source bounds remain
 `14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
 right-side interval `[12522,12525]` describes the Lean evidence alone.
@@ -187,6 +191,10 @@ reference and is not imported into the proofs.
 - `lean/ScholzBrauer/AdditionChain.lean`: adapted upstream definitions and lemmas.
 - `lean/ScholzBrauer/Certificate.lean`: replay generator, soundness and length proofs.
 - `lean/ScholzBrauer/Example12509.lean`: concrete witness and numerical bounds.
+- `lean/ScholzBrauer/Exclusion.lean`: context-sensitive exclusion soundness,
+  arbitrary-prefix completeness, lower-bound bridge and kernel-checked `ℓ(7)=4`.
+- `scripts/probe_lean_exclusion.py`: bounded kernel-evaluation probe of the saved
+  12509 DAG; a failed or timed-out run proves no lower bound.
 - `lean/ScholzBrauer/BrauerBlock.lean`: doubling and single-block replay proofs.
 - `lean/ScholzBrauer/Hansen.lean`: decidable marking checker, source replay,
   latest-marked-anchor invariant and final-mark proof.
@@ -231,10 +239,12 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: formalise the portable exclusion rules and their soundness against the
-upstream addition-chain definition. Kernel-check target 7 with limit 3 before
-attempting the 12509 DAG. Combine the resulting optimum with the now-proved
-12525 bound. Larger non-Hansen searches remain deferred. See `TODO.md`.
+Next: complete bounded kernel evaluation of the 12509 exclusion DAG, then
+combine the resulting optimum with the proved 12525 bound. General exclusion
+soundness and the 7/3 small-instance check are complete. Raw-literal table
+preparation exceeded a bounded probe; see
+`results/2026-10-02-exclusion-soundness-lean.md`. Larger non-Hansen searches
+remain deferred. See `TODO.md`.
 
 ## Sources
 

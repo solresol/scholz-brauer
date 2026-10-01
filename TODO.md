@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-01 (Thursday, Australia/Sydney).
+Updated 2026-10-02 (Friday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -82,13 +82,25 @@ No further exporters, allocation checkers or small Hansen enumeration are needed
 
 ## Milestone 2 — end-to-end Lean Scholz at 12509: ACTIVE
 
-1. Formalise the portable exclusion rules (`bound`, `gap`, `split`) and prove
-   soundness for arbitrary valid prefixes against upstream `IsAdditionChain`.
-   Reuse the existing JSON proof object and independent Python checker; add
-   infrastructure only if a precise kernel-evaluation blocker requires it.
-2. Kernel-check target 7 with limit 3 before evaluating the large certificate.
-3. Kernel-check the 12509 lower bound with measured resource limits, obtaining
-   `ell(12509)=17`; combine with `mersenne12509_length_le_12525`.
+- [x] Formalise the portable exclusion rules (`bound`, `gap`, `split`) and prove
+  soundness for arbitrary valid prefixes against upstream `IsAdditionChain`.
+  Prove the extension doubling bound, complete reachability representation and
+  transport from accepted exclusion to the infimum defining `ell`.
+- [x] Kernel-check target 7 with limit 3 and conclude `ell(7)=4` using a witness.
+- [ ] Kernel-check the 12509 lower bound with measured resource limits, obtaining
+  `ell(12509)=17`; combine with `mersenne12509_length_le_12525`.
+
+`Exclusion.lean` covers the first two obligations. Its split rule checks all
+necessary next values and all supplied children; extra edges add obligations.
+Recursion decreases the step budget, and all shared nodes are checked in context.
+The existing JSON remains the data source; the probe only emits typed literals
+for kernel evaluation. No new certificate format or optimum search is needed.
+The full raw-literal probe timed out at 120 seconds; table declarations alone
+also timed out at 60 seconds. Next isolate data preparation and use reified data
+expressions or separately compiled chunks before evaluating the checker. Do not
+repeat the same unprofiled literal expansion with larger limits. Contextual
+subtree proofs may then bound evaluation cost; no prefix-independent truth cache.
+See `results/2026-10-02-exclusion-soundness-lean.md`.
 
 The two exhaustive searches and portable DAG already establish optimality
 computationally. Lean source bounds remain `[14,17]`. The Mersenne upper bound

@@ -88,7 +88,7 @@ large certificate for closed kernel evaluation. The stronger Hansen bound
 12525 is now formalised by the general theorem below.
 Seven small kernel-checked examples cover the singleton source, a complete
 two-block replay, and zero, unavailable and future increments. `Audit.lean`
-now covers 94 named theorems; standard axiom dependencies are checked by the
+now covers 106 named theorems; standard axiom dependencies are checked by the
 integration runner.
 
 `Hansen.lean` checks a marking certificate given as `(value, Bool)` entries,
@@ -190,5 +190,30 @@ previous bases remain available while unmarked steps retain their anchor.
 proving `hansenLift12509_chain`, `hansenLift12509_certificate`, and
 `mersenne12509_length_le_12525`. It does not expand or kernel-evaluate the
 12526 large numerical nodes. No Python/Lean certificate-format equivalence,
-source optimum or Mersenne optimum is claimed. The next obligation is
-exclusion-certificate soundness and the kernel-checked lower bound 17.
+source optimum or Mersenne optimum is claimed. Exclusion soundness is now proved
+below; the remaining obligation is the kernel-checked lower bound 17.
+
+`Exclusion.lean` advances milestone 2. `ChainReach` describes at most a given
+number of increasing addition steps from a prefix; its doubling bound and
+monotonicity are proved. Both whole chains and arbitrary valid extensions under
+upstream `IsAdditionChain` map into this relation. Positivity places every
+summand before its sum, so no star-chain restriction enters the proof.
+
+`checkExclusion` implements the portable bound/gap/split rules over a node array.
+It rejects a reached target and invalid references, checks every necessary
+next value and every child, and decreases the remaining step budget. It allows
+extra edges, which add proof obligations, and does not require backward references
+for termination. These harmless relaxations mean that an isomorphism with the
+Python checker is neither claimed nor required. Shared nodes are always evaluated
+in their current prefix. `checkExclusion_sound` proves non-reachability;
+`checkExclusion_excludes_extension` states it directly for upstream chains;
+`checkExclusion_lower_bound` transports it to `additionChainLength`, given a
+known witness for nonemptiness.
+
+`exclusionSeven_checked` kernel-evaluates the existing generator's three-node
+7/3 certificate. `length_seven_eq_four` combines it with `[1,2,3,4,7]`.
+Eight kernel examples cover the essential accepting/rejecting rule boundaries,
+including the same gap node in two different contexts. The large 12509 DAG
+is not imported into the compiled library: a bounded evaluation probe and its
+result are recorded separately. General soundness plus a Python acceptance
+result does not yet prove the 12509 lower bound in Lean.

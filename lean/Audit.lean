@@ -101,3 +101,16 @@ import ScholzBrauer
 #print axioms ScholzBrauer.hansenLift12509_chain
 #print axioms ScholzBrauer.hansenLift12509_certificate
 #print axioms ScholzBrauer.mersenne12509_length_le_12525
+
+#print axioms ScholzBrauer.ChainReach.mono
+#print axioms ScholzBrauer.ChainReach.endpoint_le
+#print axioms ScholzBrauer.ChainReach.doubling_bound
+#print axioms ScholzBrauer.replayFrom_reaches
+#print axioms ScholzBrauer.additionChain_reaches
+#print axioms ScholzBrauer.additionChain_extension_reaches
+#print axioms ScholzBrauer.checkExclusion_sound
+#print axioms ScholzBrauer.checkExclusion_excludes
+#print axioms ScholzBrauer.checkExclusion_excludes_extension
+#print axioms ScholzBrauer.checkExclusion_lower_bound
+#print axioms ScholzBrauer.exclusionSeven_checked
+#print axioms ScholzBrauer.length_seven_eq_four

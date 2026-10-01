@@ -1,0 +1,29 @@
+{
+  "started": "2026-10-02T08:09:53.399156+10:00",
+  "certificate_sha256": "516a54800a296da300cc15da318c40b06b08a18270c93b8467f3f843a8b074e9",
+  "target": 12509,
+  "max_steps": 16,
+  "distinct_nodes": 29437,
+  "chunks": 230,
+  "generated_source_sha256": "f4a2fab1e66b39e40190a34c7c5f740e3cd60d0a52a9dc70049ea6465d9a309e",
+  "generated_source_bytes": 2419904,
+  "timeout_seconds": 120,
+  "memory_limit_mb": 2048,
+  "seed": null,
+  "method": "Lean kernel decide; no native_decide",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j",
+    "1",
+    "-M",
+    "2048",
+    "/Users/gregb/Documents/devel/scholz-brauer/.git/exclusion-probe-n6k1fck3/Probe.lean"
+  ],
+  "cwd": "/Users/gregb/Documents/devel/scholz-brauer/lean",
+  "exit_code": null,
+  "output": "",
+  "status": "timeout",
+  "runtime_seconds": 120.021501
+}

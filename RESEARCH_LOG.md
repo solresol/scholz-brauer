@@ -1,5 +1,48 @@
 # Research log
 
+## 2026-10-02 — Friday — exclusion soundness and ell(7)=4 in Lean
+
+Australia/Sydney, starting about 08:01 AEST. Read instructions, automation
+memory, roadmap, dated reports/log and actual Lean/Python sources. Clean main at
+ea07fe5, correct solresol origin, no competing process; acquired the exclusive
+run lock and fetched/fast-forwarded (already current). Milestone 1 was complete,
+so continued milestone 2's proof obligations despite the computational-day guide.
+
+**Substantive advance.** `Exclusion.lean` proves completeness of increasing
+reachability for arbitrary upstream-valid prefix extensions, extension doubling,
+and context-sensitive soundness of all bound/gap/split rules. Acceptance now
+implies a lower bound on `additionChainLength` when a witness supplies
+nonemptiness. Kernel-checked the existing three-node 7/3 certificate and combined
+it with a four-step witness to prove `ell(7)=4`. No restriction to star chains or
+assumed target enters the proof. The Lean rules permit extra checked edges and
+forward references; no Python/Lean checker equivalence is claimed.
+
+**Large-instance obstacle.** Added only the typed-data transport needed to try
+the existing 12509 DAG. Raw literals (29437 nodes, 195745 edges, 230 array chunks)
+plus kernel decide timed out at 120.021501 seconds. A separate declarations-only
+probe timed out at 60.081456 seconds. Both used Lean's 2048 MB allocation limit
+and one worker. No completed large theorem or lower bound resulted. Next change
+the data representation/compilation strategy, separate preparation from checking,
+and if necessary compose context-specific subtree proofs. Do not repeat the same
+unprofiled expansion or cache conclusions solely by node id.
+
+**Verification.** Final existing integration ran once in 50.340364 seconds:
+757 Lean jobs, 106 audited theorems (12 new), 57 input/five vendor hashes, and
+all existing exact searches/checkers passed. Python3.9.6, Lean4.27.0, unchanged
+pins, exact integers, no seed. Only standard axioms; no sorry, custom axiom,
+unsafe, native_decide or imported open Scholz theorem. Eight kernel examples
+cover rule boundaries and shared-node context sensitivity. The small Python
+certificate matches the Lean literal. Inspected the complete source/docs diff
+and structured evidence. Details and commands:
+`results/2026-10-02-exclusion-soundness-lean.md`.
+
+**Limits and next.** Milestone 2's soundness and small-instance obligations are
+closed. The 12509 source bounds remain [14,17] in Lean; the Hansen upper bound
+12525 is already formal. Optimality17 and Scholz12509 remain computational until
+kernel evaluation of the large exclusion completes. No new literature/frontier
+or novelty claim, no Mersenne optimum, and no extension experiment. Milestone 3
+remains deferred.
+
 ## 2026-10-01 — Thursday — general Hansen lift completed in Lean
 
 Australia/Sydney, starting about 08:00 AEST. Read automation memory, repository
