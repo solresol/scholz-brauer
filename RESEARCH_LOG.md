@@ -1,5 +1,47 @@
 # Research log
 
+## 2026-10-03 — Saturday — formal exclusion through 15 additions for 12509
+
+Australia/Sydney, starting 08:00 AEST. Read automation memory, repository
+instructions, current roadmap/log, previous failed probes and actual sources.
+Clean main at 55835d8, correct solresol origin, no competing process; acquired the
+exclusive run lock and fetched/fast-forwarded (already current). Reinspected the
+pinned upstream definitions, open statement and licence. Milestone 1 was complete.
+
+**Substantive advance.** Proved `sixteen_le_length12509`, strengthening the formal
+source interval from [14,17] to **[16,17]**. The exact generator and independent
+checker supplied a 475-node certificate covering 7544 actual prefixes. Lean now
+excludes every chain through 15 additions, including arbitrary earlier summands.
+The existing 17-step witness supplies the upper bound and infimum nonemptiness.
+
+**Evaluation blocker resolved for this case.** Generalised node lookup while
+reproving soundness, used balanced constructor data and Boolean list checks,
+and proved a context-specific split composition lemma. The emitted 403 proof
+fragments each retain their actual prefix. Leaf checks have at most 100 rule
+occurrences. Data reification emits only expressions, never proofs. Sequential
+elaboration succeeded where monolithic and asynchronously queued checks exceeded
+stack, time or 2 GB memory limits. Explicit primitive recursion failed to solve
+the monolithic limit and was discarded. No truth is cached by shared node ID.
+
+**Verification.** Final normal Lean build: 759 jobs, 136.47 seconds (new lower-bound
+module about 128 seconds). Existing full integration ran once in 50.726068 seconds:
+111 audited theorems, 61 input hashes and five vendor hashes; independent exact
+checks, regenerated fixture byte comparison, build and audit all passed. Only
+standard axioms; no sorry/custom axiom/native evaluator/assumed target in the
+accepted proof. Python3.9.6, Lean4.27.0 and dependency pins unchanged, exact
+integers, no seed. Failed error-recovery declarations are not counted as proofs.
+Final input hashes match the checked source. Reviewed source, generator, emitted
+proof structure, evidence and documentation; staged whitespace check passed.
+
+**Limits and next.** Milestone 2 remains active: exclude every chain through
+16 additions, establish optimum 17, then combine with the existing Hansen bound
+12525. The full DAG has 1,345,873 contextual occurrences and still lacks a Lean
+acceptance theorem. Profile a representative bounded slice and reduce repeated
+coverage work before attempting its full context-specific composition. No
+minimum Mersenne chain, new literature frontier or extension hypothesis is claimed.
+Milestone 3 remains deferred. Commands, measured failures and evidence:
+`results/2026-10-03-exclusion-lower-bound-lean.md` and companion JSON reports.
+
 ## 2026-10-02 — Friday — exclusion soundness and ell(7)=4 in Lean
 
 Australia/Sydney, starting about 08:01 AEST. Read instructions, automation

@@ -114,3 +114,9 @@ import ScholzBrauer
 #print axioms ScholzBrauer.checkExclusion_lower_bound
 #print axioms ScholzBrauer.exclusionSeven_checked
 #print axioms ScholzBrauer.length_seven_eq_four
+
+#print axioms ScholzBrauer.checkExclusionWith_split
+#print axioms ScholzBrauer.checkExclusionWith_sound
+#print axioms ScholzBrauer.checkExclusionWith_lower_bound
+#print axioms ScholzBrauer.exclusion12509_fifteen_checked
+#print axioms ScholzBrauer.sixteen_le_length12509

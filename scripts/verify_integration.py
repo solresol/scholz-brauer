@@ -126,7 +126,8 @@ def main():
                        ROOT / "results/2026-09-30-12509-hansen-allocation.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
-                       ROOT / "results/2026-09-25-12509-exclusion-certificate.json"})
+                       ROOT / "results/2026-09-25-12509-exclusion-certificate.json",
+                       ROOT / "results/2026-10-03-12509-limit15-exclusion.json"})
     hashes = {str(p.relative_to(ROOT)): sha256(p) for p in inputs}
     vendor = ROOT / "lean/vendor/formal-conjectures"
     provenance = json.loads((vendor / "provenance.json").read_text())
@@ -171,6 +172,11 @@ def main():
         run([sys.executable, "scripts/verify_exclusion.py",
              "--output", str(exclusion_path)])
         exclusion = json.loads(exclusion_path.read_text())
+        lower_fixture = Path(temporary) / "Exclusion12509Lower.lean"
+        lean_lower = json.loads(run([sys.executable, "scripts/export_lean_exclusion.py",
+                                    "--output", str(lower_fixture)]))
+        if lower_fixture.read_bytes() != (ROOT / "lean/ScholzBrauer/Exclusion12509Lower.lean").read_bytes():
+            raise ValueError("generated exclusion proof differs from compiled source")
     computational = compose_12509_evidence(
         witness, mersenne, search["research"], exclusion["saved_12509"])
     if hansen["certificate_sha256"] != mersenne["certificate_sha256"]:
@@ -206,9 +212,10 @@ def main():
         "lean_export_checks": export,
         "hansen_allocation_checks": allocation,
         "exclusion_certificate_checks": exclusion,
+        "lean_lower_bound_input_checks": lean_lower,
         "claim_boundary": {
             **computational,
-            "lean_ell_12509_bounds": [14, 17],
+            "lean_ell_12509_bounds": [16, 17],
             "target_if_ell_12509_equals_17": 12525,
             "optimality_or_scholz_at_12509_formalised": False,
             "whole_star_lift_formalised": True,
@@ -225,11 +232,11 @@ def main():
             "general_hansen_allocation_soundness_formalised": True,
             "lean_hansen_12509_shift_budget": 12525,
             "note": "Lean proves the general Hansen lift and the 12525 Mersenne bound. "
-                    "Lean source bounds remain [14,17]. Two exhaustive searches "
+                    "Lean source bounds are [16,17]; exclusion through 15 additions is kernel checked. Two exhaustive searches "
                     "exclude every chain of at most 16 additions for 12509. "
                     "Together with the 17-step source and 12525-step Mersenne "
                     "certificate, this establishes the numerical Scholz instance "
-                    "computationally; the exclusion is not a Lean proof."},
+                    "computationally; exclusion through 16 additions is not yet a Lean proof."},
         "runtime_seconds": round(time.perf_counter() - started, 6)}
     with args.output.open("x") as output:
         output.write(json.dumps(report, indent=2) + "\n")

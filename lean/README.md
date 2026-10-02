@@ -40,8 +40,9 @@ which Lean's kernel checks.
   upper bound on the minimum addition-chain length.
 
 `Example12509.lean` replays a published 17-step witness and also checks the list
-directly against the upstream predicate. The proved numerical result is
-`14 ≤ additionChainLength 12509 ≤ 17`. Source optimality and the end-to-end
+directly against the upstream predicate. Together with `Exclusion12509Lower.lean`,
+the proved numerical result is
+`16 ≤ additionChainLength 12509 ≤ 17`. Source optimality and the end-to-end
 Scholz instance remain unproved in Lean. The Hansen Mersenne upper bound 12525
 is now proved below. The 23 September C++/Python exhaustive searches and Hansen
 certificate establish optimality and the Scholz instance computationally; they
@@ -88,7 +89,7 @@ large certificate for closed kernel evaluation. The stronger Hansen bound
 12525 is now formalised by the general theorem below.
 Seven small kernel-checked examples cover the singleton source, a complete
 two-block replay, and zero, unavailable and future increments. `Audit.lean`
-now covers 106 named theorems; standard axiom dependencies are checked by the
+now covers 111 named theorems; standard axiom dependencies are checked by the
 integration runner.
 
 `Hansen.lean` checks a marking certificate given as `(value, Bool)` entries,
@@ -213,7 +214,22 @@ known witness for nonemptiness.
 `exclusionSeven_checked` kernel-evaluates the existing generator's three-node
 7/3 certificate. `length_seven_eq_four` combines it with `[1,2,3,4,7]`.
 Eight kernel examples cover the essential accepting/rejecting rule boundaries,
-including the same gap node in two different contexts. The large 12509 DAG
-is not imported into the compiled library: a bounded evaluation probe and its
+including the same gap node in two different contexts. The large 16-addition
+12509 DAG is not imported into the compiled library: a bounded evaluation probe and its
 result are recorded separately. General soundness plus a Python acceptance
-result does not yet prove the 12509 lower bound in Lean.
+result does not yet prove the lower bound 17 in Lean.
+
+`Exclusion12509Lower.lean` now proves `sixteen_le_length12509`: all chains with
+at most 15 additions are excluded. The deterministic exporter embeds the checked
+475-node JSON as constructor data and emits 403 context-specific proof fragments.
+Each leaf checks at most 100 rule occurrences with `decide +kernel`; parent
+fragments use `checkExclusionWith_split`. `Elab.async false` prevents proof jobs
+from accumulating. The final theorem audit includes all transitive dependencies.
+
+`ExclusionTree.lean` provides balanced lookup and a data-only expression elaborator;
+the elaborator does not run the checker or create proofs. `checkExclusionWith_sound`
+is proved for arbitrary lookup functions, so no unproved array/tree equivalence
+is needed. The existing array API remains available. Shared syntax never permits
+sharing a conclusion across distinct prefixes. See the 3 October report for
+resource failures and the remaining 16-addition exclusion. The formal source
+interval is now `[16,17]`; optimum 17 and the Scholz instance remain incomplete.

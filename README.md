@@ -10,7 +10,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 2 October 2026
+## Verified status — 3 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -21,9 +21,11 @@ summand-value replay has exactly `n-1+r` additions. Applying it to the checked
 
 **Milestone 2 is active.** Exclusion-certificate soundness is now proved in
 Lean for arbitrary valid prefixes, and the small certificate proves `ℓ(7)=4`.
-Lean still proves only `14 ≤ ℓ(12509) ≤ 17`: the large exclusion certificate
-has not been kernel checked. The optimum 17 and the full numerical Scholz
-instance therefore remain computational results. No minimum Mersenne-chain
+Lean now proves `16 ≤ ℓ(12509) ≤ 17`: a context-specific composition of
+403 kernel-checked proof fragments excludes every chain through 15 additions.
+The large exclusion through 16 additions has not been kernel checked. The
+optimum 17 and the full numerical Scholz instance therefore remain computational
+results. No minimum Mersenne-chain
 length or general conjecture is claimed.
 
 The first daily run found only the initial README. Its advertised Python
@@ -45,7 +47,8 @@ The published chain
 
 has been checked by Lean replay, by direct evaluation of the upstream
 addition-chain predicate, and independently using Python integers. It proves
-`ℓ(12509) ≤ 17`. The reused doubling lemma also proves `14 ≤ ℓ(12509)`.
+`ℓ(12509) ≤ 17`. The doubling lemma proves 14; the new exclusion proof
+strengthens the lower bound to `16 ≤ ℓ(12509)`.
 The step `24 = 12 + 12` after `13` makes this particular chain non-star.
 
 The published **18-step star witness** now has an explicit Brauer lift, checked
@@ -81,6 +84,8 @@ independently replayable. `Exclusion.lean` now proves soundness of a Lean
 checker for the same bound/gap/split rules; evaluation of this large certificate
 remains outstanding. No equivalence with the Python program is assumed.
 See `results/2026-09-25-exclusion-certificate.md` for the format and proof argument.
+The new kernel lower bound and precise evaluation limits are recorded in
+`results/2026-10-03-exclusion-lower-bound-lean.md`.
 
 **Not established here:** a Lean optimality proof, an end-to-end Lean Scholz
 instance at 12509, the minimum Mersenne-chain length, or the shortest star
@@ -142,10 +147,10 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 106-theorem axiom audit. The **Lean-only**
-source bounds remain
-`14 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The old
-right-side interval `[12522,12525]` describes the Lean evidence alone.
+exclusion checker, the Lean build and 111-theorem axiom audit. The **Lean-only**
+source bounds are
+`16 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The right-side
+interval for the Lean evidence is now `[12524,12525]`.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 

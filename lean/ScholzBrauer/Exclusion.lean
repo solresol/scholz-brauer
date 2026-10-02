@@ -117,38 +117,66 @@ inductive ExclusionNode
 /-- Check coverage and every child in its own context. Coverage may contain
 extra edges; these only add obligations, so exact sorting/deduplication is not
 needed for soundness. Portable certificates provide exact sorted coverage. -/
-def checkExclusion (nodes : Array ExclusionNode) (n : ℕ) :
+def checkExclusionWith (nodes : ℕ → ExclusionNode) (n : ℕ) :
     (c : List ℕ) → (m r id : ℕ) → Bool
   | c, m, r, id =>
     if m = n then false else
-    match nodes[id]?.getD .invalid with
+    match nodes id with
     | .invalid => false
     | .bound => decide (m * 2 ^ r < n)
-    | .gap => decide (r = 1 ∧ ∀ a ∈ c, ∀ b ∈ c, a + b ≠ n)
+    | .gap => (r == 1) && c.all (fun a => c.all (fun b => a + b != n))
     | .split edges =>
       match r with
       | 0 => false
       | k + 1 =>
-        decide (∀ a ∈ c, ∀ b ∈ c, m < a + b → a + b ≤ n →
-          n ≤ (a + b) * 2 ^ k → ∃ e ∈ edges, e.1 = a + b) &&
-        edges.all (fun e => checkExclusion nodes n (c ++ [e.1]) e.1 k e.2)
+        c.all (fun a => c.all (fun b =>
+          if m < a + b then
+            if a + b ≤ n then
+              if n ≤ (a + b) * 2 ^ k then edges.any (fun e => e.1 == a + b)
+              else true
+            else true
+          else true)) &&
+        edges.all (fun e => checkExclusionWith nodes n (c ++ [e.1]) e.1 k e.2)
 
-theorem checkExclusion_sound {nodes : Array ExclusionNode} {n r id m : ℕ}
-    {c : List ℕ} (hcheck : checkExclusion nodes n c m r id = true)
+/-- Compose separately kernel-checked subtrees without reevaluating them.
+Every child retains its actual prefix; no conclusion is cached by node ID. -/
+theorem checkExclusionWith_split {nodes : ℕ → ExclusionNode} {n m k id : ℕ}
+    {c : List ℕ} {edges : List (ℕ × ℕ)} (hne : m ≠ n)
+    (hnode : nodes id = .split edges)
+    (hcover : ∀ a ∈ c, ∀ b ∈ c, m < a + b → a + b ≤ n →
+      n ≤ (a + b) * 2 ^ k → ∃ e ∈ edges, e.1 = a + b)
+    (hchildren : ∀ e ∈ edges,
+      checkExclusionWith nodes n (c ++ [e.1]) e.1 k e.2 = true) :
+    checkExclusionWith nodes n c m (k + 1) id = true := by
+  rw [checkExclusionWith, if_neg hne, hnode]
+  simp only [Bool.and_eq_true, List.all_eq_true]
+  constructor
+  · intro a ha b hb
+    split <;> rename_i hgt
+    · split <;> rename_i hle
+      · split <;> rename_i hbound
+        · simpa only [List.any_eq_true, beq_iff_eq] using hcover a ha b hb hgt hle hbound
+        · rfl
+      · rfl
+    · rfl
+  · exact hchildren
+
+theorem checkExclusionWith_sound {nodes : ℕ → ExclusionNode} {n r id m : ℕ}
+    {c : List ℕ} (hcheck : checkExclusionWith nodes n c m r id = true)
     (hc : ∀ x ∈ c, x ≤ m) : ¬ ChainReach n c m r := by
   induction r generalizing c m id with
   | zero =>
     intro hr
     cases hr with
-    | stop => rw [checkExclusion, if_pos rfl] at hcheck; contradiction
+    | stop => rw [checkExclusionWith, if_pos rfl] at hcheck; contradiction
   | succ r ih =>
     intro hr
     have hne : m ≠ n := by
       intro he
-      rw [checkExclusion, if_pos he] at hcheck
+      rw [checkExclusionWith, if_pos he] at hcheck
       contradiction
-    rw [checkExclusion, if_neg hne] at hcheck
-    cases hnode : nodes[id]?.getD .invalid with
+    rw [checkExclusionWith, if_neg hne] at hcheck
+    cases hnode : nodes id with
     | invalid => simp [hnode] at hcheck
     | bound =>
       have hh : m * 2 ^ (r + 1) < n := by simpa [hnode] using hcheck
@@ -156,7 +184,7 @@ theorem checkExclusion_sound {nodes : Array ExclusionNode} {n r id m : ℕ}
       omega
     | gap =>
       have hh : r + 1 = 1 ∧ ∀ a ∈ c, ∀ b ∈ c, a + b ≠ n := by
-        simpa [hnode] using hcheck
+        simpa [hnode, List.all_eq_true] using hcheck
       have hz : r = 0 := by omega
       subst r
       cases hr with
@@ -165,7 +193,7 @@ theorem checkExclusion_sound {nodes : Array ExclusionNode} {n r id m : ℕ}
         cases hn with
         | stop => exact hh.2 _ ha _ hb rfl
     | split edges =>
-      simp only [hnode, Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true] at hcheck
+      simp only [hnode, Bool.and_eq_true, List.all_eq_true] at hcheck
       cases hr with
       | stop => exact hne rfl
       | @step _ _ _ a b ha hb hgt hn =>
@@ -174,11 +202,35 @@ theorem checkExclusion_sound {nodes : Array ExclusionNode} {n r id m : ℕ}
           rcases List.mem_append.mp hx with hx | hx
           · exact le_trans (hc x hx) (Nat.le_of_lt hgt)
           · exact le_of_eq (List.mem_singleton.mp hx)
-        obtain ⟨e, he, hv⟩ := hcheck.1 a ha b hb hgt hn.endpoint_le
-          (hn.doubling_bound hnext)
+        have hcover := hcheck.1 a ha b hb
+        simp only [if_pos hgt, if_pos hn.endpoint_le,
+          if_pos (hn.doubling_bound hnext), List.any_eq_true, beq_iff_eq] at hcover
+        obtain ⟨e, he, hv⟩ := hcover
         have hh := hcheck.2 e he
         rw [hv] at hh
         exact ih hh hnext hn
+
+/-- Array-backed compatibility interface for small certificates. -/
+abbrev checkExclusion (nodes : Array ExclusionNode) (n : ℕ)
+    (c : List ℕ) (m r id : ℕ) : Bool :=
+  checkExclusionWith (fun i => nodes[i]?.getD .invalid) n c m r id
+
+theorem checkExclusion_sound {nodes : Array ExclusionNode} {n r id m : ℕ}
+    {c : List ℕ} (hcheck : checkExclusion nodes n c m r id = true)
+    (hc : ∀ x ∈ c, x ≤ m) : ¬ ChainReach n c m r :=
+  checkExclusionWith_sound hcheck hc
+
+/-- Lookup representation does not affect soundness or the minimum-length bound. -/
+theorem checkExclusionWith_lower_bound {nodes : ℕ → ExclusionNode} {n r id : ℕ}
+    (h : checkExclusionWith nodes n [1] 1 r id = true)
+    (hne : (additionChainSteps n).Nonempty) : r < additionChainLength n := by
+  by_contra! hle
+  obtain ⟨c, hc, hn, hlen⟩ := Nat.sInf_mem hne
+  have hr := additionChain_reaches hc hn
+  have hl : c.length - 1 ≤ r := by
+    change c.length = additionChainLength n + 1 at hlen
+    omega
+  exact checkExclusionWith_sound h (by simp) (hr.mono hl)
 
 /-- Acceptance excludes every upstream chain with at most `r` additions. -/
 theorem checkExclusion_excludes {nodes : Array ExclusionNode} {n r id : ℕ}

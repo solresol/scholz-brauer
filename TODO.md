@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-02 (Friday, Australia/Sydney).
+Updated 2026-10-03 (Saturday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -93,17 +93,27 @@ No further exporters, allocation checkers or small Hansen enumeration are needed
 `Exclusion.lean` covers the first two obligations. Its split rule checks all
 necessary next values and all supplied children; extra edges add obligations.
 Recursion decreases the step budget, and all shared nodes are checked in context.
-The existing JSON remains the data source; the probe only emits typed literals
-for kernel evaluation. No new certificate format or optimum search is needed.
-The full raw-literal probe timed out at 120 seconds; table declarations alone
-also timed out at 60 seconds. Next isolate data preparation and use reified data
-expressions or separately compiled chunks before evaluating the checker. Do not
-repeat the same unprofiled literal expansion with larger limits. Contextual
-subtree proofs may then bound evaluation cost; no prefix-independent truth cache.
-See `results/2026-10-02-exclusion-soundness-lean.md`.
+The 16-addition JSON remains the source for the outstanding exclusion.
+
+- [x] Kernel-check exclusion through 15 additions, strengthening the formal
+  interval to `[16,17]`. The smaller certificate has 475 nodes and 7544 contextual
+  occurrences; 403 proof fragments compose via `checkExclusionWith_split`.
+
+Balanced tree lookup, direct data reification, Boolean list checks and sequential
+context-specific proof composition remove the observed data/stack/memory blockers
+for this smaller case. Monolithic checks still fail at the 2 GB limit. Explicit
+primitive recursion did not solve that failure and was not retained.
+
+Next apply bounded context-specific proofs to the existing 16-addition DAG.
+Profile a representative slice before scheduling all 1,345,873 occurrences;
+the smaller successful composition took about 131 seconds, so a blind full
+expansion is not yet a sensible bounded run. Reduce repeated local coverage
+work or use separately compiled slices to control time and retained state.
+No node-ID-only truth cache, new search format or repeated small Hansen checks.
+See `results/2026-10-03-exclusion-lower-bound-lean.md`.
 
 The two exhaustive searches and portable DAG already establish optimality
-computationally. Lean source bounds remain `[14,17]`. The Mersenne upper bound
+computationally. Lean source bounds are `[16,17]`. The Mersenne upper bound
 12525 is now a Lean theorem. Sharing certificate syntax does not permit caching
 truth by node id across different prefixes. Excluding 17-step star chains is
 unnecessary for this milestone; star optimum 18 remains a literature claim.
