@@ -138,3 +138,17 @@ no frontier or novelty claim follows from this repository's results.
   source optimality are separate obligations. Neither unsuccessful search nor
   timeout proves exclusion.
 - No mathematical extension hypothesis has yet been tested or refuted.
+
+## Publication follow-up — 3 October 2026
+
+- [x] Package v0.1.0 with licence, source/AI attribution, citation metadata,
+  Zenodo metadata, release notes and CI using the existing verification command.
+- [ ] Connect the public GitHub repository in the author's Zenodo account,
+  publish the archive, verify its DOI and add it to the citation metadata.
+- [ ] If proceeding with Palomar, prepare the independent statement and
+  Comparator/metadata interface and resolve module-header compatibility;
+  rebuild and compare before submitting an immutable commit. Not yet submitted.
+- [ ] Develop a preprint with a collaborator contributing mathematical or
+  formalisation work. A software release is not journal peer review.
+
+Publication work does not close milestone 2 or establish novelty priority.

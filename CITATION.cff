@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Please cite this software release when using its proofs or certificates."
+type: software
+title: "Hansen's Addition-Chain Construction in Lean 4"
+authors:
+  - family-names: Baker
+    given-names: Greg
+version: 0.1.0
+date-released: '2026-10-03'
+license: Apache-2.0
+repository-code: https://github.com/solresol/scholz-brauer
+url: https://github.com/solresol/scholz-brauer/releases/tag/v0.1.0
+keywords:
+  - Lean
+  - formal verification
+  - addition chains
+  - Hansen construction
+  - Scholz-Brauer conjecture
+abstract: >-
+  Lean 4 formalisation of the general marked Hansen construction, including
+  allocation, sorted replay and the exact n-1+r addition count. The release
+  proves ell(2^12509-1) <= 12525 and 16 <= ell(12509) <= 17 in Lean.
+  It also includes independently checked computational evidence for
+  ell(12509)=17; that equality and the end-to-end Scholz instance at 12509
+  are not yet proved in Lean. The classical theorem is not claimed as new,
+  and priority for this formalisation has not been established. Development
+  used OpenAI Codex extensively; no independent human peer review is claimed.

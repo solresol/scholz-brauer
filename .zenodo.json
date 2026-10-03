@@ -1,0 +1,27 @@
+{
+  "title": "Hansen's Addition-Chain Construction in Lean 4",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Baker, Greg"
+    }
+  ],
+  "version": "0.1.0",
+  "publication_date": "2026-10-03",
+  "license": "Apache-2.0",
+  "description": "<p>Lean 4 formalisation of the general marked Hansen construction: allocation, sorted replay, and the exact n-1+r addition count. Proves ell(2^12509-1) &lt;= 12525 and 16 &lt;= ell(12509) &lt;= 17 in Lean.</p><p>Computational evidence establishes ell(12509)=17, but the equality and the end-to-end Scholz instance at 12509 are not yet proved in Lean. No new classical theorem, first-formalisation priority or independent human peer review is claimed. OpenAI Codex was used extensively for proofs, code, documentation and experiments under Greg Baker's research direction. See NOTICE and the release notes for provenance and limitations.</p>",
+  "keywords": [
+    "Lean",
+    "formal verification",
+    "addition chains",
+    "Hansen construction",
+    "Scholz-Brauer conjecture"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/solresol/scholz-brauer",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

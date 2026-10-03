@@ -1,0 +1,23 @@
+Hansen's Addition-Chain Construction in Lean 4
+Copyright 2026 Greg Baker
+
+Original project code and documentation are distributed under Apache-2.0.
+Existing third-party notices and licences remain applicable to their material.
+
+ScholzBrauer/AdditionChain.lean adapts work of the Formal Conjectures Authors
+from google-deepmind/formal-conjectures, commit
+40e7c98697de6f66b8cbdbf641749ab39ed9c152, under Apache-2.0.
+The original notices, sources, licence and hashes are preserved in
+lean/vendor/formal-conjectures/. See lean/README.md for adaptation details.
+Mathlib and its transitive dependencies retain their respective licences.
+
+The mathematical construction is classical work attributed to Hansen, studied
+here through Neill Clift's exposition. This release does not claim invention
+of Hansen's theorem or priority for its formalisation. Published chain data
+and mathematical sources are credited in the dated research records.
+
+Development used OpenAI Codex extensively to write and revise Lean proofs,
+code and documentation, and to run experiments. Greg Baker directed the
+research. Kernel checking and automated audits do not establish the fidelity
+of the mathematical statement or substitute for independent human review.
+No independent human peer review is claimed for this release.

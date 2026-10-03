@@ -1,5 +1,40 @@
 # Research log
 
+## 2026-10-03 — Saturday — publication packaging
+
+At the user's explicit request, prepared the first public software release,
+"Hansen's Addition-Chain Construction in Lean 4", version 0.1.0. The checkout
+was clean on main at 4ed8f96; fetched origin and fast-forward check was current.
+Added the Apache-2.0 licence, retained upstream attribution, disclosed extensive
+Codex assistance, and supplied CFF and Zenodo metadata with no invented DOI,
+ORCID, affiliation or peer-review claim. No mathematical sources changed.
+
+**Checks.** The official CFF 1.2.0 JSON schema accepts CITATION.cff; metadata
+versions agree and the workflow parses. Existing full integration passed once
+in 56.831131 seconds with Python 3.11.6 and pinned Lean 4.27.0: 111 theorem
+dependency audits, build, vendor hashes, exact searches and independent
+certificate checks. Report: .git/publication-integration.json (local evidence;
+the public CI emits its report in its run log). Exact arithmetic, no seed.
+CI uses pinned checkout/Lean actions on disposable GitHub-hosted Ubuntu runners;
+public fork code will not run on the personal raksasa host. The initial remote
+CI result is to be checked before publishing the release tag.
+
+**Publication limits.** This run makes no substantive mathematical research
+advance. Milestone 1 remains complete; milestone 2 still needs the kernel-checked
+exclusion through 16 additions. The result is a formalisation of a classical
+construction, with no established priority claim. Zenodo deposit publication
+requires the author's account connection; metadata alone is not a DOI.
+
+Palomar, announced by Tao on 18 August 2026, is a relevant additional registry:
+https://terrytao.wordpress.com/2026/08/18/palomar-a-registry-of-lean-verified-mathematics/
+Its submission requirements, inspected 3 October 2026 at
+https://palomar-registry.org/how-to-submit, require a separate readable Challenge,
+Solution, Comparator configuration, formalization.yaml, and module headers in
+all regular Lean files. This repository is not yet submission-ready; no registry
+submission or acceptance is claimed. That work is separate from this release
+and the active mathematical proof obligation. Zenodo guidance checked at
+https://help.zenodo.org/docs/github/enable-repository/.
+
 ## 2026-10-03 — Saturday — formal exclusion through 15 additions for 12509
 
 Australia/Sydney, starting 08:00 AEST. Read automation memory, repository

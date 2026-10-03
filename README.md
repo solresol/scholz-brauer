@@ -1,5 +1,14 @@
 # Scholz–Brauer research
 
+[![Verify proofs and certificates](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml/badge.svg)](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml)
+
+The first software release, **Hansen's Addition-Chain Construction in Lean 4**,
+is documented in [the v0.1.0 release notes](releases/v0.1.0.md).
+Use [CITATION.cff](CITATION.cff) to cite the software. The project is licensed
+under [Apache-2.0](LICENSE); [NOTICE](NOTICE) records source attribution and
+extensive AI assistance. A Zenodo DOI is pending. This is a formalisation of
+classical mathematics; no first-formalisation priority or peer review is claimed.
+
 The programme studies
 
 \[
