@@ -89,7 +89,7 @@ large certificate for closed kernel evaluation. The stronger Hansen bound
 12525 is now formalised by the general theorem below.
 Seven small kernel-checked examples cover the singleton source, a complete
 two-block replay, and zero, unavailable and future increments. `Audit.lean`
-now covers 111 named theorems; standard axiom dependencies are checked by the
+now covers 121 named theorems; standard axiom dependencies are checked by the
 integration runner.
 
 `Hansen.lean` checks a marking certificate given as `(value, Bool)` entries,
@@ -233,3 +233,34 @@ is needed. The existing array API remains available. Shared syntax never permits
 sharing a conclusion across distinct prefixes. See the 3 October report for
 resource failures and the remaining 16-addition exclusion. The formal source
 interval is now `[16,17]`; optimum 17 and the Scholz instance remain incomplete.
+
+`ExclusionContext.lean` proves `ChainReach.enlarge` and sound exclusion on
+explicit supersets of source prefixes. Each local check verifies the endpoint
+envelope, viable next-value coverage and every child inclusion (as a sublist),
+new-value membership, endpoint and decremented budget. The active-summand filter
+is justified by the existing doubling bound. Soundness uses induction on the
+remaining budget and assumes acceptance of every referenced state; it does not
+cache truth by syntax node ID or assume a Python checker equivalent.
+
+`ExclusionContextChecks.lean` validates 7/3 and five meaningful rejection cases.
+`Exclusion12509ContextsData.lean` contains 29,865 abstract contexts, compiled as
+constructor data. `Exclusion12509Part00.lean` kernel-checks the first 2,496 local
+states. `Exclusion12509Partial.lean` aggregates that checked prefix and proves
+`contexts12509_gap_excluded`: gap contexts in the prefix exclude their target.
+It does not assume acceptance of the unchecked remainder. The prefix itself is
+not a complete exclusion from `[1]`, so **the formal numerical interval remains
+[16,17]** and milestone 2 remains incomplete.
+
+The exporter `scripts/export_lean_contexts.py` generates the data, twelve candidate
+proof parts and a candidate final theorem, with optional aggregation of an initial
+part range. Only Part00 and its aggregate are retained in the compiled library.
+For fresh output paths, use `--data-output`, `--proof-output`, `--parts-output`,
+`--prefix-parts 1` and `--prefix-output`. Export always reports `lean_proof: false`;
+Lean compilation and dependency auditing are separate requirements. Integration
+regenerates and compares the retained files, builds them and audits the aggregate.
+The remaining generated parts are not imported or counted as proved.
+
+The full sequential attempt timed out at 1500 seconds; the checkpointed attempt
+at 1800 seconds, under substantial host contention. Reuse the completed checkpoint
+and profile a more compact local set representation before another full run.
+See `../results/2026-10-04-context-sharing-lean.md` for exact inputs and limits.

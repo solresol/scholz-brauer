@@ -1,0 +1,451 @@
+{
+  "date_australia_sydney": "2026-10-04",
+  "seed": null,
+  "method": "exact natural arithmetic and Lean kernel checks; no native acceptance oracle",
+  "resource_note": "Probes used one Lean worker and a 2048 MB Lean allocation limit. Some short probes overlapped with the full build; times are not controlled benchmarks.",
+  "probes": {
+    "slice-original": {
+      "started": "2026-10-04T08:05:21.393633+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/SliceOriginal.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 120,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 54.48157370800618,
+      "output": "'_private._stdin.0.ScholzBrauer.exclusionPart38' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "modular-proof": {
+      "started": "2026-10-04T08:03:39.612904+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/Modular.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 45,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 15.001806000014767,
+      "output": "'ScholzBrauer.ChainReach.residue_bound' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "context-small-final": {
+      "started": "2026-10-04T08:14:23.631074+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextSmall.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 45,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 11.385213750007097,
+      "output": "'ScholzBrauer.checkContext_sound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.checkContext_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextSeven_checked' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "context-sample": {
+      "started": "2026-10-04T08:13:56.676932+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextProbe.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 180,
+      "status": "failed",
+      "exit_code": 134,
+      "runtime_seconds": 38.710978457995225,
+      "output": "libc++abi: terminating due to uncaught exception of type lean::memory_exception: excessive memory consumption detected at 'interpreter' (potential solution: increase memory consumption threshold)\n"
+    },
+    "context-one": {
+      "started": "2026-10-04T08:15:05.183484+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextOne.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 60,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 12.248070832982194,
+      "output": "'ScholzBrauer.oneGap' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "context-sample-lazy": {
+      "started": "2026-10-04T08:16:35.704906+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextProbeLazy.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 120,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 58.584171709022485,
+      "output": "'ScholzBrauer.contextProbe0' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe1' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe6' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe13' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe14' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe15' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe100' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe500' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextProbe933' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "context-leaves": {
+      "started": "2026-10-04T08:17:53.518697+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextLeaves.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 90,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 16.541860083001666,
+      "output": "'ScholzBrauer.leafProbe31' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "context-tail": {
+      "started": "2026-10-04T08:23:33.919072+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextTail.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 60,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 10.540573458012659,
+      "output": ""
+    },
+    "context-combine": {
+      "started": "2026-10-04T08:24:05.061663+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextCombine.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 60,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 15.788341125007719,
+      "output": ""
+    },
+    "context-sample-split": {
+      "started": "2026-10-04T08:37:04.510497+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextProbeSplit.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 90,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 63.091343666950706,
+      "output": "'ScholzBrauer.contextFastProbe0' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe1' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe6' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe13' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe14' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe15' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe100' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe500' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ScholzBrauer.contextFastProbe933' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "context-lookup-cost": {
+      "started": "2026-10-04T08:54:59.480113+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextLookupCost.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 90,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 47.758971333969384,
+      "output": "[Elab.command] [3.583767] example : contextChunk0.all (checkContext 12509 (fun _ => \u27e8[], 0, 0, .invalid\u27e9)) = true := by\n      decide +kernel\n  [Elab.definition.value] [3.506708] ScholzBrauer._example\n    [Elab.step] [3.498844] decide +kernel\n      [Elab.step] [3.497343] decide +kernel\n        [Elab.step] [3.494818] decide +kernel\n          [addDecl] [3.373847] adding declarations [ScholzBrauer._example._proof_1]\n            [Kernel] [3.369607] \u2705\ufe0f typechecking declarations [ScholzBrauer._example._proof_1]\n[Elab.command] [3.402264] example : contextChunk0.all (checkContext 12509 contexts12509Lookup) = true := by\n      decide +kernel\n  [Elab.definition.value] [3.389802] ScholzBrauer._example\n    [Elab.step] [3.389400] decide +kernel\n      [Elab.step] [3.389331] decide +kernel\n        [Elab.step] [3.389254] decide +kernel\n          [addDecl] [3.380350] adding declarations [ScholzBrauer._example._proof_1]\n            [Kernel] [3.380103] \u2705\ufe0f typechecking declarations [ScholzBrauer._example._proof_1]\n"
+    },
+    "context-bool-cost": {
+      "started": "2026-10-04T08:57:06.646907+11:00",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j",
+        "1",
+        "-M",
+        "2048",
+        "../.git/ContextBoolCost.lean"
+      ],
+      "cwd": "lean",
+      "timeout_seconds": 120,
+      "status": "passed",
+      "exit_code": 0,
+      "runtime_seconds": 74.25464950001333,
+      "output": "[Elab.command] [11.461578] example : contextChunk14.all (checkContextBool 12509 contexts12509Lookup) = true := by\n      decide +kernel\n  [Elab.definition.value] [11.454045] ScholzBrauer._example\n    [Elab.step] [11.453494] decide +kernel\n      [Elab.step] [11.453438] decide +kernel\n        [Elab.step] [11.453349] decide +kernel\n          [addDecl] [11.442349] adding declarations [ScholzBrauer._example._proof_1]\n            [Kernel] [11.441751] \u2705\ufe0f typechecking declarations [ScholzBrauer._example._proof_1]\n[Elab.command] [12.821854] example : contextChunk14.all (checkContext 12509 contexts12509Lookup) = true := by\n      decide +kernel\n  [Elab.definition.value] [12.815114] ScholzBrauer._example\n    [Elab.step] [12.814330] decide +kernel\n      [Elab.step] [12.814224] decide +kernel\n        [Elab.step] [12.814108] decide +kernel\n          [addDecl] [12.798430] adding declarations [ScholzBrauer._example._proof_1]\n            [Kernel] [12.797903] \u2705\ufe0f typechecking declarations [ScholzBrauer._example._proof_1]\n"
+    }
+  },
+  "data_build": {
+    "command": [
+      "lake",
+      "build",
+      "ScholzBrauer.Exclusion12509ContextsData"
+    ],
+    "runtime_seconds": 37.71484033303568,
+    "status": "passed",
+    "exit_code": 0,
+    "output": "\u2714 [755/755] Built ScholzBrauer.Exclusion12509ContextsData (35s)\nBuild completed successfully (755 jobs).\n"
+  },
+  "residue_experiment": {
+    "moduli": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024,
+      2048,
+      4096,
+      8192,
+      16384
+    ],
+    "source_occurrences": 1345873,
+    "pruned_occurrences": 0,
+    "runtime_seconds": 23.912750124989543,
+    "conclusion": "The residue envelope is sound but these power-of-two moduli remove no obligation; do not add it to the library."
+  },
+  "export": {
+    "source_sha256": "516a54800a296da300cc15da318c40b06b08a18270c93b8467f3f843a8b074e9",
+    "seed": null,
+    "contexts": 29865,
+    "source_occurrences": 1345873,
+    "extra_edges": [
+      [
+        29162,
+        2,
+        7168,
+        11264
+      ],
+      [
+        29372,
+        2,
+        8192,
+        8960
+      ],
+      [
+        29372,
+        2,
+        8192,
+        9472
+      ],
+      [
+        29372,
+        2,
+        8192,
+        10496
+      ],
+      [
+        29372,
+        2,
+        8192,
+        9728
+      ],
+      [
+        29372,
+        2,
+        8192,
+        10752
+      ],
+      [
+        29372,
+        2,
+        8192,
+        11264
+      ]
+    ],
+    "proof_chunks": 934,
+    "chunk_size": 32,
+    "root": 29864,
+    "independent_source_check": {
+      "status": "excluded",
+      "target": 12509,
+      "max_steps": 16,
+      "distinct_nodes": 29437,
+      "checked_occurrences": 1345873,
+      "rule_occurrences": {
+        "bound": 0,
+        "gap": 481259,
+        "split": 864614
+      },
+      "visit_budget": 2000000,
+      "runtime_seconds": 25.260108,
+      "lean_proof": false
+    },
+    "lean_proof": false,
+    "runtime_seconds": 39.109403
+  },
+  "split_lookup_decision": "Not retained: the same nine-batch sample passed in 63.091344 seconds versus 58.584172 for the simpler lazy lookup; no observed improvement.",
+  "single_module_full_build": {
+    "started": "2026-10-04T08:19:10.484632+11:00",
+    "command": [
+      "lake",
+      "build",
+      "ScholzBrauer.Exclusion12509Optimal"
+    ],
+    "timeout_seconds": 1500,
+    "runtime_seconds": 1500.0219543330022,
+    "status": "timeout",
+    "exit_code": -9,
+    "output": ""
+  },
+  "profile_decisions": {
+    "unused_lookup": "Not a material cost in the measured terminal batch: 3.58s dummy versus 3.40s real lookup. No local lookup rewrite retained.",
+    "boolean_sublist": "11.46s direct Boolean versus 12.82s proposition-backed child inclusion on chunk 14, under substantial contention. No checker change retained.",
+    "resource_observation": "At 08:58 AEDT, host load average was 27.29 on 8 CPUs, physical memory 15GB used of 16GB, compressor 6143MB. Stopped overlapping probes; timing comparisons are not controlled benchmarks."
+  },
+  "checkpointed_full_build": {
+    "started": "2026-10-04T08:45:29.874024+11:00",
+    "command": [
+      "lake",
+      "build",
+      "ScholzBrauer.Exclusion12509Optimal"
+    ],
+    "timeout_seconds": 1800,
+    "runtime_seconds": 1800.044417749974,
+    "status": "timeout",
+    "exit_code": -9,
+    "output": "\u2714 [759/771] Built ScholzBrauer.Exclusion12509Part00 (1184s)\n"
+  },
+  "checkpointed_export": {
+    "source_sha256": "516a54800a296da300cc15da318c40b06b08a18270c93b8467f3f843a8b074e9",
+    "seed": null,
+    "contexts": 29865,
+    "source_occurrences": 1345873,
+    "extra_edges": [
+      [
+        29162,
+        2,
+        7168,
+        11264
+      ],
+      [
+        29372,
+        2,
+        8192,
+        8960
+      ],
+      [
+        29372,
+        2,
+        8192,
+        9472
+      ],
+      [
+        29372,
+        2,
+        8192,
+        10496
+      ],
+      [
+        29372,
+        2,
+        8192,
+        9728
+      ],
+      [
+        29372,
+        2,
+        8192,
+        10752
+      ],
+      [
+        29372,
+        2,
+        8192,
+        11264
+      ]
+    ],
+    "proof_chunks": 934,
+    "chunk_size": 32,
+    "root": 29864,
+    "compiled_batches": 12,
+    "max_parallel_batches": 3,
+    "independent_source_check": {
+      "status": "excluded",
+      "target": 12509,
+      "max_steps": 16,
+      "distinct_nodes": 29437,
+      "checked_occurrences": 1345873,
+      "rule_occurrences": {
+        "bound": 0,
+        "gap": 481259,
+        "split": 864614
+      },
+      "visit_budget": 2000000,
+      "runtime_seconds": 26.425856,
+      "lean_proof": false
+    },
+    "lean_proof": false,
+    "runtime_seconds": 34.793437
+  },
+  "retained_checkpoint": {
+    "module": "ScholzBrauer.Exclusion12509Part00",
+    "chunks": 78,
+    "contexts": 2496,
+    "root_exclusion_proved": false,
+    "full_lower_bound_17_proved": false
+  },
+  "historical_export_field_note": "The early checkpointed_export field compiled_batches counts generated candidate files, not completed compilation. Current exporter calls this candidate_batches. Only Part00 completed."
+}

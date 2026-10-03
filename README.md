@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 3 October 2026
+## Verified status — 4 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -36,6 +36,14 @@ The large exclusion through 16 additions has not been kernel checked. The
 optimum 17 and the full numerical Scholz instance therefore remain computational
 results. No minimum Mersenne-chain
 length or general conjecture is claimed.
+
+The 4 October run proves sound reuse of **explicit prefix supersets**, including
+coverage and child-inclusion obligations. Exact compression gives 29,865 contexts;
+naive union with unchanged edges fails at two groups, requiring seven extra edges.
+The first 2,496 local contexts are kernel checked, and a theorem excludes every
+gap-labelled context in that checked prefix. Full acceptance exceeded bounded
+build attempts, so this does **not** establish the lower bound 17 or complete
+milestone 2. See `results/2026-10-04-context-sharing-lean.md`.
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -156,15 +164,15 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 111-theorem axiom audit. The **Lean-only**
+exclusion checker, the Lean build and 121-theorem axiom audit. The **Lean-only**
 source bounds are
 `16 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The right-side
 interval for the Lean evidence is now `[12524,12525]`.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
-Clift's criterion and the OEIS 17-step source were rechecked on 1 October.
-Both published 17-step sources were last rechecked together on 30 September.
+Clift's criterion and both published 17-step sources were rechecked together
+on 4 October; see `data/2026-10-04-source-recheck.json`.
 Clift's claim that 5,784,689 is the first non-Hansen number remains a literature
 claim; the larger data and optimality search have not been independently
 checked here.
@@ -253,12 +261,13 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: complete bounded kernel evaluation of the 12509 exclusion DAG, then
-combine the resulting optimum with the proved 12525 bound. General exclusion
-soundness and the 7/3 small-instance check are complete. Raw-literal table
-preparation exceeded a bounded probe; see
-`results/2026-10-02-exclusion-soundness-lean.md`. Larger non-Hansen searches
-remain deferred. See `TODO.md`.
+Next: finish kernel acceptance of the context certificate, then combine source
+optimality with the existing Hansen bound. Preserve the completed checkpoint;
+do not blindly repeat the full list-based evaluation or raise its timeout.
+Profile compact local set operations on expensive split contexts before adding
+any replacement representation. Raw-literal preparation, whole-table evaluation,
+and the current full sequential/three-worker attempts have measured failures.
+Larger non-Hansen searches remain deferred. See `TODO.md`.
 
 ## Sources
 

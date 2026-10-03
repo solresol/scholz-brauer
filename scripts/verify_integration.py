@@ -121,6 +121,7 @@ def main():
                        ROOT / "data/2026-09-29-hansen-nodes-sources.json",
                        ROOT / "data/2026-09-30-hansen-allocation-sources.json",
                        ROOT / "data/2026-10-01-hansen-lift-sources.json",
+                       ROOT / "data/2026-10-04-source-recheck.json",
                        ROOT / "data/hansen-replay-fixtures.json",
                        ROOT / "results/2026-09-30-29-hansen-allocation.json",
                        ROOT / "results/2026-09-30-12509-hansen-allocation.json",
@@ -177,6 +178,26 @@ def main():
                                     "--output", str(lower_fixture)]))
         if lower_fixture.read_bytes() != (ROOT / "lean/ScholzBrauer/Exclusion12509Lower.lean").read_bytes():
             raise ValueError("generated exclusion proof differs from compiled source")
+        context_data = Path(temporary) / "Exclusion12509ContextsData.lean"
+        context_proof = Path(temporary) / "Exclusion12509Optimal.lean"
+        context_prefix = Path(temporary) / "Exclusion12509Partial.lean"
+        context_parts = Path(temporary) / "context-parts"
+        retained_parts = sorted((ROOT / "lean/ScholzBrauer").glob("Exclusion12509Part[0-9][0-9].lean"))
+        if not retained_parts or [p.name for p in retained_parts] != [
+                f"Exclusion12509Part{i:02d}.lean" for i in range(len(retained_parts))]:
+            raise ValueError("retained context parts must be a nonempty initial segment")
+        lean_contexts = json.loads(run([sys.executable, "scripts/export_lean_contexts.py",
+                                       "--data-output", str(context_data),
+                                       "--proof-output", str(context_proof),
+                                       "--parts-output", str(context_parts),
+                                       "--prefix-parts", str(len(retained_parts)),
+                                       "--prefix-output", str(context_prefix)]))
+        # The remaining generated parts and final theorem are candidates only.
+        # Compare and subsequently compile/audit only the retained checkpoint.
+        for generated in (context_data, context_prefix,
+                          *(context_parts / p.name for p in retained_parts)):
+            if generated.read_bytes() != (ROOT / "lean/ScholzBrauer" / generated.name).read_bytes():
+                raise ValueError("generated context certificate differs from compiled source")
     computational = compose_12509_evidence(
         witness, mersenne, search["research"], exclusion["saved_12509"])
     if hansen["certificate_sha256"] != mersenne["certificate_sha256"]:
@@ -213,11 +234,15 @@ def main():
         "hansen_allocation_checks": allocation,
         "exclusion_certificate_checks": exclusion,
         "lean_lower_bound_input_checks": lean_lower,
+        "lean_context_input_checks": lean_contexts,
         "claim_boundary": {
             **computational,
             "lean_ell_12509_bounds": [16, 17],
             "target_if_ell_12509_equals_17": 12525,
             "optimality_or_scholz_at_12509_formalised": False,
+            "context_enlargement_soundness_formalised": True,
+            "kernel_checked_abstract_contexts": 2496,
+            "total_abstract_contexts": 29865,
             "whole_star_lift_formalised": True,
             "lean_mersenne_12509_upper_bound": 12525,
             "hansen_lift_formalised": True,
@@ -236,7 +261,9 @@ def main():
                     "exclude every chain of at most 16 additions for 12509. "
                     "Together with the 17-step source and 12525-step Mersenne "
                     "certificate, this establishes the numerical Scholz instance "
-                    "computationally; exclusion through 16 additions is not yet a Lean proof."},
+                    "computationally; exclusion through 16 additions is not yet a Lean proof. "
+                    "Context-sharing soundness and an initial local-check checkpoint are kernel checked; "
+                    "the unverified remainder is not imported into the library."},
         "runtime_seconds": round(time.perf_counter() - started, 6)}
     with args.output.open("x") as output:
         output.write(json.dumps(report, indent=2) + "\n")

@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-03 (Saturday, Australia/Sydney).
+Updated 2026-10-04 (Sunday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -104,13 +104,31 @@ context-specific proof composition remove the observed data/stack/memory blocker
 for this smaller case. Monolithic checks still fail at the 2 GB limit. Explicit
 primitive recursion did not solve that failure and was not retained.
 
-Next apply bounded context-specific proofs to the existing 16-addition DAG.
-Profile a representative slice before scheduling all 1,345,873 occurrences;
-the smaller successful composition took about 131 seconds, so a blind full
-expansion is not yet a sensible bounded run. Reduce repeated local coverage
-work or use separately compiled slices to control time and retained state.
-No node-ID-only truth cache, new search format or repeated small Hansen checks.
-See `results/2026-10-03-exclusion-lower-bound-lean.md`.
+- [x] Prove reachability under context enlargement and soundness of local checks
+  on shared supersets, including child inclusion, endpoint, budget and coverage.
+- [x] Complete exact context-union compression of the full saved DAG. Refute the
+  naive unchanged-edge union hypothesis: two groups need seven additional edges,
+  discharged by six additional gap contexts.
+- [x] Kernel-check the first 2,496 contexts and prove exclusion for every
+  gap-labelled context in the checked prefix, without assuming the remainder.
+
+The full certificate now has 29,865 abstract contexts, but **full acceptance
+remains unproved**. A single-module build timed out at 1500 seconds. A checkpointed
+build with at most three workers timed out at 1800 seconds, retaining only
+`Exclusion12509Part00.lean` (78 local checks, compiled in 1184 seconds under load).
+No source optimum 17 or numerical Scholz theorem is imported into the library.
+The exporter can regenerate the remaining candidate parts; generation is not proof.
+
+**Reassessment.** Context union removes duplicated prefix occurrences, but the
+current list-based local evaluator still fails the full-run budget. Do not repeat
+these full builds unchanged. Preserve the compiled checkpoint and first profile
+compact set-based child inclusion/coverage on expensive split contexts, with a
+small kernel budget, before implementing another representation. Check kernel
+support for the required exact operations and retain an explicit soundness bridge.
+Unused-lookup specialisation and direct Boolean sublist checking did not show a
+material improvement in the recorded probes. Control host memory contention;
+measure expensive contexts rather than extrapolating from a few easy samples.
+See `results/2026-10-04-context-sharing-lean.md`.
 
 The two exhaustive searches and portable DAG already establish optimality
 computationally. Lean source bounds are `[16,17]`. The Mersenne upper bound
@@ -124,7 +142,10 @@ Start with a small documented non-Hansen chain and state an explicit stronger
 hypothesis that a bounded exact experiment can refute. Check the source data,
 record exact bounds and structural obstructions or failed hypotheses. Move to
 larger documented cases only after that experiment and infrastructure are sound.
-Clift's 5784689 data and optimality claims have not been independently checked;
+Clift's documented small non-Hansen source `[1,2,4,8,9,13,16,29]` was re-read
+on 4 October and is the next source to validate after milestone 2. No extension
+experiment was run today. Clift's 5784689 data and optimality claims have not
+been independently checked;
 no frontier or novelty claim follows from this repository's results.
 
 ## Retained constraints and failed shortcuts
@@ -134,6 +155,10 @@ no frontier or novelty claim follows from this repository's results.
 - Non-star chosen parent indices do not imply non-star values: in
   `[1,2,3,5,6]`, both `6=3+3` and `6=5+1` are possible.
 - Exclusion truth cannot be cached by DAG node alone across different prefixes.
+  The new theorem permits reuse only on explicitly checked supersets. Naive union
+  with unchanged edges fails: `5120 + 6144 = 11264` is one missing cross-context sum.
+- A proved scratch residue envelope pruned none of the 1,345,873 occurrences for
+  moduli `2,4,...,16384`; that unsuccessful approach was not added to the library.
 - Finite construction tests are not optimality searches. A witness bound and
   source optimality are separate obligations. Neither unsuccessful search nor
   timeout proves exclusion.

@@ -1,5 +1,51 @@
 # Research log
 
+## 2026-10-04 — Sunday — context-sharing soundness and a checked terminal portion
+
+Started at 08:00 AEDT. Read automation memory, instructions, roadmap, recent
+failures and actual sources; clean main at 4e346f9, correct solresol origin,
+no competing repository run. Acquired the run lock, fetched origin and checked
+fast-forward-only (already current). Reinspected the pinned upstream definition,
+open statement and licence. Milestone 1 remained complete; work targeted milestone 2.
+
+**Closed obligations.** Proved `ChainReach.enlarge`, context-superset local-check
+soundness and the lower-bound bridge, including filtered coverage and every
+child's retained values, new value, endpoint and decreasing budget. Exact
+compression of the full saved DAG yields 29,865 contexts. Naive union with
+unchanged edges is false at two groups: seven cross-context sums need additional
+edges, handled by six extra gap states. No node-ID-only truth cache is used.
+
+The first compiled checkpoint verifies 2,496 local contexts. Its aggregate
+proves exclusion for every gap-labelled context in that checked prefix using a
+constant lookup, without assuming the remainder accepted. This closes a terminal
+portion and the sharing soundness obligation. **No new numerical bound was
+obtained:** Lean still has `16 ≤ ell(12509) ≤ 17`; optimum 17 and the full Scholz
+instance remain computational. Milestone 2 is not complete.
+
+**Limits and reassessment.** Whole sequential acceptance timed out at 1500 seconds.
+A checkpointed, at-most-three-worker attempt timed out at 1800 seconds, retaining
+only Part00 (1184-second first compilation). Unverified candidate parts and the
+candidate final theorem were moved outside the compiled library. Host load and
+memory pressure were substantial. Lookup specialisation and direct Boolean
+sublist probes showed no material improvement; a residue-envelope experiment
+pruned zero occurrences for moduli 2 through 16384 (powers of two). These variants
+were not added to the library. Do not repeat the full builds unchanged: retain
+the checkpoint and profile compact local set operations on expensive split
+contexts before implementing a replacement, with an explicit soundness bridge.
+
+**Checks.** The retained build, small abstraction checks, full existing exact
+integration, generated-file comparisons and 121-theorem dependency audit passed
+in 108.402295 seconds. Only standard axioms; no sorry/custom axiom/native acceptance
+or assumed target. Python 3.11.6, Lean 4.27.0 and pins unchanged; exact arithmetic,
+no seed. Source witnesses re-read from OEIS and Clift on 4 October and matched
+the stored lists. No extension experiment, larger-data optimum or novelty claim.
+The CI allowance is now 60 minutes for the long cold checkpoint compilation.
+
+Evidence and commands: `results/2026-10-04-context-sharing-lean.md`, companion
+probe JSON, `results/2026-10-04-integration-checks.json` and the source-recheck JSON.
+Next obligation remains complete kernel acceptance, then optimum 17 and the
+Hansen/Scholz combination. Clift's non-Hansen chain ending at 29 remains deferred.
+
 ## 2026-10-03 — Saturday — publication packaging
 
 At the user's explicit request, prepared the first public software release,

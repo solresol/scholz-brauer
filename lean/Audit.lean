@@ -120,3 +120,14 @@ import ScholzBrauer
 #print axioms ScholzBrauer.checkExclusionWith_lower_bound
 #print axioms ScholzBrauer.exclusion12509_fifteen_checked
 #print axioms ScholzBrauer.sixteen_le_length12509
+
+#print axioms ScholzBrauer.ChainReach.enlarge
+#print axioms ScholzBrauer.mem_activeValues
+#print axioms ScholzBrauer.checkContext_sound
+#print axioms ScholzBrauer.checkContext_lower_bound
+#print axioms ScholzBrauer.ContextTree.all_branch
+#print axioms ScholzBrauer.ContextTree.all_lookup
+#print axioms ScholzBrauer.contextSeven_checked
+#print axioms ScholzBrauer.contextSeven_lower
+#print axioms ScholzBrauer.contexts12509_prefix_checked
+#print axioms ScholzBrauer.contexts12509_gap_excluded
