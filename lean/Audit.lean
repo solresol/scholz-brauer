@@ -131,3 +131,18 @@ import ScholzBrauer
 #print axioms ScholzBrauer.contextSeven_lower
 #print axioms ScholzBrauer.contexts12509_prefix_checked
 #print axioms ScholzBrauer.contexts12509_gap_excluded
+
+#print axioms ScholzBrauer.testBit_valueBits
+#print axioms ScholzBrauer.mem_of_bits_subset
+#print axioms ScholzBrauer.checkBitContext_sound
+#print axioms ScholzBrauer.checkBitContext_lower_bound
+#print axioms ScholzBrauer.BitContextTree.all_branch
+#print axioms ScholzBrauer.BitContextTree.all_lookup
+#print axioms ScholzBrauer.bitsSeven_checked
+#print axioms ScholzBrauer.bitsSeven_lower
+#print axioms ScholzBrauer.bitContexts12509_all_checked
+#print axioms ScholzBrauer.bitContexts12509_lookup_eq
+#print axioms ScholzBrauer.bitContexts12509_checked
+#print axioms ScholzBrauer.seventeen_le_length12509
+#print axioms ScholzBrauer.length12509_eq_seventeen
+#print axioms ScholzBrauer.scholz12509

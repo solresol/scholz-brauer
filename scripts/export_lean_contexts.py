@@ -179,6 +179,27 @@ end ScholzBrauer
 
 
 
+def render_bits(records, root):
+    """Same abstract states, with kernel-checked bit encodings for set tests."""
+    data, proof, parts, count = render(records, root)
+    def convert(text):
+        for old, new in [
+            ("Exclusion12509ContextsData", "Exclusion12509BitsData"),
+            ("Exclusion12509Part", "Exclusion12509BitPart"),
+            ("ScholzBrauer.ExclusionContext", "ScholzBrauer.ExclusionBits"),
+            ("ExclusionContext", "BitContext"),
+            ("ContextTree", "BitContextTree"),
+            ("exclusion_contexts%", "exclusion_bit_contexts%"),
+            ("checkContext", "checkBitContext"),
+            ("contextChunk", "bitContextChunk"),
+            ("contextChecked", "bitContextChecked"),
+            ("contexts12509", "bitContexts12509"),
+        ]:
+            text = text.replace(old, new)
+        return text
+    return convert(data), convert(proof), {convert(k): convert(v) for k, v in parts.items()}, count
+
+
 def render_prefix(part_count, total_contexts):
     """Aggregate a selected initial range; compilation is still required."""
     batch_count = ((total_contexts + CHUNK - 1) // CHUNK + BATCH_CHUNKS - 1) // BATCH_CHUNKS
@@ -223,12 +244,15 @@ def render_prefix(part_count, total_contexts):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--representation", choices=("lists", "bits"), default="lists")
     parser.add_argument("--data-output", type=Path, required=True)
     parser.add_argument("--proof-output", type=Path, required=True)
     parser.add_argument("--parts-output", type=Path, required=True)
     parser.add_argument("--prefix-parts", type=int)
     parser.add_argument("--prefix-output", type=Path)
     args = parser.parse_args()
+    if args.representation == "bits" and args.prefix_parts is not None:
+        raise ValueError("bit representation has no partial aggregate")
     if (args.prefix_parts is None) != (args.prefix_output is None):
         raise ValueError("both prefix arguments are required together")
     if args.prefix_output is not None and args.prefix_output.exists():
@@ -244,7 +268,8 @@ def main():
     document = json.loads(raw)
     checked = check_exclusion(document, target=TARGET, max_steps=16)
     records, root, occurrences, extras = compress(document)
-    data, proof, parts, count = render(records, root)
+    renderer = render_bits if args.representation == "bits" else render
+    data, proof, parts, count = renderer(records, root)
     with args.data_output.open("x") as out:
         out.write(data)
     with args.proof_output.open("x") as out:

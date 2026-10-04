@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-04 (Sunday, Australia/Sydney).
+Updated 2026-10-05 (Monday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -80,14 +80,14 @@ The replay theorem exhibits a summand-value certificate for the explicit sorted
 chain; it does not claim equality with the saved Python index certificate.
 No further exporters, allocation checkers or small Hansen enumeration are needed.
 
-## Milestone 2 — end-to-end Lean Scholz at 12509: ACTIVE
+## Milestone 2 — end-to-end Lean Scholz at 12509: COMPLETE
 
 - [x] Formalise the portable exclusion rules (`bound`, `gap`, `split`) and prove
   soundness for arbitrary valid prefixes against upstream `IsAdditionChain`.
   Prove the extension doubling bound, complete reachability representation and
   transport from accepted exclusion to the infimum defining `ell`.
 - [x] Kernel-check target 7 with limit 3 and conclude `ell(7)=4` using a witness.
-- [ ] Kernel-check the 12509 lower bound with measured resource limits, obtaining
+- [x] Kernel-check the 12509 lower bound with measured resource limits, obtaining
   `ell(12509)=17`; combine with `mersenne12509_length_le_12525`.
 
 `Exclusion.lean` covers the first two obligations. Its split rule checks all
@@ -112,38 +112,30 @@ primitive recursion did not solve that failure and was not retained.
 - [x] Kernel-check the first 2,496 contexts and prove exclusion for every
   gap-labelled context in the checked prefix, without assuming the remainder.
 
-The full certificate now has 29,865 abstract contexts, but **full acceptance
-remains unproved**. A single-module build timed out at 1500 seconds. A checkpointed
-build with at most three workers timed out at 1800 seconds, retaining only
-`Exclusion12509Part00.lean` (78 local checks, compiled in 1184 seconds under load).
-No source optimum 17 or numerical Scholz theorem is imported into the library.
-The exporter can regenerate the remaining candidate parts; generation is not proof.
+- [x] Prove exact list/bit-set membership and sound bit-set context checking,
+  including independently checked parent and child encodings.
+- [x] Kernel-check all 29,865 contexts, excluding every chain through 16 additions.
+- [x] Prove `length12509_eq_seventeen` and combine with the general Hansen bound
+  in `scholz12509`. Audit the entire transitive proof dependency set.
 
-**Reassessment.** Context union removes duplicated prefix occurrences, but the
-current list-based local evaluator still fails the full-run budget. Do not repeat
-these full builds unchanged. Preserve the compiled checkpoint and first profile
-compact set-based child inclusion/coverage on expensive split contexts, with a
-small kernel budget, before implementing another representation. Check kernel
-support for the required exact operations and retain an explicit soundness bridge.
-Unused-lookup specialisation and direct Boolean sublist checking did not show a
-material improvement in the recorded probes. Control host memory contention;
-measure expensive contexts rather than extrapolating from a few easy samples.
-See `results/2026-10-04-context-sharing-lean.md`.
+The 4 October list-based attempts timed out at 1500/1800 seconds. The 5 October
+bit-set representation removes repeated list inclusion and edge-membership work;
+its full accepted certificate closes this milestone. The original checked prefix
+is retained. See `results/2026-10-05-scholz12509-lean.md` for resource evidence.
 
-The two exhaustive searches and portable DAG already establish optimality
-computationally. Lean source bounds are `[16,17]`. The Mersenne upper bound
-12525 is now a Lean theorem. Sharing certificate syntax does not permit caching
-truth by node id across different prefixes. Excluding 17-step star chains is
-unnecessary for this milestone; star optimum 18 remains a literature claim.
+Do not repeat the 12509 search, add another exclusion format, or rebuild the
+completed checkpoint without a concrete reason. The formal source optimum is 17;
+the formal Mersenne upper bound is 12525. A minimum Mersenne length is not proved.
+Star optimum 18 remains a literature claim and is unnecessary for this result.
 
-## Milestone 3 — a specific extension beyond Hansen: DEFERRED
+## Milestone 3 — a specific extension beyond Hansen: NEXT
 
 Start with a small documented non-Hansen chain and state an explicit stronger
 hypothesis that a bounded exact experiment can refute. Check the source data,
 record exact bounds and structural obstructions or failed hypotheses. Move to
 larger documented cases only after that experiment and infrastructure are sound.
 Clift's documented small non-Hansen source `[1,2,4,8,9,13,16,29]` was re-read
-on 4 October and is the next source to validate after milestone 2. No extension
+on 5 October and is the next source to validate. No extension
 experiment was run today. Clift's 5784689 data and optimality claims have not
 been independently checked;
 no frontier or novelty claim follows from this repository's results.

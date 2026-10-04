@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 4 October 2026
+## Verified status — 5 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -28,22 +28,23 @@ summand-value replay has exactly `n-1+r` additions. Applying it to the checked
 17-step source proves **`ℓ(2^12509-1) ≤ 12525` in Lean**. See
 `results/2026-10-01-hansen-lift-lean.md` and `lean/ScholzBrauer/HansenLift.lean`.
 
-**Milestone 2 is active.** Exclusion-certificate soundness is now proved in
-Lean for arbitrary valid prefixes, and the small certificate proves `ℓ(7)=4`.
-Lean now proves `16 ≤ ℓ(12509) ≤ 17`: a context-specific composition of
-403 kernel-checked proof fragments excludes every chain through 15 additions.
-The large exclusion through 16 additions has not been kernel checked. The
-optimum 17 and the full numerical Scholz instance therefore remain computational
-results. No minimum Mersenne-chain
-length or general conjecture is claimed.
+**Milestone 2 is complete.** Lean proves **`ℓ(12509)=17`** and the full numerical
+Scholz instance **`ℓ(2^12509-1) ≤ 12509-1+ℓ(12509)`**. The exclusion through
+16 additions now kernel-checks all 29,865 abstract contexts, using exact bit sets
+for summand inclusion and next-value coverage. The bit-set checker has a general
+soundness proof and checks each encoding before using it. The final theorem
+combines that lower bound with the existing 17-step witness and Hansen bound.
+See `lean/ScholzBrauer/Exclusion12509Optimal.lean` and
+`results/2026-10-05-scholz12509-lean.md`.
 
-The 4 October run proves sound reuse of **explicit prefix supersets**, including
-coverage and child-inclusion obligations. Exact compression gives 29,865 contexts;
-naive union with unchanged edges fails at two groups, requiring seven extra edges.
-The first 2,496 local contexts are kernel checked, and a theorem excludes every
-gap-labelled context in that checked prefix. Full acceptance exceeded bounded
-build attempts, so this does **not** establish the lower bound 17 or complete
-milestone 2. See `results/2026-10-04-context-sharing-lean.md`.
+The previous list-based checkpoint remains available. Its full build attempts
+timed out on 4 October; those timeouts were evaluation limits, not mathematical
+obstructions. The new checker retains the same complete abstract contexts,
+including the seven extra edges required by context union. No minimum
+Mersenne-chain length or general Scholz theorem is claimed.
+
+**Milestone 3 is next:** test an explicit extension hypothesis on Clift's small
+non-Hansen chain `[1,2,4,8,9,13,16,29]`. No such extension has yet been established.
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -65,7 +66,7 @@ The published chain
 has been checked by Lean replay, by direct evaluation of the upstream
 addition-chain predicate, and independently using Python integers. It proves
 `ℓ(12509) ≤ 17`. The doubling lemma proves 14; the new exclusion proof
-strengthens the lower bound to `16 ≤ ℓ(12509)`.
+strengthens the lower bound to 17 and proves source optimality.
 The step `24 = 12 + 12` after `13` makes this particular chain non-star.
 
 The published **18-step star witness** now has an explicit Brauer lift, checked
@@ -98,18 +99,18 @@ final summands and complete next-value splits. Regression checks compare all
 576 target/limit decisions for targets 1–64 and limits 0–8 with unpruned
 enumeration, and reject corrupted certificates. This makes the exclusion
 independently replayable. `Exclusion.lean` now proves soundness of a Lean
-checker for the same bound/gap/split rules; evaluation of this large certificate
-remains outstanding. No equivalence with the Python program is assumed.
+checker for the same bound/gap/split rules; the context-based bit-set checker
+now kernel-checks the full exclusion.
+No equivalence with the Python program is assumed.
 See `results/2026-09-25-exclusion-certificate.md` for the format and proof argument.
-The new kernel lower bound and precise evaluation limits are recorded in
-`results/2026-10-03-exclusion-lower-bound-lean.md`.
+The earlier lower bound and evaluation limits are recorded in
+`results/2026-10-03-exclusion-lower-bound-lean.md`; the completed result is in
+`results/2026-10-05-scholz12509-lean.md`.
 
-**Not established here:** a Lean optimality proof, an end-to-end Lean Scholz
-instance at 12509, the minimum Mersenne-chain length, or the shortest star
-length 18. The general
-conjecture remains outside these results. See
-`results/2026-09-23-optimality.md` for the search completeness argument,
-independent checks, resource limits and distinction from a kernel-checked proof.
+**Not established here:** the minimum Mersenne-chain length, the shortest star
+length 18, or the general Scholz conjecture. Source optimality 17 and the numerical
+Scholz instance at 12509 are now Lean theorems. The earlier computational evidence
+and its limits remain documented in `results/2026-09-23-optimality.md`.
 
 Lean now proves one constructive Brauer block: from a valid chain ending at
 `2^a-1` and containing `2^b-1`, an explicit replay certificate reaches
@@ -164,15 +165,14 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 121-theorem axiom audit. The **Lean-only**
-source bounds are
-`16 ≤ ℓ(12509) ≤ 17`; the **computational** optimum is now 17. The right-side
-interval for the Lean evidence is now `[12524,12525]`.
+exclusion checker, the Lean build and 135-theorem axiom audit. Both **Lean**
+and the independent **computational** evidence establish
+`ℓ(12509)=17`; the proved Scholz right-hand side is exactly 12525.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
 limits, and `results/2026-09-22-star-lift-lean.md` for the whole-star formal proof.
 
 Clift's criterion and both published 17-step sources were rechecked together
-on 4 October; see `data/2026-10-04-source-recheck.json`.
+on 5 October; see `data/2026-10-05-source-recheck.json`.
 Clift's claim that 5,784,689 is the first non-Hansen number remains a literature
 claim; the larger data and optimality search have not been independently
 checked here.
@@ -245,6 +245,8 @@ reference and is not imported into the proofs.
   budget checks, saved proof replay and optional deterministic regeneration.
 - `scripts/verify_integration.py`: combined reproducible evidence, checked
   composition of the numerical conclusion, and axiom audit.
+- `lean/ScholzBrauer/ExclusionBits.lean`: exact bit-set encoding and general
+  exclusion soundness; `Exclusion12509Optimal.lean`: source optimum and Scholz instance.
 - `scripts/export_lean_certificate.py`: bounded checked index-to-value Lean export.
 - `scripts/verify_lean_export.py`: exhaustive small export/readback and saved-fixture checks.
 - `scripts/hansen_allocation.py`: bounded labelled-node/dependency generator.
@@ -261,13 +263,10 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: finish kernel acceptance of the context certificate, then combine source
-optimality with the existing Hansen bound. Preserve the completed checkpoint;
-do not blindly repeat the full list-based evaluation or raise its timeout.
-Profile compact local set operations on expensive split contexts before adding
-any replacement representation. Raw-literal preparation, whole-table evaluation,
-and the current full sequential/three-worker attempts have measured failures.
-Larger non-Hansen searches remain deferred. See `TODO.md`.
+Next: state and test a specific stronger construction hypothesis on the small
+non-Hansen chain ending at 29. Milestones 1 and 2 are complete; no further
+12509 exclusion infrastructure or repeated optimality searches are needed.
+Larger non-Hansen cases remain deferred. See `TODO.md`.
 
 ## Sources
 

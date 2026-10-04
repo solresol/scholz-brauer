@@ -12,3 +12,5 @@ import ScholzBrauer.Exclusion
 import ScholzBrauer.Exclusion12509Lower
 import ScholzBrauer.ExclusionContextChecks
 import ScholzBrauer.Exclusion12509Partial
+import ScholzBrauer.ExclusionBitsChecks
+import ScholzBrauer.Exclusion12509Optimal

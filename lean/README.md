@@ -40,15 +40,13 @@ which Lean's kernel checks.
   upper bound on the minimum addition-chain length.
 
 `Example12509.lean` replays a published 17-step witness and also checks the list
-directly against the upstream predicate. Together with `Exclusion12509Lower.lean`,
-the proved numerical result is
-`16 ≤ additionChainLength 12509 ≤ 17`. Source optimality and the end-to-end
-Scholz instance remain unproved in Lean. The Hansen Mersenne upper bound 12525
-is now proved below. The 23 September C++/Python exhaustive searches and Hansen
-certificate establish optimality and the Scholz instance computationally; they
-are not imported
-into these Lean proofs. `Audit.lean` reports the dependencies of the key theorems.
-The independent Python check is `python3 ../scripts/check_12509.py`.
+directly against the upstream predicate. `Exclusion12509Optimal.lean` now proves
+`additionChainLength 12509 = 17` and the end-to-end numerical Scholz instance,
+using the complete kernel-checked exclusion through 16 additions and the general
+Hansen bound 12525. The independent C++/Python searches remain computational
+evidence; their results are not imported as axioms. `Audit.lean` checks the
+transitive dependencies of the key theorems. The independent witness check is
+`python3 ../scripts/check_12509.py`.
 
 `BrauerBlock.lean` provides the next constructive layer:
 
@@ -89,7 +87,7 @@ large certificate for closed kernel evaluation. The stronger Hansen bound
 12525 is now formalised by the general theorem below.
 Seven small kernel-checked examples cover the singleton source, a complete
 two-block replay, and zero, unavailable and future increments. `Audit.lean`
-now covers 121 named theorems; standard axiom dependencies are checked by the
+now covers 135 named theorems; standard axiom dependencies are checked by the
 integration runner.
 
 `Hansen.lean` checks a marking certificate given as `(value, Bool)` entries,
@@ -214,10 +212,9 @@ known witness for nonemptiness.
 `exclusionSeven_checked` kernel-evaluates the existing generator's three-node
 7/3 certificate. `length_seven_eq_four` combines it with `[1,2,3,4,7]`.
 Eight kernel examples cover the essential accepting/rejecting rule boundaries,
-including the same gap node in two different contexts. The large 16-addition
-12509 DAG is not imported into the compiled library: a bounded evaluation probe and its
-result are recorded separately. General soundness plus a Python acceptance
-result does not yet prove the lower bound 17 in Lean.
+including the same gap node in two different contexts. Early direct evaluation
+of the large DAG failed within its bounds. The complete exclusion is now checked
+using the sound abstract-context representation described below.
 
 `Exclusion12509Lower.lean` now proves `sixteen_le_length12509`: all chains with
 at most 15 additions are excluded. The deterministic exporter embeds the checked
@@ -231,8 +228,8 @@ the elaborator does not run the checker or create proofs. `checkExclusionWith_so
 is proved for arbitrary lookup functions, so no unproved array/tree equivalence
 is needed. The existing array API remains available. Shared syntax never permits
 sharing a conclusion across distinct prefixes. See the 3 October report for
-resource failures and the remaining 16-addition exclusion. The formal source
-interval is now `[16,17]`; optimum 17 and the Scholz instance remain incomplete.
+resource failures and the historical `[16,17]` interval. The completed bit-set
+certificate strengthens this to exact source length 17.
 
 `ExclusionContext.lean` proves `ChainReach.enlarge` and sound exclusion on
 explicit supersets of source prefixes. Each local check verifies the endpoint
@@ -247,20 +244,29 @@ cache truth by syntax node ID or assume a Python checker equivalent.
 constructor data. `Exclusion12509Part00.lean` kernel-checks the first 2,496 local
 states. `Exclusion12509Partial.lean` aggregates that checked prefix and proves
 `contexts12509_gap_excluded`: gap contexts in the prefix exclude their target.
-It does not assume acceptance of the unchecked remainder. The prefix itself is
-not a complete exclusion from `[1]`, so **the formal numerical interval remains
-[16,17]** and milestone 2 remains incomplete.
+It does not assume acceptance of the rest of that list-based table. Its historical
+partial result is retained independently of the completed bit-set proof.
 
-The exporter `scripts/export_lean_contexts.py` generates the data, twelve candidate
-proof parts and a candidate final theorem, with optional aggregation of an initial
-part range. Only Part00 and its aggregate are retained in the compiled library.
-For fresh output paths, use `--data-output`, `--proof-output`, `--parts-output`,
-`--prefix-parts 1` and `--prefix-output`. Export always reports `lean_proof: false`;
-Lean compilation and dependency auditing are separate requirements. Integration
-regenerates and compares the retained files, builds them and audits the aggregate.
-The remaining generated parts are not imported or counted as proved.
+`ExclusionBits.lean` represents context and edge sets by exact natural-number
+bit masks. `testBit_valueBits` characterises membership; `mem_of_bits_subset`
+justifies the bitwise inclusion test. `checkBitContext_sound` proves exclusion
+by induction on the remaining budget, checking every encoding before using it.
+The data elaborator only emits candidate constructors and masks; every encoding
+and every local condition must pass the kernel. There is no native proof acceptance.
+`ExclusionBitsChecks.lean` validates 7/3 and six corrupt-certificate cases.
 
-The full sequential attempt timed out at 1500 seconds; the checkpointed attempt
-at 1800 seconds, under substantial host contention. Reuse the completed checkpoint
-and profile a more compact local set representation before another full run.
-See `../results/2026-10-04-context-sharing-lean.md` for exact inputs and limits.
+`Exclusion12509BitsData.lean` and twelve `Exclusion12509BitPart*.lean` modules
+kernel-check all 29,865 states. `Exclusion12509Optimal.lean` composes the complete
+acceptance, proves `seventeen_le_length12509`, then `length12509_eq_seventeen`
+and `scholz12509`. The original upstream open target is not imported or assumed.
+
+The exporter supports `--representation bits` with `--data-output`,
+`--proof-output` and `--parts-output`. The default list representation and its
+partial aggregate are unchanged. Export always reports `lean_proof: false`;
+compilation and dependency auditing are separate requirements. Integration
+regenerates both retained representations, compares their exact bytes, builds
+the library and audits 135 theorems. Proof batches allow at most three workers.
+
+See `../results/2026-10-05-scholz12509-lean.md` for the completed milestone,
+bounded cost probes and build evidence. The 4 October full list-based timeouts
+remain documented in that day's report; they no longer block this proof.

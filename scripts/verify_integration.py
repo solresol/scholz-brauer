@@ -122,6 +122,7 @@ def main():
                        ROOT / "data/2026-09-30-hansen-allocation-sources.json",
                        ROOT / "data/2026-10-01-hansen-lift-sources.json",
                        ROOT / "data/2026-10-04-source-recheck.json",
+                       ROOT / "data/2026-10-05-source-recheck.json",
                        ROOT / "data/hansen-replay-fixtures.json",
                        ROOT / "results/2026-09-30-29-hansen-allocation.json",
                        ROOT / "results/2026-09-30-12509-hansen-allocation.json",
@@ -198,6 +199,22 @@ def main():
                           *(context_parts / p.name for p in retained_parts)):
             if generated.read_bytes() != (ROOT / "lean/ScholzBrauer" / generated.name).read_bytes():
                 raise ValueError("generated context certificate differs from compiled source")
+        bit_data = Path(temporary) / "Exclusion12509BitsData.lean"
+        bit_proof = Path(temporary) / "Exclusion12509OptimalBits.lean"
+        bit_parts = Path(temporary) / "bit-parts"
+        lean_bits = json.loads(run([sys.executable, "scripts/export_lean_contexts.py",
+                                   "--representation", "bits",
+                                   "--data-output", str(bit_data),
+                                   "--proof-output", str(bit_proof),
+                                   "--parts-output", str(bit_parts)]))
+        bit_files = {bit_data: "Exclusion12509BitsData.lean",
+                     bit_proof: "Exclusion12509Optimal.lean"}
+        bit_files.update({p: p.name for p in bit_parts.glob("*.lean")})
+        if len(bit_files) != 14:
+            raise ValueError("unexpected full bit-certificate file count")
+        for generated, name in bit_files.items():
+            if generated.read_bytes() != (ROOT / "lean/ScholzBrauer" / name).read_bytes():
+                raise ValueError("generated bit certificate differs from compiled source")
     computational = compose_12509_evidence(
         witness, mersenne, search["research"], exclusion["saved_12509"])
     if hansen["certificate_sha256"] != mersenne["certificate_sha256"]:
@@ -235,13 +252,14 @@ def main():
         "exclusion_certificate_checks": exclusion,
         "lean_lower_bound_input_checks": lean_lower,
         "lean_context_input_checks": lean_contexts,
+        "lean_bit_context_input_checks": lean_bits,
         "claim_boundary": {
             **computational,
-            "lean_ell_12509_bounds": [16, 17],
+            "lean_ell_12509_bounds": [17, 17],
             "target_if_ell_12509_equals_17": 12525,
-            "optimality_or_scholz_at_12509_formalised": False,
+            "optimality_or_scholz_at_12509_formalised": True,
             "context_enlargement_soundness_formalised": True,
-            "kernel_checked_abstract_contexts": 2496,
+            "kernel_checked_abstract_contexts": 29865,
             "total_abstract_contexts": 29865,
             "whole_star_lift_formalised": True,
             "lean_mersenne_12509_upper_bound": 12525,
@@ -256,14 +274,12 @@ def main():
             "labelled_hansen_allocation_independently_checked": True,
             "general_hansen_allocation_soundness_formalised": True,
             "lean_hansen_12509_shift_budget": 12525,
-            "note": "Lean proves the general Hansen lift and the 12525 Mersenne bound. "
-                    "Lean source bounds are [16,17]; exclusion through 15 additions is kernel checked. Two exhaustive searches "
-                    "exclude every chain of at most 16 additions for 12509. "
-                    "Together with the 17-step source and 12525-step Mersenne "
-                    "certificate, this establishes the numerical Scholz instance "
-                    "computationally; exclusion through 16 additions is not yet a Lean proof. "
-                    "Context-sharing soundness and an initial local-check checkpoint are kernel checked; "
-                    "the unverified remainder is not imported into the library."},
+            "note": "Lean proves the general Hansen lift, the 12525 Mersenne bound, "
+                    "the exact source length 17 and the numerical Scholz instance at 12509. "
+                    "All 29865 abstract contexts are kernel checked with a proved bit-set "
+                    "checker. The two independent exhaustive searches and portable checker "
+                    "remain separate computational evidence. No Mersenne-chain optimum "
+                    "or general Scholz theorem is claimed."},
         "runtime_seconds": round(time.perf_counter() - started, 6)}
     with args.output.open("x") as output:
         output.write(json.dumps(report, indent=2) + "\n")

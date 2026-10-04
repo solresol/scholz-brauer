@@ -1,0 +1,198 @@
+{
+  "recorded_at_australia_sydney": "2026-10-05T08:18:19.340187+11:00",
+  "seed": null,
+  "arithmetic": "exact natural numbers; kernel evaluation, not native proof acceptance",
+  "source_certificate": "results/2026-09-25-12509-exclusion-certificate.json",
+  "source_sha256": "516a54800a296da300cc15da318c40b06b08a18270c93b8467f3f843a8b074e9",
+  "primitive_probe": {
+    "argv": [
+      "lake",
+      "env",
+      "lean",
+      "-M",
+      "2048",
+      "../.git/probes-2026-10-05/BitProbe.lean"
+    ],
+    "cwd": "lean",
+    "exit_code": 0,
+    "time_p_real_seconds": 8.14,
+    "maximum_bit_index": 12510
+  },
+  "local_comparison": {
+    "context_indices": [
+      7104,
+      7135
+    ],
+    "bounds_inclusive": true,
+    "children": "all directly referenced contexts; balanced lookup",
+    "timeout_seconds_each": 120,
+    "lean_allocation_limit_mb": 2048,
+    "execution": "sequential",
+    "results": [
+      {
+        "mode": "old",
+        "seconds": 17.910175833,
+        "code": 0,
+        "stdout": "",
+        "stderr": "",
+        "argv": [
+          "lake",
+          "env",
+          "lean",
+          "-M",
+          "2048",
+          "../.git/probes-2026-10-05/old.lean"
+        ],
+        "cwd": "lean"
+      },
+      {
+        "mode": "fast",
+        "seconds": 7.702351541999999,
+        "code": 0,
+        "stdout": "",
+        "stderr": "",
+        "argv": [
+          "lake",
+          "env",
+          "lean",
+          "-M",
+          "2048",
+          "../.git/probes-2026-10-05/fast.lean"
+        ],
+        "cwd": "lean"
+      }
+    ]
+  },
+  "full_table_probe": {
+    "chunk_indices": [
+      10,
+      11,
+      12,
+      13,
+      220,
+      221,
+      222,
+      500,
+      700,
+      900,
+      933
+    ],
+    "chunk_size": 32,
+    "timeout_seconds": 180,
+    "lean_allocation_limit_mb": 2048,
+    "argv": [
+      "lake",
+      "env",
+      "lean",
+      "-M",
+      "2048",
+      "../.git/probes-2026-10-05/FullLookup.lean"
+    ],
+    "cwd": "lean",
+    "seconds": 11.247881207999999,
+    "code": 0,
+    "output": ""
+  },
+  "initial_data_build": {
+    "seconds": 31.798225,
+    "code": 0,
+    "output": "\u2714 [756/756] Built ScholzBrauer.Exclusion12509BitsData (27s)\nBuild completed successfully (756 jobs).\n"
+  },
+  "full_kernel_build": {
+    "argv": [
+      "lake",
+      "build",
+      "ScholzBrauer.Exclusion12509Optimal"
+    ],
+    "timeout_seconds": 1200,
+    "timed_out": false,
+    "exit_code": 0,
+    "runtime_seconds": 262.909206792,
+    "finished_at": "2026-10-05T08:16:28.545510+11:00",
+    "output": "\u2714 [760/772] Built ScholzBrauer.Exclusion12509BitPart02 (54s)\n\u2714 [761/772] Built ScholzBrauer.Exclusion12509BitPart00 (67s)\n\u2714 [762/772] Built ScholzBrauer.Exclusion12509BitPart01 (72s)\n\u2714 [763/772] Built ScholzBrauer.Exclusion12509BitPart05 (69s)\n\u2714 [764/772] Built ScholzBrauer.Exclusion12509BitPart04 (65s)\n\u2714 [765/772] Built ScholzBrauer.Exclusion12509BitPart03 (75s)\n\u2714 [766/772] Built ScholzBrauer.Exclusion12509BitPart08 (59s)\n\u2714 [767/772] Built ScholzBrauer.Exclusion12509BitPart07 (63s)\n\u2714 [768/772] Built ScholzBrauer.Exclusion12509BitPart06 (65s)\n\u2714 [769/772] Built ScholzBrauer.Exclusion12509BitPart11 (51s)\n\u2714 [770/772] Built ScholzBrauer.Exclusion12509BitPart10 (49s)\n\u2714 [771/772] Built ScholzBrauer.Exclusion12509BitPart09 (50s)\n\u2714 [772/772] Built ScholzBrauer.Exclusion12509Optimal (2.8s)\nBuild completed successfully (772 jobs).\n"
+  },
+  "export": {
+    "source_sha256": "516a54800a296da300cc15da318c40b06b08a18270c93b8467f3f843a8b074e9",
+    "seed": null,
+    "contexts": 29865,
+    "source_occurrences": 1345873,
+    "extra_edges": [
+      [
+        29162,
+        2,
+        7168,
+        11264
+      ],
+      [
+        29372,
+        2,
+        8192,
+        8960
+      ],
+      [
+        29372,
+        2,
+        8192,
+        9472
+      ],
+      [
+        29372,
+        2,
+        8192,
+        10496
+      ],
+      [
+        29372,
+        2,
+        8192,
+        9728
+      ],
+      [
+        29372,
+        2,
+        8192,
+        10752
+      ],
+      [
+        29372,
+        2,
+        8192,
+        11264
+      ]
+    ],
+    "proof_chunks": 934,
+    "chunk_size": 32,
+    "root": 29864,
+    "candidate_batches": 12,
+    "max_parallel_batches": 3,
+    "requested_prefix_parts": null,
+    "independent_source_check": {
+      "status": "excluded",
+      "target": 12509,
+      "max_steps": 16,
+      "distinct_nodes": 29437,
+      "checked_occurrences": 1345873,
+      "rule_occurrences": {
+        "bound": 0,
+        "gap": 481259,
+        "split": 864614
+      },
+      "visit_budget": 2000000,
+      "runtime_seconds": 13.166428,
+      "lean_proof": false
+    },
+    "lean_proof": false,
+    "runtime_seconds": 17.936989
+  },
+  "scratch_input_sha256": {
+    "BitProbe.lean": "937d8aa50db87e6cce6b0080d2323ae39f92cd400e68e5864e476a99cafb38b0",
+    "make_probe.py": "57d95d017d9db3cb7752a34f8531e69522278e51e55998d1d6c90918a4c091ba",
+    "old.lean": "186d576479543708dbc77603da701d9f662b4a4325e806e9cbacf0a4e14fb8ba",
+    "fast.lean": "2c080f9b5e7927daf2e33eee625c960640a93038d67332a789de5e38d69cda0e",
+    "FullLookup.lean": "0e2c15fa8fdb81f04736740844dfcf3e1f4f558c9e4817b3abf1924bfe126d40"
+  },
+  "initial_comparison_generator_source": "import json\nfrom pathlib import Path\nD=Path(__file__).parent\nqs=json.loads((D/'contexts.json').read_text())\nmask=lambda vs:sum(1<<v for v in set(vs))\ndef qexpr(q):\n vs,m,r,k,es=q\n rule='.'+k+(' '+str(es).replace('[', '(').replace(']', ')') if False else '')\n if k=='split':rule='.split ['+','.join(f'({v},{j})' for v,j in es)+']'\n return f'\u27e8{vs},{m},{r},{rule}\u27e9'\nhead='''import ScholzBrauer.ExclusionContext\nnamespace ScholzBrauer\nset_option maxRecDepth 65536\nset_option maxHeartbeats 2000000\nset_option Elab.async false\ndef bits : List Nat \u2192 Nat\n| [] => 0\n| v::vs => (2^v) ||| bits vs\nstructure BContext where\n q : ExclusionContext\n mask : Nat\n edgeMask : Nat\ndef fast (n : Nat) (lookup : Nat \u2192 BContext) (s : BContext) : Bool :=\n (bits s.q.values == s.mask) && (s.q.last != n) &&\n s.q.values.all (fun a => decide (a \u2264 s.q.last)) &&\n match s.q.rule with\n | .invalid => false\n | .bound => decide (s.q.last * 2^s.q.remaining < n)\n | .gap => (s.q.remaining == 1) &&\n   (activeValues n s.q 0).all (fun a => (activeValues n s.q 0).all (fun b => a+b != n))\n | .split edges =>\n   match s.q.remaining with\n   | 0 => false\n   | k+1 =>\n     (bits (edges.map Prod.fst) == s.edgeMask) &&\n     (activeValues n s.q k).all (fun a => (activeValues n s.q k).all (fun b =>\n       if s.q.last < a+b \u2227 a+b \u2264 n \u2227 n \u2264 (a+b)*2^k\n       then s.edgeMask.testBit (a+b) else true)) &&\n     edges.all (fun e =>\n       let child := lookup e.2\n       (child.q.last == e.1) && (child.q.remaining == k) &&\n       ((s.mask &&& child.mask) == s.mask) && child.mask.testBit e.1)\n'''\nids=list(range(7104,7136))\nchildren=sorted({j for i in ids for _,j in qs[i][4]} | set(ids))\nfor mode in ['old','fast']:\n s=head\n for i in children:\n  s+=f'noncomputable def q{i} : ExclusionContext := {qexpr(qs[i])}\\n'\n  if mode=='fast':s+=f'noncomputable def b{i} : BContext := \u27e8q{i},{mask(qs[i][0])},{mask(v for v,_ in qs[i][4])}\u27e9\\n'\n def look(js):\n  if len(js)==1:return ('q' if mode=='old' else 'b')+str(js[0])\n  mid=len(js)//2\n  return f'(if i < {js[mid]} then {look(js[:mid])} else {look(js[mid:])})'\n s+=f'noncomputable def look (i : Nat) : '+('ExclusionContext' if mode=='old' else 'BContext')+' := '+look(children)+'\\n'\n for i in ids:s+=f'example : '+(f'checkContext 12509 look q{i}' if mode=='old' else f'fast 12509 look b{i}')+' = true := by decide +kernel\\n'\n s+='end ScholzBrauer\\n'\n (D/f'{mode}.lean').write_text(s)\n",
+  "context_preparation": "records, root, occurrences, extras = export_lean_contexts.compress(json.loads(export_lean_contexts.SOURCE.read_text())); write records to contexts.json beside the comparison generator",
+  "full_table_probe_source": "import ScholzBrauer.Exclusion12509BitsData\nnamespace ScholzBrauer\nset_option Elab.async false\nset_option maxRecDepth 65536\nset_option maxHeartbeats 2000000\ntheorem probe10 : bitContextChunk10.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe11 : bitContextChunk11.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe12 : bitContextChunk12.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe13 : bitContextChunk13.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe220 : bitContextChunk220.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe221 : bitContextChunk221.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe222 : bitContextChunk222.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe500 : bitContextChunk500.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe700 : bitContextChunk700.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe900 : bitContextChunk900.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\ntheorem probe933 : bitContextChunk933.all (checkBitContext 12509 bitContexts12509Lookup) = true := by decide +kernel\nend ScholzBrauer\n",
+  "claim": "All 29865 local states and the final root exclusion compiled. Source optimum 17 and numerical Scholz12509 are Lean theorems; integration audit recorded separately."
+}

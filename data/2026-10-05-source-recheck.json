@@ -1,0 +1,69 @@
+{
+  "access_date_australia_sydney": "2026-10-05",
+  "sources": [
+    {
+      "url": "https://oeis.org/A349044",
+      "version": "live page; no immutable revision supplied by retrieval",
+      "matched_source": [
+        1,
+        2,
+        4,
+        6,
+        12,
+        13,
+        24,
+        48,
+        96,
+        192,
+        384,
+        768,
+        781,
+        1562,
+        3124,
+        6248,
+        12496,
+        12509
+      ],
+      "status": "Displayed witness matches the stored source; minimum star length is not used in the proof."
+    },
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "version": "live undated page; no immutable revision supplied by retrieval",
+      "matched_source": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        17,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        1041,
+        2082,
+        4164,
+        8328,
+        12492,
+        12509
+      ],
+      "status": "Displayed alternative witness and underlining criterion match the existing source data.",
+      "next_small_non_hansen_chain": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        13,
+        16,
+        29
+      ],
+      "next_case_status": "Documented lead only; no new extension experiment performed in this run."
+    }
+  ],
+  "novelty_claim": false,
+  "larger_non_hansen_optimality_independently_verified": false,
+  "scope": "Re-read both displayed 12509 witnesses before combining the existing source witness with the exclusion proof. No new literature or frontier claim."
+}
