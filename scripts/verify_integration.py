@@ -124,6 +124,7 @@ def main():
                        ROOT / "data/2026-10-04-source-recheck.json",
                        ROOT / "data/2026-10-05-source-recheck.json",
                        ROOT / "data/hansen-replay-fixtures.json",
+                       ROOT / "data/2026-10-06-non-hansen29-source.json",
                        ROOT / "results/2026-09-30-29-hansen-allocation.json",
                        ROOT / "results/2026-09-30-12509-hansen-allocation.json",
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
@@ -137,6 +138,7 @@ def main():
         if sha256(vendor / Path(entry["path"]).name) != entry["sha256"]:
             raise ValueError(f"vendored source hash mismatch: {entry['path']}")
 
+    non_hansen29 = json.loads(run([sys.executable, "scripts/experiment_non_hansen29.py"]))
     witness = json.loads(run([sys.executable, "scripts/check_12509.py"]))
     certificate = json.loads(run([
         sys.executable, "scripts/check_certificate.py",
@@ -246,6 +248,7 @@ def main():
         "audited_theorems": audited, "commands": commands,
         "witness": witness, "certificate": certificate, "small_checks": small,
         "hansen_certificate_replay": mersenne,
+        "non_hansen29_experiment": non_hansen29,
         "hansen_checks": hansen, "search_checks": search,
         "lean_export_checks": export,
         "hansen_allocation_checks": allocation,

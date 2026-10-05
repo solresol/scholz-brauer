@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-05 (Monday, Australia/Sydney).
+Updated 2026-10-06 (Tuesday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -93,7 +93,7 @@ No further exporters, allocation checkers or small Hansen enumeration are needed
 `Exclusion.lean` covers the first two obligations. Its split rule checks all
 necessary next values and all supplied children; extra edges add obligations.
 Recursion decreases the step budget, and all shared nodes are checked in context.
-The 16-addition JSON remains the source for the outstanding exclusion.
+The 16-addition JSON is the source for the now-completed exclusion.
 
 - [x] Kernel-check exclusion through 15 additions, strengthening the formal
   interval to `[16,17]`. The smaller certificate has 475 nodes and 7544 contextual
@@ -128,17 +128,33 @@ completed checkpoint without a concrete reason. The formal source optimum is 17;
 the formal Mersenne upper bound is 12525. A minimum Mersenne length is not proved.
 Star optimum 18 remains a literature claim and is unnecessary for this result.
 
-## Milestone 3 — a specific extension beyond Hansen: NEXT
+## Milestone 3 — extension beyond Hansen: FIRST EXPERIMENT COMPLETE
 
-Start with a small documented non-Hansen chain and state an explicit stronger
-hypothesis that a bounded exact experiment can refute. Check the source data,
-record exact bounds and structural obstructions or failed hypotheses. Move to
-larger documented cases only after that experiment and infrastructure are sound.
-Clift's documented small non-Hansen source `[1,2,4,8,9,13,16,29]` was re-read
-on 5 October and is the next source to validate. No extension
-experiment was run today. Clift's 5784689 data and optimality claims have not
-been independently checked;
-no frontier or novelty claim follows from this repository's results.
+- [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
+  parent pairs and exclusion of every Hansen marking (also kernel checked).
+- [x] Refute the standard all-Mersenne orientation hypothesis for this graph:
+  eight possibilities have minimum 32 doublings, exceeding the budget 28.
+- [x] Test the stronger one-base repair hypothesis. With Mersenne bases at
+  source values 1,2,4,8,16, enumerate every nonnegative label assignment with
+  at most 28 doublings. Forward/reverse exact enumeration agrees on one
+  solution: base9=8161, base13=8191, labels (5,0,0,1,13,0).
+- [x] Independently replay its 35 additions and kernel-check the bound,
+  non-Hansen status, restricted orientation minimum and local repair identity.
+
+**Next substantive question.** Does the same repair give an exact lift for
+`[1,2,...,2^a,2^a+1,2^a+1+2^b,2^(a+1),3*2^a+2^b+1]`, where `1 ≤ b < a`
+and the ellipsis contains powers of two? The proposed exceptional base is
+`2^(2^b+1)*(2^(2^a)-1)+1`. The local sum identity is proved for arbitrary
+exponents; family-wide marking obstruction, allocation, positive distinct
+odd parts, sorted replay and the exact count remain unproved. Start with
+these obligations or a bounded refutation; do not repeat the completed 29
+search or add another certificate format. This family is a proposed local
+generalisation, not a literature or novelty claim.
+
+The unique labelling assertion is computational and restricted to the fixed
+spine; it is not a Lean completeness theorem for all graph labellings. No
+source/Mersenne optimum is claimed for this example. Clift's larger 5784689
+data and optimality claims remain unchecked and deferred.
 
 ## Retained constraints and failed shortcuts
 
@@ -154,7 +170,9 @@ no frontier or novelty claim follows from this repository's results.
 - Finite construction tests are not optimality searches. A witness bound and
   source optimality are separate obligations. Neither unsuccessful search nor
   timeout proves exclusion.
-- No mathematical extension hypothesis has yet been tested or refuted.
+- For the source ending at 29, retaining standard Mersenne bases/orientations
+  cannot meet the 28-doubling budget. One exceptional base at 9 repairs it;
+  uniqueness is only within the explicitly searched fixed-spine family.
 
 ## Publication follow-up — 3 October 2026
 
@@ -168,4 +186,5 @@ no frontier or novelty claim follows from this repository's results.
 - [ ] Develop a preprint with a collaborator contributing mathematical or
   formalisation work. A software release is not journal peer review.
 
-Publication work does not close milestone 2 or establish novelty priority.
+Publication work is separate from the completed mathematical milestones and
+does not establish novelty priority.

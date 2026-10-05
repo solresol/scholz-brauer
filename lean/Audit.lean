@@ -146,3 +146,13 @@ import ScholzBrauer
 #print axioms ScholzBrauer.seventeen_le_length12509
 #print axioms ScholzBrauer.length12509_eq_seventeen
 #print axioms ScholzBrauer.scholz12509
+
+#print axioms ScholzBrauer.NonHansen29.source_valid
+#print axioms ScholzBrauer.NonHansen29.source_not_hansen
+#print axioms ScholzBrauer.NonHansen29.mersenne_orientation_min
+#print axioms ScholzBrauer.NonHansen29.lifted_replay
+#print axioms ScholzBrauer.NonHansen29.lifted_count
+#print axioms ScholzBrauer.NonHansen29.lifted_valid
+#print axioms ScholzBrauer.NonHansen29.lifted_bound
+#print axioms ScholzBrauer.NonHansen29.exceptional_base_identities
+#print axioms ScholzBrauer.NonHansen29.one_gap_repair_identity

@@ -270,3 +270,13 @@ the library and audits 135 theorems. Proof batches allow at most three workers.
 See `../results/2026-10-05-scholz12509-lean.md` for the completed milestone,
 bounded cost probes and build evidence. The 4 October full list-based timeouts
 remain documented in that day's report; they no longer block this proof.
+
+## Non-Hansen 29 experiment (6 October 2026)
+
+`ScholzBrauer/NonHansen29.lean` kernel-checks that Clift's fixed source
+`[1,2,4,8,9,13,16,29]` admits no Hansen marking, checks the minimum of the
+standard-orientation cap function, and replays a 35-addition Mersenne witness
+whose only non-Mersenne base is at source value 9. It also proves a general
+local repair identity. The fixed-spine uniqueness search is separate exact
+Python evidence, not a general Lean labelling theorem. Source and Mersenne
+optimality are not asserted. See `../results/2026-10-06-non-hansen29.md`.

@@ -1,5 +1,50 @@
 # Research log
 
+## 2026-10-06 — Tuesday — one-base repair of a non-Hansen source
+
+Started at 08:01 AEDT. Read automation memory, README, TODO, recent results,
+research log, actual proofs and vendored upstream definitions/licence/statement.
+Milestones 1 and 2 were complete at a943969; no repeated research on the
+12509 exclusion. Clean main, correct origin, no competing process/lock; fetched
+and fast-forward-only was already current. Acquired the exclusive run lock.
+No applicable on-disk AGENTS.md; followed the supplied prohibited-phrase rules.
+
+**Milestone 3 advance.** Rechecked Clift's source `[1,2,4,8,9,13,16,29]` and
+published lifted prefix/endpoints. Checked unique source parents, excluded all
+Hansen markings, and refuted the standard all-Mersenne orientation hypothesis:
+eight assignments need at least 32 doublings instead of 28. Two exact exhaustive
+enumerations of the specified fixed-spine family find the same unique solution,
+with base9=8161 and base13=8191. Only base9 is non-Mersenne. Independent replay
+and Lean kernel checking give exactly 35 additions and `ell(2^29-1) ≤ 35`.
+Lean also proves the marking obstruction, explicit cap-function minimum and a
+general local repair identity. This reproduces a published finite construction;
+no general extension, source/Mersenne optimum or novelty is claimed.
+
+**Scope and checks.** Unfixed labels 0..28, total doubling cost at most 28;
+67,508 forward terminal candidates, reverse exact division agrees. Python
+3.9.6, standard library, exact integers, no seed; saved experiment 0.043285s.
+No new format/exporter/checker infrastructure: reused both replay interfaces.
+Full integration passed in 110.993205s with pinned Lean 4.27.0, 144 named
+axiom audits, five vendor hashes and 88 unchanged input hashes. Only standard
+axioms, no prohibited proof tokens or assumed open target. Input hashes,
+commands and outputs are retained in the dated integration JSON. Prior a943969
+remote CI verified successful; new remote CI remains a separate check.
+
+The local identity first used unavailable `norm_num`; definitional `change`
+resolved it without new dependencies. A root `lake --version` mistakenly
+started an unrelated default-toolchain download; interrupted it. Successful
+proof/build commands all used lean/ and the pinned toolchain. Neither failed
+command is counted as research evidence.
+
+**Next.** Test/prove the proposed parametric one-base repair family in TODO:
+marking obstruction, allocation, distinct odd parts, sorted replay and exact
+budget. The general local identity is done; the whole-family theorem is not.
+Do not rerun the 29 enumeration or jump to unchecked large published cases.
+See `results/2026-10-06-non-hansen29.md`. Reviewed the full source/document diff
+and generated evidence before committing; final commit/push state is recorded
+in the automation memory and run response.
+
+
 ## 2026-10-05 — Monday — completed Lean Scholz instance at 12509
 
 Started at 08:02 AEDT. Read automation memory, roadmap, recent failed attempts,

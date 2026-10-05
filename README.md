@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 5 October 2026
+## Verified status — 6 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -43,8 +43,14 @@ obstructions. The new checker retains the same complete abstract contexts,
 including the seven extra edges required by context union. No minimum
 Mersenne-chain length or general Scholz theorem is claimed.
 
-**Milestone 3 is next:** test an explicit extension hypothesis on Clift's small
-non-Hansen chain `[1,2,4,8,9,13,16,29]`. No such extension has yet been established.
+**Milestone 3 has its first completed experiment.** Clift's non-Hansen source
+`[1,2,4,8,9,13,16,29]` has a kernel-checked 35-addition lift with only its
+source-9 base changed from a Mersenne number. Exact forward/reverse enumeration
+finds a unique labelling within the stated fixed-spine, 28-doubling family.
+Every standard all-Mersenne orientation needs at least 32 doublings instead.
+Lean checks the source's non-Hansen status, the finite replay and a general local
+repair identity. This is a restricted example, not a general extension theorem
+or an optimality claim. See `results/2026-10-06-non-hansen29.md`.
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -165,7 +171,7 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 135-theorem axiom audit. Both **Lean**
+exclusion checker, the Lean build and 144-theorem axiom audit. Both **Lean**
 and the independent **computational** evidence establish
 `ℓ(12509)=17`; the proved Scholz right-hand side is exactly 12525.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
@@ -210,6 +216,10 @@ reference and is not imported into the proofs.
 
 ## Files and next work
 
+- `scripts/experiment_non_hansen29.py`: exact forward/reverse fixed-spine labelling
+  enumeration and independent replay of the one-base repair.
+- `lean/ScholzBrauer/NonHansen29.lean`: marking obstruction, restricted orientation
+  minimum, concrete replay bound and general local repair identity.
 - `lean/ScholzBrauer/AdditionChain.lean`: adapted upstream definitions and lemmas.
 - `lean/ScholzBrauer/Certificate.lean`: replay generator, soundness and length proofs.
 - `lean/ScholzBrauer/Example12509.lean`: concrete witness and numerical bounds.
@@ -263,10 +273,10 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: state and test a specific stronger construction hypothesis on the small
-non-Hansen chain ending at 29. Milestones 1 and 2 are complete; no further
-12509 exclusion infrastructure or repeated optimality searches are needed.
-Larger non-Hansen cases remain deferred. See `TODO.md`.
+Next: determine whether the one-base repair extends to the explicitly proposed
+small parametric source family, including allocation, distinctness and the total
+shift budget. The first non-Hansen experiment is complete. Milestones 1 and 2
+remain complete; larger documented non-Hansen cases remain deferred. See `TODO.md`.
 
 ## Sources
 

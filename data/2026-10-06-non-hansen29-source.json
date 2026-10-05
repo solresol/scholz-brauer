@@ -1,0 +1,45 @@
+{
+  "access_date_australia_sydney": "2026-10-06",
+  "url": "https://www.additionchains.com/ScholzBrauer.html",
+  "version": "Live undated page; no immutable revision supplied.",
+  "chain": [
+    1,
+    2,
+    4,
+    8,
+    9,
+    13,
+    16,
+    29
+  ],
+  "scope": "Re-read small non-Hansen source and displayed lifted prefix/endpoints. Source optimum, larger examples and frontier claims are not relied on.",
+  "displayed_lift_prefix": [
+    1,
+    2,
+    3,
+    6,
+    12,
+    15,
+    30,
+    60,
+    120,
+    240,
+    255,
+    510,
+    1020,
+    2040,
+    4080,
+    8160,
+    8161,
+    8191,
+    16320,
+    32640,
+    65280,
+    65535
+  ],
+  "displayed_lift_final_two": [
+    536862720,
+    536870911
+  ],
+  "local_status": "All missing doublings reconstructed by exact allocation and independent replay. No novelty claimed."
+}
