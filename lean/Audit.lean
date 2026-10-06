@@ -156,3 +156,25 @@ import ScholzBrauer
 #print axioms ScholzBrauer.NonHansen29.lifted_bound
 #print axioms ScholzBrauer.NonHansen29.exceptional_base_identities
 #print axioms ScholzBrauer.NonHansen29.one_gap_repair_identity
+
+#print axioms ScholzBrauer.OneGapLift.resume_doubling
+#print axioms ScholzBrauer.OneGapLift.spine_chain
+#print axioms ScholzBrauer.OneGapLift.repair_window
+#print axioms ScholzBrauer.OneGapLift.repair_chain
+#print axioms ScholzBrauer.OneGapLift.hansen_prefix_repair_certificate
+#print axioms ScholzBrauer.OneGapLift.family_certificate
+#print axioms ScholzBrauer.OneGapLift.family_upper_bound
+#print axioms ScholzBrauer.OneGapLift.powerSource_properties
+#print axioms ScholzBrauer.OneGapLift.familySource_chain
+#print axioms ScholzBrauer.OneGapLift.scholz_of_optimal_family
+#print axioms ScholzBrauer.OneGapLift.no_marking_after_double
+#print axioms ScholzBrauer.OneGapLift.powerMarks_source
+#print axioms ScholzBrauer.OneGapLift.family_marked_source
+#print axioms ScholzBrauer.OneGapLift.family_not_hansen
+#print axioms ScholzBrauer.OneGapLift.boundary_is_hansen
+
+#print axioms ScholzBrauer.OneGapLift.exclusion29_checked
+
+#print axioms ScholzBrauer.OneGapLift.length29_eq_seven
+
+#print axioms ScholzBrauer.OneGapLift.scholz29

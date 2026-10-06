@@ -138,6 +138,7 @@ def main():
         if sha256(vendor / Path(entry["path"]).name) != entry["sha256"]:
             raise ValueError(f"vendored source hash mismatch: {entry['path']}")
 
+    one_gap_family = json.loads(run([sys.executable, "scripts/experiment_one_gap_family.py"]))
     non_hansen29 = json.loads(run([sys.executable, "scripts/experiment_non_hansen29.py"]))
     witness = json.loads(run([sys.executable, "scripts/check_12509.py"]))
     certificate = json.loads(run([
@@ -249,6 +250,7 @@ def main():
         "witness": witness, "certificate": certificate, "small_checks": small,
         "hansen_certificate_replay": mersenne,
         "non_hansen29_experiment": non_hansen29,
+        "one_gap_family_experiment": one_gap_family,
         "hansen_checks": hansen, "search_checks": search,
         "lean_export_checks": export,
         "hansen_allocation_checks": allocation,

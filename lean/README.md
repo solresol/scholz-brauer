@@ -280,3 +280,24 @@ whose only non-Mersenne base is at source value 9. It also proves a general
 local repair identity. The fixed-spine uniqueness search is separate exact
 Python evidence, not a general Lean labelling theorem. Source and Mersenne
 optimality are not asserted. See `../results/2026-10-06-non-hansen29.md`.
+
+## Parametric one-gap extension (7 October 2026)
+
+`ScholzBrauer/OneGapLift.lean` proves a lift for every
+`n=3*2^a+2^b+1`, `1≤b<a`, with exactly `n-1+(a+4)` additions and a successful
+summand-value replay. It proves that the corresponding source is valid and
+has no Hansen marking for `a≥3`. The smallest member `(2,1)` admits a marking,
+also kernel checked. The proof inserts two nodes inside a doubling run and
+resumes from a stored value; strict order supplies distinctness directly.
+
+`repair_chain` accepts an arbitrary suitable prefix and proves its full endpoint,
+retention and count. `hansen_prefix_repair_certificate` obtains the needed
+summand from the existing labelled allocation, with `(B,1)` membership as an
+explicit hypothesis. The family result supplies that summand from its proved
+powers-of-two spine. `scholz_of_optimal_family` keeps optimality conditional.
+
+The existing exclusion checker also kernel-checks 22 nodes/59 occurrences for
+29 with at most six additions. `length29_eq_seven` and `scholz29` close source
+optimality and the numerical Scholz instance at 29, the latter using the family
+theorem. All 18 new named theorems enter the existing audit (162 total).
+See `../results/2026-10-07-one-gap-family.md` for the evidence and claim limits.

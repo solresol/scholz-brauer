@@ -1,5 +1,73 @@
 # Research log
 
+## 2026-10-07 — Wednesday — infinite repair family and Scholz at 29
+
+Initial repository check completed by 08:01 AEDT. Read the automation memory,
+current roadmap, recent
+results/log, actual Lean/Python sources and upstream definitions/licence/open
+statement. Clean main at c883604, expected origin, no competing process or
+lock; fetched and fast-forward-only was already current. Acquired the exclusive
+run lock. No applicable on-disk AGENTS.md; followed the supplied instructions.
+Milestones 1 and 2 were complete. Prior c883604 remote CI was verified successful.
+
+**Milestone 3 advance.** Completed the proposed infinite family
+`n=3*2^a+2^b+1`, `1≤b<a`: valid source with `a+4` additions, required stored
+summands, strict order, endpoint and successful replay with exactly
+`n-1+(a+4)` additions. Explicitly insert two nodes into a doubling run and resume
+from the stored earlier value; this avoids a new allocation framework or
+exceptional-base injectivity proof. Proved the repaired block for any suitable
+prefix and connected it to the existing labelled Hansen allocation interface.
+
+Proved every family source non-Hansen when `a≥3`. The unrestricted hypothesis
+fails at `(2,1)`: `[1,2,4,5,7,8,15]` admits `8=7+1`, and a valid marking is kernel
+checked. The lift still succeeds there. This distinguishes alternate source
+summands from the selected parent graph. The classification concerns these
+source chains, not all possible chains for the same integers.
+
+Closed source optimality for the motivating 29 example: the existing exact
+exclusion generator produces 22 nodes covering 59 occurrences, well inside a
+1000-prefix budget. Independently checked and kernel-evaluated that data through
+six additions, proved `ell(29)=7`, then used the new family theorem to prove
+`scholz29`. No general family optimum or minimum Mersenne length is asserted.
+The general Scholz corollary retains the source-optimality hypothesis.
+
+**Exact experiment.** All 36 pairs `2≤a≤9`, `1≤b<a`, with source endpoints
+15..1793 in this sparse family. Direct replay equals independent sorted
+allocation, caps sum to n-1, no collisions/carries, and existing index replay
+confirms every witness. Exhausted all 57,376 endpoint-fixed markings; only the
+boundary member is Hansen. Exact integers, no random seed, Python 3.11.6;
+final saved experiment 0.155038s. This is bounded evidence independent of the
+infinite Lean proof, not a search over all chains or lift labellings.
+
+Re-read Clift's primary 29 example and displayed lift on 7 October. The infinite
+family is our construction, not a claim attributed to that page. No novelty
+or priority claim. No large published source or optimality claim was assumed.
+The pinned formal-conjectures definition is reused; its unproved target remains
+outside the compiled imports.
+
+Initial extra `lean/` path caused a failed file write with no source modification.
+Proof elaboration needed explicit endpoint arguments, Boolean simplification
+and normalised power products. The mathematical correction was the Hansen
+boundary exception; it is retained rather than hidden by an empirical check.
+
+**Integration.** Full integration passed in **169.977119 seconds**. The pinned
+Lean 4.27.0 build passed all 782 jobs in 25.424390s; the 162 named theorem audits
+passed in 18.058938s. Dependencies are only `propext`, `Quot.sound` and
+`Classical.choice`; the source scan found no prohibited proof tokens. All five
+vendored hashes and all 90 integration input hashes matched. The final experiment
+rerun is recorded alongside every command/output in the integration JSON.
+No new dependency, checker format, exporter or approval boundary was introduced.
+Reviewed the full source/document diff, generated result rows and certificate,
+command outputs and hashes before committing. Remote CI for this commit is
+separate from these successful local checks.
+
+**Next.** Reconstruct and validate Clift's small reduced 109 graph and its
+claimed obstruction from the primary diagram before formulating an exact
+carry-free/critical-path experiment or structural proof. Do not repeat the
+completed 29 labelling search or jump to 5,784,689. Records:
+`results/2026-10-07-one-gap-family.md`, `2026-10-07-one-gap-checks.json` and the
+integration report. Commit/push state is recorded in the automation memory.
+
 ## 2026-10-06 — Tuesday — one-base repair of a non-Hansen source
 
 Started at 08:01 AEDT. Read automation memory, README, TODO, recent results,

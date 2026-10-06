@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-06 (Tuesday, Australia/Sydney).
+Updated 2026-10-07 (Wednesday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -128,7 +128,7 @@ completed checkpoint without a concrete reason. The formal source optimum is 17;
 the formal Mersenne upper bound is 12525. A minimum Mersenne length is not proved.
 Star optimum 18 remains a literature claim and is unnecessary for this result.
 
-## Milestone 3 — extension beyond Hansen: FIRST EXPERIMENT COMPLETE
+## Milestone 3 — extension beyond Hansen: SPECIFIC FAMILY PROVED
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).
@@ -141,20 +141,36 @@ Star optimum 18 remains a literature claim and is unnecessary for this result.
 - [x] Independently replay its 35 additions and kernel-check the bound,
   non-Hansen status, restricted orientation minimum and local repair identity.
 
-**Next substantive question.** Does the same repair give an exact lift for
-`[1,2,...,2^a,2^a+1,2^a+1+2^b,2^(a+1),3*2^a+2^b+1]`, where `1 ≤ b < a`
-and the ellipsis contains powers of two? The proposed exceptional base is
-`2^(2^b+1)*(2^(2^a)-1)+1`. The local sum identity is proved for arbitrary
-exponents; family-wide marking obstruction, allocation, positive distinct
-odd parts, sorted replay and the exact count remain unproved. Start with
-these obligations or a bounded refutation; do not repeat the completed 29
-search or add another certificate format. This family is a proposed local
-generalisation, not a literature or novelty claim.
+- [x] Prove the parametric one-gap family for `n=3*2^a+2^b+1`, `1 ≤ b < a`:
+  valid source of `a+4` additions, available summands, strict replay order,
+  endpoint and exactly `n-1+(a+4)` lifted additions.
+- [x] Prove the general repaired-block theorem for a prefix ending at `2^A-1`
+  containing `2*(2^B-1)`, with `B≥1` and `B+2≤A`; connect it to the existing
+  Hansen allocation under the explicit hypothesis `(B,1) ∈ hansenLabels 1 steps`.
+- [x] Prove exclusion of every source marking for `a≥3`; refute the unrestricted
+  non-Hansen claim at `(a,b)=(2,1)` by a kernel-checked marking using `8=7+1`.
+- [x] Check all 36 parameter pairs `2≤a≤9`, `1≤b<a`: direct replay equals
+  separately sorted allocation, no collisions/carries, exact count, all 57,376
+  endpoint-fixed markings, independent index replay.
+- [x] Kernel-check source-29 exclusion through six additions, prove `ell(29)=7`
+  and combine it with the new family theorem to prove the Scholz instance at 29.
 
-The unique labelling assertion is computational and restricted to the fixed
-spine; it is not a Lean completeness theorem for all graph labellings. No
-source/Mersenne optimum is claimed for this example. Clift's larger 5784689
-data and optimality claims remain unchecked and deferred.
+`OneGapLift.lean` closes the whole-family construction and classification
+obligations proposed on 6 October. Explicit insertion inside a doubling run
+establishes strict order and distinctness directly; no new allocation framework
+or general odd-part injectivity theorem was needed. The original 29 labelling
+uniqueness remains a restricted computational assertion, not a Lean completeness
+result. Neither all family sources nor their Mersenne lifts are proved optimal.
+The Scholz corollary for other members retains an explicit source-optimality
+hypothesis. No novelty claim is made.
+
+**Next substantive question.** Inspect and reconstruct Clift's small reduced
+109 graph from the primary diagram and verify its source values, selected
+parents and claimed obstruction before relying on it. Formulate a precise
+carry-free labelling/critical-path hypothesis and seek a bounded refutation or
+structural proof. This targets a limitation of the one-base extension, not
+another positive replay test. Do not add a certificate format or rerun the
+completed 29 search. The larger 5,784,689 data/optimum claims remain deferred.
 
 ## Retained constraints and failed shortcuts
 
@@ -173,6 +189,8 @@ data and optimality claims remain unchecked and deferred.
 - For the source ending at 29, retaining standard Mersenne bases/orientations
   cannot meet the 28-doubling budget. One exceptional base at 9 repairs it;
   uniqueness is only within the explicitly searched fixed-spine family.
+- The proposed parametric sources are not all non-Hansen: `(2,1)` has the
+  alternative `8=7+1`. The classification theorem requires `a≥3`.
 
 ## Publication follow-up — 3 October 2026
 

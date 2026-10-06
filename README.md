@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 6 October 2026
+## Verified status — 7 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -43,14 +43,26 @@ obstructions. The new checker retains the same complete abstract contexts,
 including the seven extra edges required by context union. No minimum
 Mersenne-chain length or general Scholz theorem is claimed.
 
-**Milestone 3 has its first completed experiment.** Clift's non-Hansen source
-`[1,2,4,8,9,13,16,29]` has a kernel-checked 35-addition lift with only its
-source-9 base changed from a Mersenne number. Exact forward/reverse enumeration
-finds a unique labelling within the stated fixed-spine, 28-doubling family.
-Every standard all-Mersenne orientation needs at least 32 doublings instead.
-Lean checks the source's non-Hansen status, the finite replay and a general local
-repair identity. This is a restricted example, not a general extension theorem
-or an optimality claim. See `results/2026-10-06-non-hansen29.md`.
+**Milestone 3 now has a proved infinite family beyond Hansen sources.** For
+`n = 3*2^a + 2^b + 1`, `1 ≤ b < a`, Lean constructs a successful replay with
+exactly `n-1+(a+4)` additions. The source
+`[1,2,...,2^a,2^a+1,2^a+2^b+1,2^(a+1),n]` (powers-of-two prefix) is valid
+with `a+4` additions and admits no Hansen marking when `a ≥ 3`. The boundary
+`a=2,b=1` is Hansen: `8=7+1` is an alternative decomposition. The lift works
+there too. A more general repair theorem accepts any suitable prefix; a
+corollary uses the existing labelled Hansen allocation interface.
+
+Lean also proves `ell(29)=7` by checking a 22-node exclusion certificate and
+combines it with the family lift to prove the numerical Scholz instance at 29.
+Source optimality for the whole family, minimum Mersenne lengths, a universal
+extension algorithm and novelty are not claimed. Exact checks of all 36 pairs
+`2 ≤ a ≤ 9`, `1 ≤ b < a` agree with the family proof. See
+`lean/ScholzBrauer/OneGapLift.lean` and `results/2026-10-07-one-gap-family.md`.
+
+The motivating 29 repair is Clift's published example. The previous fixed-spine
+search found a unique labelling within its restricted 28-doubling domain;
+all standard all-Mersenne orientations need at least 32 doublings. That finite
+uniqueness claim remains computational. See `results/2026-10-06-non-hansen29.md`.
 
 The first daily run found only the initial README. Its advertised Python
 library, experiments, results and Lean infrastructure did not exist. The original
@@ -171,7 +183,7 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 144-theorem axiom audit. Both **Lean**
+exclusion checker, the Lean build and 162-theorem axiom audit. Both **Lean**
 and the independent **computational** evidence establish
 `ℓ(12509)=17`; the proved Scholz right-hand side is exactly 12525.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
@@ -216,6 +228,10 @@ reference and is not imported into the proofs.
 
 ## Files and next work
 
+- `lean/ScholzBrauer/OneGapLift.lean`: infinite one-gap family, general prefix
+  repair, marking classification and end-to-end Scholz at 29.
+- `scripts/experiment_one_gap_family.py`: bounded direct/allocation comparison,
+  exhaustive markings and independent source-29 exclusion checking.
 - `scripts/experiment_non_hansen29.py`: exact forward/reverse fixed-spine labelling
   enumeration and independent replay of the one-base repair.
 - `lean/ScholzBrauer/NonHansen29.lean`: marking obstruction, restricted orientation
