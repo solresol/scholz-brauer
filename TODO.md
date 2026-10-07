@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-07 (Wednesday, Australia/Sydney).
+Updated 2026-10-08 (Thursday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -164,13 +164,33 @@ result. Neither all family sources nor their Mersenne lifts are proved optimal.
 The Scholz corollary for other members retains an explicit source-optimality
 hypothesis. No novelty claim is made.
 
-**Next substantive question.** Inspect and reconstruct Clift's small reduced
-109 graph from the primary diagram and verify its source values, selected
-parents and claimed obstruction before relying on it. Formulate a precise
-carry-free labelling/critical-path hypothesis and seek a bounded refutation or
-structural proof. This targets a limitation of the one-base extension, not
-another positive replay test. Do not add a certificate format or rerun the
-completed 29 search. The larger 5,784,689 data/optimum claims remain deferred.
+- [x] Reconstruct Clift's reduced 109 diagram from the primary PNG and check
+  every selected sum and alternative parent. Distinguish its selected `8=4+4`
+  graph from the star/Hansen value sequence with `8=7+1`.
+- [x] Kernel-check the selected-prefix marking obstruction and minimum 110
+  doublings among all 256 standard Mersenne orientations.
+- [x] Refute the hypothesis that arbitrary bases at 5 and 7 alone recover the
+  108-doubling budget: all 1,624 candidate pairs, 63 viable pairs and 2,304
+  labellings have minimum 110. Independent forward/backward and local-pair
+  enumerations agree; all eight minimum allocations independently replay.
+- [x] Prove in Lean that the repeated uses at 15, 28 and 58 force B5 and B7 to
+  be shifted M5 and M7. Prove the prior one-gap base 121 cannot feed M28
+  alongside unchanged M23 for any nonnegative shifts.
+
+The complete two-exception minimum is an exact computational result; the
+structural rigidity, standard-orientation minimum and specific reuse obstruction
+are Lean theorems. The graph's full arbitrary-labelling impossibility remains
+Clift's literature claim, not an assumed or locally completed theorem. Two
+bounded unrestricted Z3 probes timed out (30s/60s); those are not exclusions.
+See `results/2026-10-08-clift109-obstruction.md`.
+
+**Next substantive question.** Extend the complement/interval restrictions to
+additional changing bases or cover all critical-path cases of this same graph.
+A successful budget-108 labelling, if one existed, would have to change a base
+outside vertices 5 and 7. Reassess the structural representation before another
+unrestricted solver attempt; do not merely increase its timeout. Do not repeat
+the completed two-base enumeration or add a certificate format. Larger
+5,784,689 data and optimality claims remain deferred.
 
 ## Retained constraints and failed shortcuts
 
@@ -189,6 +209,11 @@ completed 29 search. The larger 5,784,689 data/optimum claims remain deferred.
 - For the source ending at 29, retaining standard Mersenne bases/orientations
   cannot meet the 28-doubling budget. One exceptional base at 9 repairs it;
   uniqueness is only within the explicitly searched fixed-spine family.
+- A non-Hansen selected parent graph need not give a non-Hansen value sequence:
+  Clift's 109 diagram selects `8=4+4`, while `8=7+1` makes its sequence star.
+- The local one-gap repair can fail at a later reuse: base 121 at vertex 5
+  cannot combine with shifted M23 to form M28. Keeping both detour bases free
+  still requires at least 110 doublings in the checked 109 family.
 - The proposed parametric sources are not all non-Hansen: `(2,1)` has the
   alternative `8=7+1`. The classification theorem requires `a≥3`.
 

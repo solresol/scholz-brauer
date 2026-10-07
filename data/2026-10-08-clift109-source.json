@@ -1,0 +1,72 @@
+{
+  "page_url": "https://www.additionchains.com/ScholzBrauer.html",
+  "diagram_url": "https://www.additionchains.com/LargeNonHansen.png",
+  "accessed_australia_sydney": "2026-10-08",
+  "version": "Live undated page; hashes identify retrieved content",
+  "page_sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+  "diagram_sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6",
+  "source": [
+    1,
+    2,
+    4,
+    5,
+    7,
+    8,
+    15,
+    23,
+    28,
+    51,
+    58,
+    109
+  ],
+  "selected_parents": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      8,
+      7
+    ],
+    [
+      9,
+      4
+    ],
+    [
+      10,
+      9
+    ]
+  ],
+  "parent_indexing": "Zero based source indices. Parallel edges retained. Diagram visually inspected on a white background; original PNG retained unmodified.",
+  "important_difference": "The diagram selects 8=4+4. The earlier text example on the same page uses 8#4,0, i.e. 8=7+1. The source values admit the latter and form a star chain.",
+  "claim_used": "A documented selected graph for studying restricted labellings.",
+  "unverified_literature_claim": "Clift reports no edge labelling with 109 distinct path sums 0..108 and a critical path. This general impossibility is not assumed by our proofs or exact experiment."
+}

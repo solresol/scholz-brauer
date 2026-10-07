@@ -178,3 +178,17 @@ import ScholzBrauer
 #print axioms ScholzBrauer.OneGapLift.length29_eq_seven
 
 #print axioms ScholzBrauer.OneGapLift.scholz29
+
+#print axioms ScholzBrauer.Clift109.selected_replay
+#print axioms ScholzBrauer.Clift109.source_valid
+#print axioms ScholzBrauer.Clift109.source_is_star
+#print axioms ScholzBrauer.Clift109.alternate_source
+#print axioms ScholzBrauer.Clift109.source_is_hansen
+#print axioms ScholzBrauer.Clift109.selected_prefix_no_marking
+#print axioms ScholzBrauer.Clift109.mersenne_orientation_min
+#print axioms ScholzBrauer.Clift109.shift_lt_of_sum
+#print axioms ScholzBrauer.Clift109.repaired_five_cannot_feed_28
+#print axioms ScholzBrauer.Clift109.initial_repair_values
+#print axioms ScholzBrauer.Clift109.small_five_is_shifted_mersenne
+#print axioms ScholzBrauer.Clift109.small_seven_is_shifted_mersenne
+#print axioms ScholzBrauer.Clift109.detour_bases_rigid

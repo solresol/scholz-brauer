@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 7 October 2026
+## Verified status — 8 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -58,6 +58,16 @@ Source optimality for the whole family, minimum Mersenne lengths, a universal
 extension algorithm and novelty are not claimed. Exact checks of all 36 pairs
 `2 ≤ a ≤ 9`, `1 ≤ b < a` agree with the family proof. See
 `lean/ScholzBrauer/OneGapLift.lean` and `results/2026-10-07-one-gap-family.md`.
+
+**The next extension now has a proved structural obstruction.** For Clift's
+selected 109 graph, keeping all bases except 5 and 7 at their Mersenne values
+forces those two bases to be shifted Mersennes as well (Lean theorem).
+An exact complete enumeration of this family has minimum 110 doublings,
+exceeding the required 108. Lean also proves that the earlier one-gap repair
+cannot survive the later reuse of vertex 5. This refutes the two-detour repair
+hypothesis, not arbitrary labellings or Scholz. The diagram selects `8=4+4`;
+the same value sequence permits `8=7+1` and is a star/Hansen source. Both
+parent choices are checked explicitly. See `results/2026-10-08-clift109-obstruction.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
@@ -183,7 +193,7 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 162-theorem axiom audit. Both **Lean**
+exclusion checker, the Lean build and 175-theorem axiom audit. Both **Lean**
 and the independent **computational** evidence establish
 `ℓ(12509)=17`; the proved Scholz right-hand side is exactly 12525.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current
@@ -228,6 +238,10 @@ reference and is not imported into the proofs.
 
 ## Files and next work
 
+- `lean/ScholzBrauer/Clift109.lean`: selected graph, alternate star/Hansen source,
+  orientation minimum and rigidity of the two detour bases.
+- `scripts/experiment_clift109.py`: complete two-exception labellings and
+  independent forward/backward domain checks.
 - `lean/ScholzBrauer/OneGapLift.lean`: infinite one-gap family, general prefix
   repair, marking classification and end-to-end Scholz at 29.
 - `scripts/experiment_one_gap_family.py`: bounded direct/allocation comparison,
@@ -289,10 +303,10 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: determine whether the one-base repair extends to the explicitly proposed
-small parametric source family, including allocation, distinctness and the total
-shift budget. The first non-Hansen experiment is complete. Milestones 1 and 2
-remain complete; larger documented non-Hansen cases remain deferred. See `TODO.md`.
+Next: extend the proved complement restrictions on Clift's selected 109 graph
+to additional changing bases or a complete critical-path case split. The one-gap
+family and two-detour obstruction are complete; unrestricted graph exclusion
+remains unproved here. Milestones 1 and 2 remain complete. See `TODO.md`.
 
 ## Sources
 

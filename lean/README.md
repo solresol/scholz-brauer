@@ -301,3 +301,15 @@ The existing exclusion checker also kernel-checks 22 nodes/59 occurrences for
 optimality and the numerical Scholz instance at 29, the latter using the family
 theorem. All 18 new named theorems enter the existing audit (162 total).
 See `../results/2026-10-07-one-gap-family.md` for the evidence and claim limits.
+
+## Selected 109 graph and its repeated detour uses
+
+`Clift109.lean` checks the published selected graph and distinguishes the
+alternate star/Hansen source obtained using `8=7+1`. It proves the standard
+Mersenne-orientation minimum 110, excludes reuse of the earlier one-gap base
+121 at vertex 28, and proves from four graph equations that arbitrary positive
+bases at 5 and 7 must be shifted M5 and M7 when surrounding bases stay fixed.
+The shift bounds are proved before finite kernel checking. The broader exact
+2,304-labelling minimum is a separate Python result; full arbitrary-labelling
+impossibility for this graph is not proved or assumed. All new named theorems
+are included in `Audit.lean`.

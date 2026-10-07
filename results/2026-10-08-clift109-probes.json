@@ -1,0 +1,26 @@
+{
+  "date_australia_sydney": "2026-10-08",
+  "status": "Both attempts returned unknown/timeout. No exclusion established.",
+  "dependency": "z3-solver==4.15.3.0; installed temporarily under .git/research-python",
+  "install_command": "python3 -m pip install --disable-pip-version-check --target .git/research-python z3-solver==4.15.3.0",
+  "random_seed": 0,
+  "input_graph": "data/2026-10-08-clift109-source.json",
+  "probes": [
+    {
+      "command": "python3 .git/research/probe109.py",
+      "timeout_ms": 30000,
+      "runtime_seconds": 30.044364542,
+      "output": "unknown timeout",
+      "encoding": "Unbounded integer edge labels with nonnegative caps summing to 108, labels bounded by source caps, all 109 root-to-target path sums distinct in 0..108. Equal-parent edge swap symmetry broken.",
+      "source": "import sys,time,json\nsys.path.insert(0,'.git/research-python')\nimport z3\nparents=[(0,0),(1,1),(2,0),(3,1),(2,2),(5,4),(6,5),(7,3),(8,7),(9,4),(10,9)]\nsource=[1,2,4,5,7,8,15,23,28,51,58,109]\nt=time.perf_counter(); s=z3.Solver(); s.set(timeout=30000,random_seed=0)\nlabels=[(z3.Int('a'+str(i)),z3.Int('b'+str(i))) for i in range(1,12)]\ncap=[z3.Int('c'+str(i)) for i in range(11)]\nfor c in cap:s.add(c>=0,c<=108)\ns.add(z3.Sum(cap)==108)\npaths=[[z3.IntVal(0)]]\nfor i,((p,q),(a,b)) in enumerate(zip(parents,labels),1):\n s.add(a>=0,b>=0,a<=cap[p],b<=cap[q])\n if p==q: s.add(a>b)\n paths.append([v+a for v in paths[p]]+[v+b for v in paths[q]])\ns.add(z3.Distinct(paths[-1]))\nfor w in paths[-1]: s.add(w>=0,w<=108)\nprint('built',len(paths[-1]),flush=True)\nr=s.check(); print(str(r),s.reason_unknown(),time.perf_counter()-t,flush=True)\nif r==z3.sat: print(s.model())\n"
+    },
+    {
+      "command": "python3 .git/research/probe109bv.py",
+      "timeout_ms": 60000,
+      "runtime_seconds": 60.068867834,
+      "output": "unknown timeout",
+      "encoding": "109-bit node supports, disjoint shifted summands, all-ones terminal, 7-bit nonnegative labels/caps with zero-extended cap sum 108. Width truncation must be justified before any future unsatisfiability claim; neither probe returned a proof.",
+      "source": "import sys,time\nsys.path.insert(0,'.git/research-python')\nimport z3\nP=[(0,0),(1,1),(2,0),(3,1),(2,2),(5,4),(6,5),(7,3),(8,7),(9,4),(10,9)]\nt=time.perf_counter();s=z3.SolverFor('QF_BV');s.set(timeout=60000,random_seed=0)\ncaps=[z3.BitVec('c'+str(i),7) for i in range(11)]\ns.add(z3.Sum([z3.ZeroExt(4,c) for c in caps])==108)\nB=[z3.BitVecVal(1,109)];L=[]\nfor i,(p,q) in enumerate(P,1):\n a,b=z3.BitVecs('a'+str(i)+' b'+str(i),7);L.append((a,b))\n s.add(z3.ULE(a,caps[p]),z3.ULE(b,caps[q]))\n if p==q:s.add(z3.UGT(a,b))\n x,y=B[p]<<z3.ZeroExt(102,a),B[q]<<z3.ZeroExt(102,b)\n s.add(x&y==0)\n v=z3.BitVec('v'+str(i),109);s.add(v==x|y);B.append(v)\ns.add(B[-1]==(1<<109)-1)\nprint('built',flush=True);r=s.check();print(r,s.reason_unknown(),time.perf_counter()-t,flush=True)\nif r==z3.sat:print(s.model())\n"
+    }
+  ]
+}

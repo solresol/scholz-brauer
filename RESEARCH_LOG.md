@@ -1,5 +1,63 @@
 # Research log
 
+## 2026-10-08 — Thursday — repeated-use obstruction on the selected 109 graph
+
+Started approximately 07:58 AEDT. Read automation memory, current source and
+roadmap, recent evidence, supplied instructions and upstream definition/statement
+attribution. No applicable on-disk AGENTS.md. Clean main at 2c12087, expected
+origin and no competing process/lock; fetched and fast-forward-only was current.
+Acquired the exclusive run lock. Prior 2c12087 remote CI was verified successful.
+Milestones 1 and 2 and the infinite one-gap family were already complete.
+
+**Milestone 3 advance.** Reconstructed Clift's reduced 109 graph from its primary
+PNG, checking every sum and every alternative pair. The selected `8=4+4` graph
+has no Hansen marking; the same values permit `8=7+1` and form a star/Hansen
+source. Kernel-checked this distinction. Independently replayed its alternate
+star lift in 119 additions; source optimality and Scholz at 109 are not claimed.
+
+Tested the precise extension hypothesis that freeing bases 5 and 7, while
+retaining all other Mersenne bases, can reach the 108-doubling budget. Exhausted
+all 1,624 candidate pairs, 63 viable pairs and 2,304 complete labellings modulo
+parallel-edge swap. Independent forward/backward domains and local shift lists
+agree. The minimum is 110, attained eight times, all at the ordinary bases
+31 and 127. Each minimum allocation independently replays in 121 additions.
+The restricted hypothesis is refuted; arbitrary graph labellings are not excluded.
+
+**Structural proof.** Lean proves from four graph equations that positive bases
+at 5 and 7 must be shifted M5 and M7 when the surrounding bases remain fixed.
+Repeated uses at 15, 28 and 58 impose the restriction. Shift bounds are proved
+before finite quotient/remainder checks; the theorem covers all natural bases
+and shifts. Lean also proves the standard-orientation minimum 110 and that the
+prior one-gap base 121 cannot combine with any shifted M23 to make M28. This
+closes a directly relevant proof obligation beyond a numerical replay example.
+
+Two bounded unrestricted Z3 probes returned unknown/timeout after 30.044365s
+and 60.068868s. No exclusion follows. Retained exact encodings, commands and
+version/seed in the probe record. Replaced further unrestricted search with the
+successful complement analysis; no solver dependency enters the project or CI.
+Python initially needed a portable bit-count expression for 3.9.6. The independent
+forward search initially omitted B7's use at 15; adding that equation removed
+its extra candidates and matched the complete backward domain.
+
+**Verification.** Final exact experiment: 0.276683s, Python 3.9.6, exact integers,
+no random seed, 87,464 independent B7 production checks. Final full integration:
+118.810990s; pinned Lean 4.27.0 build 783 jobs in 17.358160s; 175 named theorem
+audits in 13.584462s. Five vendor hashes and 94 final input hashes match.
+Only propext/Quot.sound/Classical.choice; compiled proof-token scan clean. An
+initial integration passed before the additional rigidity theorem; the final
+run verifies that substantive addition. Reviewed the complete diff and generated
+evidence. No new certificate format/exporter or package pin was introduced.
+
+**Conclusion and next.** The local one-gap repair cannot be extended merely by
+freeing these two detour bases. Extend the complement restrictions to additional
+changing bases or a complete critical-path split before another unrestricted
+solver run. Clift's full impossibility claim remains literature-only here;
+there is no source/Mersenne optimum, general Scholz result, or novelty claim.
+Do not repeat this completed restricted enumeration or move to 5,784,689.
+Records: `results/2026-10-08-clift109-obstruction.md`, experiment/probe JSON and
+final integration JSON. Commit/push state is recorded in automation memory;
+local verification is distinct from completion of remote CI.
+
 ## 2026-10-07 — Wednesday — infinite repair family and Scholz at 29
 
 Initial repository check completed by 08:01 AEDT. Read the automation memory,
