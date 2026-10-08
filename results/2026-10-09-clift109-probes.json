@@ -1,0 +1,440 @@
+{
+  "date_australia_sydney": "2026-10-09T08:16:10.523937+11:00",
+  "dependency": "z3-solver==4.15.3.0, temporary .git/research-python",
+  "seed": 0,
+  "critical_path_claim": "109 edge-distinguished root-to-terminal paths; 12 survive mandatory doubled-parent vertices, parallel-edge symmetry, and symbolic collisions from zero off-path caps. This reduction is not Lean-certified. Every solver case timed out: no exclusion follows.",
+  "critical_path_probes": [
+    {
+      "source": "import sys,itertools,time,json\nsys.path[:0]=['.git/research-python','scripts']\nfrom experiment_clift109 import SOURCE,PARENTS\n# Keep parallel edge identities; fix first shift > second for equal parents.\npaths=[[((),())]]\nfor i,(p,q) in enumerate(PARENTS,1):\n    paths.append([(edges+(2*(i-1)+j,),vertices+(parent,)) for j,parent in enumerate((p,q)) for edges,vertices in paths[parent]])\nallpaths=paths[-1]\nsurvivors=[]\nfor edges,vertices in allpaths:\n    if not {0,1,2}.issubset(vertices):continue\n    if any(PARENTS[e//2][0]==PARENTS[e//2][1] and e%2 for e in edges):continue\n    active=set(vertices)\n    reduced=[tuple(e for e in es if PARENTS[e//2][e%2] in active) for es,_ in allpaths]\n    if len(set(reduced))!=109:continue\n    survivors.append((edges,vertices))\nprint('survivors',len(survivors),[[SOURCE[v] for v in vs]+[109] for es,vs in survivors],flush=True)\nimport z3\ncaps=[z3.Int('c'+str(i)) for i in range(11)]\nlabels=[z3.Int('e'+str(i)) for i in range(22)]\nresults=[]\nfor num,(edges,vertices) in enumerate(survivors):\n    t=time.perf_counter();s=z3.Solver();s.set(timeout=10000,random_seed=0)\n    for c in caps:s.add(c>=0,c<=108)\n    s.add(z3.Sum(caps)==108)\n    for e,x in enumerate(labels):\n        p=PARENTS[e//2][e%2];s.add(x>=0,x<=caps[p])\n    for i,(p,q) in enumerate(PARENTS):\n        if p==q:s.add(labels[2*i]>labels[2*i+1])\n    for i in range(11):\n        if i not in vertices:s.add(caps[i]==0)\n    for e in edges:s.add(labels[e]==caps[PARENTS[e//2][e%2]])\n    sums=[z3.Sum([labels[e] for e in es]) for es,vs in allpaths]\n    for v in sums:s.add(v>=0,v<=108)\n    s.add(z3.Distinct(sums))\n    s.add(z3.Sum(sums)==108*109//2)\n    result=s.check()\n    row={'path':[SOURCE[v] for v in vertices]+[109],'status':str(result),'runtime':time.perf_counter()-t}\n    if result==z3.unknown:row['reason']=s.reason_unknown()\n    if result==z3.sat:row['labels']=[s.model().eval(x).as_long() for x in labels]\n    results.append(row);print(row,flush=True)\nopen('.git/research/path-results.json','w').write(json.dumps(results,indent=2))\n",
+      "timeout_ms_per_case": 10000,
+      "results": [
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            28,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.083474832999999,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            28,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.092365625000001,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            28,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.104475375,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.084629417000002,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.079814624999997,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.087180750000002,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            28,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.089079624999997,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            28,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.081875334000003,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            28,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.092580499999997,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.08891874999999,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.096492249999997,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.101406374999996,
+          "reason": "timeout"
+        }
+      ]
+    },
+    {
+      "source": "import sys,itertools,time,json\nsys.path[:0]=['.git/research-python','scripts']\nfrom experiment_clift109 import SOURCE,PARENTS\n# Keep parallel edge identities; fix first shift > second for equal parents.\npaths=[[((),())]]\nfor i,(p,q) in enumerate(PARENTS,1):\n    paths.append([(edges+(2*(i-1)+j,),vertices+(parent,)) for j,parent in enumerate((p,q)) for edges,vertices in paths[parent]])\nallpaths=paths[-1]\nsurvivors=[]\nfor edges,vertices in allpaths:\n    if not {0,1,2}.issubset(vertices):continue\n    if any(PARENTS[e//2][0]==PARENTS[e//2][1] and e%2 for e in edges):continue\n    active=set(vertices)\n    reduced=[tuple(e for e in es if PARENTS[e//2][e%2] in active) for es,_ in allpaths]\n    if len(set(reduced))!=109:continue\n    survivors.append((edges,vertices))\nprint('survivors',len(survivors),[[SOURCE[v] for v in vs]+[109] for es,vs in survivors],flush=True)\nimport z3\ncaps=[z3.Int('c'+str(i)) for i in range(11)]\nlabels=[z3.Int('e'+str(i)) for i in range(22)]\nresults=[]\nfor num,(edges,vertices) in enumerate(survivors):\n    t=time.perf_counter();s=z3.Solver();s.set(timeout=10000,random_seed=0)\n    for c in caps:s.add(c>=0,c<=108)\n    s.add(z3.Sum(caps)==108)\n    for e,x in enumerate(labels):\n        p=PARENTS[e//2][e%2];s.add(x>=0,x<=caps[p])\n    for i,(p,q) in enumerate(PARENTS):\n        if p==q:s.add(labels[2*i]>labels[2*i+1])\n    for i in range(11):\n        if i not in vertices:s.add(caps[i]==0)\n    for e in edges:s.add(labels[e]==caps[PARENTS[e//2][e%2]])\n    sums=[z3.Sum([labels[e] for e in es]) for es,vs in allpaths]\n    for v in sums:s.add(v>=0,v<=108)\n    # Finite 109-bit shifts have no overflow: every partial root path\n    # extends to the terminal and is bounded by sum caps=108.\n    bases=[z3.BitVecVal(1,109)]\n    for i,(p,q) in enumerate(PARENTS):\n        a,b=labels[2*i:2*i+2]\n        x=bases[p]<<z3.Int2BV(a,109);y=bases[q]<<z3.Int2BV(b,109)\n        s.add(x&y==0)\n        v=z3.BitVec('v'+str(i+1),109);s.add(v==x|y);bases.append(v)\n    s.add(bases[-1]==(1<<109)-1)\n    s.add(z3.Sum(sums)==108*109//2)\n    result=s.check()\n    row={'path':[SOURCE[v] for v in vertices]+[109],'status':str(result),'runtime':time.perf_counter()-t}\n    if result==z3.unknown:row['reason']=s.reason_unknown()\n    if result==z3.sat:row['labels']=[s.model().eval(x).as_long() for x in labels]\n    results.append(row);print(row,flush=True)\nopen('.git/research/path-bv-results.json','w').write(json.dumps(results,indent=2))\n",
+      "timeout_ms_per_case": 10000,
+      "results": [
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            28,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.226352916,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            28,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.177667167000001,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            28,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.179599457999998,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.180546,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.156153500000002,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            51,
+            58,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.126681125000005,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            28,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.120007666,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            28,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.266156667000004,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            28,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.165407832999989,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            15,
+            23,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.128999749999991,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            15,
+            23,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.129352707999999,
+          "reason": "timeout"
+        },
+        {
+          "path": [
+            1,
+            2,
+            4,
+            8,
+            23,
+            51,
+            109
+          ],
+          "status": "unknown",
+          "runtime": 10.126146292000001,
+          "reason": "timeout"
+        }
+      ]
+    }
+  ],
+  "shifted_mersenne_optimization": {
+    "source": "import sys,time,json\nsys.path[:0]=['.git/research-python','scripts']\nimport z3\nfrom experiment_clift109 import SOURCE,PARENTS\ns=z3.Optimize();s.set(timeout=30000)\nt=[z3.Int('t'+str(i)) for i in range(12)]\nc=[z3.Int('c'+str(i)) for i in range(12)]\nr=[z3.Bool('r'+str(i)) for i in range(11)]\nfor i in range(12):s.add(t[i]>=0,c[i]>=0)\ns.add(t[0]==0,t[-1]==0,c[-1]==0)\nfor i,(p,q) in enumerate(PARENTS,1):\n a=t[i]+(z3.If(r[i-1],0,SOURCE[q]) if p!=q else SOURCE[q])-t[p]\n b=t[i]+(z3.If(r[i-1],SOURCE[p],0) if p!=q else 0)-t[q]\n s.add(a>=0,b>=0,a<=c[p],b<=c[q])\nh=s.minimize(z3.Sum(c));start=time.perf_counter();res=s.check()\nprint(res,s.reason_unknown(),time.perf_counter()-start,flush=True)\nif res==z3.sat:\n print('bounds',h.lower(),h.upper());print('t',[s.model().eval(v) for v in t]);print('c',[s.model().eval(v) for v in c]);print('r',[s.model().eval(v) for v in r])\n",
+    "status": "sat",
+    "lower_bound": 109,
+    "upper_bound": 109,
+    "runtime_seconds": 0.042943624999999985,
+    "offsets": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "caps": [
+      1,
+      2,
+      4,
+      1,
+      0,
+      7,
+      8,
+      6,
+      22,
+      58,
+      0,
+      0
+    ],
+    "boundary": "Exploratory solver result. The final result is independently proved in Lean from actual shifted-Mersenne sum equations; Z3 is not a proof dependency."
+  }
+}

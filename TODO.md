@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-08 (Thursday, Australia/Sydney).
+Updated 2026-10-09 (Friday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -184,13 +184,24 @@ Clift's literature claim, not an assumed or locally completed theorem. Two
 bounded unrestricted Z3 probes timed out (30s/60s); those are not exclusions.
 See `results/2026-10-08-clift109-obstruction.md`.
 
-**Next substantive question.** Extend the complement/interval restrictions to
-additional changing bases or cover all critical-path cases of this same graph.
-A successful budget-108 labelling, if one existed, would have to change a base
-outside vertices 5 and 7. Reassess the structural representation before another
-unrestricted solver attempt; do not merely increase its timeout. Do not repeat
-the completed two-base enumeration or add a certificate format. Larger
+- [x] Prove the general shifted-Mersenne two-block orientation theorem for
+  arbitrary natural shifts, without a carry-free or finite-shift assumption.
+- [x] Prove the selected 109 graph requires at least 109 doublings even when
+  every base may be shifted independently; check an allocation attaining 109.
+- [x] Exhaust all 36 cases freeing 5 and 7 plus any one or two other bases.
+  Minimum 109 when 28 is free, otherwise 110; independently replay all minima.
+  This neighborhood exclusion remains computational, not kernel-certified.
+
+**Next substantive question.** Any successful budget-108 labelling must have
+at least one base whose odd part is not Mersenne, and must change at least three
+vertices outside 5 and 7. Extend the complement/interval argument to bases with
+several binary intervals, using these restrictions to choose a specific family
+or to eliminate critical-path cases. The 12-case critical-path split and first
+moment did not resolve the unrestricted search (all bounded probes timed out).
+Do not increase solver timeouts, repeat the shifted-Mersenne optimization or
+completed neighborhood, or introduce another certificate format. Larger
 5,784,689 data and optimality claims remain deferred.
+See `results/2026-10-09-clift109-neighborhood.md`.
 
 ## Retained constraints and failed shortcuts
 

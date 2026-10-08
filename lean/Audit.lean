@@ -192,3 +192,11 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.small_five_is_shifted_mersenne
 #print axioms ScholzBrauer.Clift109.small_seven_is_shifted_mersenne
 #print axioms ScholzBrauer.Clift109.detour_bases_rigid
+
+#print axioms ScholzBrauer.Clift109.mersenne_sum_shifts
+#print axioms ScholzBrauer.Clift109.shifted_step_constraints
+#print axioms ScholzBrauer.Clift109.shifted_mersenne_cost_ge_109
+#print axioms ScholzBrauer.Clift109.repair_shifted_steps
+#print axioms ScholzBrauer.Clift109.repair_endpoints
+#print axioms ScholzBrauer.Clift109.repair_cost
+#print axioms ScholzBrauer.Clift109.no_shifted_mersenne_budget_108

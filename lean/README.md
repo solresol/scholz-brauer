@@ -313,3 +313,13 @@ The shift bounds are proved before finite kernel checking. The broader exact
 2,304-labelling minimum is a separate Python result; full arbitrary-labelling
 impossibility for this graph is not proved or assumed. All new named theorems
 are included in `Audit.lean`.
+
+`Clift109Shifted.lean` proves the general two-block orientation lemma: a sum
+of shifted Mersenne blocks of lengths p and q can equal a shifted block of
+length p+q only in the two adjoining orientations. This turns the actual
+selected-graph equations into linear constraints and proves a lower bound
+of 109 on outgoing caps for arbitrary nonnegative base shifts. Concrete
+sum equations and a cap sum check attain 109. Thus even shifting every
+Mersenne base cannot meet budget 108. The separate Python neighborhood
+exclusion admits arbitrary binary patterns but is not kernel-certified.
+No full arbitrary-labelling obstruction or new Scholz instance is claimed.

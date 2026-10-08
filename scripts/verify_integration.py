@@ -140,6 +140,7 @@ def main():
         if sha256(vendor / Path(entry["path"]).name) != entry["sha256"]:
             raise ValueError(f"vendored source hash mismatch: {entry['path']}")
 
+    clift109_neighborhood = json.loads(run([sys.executable, "scripts/experiment_clift109_neighborhood.py"]))
     clift109 = json.loads(run([sys.executable, "scripts/experiment_clift109.py"]))
     one_gap_family = json.loads(run([sys.executable, "scripts/experiment_one_gap_family.py"]))
     non_hansen29 = json.loads(run([sys.executable, "scripts/experiment_non_hansen29.py"]))
@@ -255,6 +256,7 @@ def main():
         "non_hansen29_experiment": non_hansen29,
         "one_gap_family_experiment": one_gap_family,
         "clift109_experiment": clift109,
+        "clift109_neighborhood": clift109_neighborhood,
         "hansen_checks": hansen, "search_checks": search,
         "lean_export_checks": export,
         "hansen_allocation_checks": allocation,

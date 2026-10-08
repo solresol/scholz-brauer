@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 8 October 2026
+## Verified status — 9 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -68,6 +68,18 @@ cannot survive the later reuse of vertex 5. This refutes the two-detour repair
 hypothesis, not arbitrary labellings or Scholz. The diagram selects `8=4+4`;
 the same value sequence permits `8=7+1` and is a star/Hansen source. Both
 parent choices are checked explicitly. See `results/2026-10-08-clift109-obstruction.md`.
+
+**The 109 obstruction now covers every shifted-Mersenne base assignment.**
+Lean proves a minimum of **109 doublings** when every base may be an arbitrary
+power-of-two multiple of its Mersenne value; an explicit assignment attains it.
+The required budget is 108, so a successful labelling would need at least one
+base with a different odd part. Separately, exact enumeration of all 36 cases
+freeing bases 5 and 7 plus up to two other vertices rules out budget 108 even
+with arbitrary binary patterns there. Any successful labelling would need to
+change at least three vertices outside 5 and 7. The neighborhood exclusion is
+computational; full arbitrary-labelling impossibility remains unproved here.
+See `lean/ScholzBrauer/Clift109Shifted.lean` and
+`results/2026-10-09-clift109-neighborhood.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;

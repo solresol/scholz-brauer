@@ -1,5 +1,65 @@
 # Research log
 
+## 2026-10-09 — Friday — shifted-Mersenne minimum and neighborhood exclusion
+
+Initial checkout checks and exclusive run lock completed by 07:58 AEDT.
+Read applicable supplied instructions, automation memory, current roadmap,
+recent evidence and actual sources. No applicable on-disk AGENTS.md. Clean
+main at 794df58, expected origin, no competing run; fetched and fast-forward-only
+merge was already current. Prior commit's remote CI is now verified successful.
+Milestones 1 and 2 and the infinite one-gap family were already complete.
+Reopened Clift's primary page and re-fetched the selected 109 graph; its SHA-256
+still matches the checked source fixture. Upstream definitions/licence/open
+statement were inspected; the unproved statement remains uncompiled.
+
+**Milestone 3 advance.** Proved a general two-block orientation theorem for
+positive Mersenne blocks and arbitrary natural shifts. Applied it to the
+actual sum equations of the selected graph: even if EVERY base is independently
+shifted, at least 109 outgoing-cap doublings are necessary. Checked equations
+and caps attain 109 by shifting bases 5 and 28 by one. This closes an unbounded
+structural proof obligation beyond yesterday's two-exception result. A
+budget-108 labelling therefore requires a base with a non-Mersenne odd part.
+
+The exact finite experiment frees bases 5 and 7 plus any one or two of the
+other eight intermediate vertices. All 36 cases are exhausted, with arbitrary
+positive bases and all nonnegative shifts allowed by the equations. Minimum
+109 when 28 is free (eight cases), otherwise 110 (28 cases). Thus a successful
+108-budget labelling would have to change at least three vertices outside
+5 and 7. The neighborhood exclusion remains computational. Every minimizing
+allocation is independently replayed; a minimum witness uses 120 additions.
+This does not improve the alternate-parent star witness's 119 additions, prove
+source/Mersenne optimality, or establish a new Scholz instance.
+
+**Strategy and failed attempts.** Critical-path splitting plus the first moment
+left 12 cases; all integer and hybrid bit-vector probes timed out at 10 seconds
+per case, seed 0, Z3 4.15.3.0. These are unknown, not exclusions. Replaced that
+approach with complete finite complement/production domains and the unbounded
+shifted-Mersenne proof. A 0.043-second integer optimization suggested 109; Lean
+proves the result independently. No solver dependency, certificate format or
+exporter was added. Arithmetic proof development moved from slow omega splits
+to a successful but slower linarith split, then the retained grind proof.
+The attained-witness proof needed its last membership case simplified. Two
+incorrect relative-path invocations failed and were not counted as builds.
+Exact probe sources/outcomes are retained in the dated probes JSON.
+
+**Verification.** Full integration passed in 198.022009 seconds. Exact neighborhood
+experiment: 69.229385 seconds, Python 3.9.6, no random seed; all 36 cases and
+1,124 minimizing occurrences across overlapping cases independently replayed.
+Pinned Lean 4.27.0 build: 973 jobs, 39.260573 seconds (new module 26 seconds).
+Audit: 182 named theorems, 8.630805 seconds, only propext/Quot.sound/
+Classical.choice. Five vendor hashes and all 96 final source/input hashes match;
+compiled proof-token scan clean. Full diff and generated evidence inspected.
+Temporary Z3 dependency removed. No toolchain or dependency pin changed.
+
+**Next.** Study bases with several binary intervals, using the necessary
+non-Mersenne odd part and at least three additional changed vertices. Do not
+repeat the completed 36-case neighborhood, shifted-base optimization or
+unrestricted timeout probes. Full arbitrary-labelling impossibility is still
+Clift's literature claim, not a local theorem; no novelty claim is made.
+See `results/2026-10-09-clift109-neighborhood.md` and the dated integration/probe
+JSON. Commit/push state is recorded in automation memory; local validation is
+separate from remote CI completion.
+
 ## 2026-10-08 — Thursday — repeated-use obstruction on the selected 109 graph
 
 Started approximately 07:58 AEDT. Read automation memory, current source and
