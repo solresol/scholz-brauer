@@ -200,3 +200,8 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.repair_endpoints
 #print axioms ScholzBrauer.Clift109.repair_cost
 #print axioms ScholzBrauer.Clift109.no_shifted_mersenne_budget_108
+
+#print axioms ScholzBrauer.factor_of_shifted_odd
+#print axioms ScholzBrauer.small_mersenne_complement
+#print axioms ScholzBrauer.nonblock_mersenne_complement
+#print axioms ScholzBrauer.Clift109.early_detours_rigid
