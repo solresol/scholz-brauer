@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-09 (Friday, Australia/Sydney).
+Updated 2026-10-14 (Wednesday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -192,16 +192,24 @@ See `results/2026-10-08-clift109-obstruction.md`.
   Minimum 109 when 28 is free, otherwise 110; independently replay all minima.
   This neighborhood exclusion remains computational, not kernel-certified.
 
-**Next substantive question.** Any successful budget-108 labelling must have
-at least one base whose odd part is not Mersenne, and must change at least three
-vertices outside 5 and 7. Extend the complement/interval argument to bases with
-several binary intervals, using these restrictions to choose a specific family
-or to eliminate critical-path cases. The 12-case critical-path split and first
-moment did not resolve the unrestricted search (all bounded probes timed out).
-Do not increase solver timeouts, repeat the shifted-Mersenne optimization or
-completed neighborhood, or introduce another certificate format. Larger
-5,784,689 data and optimality claims remain deferred.
-See `results/2026-10-09-clift109-neighborhood.md`.
+- [x] Kernel-check the general small-complement and separated-binary-interval
+  theorems; use repeated consumers to reduce arbitrary early bases at 5 and 7
+  to 323 shifted-Mersenne pairs when the four tail bases remain Mersenne.
+- [x] Exhaust the six-early-base family (2,4,5,7,8,15 free): minimum 110
+  doublings. Independently replay all minimizing allocations. The finite
+  reduction is Lean; enumeration completeness and minimum remain computational.
+
+**Next substantive question.** Any successful budget-108 labelling needs a
+non-Mersenne odd part, at least three changed vertices outside 5 and 7, and
+now at least one changed tail base among 23,28,51,58. Use the separated-interval
+complement theorem at the terminal equation to derive a finite structural
+case split allowing a tail change. First establish complete domains for that
+specific family; do not silently reuse the 323-pair reduction after dropping
+its fixed-tail hypotheses. The unrestricted labelling problem remains unsolved
+here. The 12-case critical-path/first-moment probes all timed out; do not merely
+increase those limits or repeat the completed neighborhood/early-base searches.
+Larger 5,784,689 cases remain deferred. See
+`results/2026-10-14-clift109-early.md`.
 
 ## Retained constraints and failed shortcuts
 

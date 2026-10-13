@@ -1,5 +1,40 @@
 # Research log
 
+## 2026-10-14 — Wednesday — six-early-base extension excluded
+
+Clean main at 94f7309, expected origin, fetch and fast-forward-only merge already
+current. No competing research process. Preserved the 10 October dead-PID lock
+as a stale record and used a new exclusive lock. The earlier draft is now
+committed, so the dirty-checkout blockers of 11–13 October no longer apply.
+Read current source, roadmap, prior evidence, automation memory and upstream
+reference/licence. Milestones 1 and 2 are complete; milestone 3 remains active.
+
+**Substantive result.** Completed the exact six-early-base experiment from the
+committed draft. With bases at 2,4,5,7,8,15 arbitrary and tail bases 23,28,51,58
+Mersenne, minimum cost is **110 doublings**, above budget 108. The proved
+complement reduction covers 323 detour-shift pairs; complete enumeration gives
+2,763 base assignments and 52,512 labellings. All 468 minima independently
+replay in 121 additions. Non-Mersenne odd parts occur at 15 alone or at 8 and
+15 together, but never reduce the minimum. Any successful budget-108 labelling
+must change at least one of the four tail bases. This extends the earlier
+36-case neighborhood exclusion; it does not exclude arbitrary labellings.
+
+**Verification and boundary.** Existing MersenneComplement module passes direct
+Lean checking and full integration; no new Lean theorem was added. The reduction
+is kernel-checked; the enumeration/minimum is computational. Exact experiment
+10.740420s, Python 3.11.6, no seed or solver. One full required integration pass
+139.723566s; Lean 4.27.0 974 jobs/4.813277s, 186-theorem audit/12.908692s,
+only standard permitted axioms. Five vendor and 98 input hashes match; compiled
+proof-token scan clean. No code or dependency changes, new exporter or checker.
+Clift page and graph were re-fetched; both equal their 8 October content hashes.
+Complete result and method: `results/2026-10-14-clift109-early.md`; commands,
+hashes, full histogram and minima: dated integration JSON. Full diff reviewed.
+
+**Next.** Derive complete complement domains allowing a tail change; do not reuse
+the 323-pair reduction without its fixed-tail assumptions. No general graph
+impossibility, new Scholz instance or novelty is claimed. Commit/push state is
+recorded in automation memory; remote CI is separate from local validation.
+
 ## 2026-10-09 — Friday — shifted-Mersenne minimum and neighborhood exclusion
 
 Initial checkout checks and exclusive run lock completed by 07:58 AEDT.

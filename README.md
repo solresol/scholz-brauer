@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 9 October 2026
+## Verified status — 14 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -80,6 +80,17 @@ change at least three vertices outside 5 and 7. The neighborhood exclusion is
 computational; full arbitrary-labelling impossibility remains unproved here.
 See `lean/ScholzBrauer/Clift109Shifted.lean` and
 `results/2026-10-09-clift109-neighborhood.md`.
+
+**The six-early-base extension is also excluded at budget 108.** Fix only
+`B1=1`, `B109=M109`, and the four tail bases `B23=M23`, `B28=M28`,
+`B51=M51`, `B58=M58`, where `Mv=2^v-1`. All six bases at 2, 4, 5, 7, 8
+and 15 may vary. The Lean complement reduction forces `B5=31*2^k`, `k<19`,
+and `B7=127*2^l`, `l<17`. Complete exact enumeration of the remaining bases
+and shifts gives minimum **110 doublings**. The reduction is kernel-checked;
+the enumeration and minimum are computational. Consequently a budget-108
+labelling must change at least one of the four tail bases. This does not
+exclude arbitrary labellings or establish a new Scholz instance. See
+`results/2026-10-14-clift109-early.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
@@ -205,7 +216,7 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 175-theorem axiom audit. Both **Lean**
+exclusion checker, the Lean build and 186-theorem axiom audit. Both **Lean**
 and the independent **computational** evidence establish
 `ℓ(12509)=17`; the proved Scholz right-hand side is exactly 12525.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current

@@ -323,3 +323,19 @@ sum equations and a cap sum check attain 109. Thus even shifting every
 Mersenne base cannot meet budget 108. The separate Python neighborhood
 exclusion admits arbitrary binary patterns but is not kernel-certified.
 No full arbitrary-labelling obstruction or new Scholz instance is claimed.
+
+## Complement reduction for the six early bases (14 October 2026)
+
+`MersenneComplement.lean` proves that a sufficiently small base completing a
+Mersenne sum must itself be a shifted Mersenne. Without that smallness
+hypothesis, every non-block complement has two separated binary intervals.
+These results quantify over arbitrary natural shifts; no finite search result
+is assumed. `Clift109.early_detours_rigid` then bounds bases 5 and 7 using their
+positive-summand paths to fixed M23 and their repeated consumers at M28 and
+M58. Fixing the four tail bases 23,28,51,58 leaves 19*17 possible detour shifts.
+
+The exact experiment frees all six early bases, retaining those four tail
+values. Its minimum of 110 doublings is computational, not a Lean theorem.
+The four complement/reduction theorems are included in the 186-theorem audit.
+See `../results/2026-10-14-clift109-early.md` for domains, completeness argument,
+independent replay and the boundary between proof and computation.
