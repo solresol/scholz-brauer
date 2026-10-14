@@ -336,6 +336,23 @@ M58. Fixing the four tail bases 23,28,51,58 leaves 19*17 possible detour shifts.
 
 The exact experiment frees all six early bases, retaining those four tail
 values. Its minimum of 110 doublings is computational, not a Lean theorem.
-The four complement/reduction theorems are included in the 186-theorem audit.
+The four complement/reduction theorems are included in the theorem audit.
 See `../results/2026-10-14-clift109-early.md` for domains, completeness argument,
 independent replay and the boundary between proof and computation.
+
+## Changed-tail complement domains (15 October 2026)
+
+`mersenne_complement_iff` proves the complete local equation classification
+with exact shifts, and `mersenne_complement_domain` hides shifts to give a
+finite iff. `half_mersenne_complement` allows the weaker bound 2*u<M(p+q).
+All are in `MersenneComplement.lean` and reuse the existing block identities
+and orientation proof; they assume neither a carry-free sum nor bounded shifts.
+
+`Clift109.fixed58_tail_rigid` fixes only B58=M58 and B109=M109, with arbitrary
+positive other bases satisfying the selected graph. It proves B51=M51*2^k
+(k<8), B7=M7*2^l (l<44), and both tail orientation constraints. These imply
+k=0 or l=0: at most 51 pairs require further compatibility/cost analysis.
+The key repeated-use inequality is 2*B7<B51<M58.
+`Clift109.fixed51_terminal_domain` instead gives the complete local 109-form
+domain for B58 with fixed B51. It does not assert whole-graph feasibility.
+All five new theorems are covered by the 191-theorem dependency audit.

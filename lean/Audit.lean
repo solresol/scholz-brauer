@@ -205,3 +205,9 @@ import ScholzBrauer
 #print axioms ScholzBrauer.small_mersenne_complement
 #print axioms ScholzBrauer.nonblock_mersenne_complement
 #print axioms ScholzBrauer.Clift109.early_detours_rigid
+
+#print axioms ScholzBrauer.mersenne_complement_iff
+#print axioms ScholzBrauer.half_mersenne_complement
+#print axioms ScholzBrauer.mersenne_complement_domain
+#print axioms ScholzBrauer.Clift109.fixed58_tail_rigid
+#print axioms ScholzBrauer.Clift109.fixed51_terminal_domain

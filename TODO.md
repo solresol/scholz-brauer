@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-14 (Wednesday, Australia/Sydney).
+Updated 2026-10-15 (Thursday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -199,17 +199,32 @@ See `results/2026-10-08-clift109-obstruction.md`.
   doublings. Independently replay all minimizing allocations. The finite
   reduction is Lean; enumeration completeness and minimum remain computational.
 
-**Next substantive question.** Any successful budget-108 labelling needs a
-non-Mersenne odd part, at least three changed vertices outside 5 and 7, and
-now at least one changed tail base among 23,28,51,58. Use the separated-interval
-complement theorem at the terminal equation to derive a finite structural
-case split allowing a tail change. First establish complete domains for that
-specific family; do not silently reuse the 323-pair reduction after dropping
-its fixed-tail hypotheses. The unrestricted labelling problem remains unsolved
-here. The 12-case critical-path/first-moment probes all timed out; do not merely
-increase those limits or repeat the completed neighborhood/early-base searches.
-Larger 5,784,689 cases remain deferred. See
-`results/2026-10-14-clift109-early.md`.
+- [x] Prove the complete Mersenne-complement iff with exact shifts and its
+  finite existential domain; prove rigidity when twice the unknown base is
+  smaller than the terminal Mersenne block.
+- [x] Allow arbitrary intermediate bases while fixing only B58=M58 and M109:
+  prove B51=M51*2^k (k<8), B7=M7*2^l (l<44), and exact tail orientations.
+  The orientations force k=0 or l=0, leaving at most 51 candidate pairs.
+- [x] Prove the complete local domain for B58 when B51=M51: 52 block forms
+  plus 57 separated-interval forms, each satisfying the terminal equation.
+
+**Next substantive question.** Determine graph compatibility and the minimum
+cap sum when only B58=M58 is fixed. Reuse the existing exact complement and
+production enumerator over the newly proved 51 candidate (B51,B7) pairs;
+all bases at 2,4,5,8,15,23,28 must remain free. Establish any additional
+pruning before using it and keep the search bounded/checkpointed. Alternatively
+use repeated-consumer equations to close these cases analytically. The 51
+pairs are necessary candidates, not proved whole-graph solutions. If moving
+to fixed B51 instead, impose its production/reuse equations on the 109 local
+B58 forms before claiming graph compatibility.
+
+Any budget-108 labelling still needs a non-Mersenne odd part, at least three
+changed vertices outside 5 and 7, and a changed tail among 23,28,51,58.
+The arbitrary-labelling problem remains unproved here, especially when both
+terminal parents vary. Do not reuse the old 323-pair domain without its four
+fixed-tail hypotheses, repeat completed searches, or increase the old solver
+timeouts. Larger 5,784,689 cases remain deferred. See
+`results/2026-10-15-clift109-tail-domains.md`.
 
 ## Retained constraints and failed shortcuts
 

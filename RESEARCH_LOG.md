@@ -1,5 +1,43 @@
 # Research log
 
+## 2026-10-15 — Thursday — changed-tail domains proved in Lean
+
+Clean main at 249a4a0, expected origin, fetch and fast-forward-only merge already
+current. No competing research process or active lock found; acquired an
+exclusive run lock. Read prior dated work and current proof sources. Rechecked
+Clift's primary page and diagram; both hashes unchanged. Inspected the pinned
+upstream addition-chain definitions, Scholz reference and Apache-2.0 licence.
+Milestones 1 and 2 remain complete; milestone 3 is active.
+
+**Substantive result.** Proved a complete Mersenne-complement iff with exact
+shift equations and its finite existential domain. Proved a stronger rigidity
+criterion: twice the unknown base smaller than the full Mersenne target forces
+a shifted block. Applied these results to the selected graph with only B58=M58
+and M109 fixed, freeing all other intermediate bases. Lean proves
+B51=M51*2^k (k<8), B7=M7*2^l (l<44), and exact tail orientations forcing
+k=0 or l=0: at most 51 candidate pairs. This closes a changed-tail structural
+blocker without reusing the earlier four-fixed-tail assumptions. Separately,
+proved the complete 109-form local B58 domain when B51=M51 is fixed.
+
+**Evidence and limits.** Five new symbolic Lean theorems, no new checker,
+exporter or experiment. Direct checks passed; no failed proof attempts.
+The 51 pairs need whole-graph compatibility and cap-sum analysis; the 109 forms
+are exactly local terminal solutions, not whole-graph solutions. No new cost
+minimum, Scholz instance, optimality, unrestricted exclusion or novelty claim.
+Detailed formulas, commands and verification metrics are in
+`results/2026-10-15-clift109-tail-domains.md` and the dated integration JSON.
+
+**Next.** Solve the fixed-B58 family using the existing bounded exact enumerator
+on the 51 pairs, with 2,4,5,8,15,23,28 free, or tighten repeated-consumer
+constraints first. Both terminal parents varying is outside the new reductions.
+Updated README, Lean README and the milestone-organised roadmap.
+
+**Integration.** Required suite passed once in 181.819215s (Python 3.9.6), all
+25 commands successful. Lean 4.27.0 build 16.025987s; 191-theorem audit
+6.914222s, only standard axioms. Five vendor and 98 input hashes match;
+compiled proof-token scan clean. Reviewed the full proof/document diff and
+structured verification report before commit.
+
 ## 2026-10-14 — Wednesday — six-early-base extension excluded
 
 Clean main at 94f7309, expected origin, fetch and fast-forward-only merge already
