@@ -1,5 +1,57 @@
 # Research log
 
+## 2026-10-16 — Friday — fixed-B58 family excluded
+
+Clean main at 83d3dfa, correct origin, fetch and fast-forward-only merge already
+current. No competing research run or active lock; acquired an exclusive run
+lock. Read current sources, roadmap, prior records and automation memory.
+Clift's primary page/PNG hashes remain unchanged; upstream addition-chain API,
+uncompiled Scholz statement and Apache-2.0 licence inspected. Milestones 1/2
+remain complete. Previous remote CI for 83d3dfa is now verified successful.
+
+**Substantive milestone-3 result.** Fix only B1=1, B58=M58, B109=M109 in the
+selected carry-free graph. Completed all 51 Lean-reduced pairs and 4,279,900
+compatible base assignments. Minimum cap sum is **109 doublings**, with eight
+independently replayed 120-addition witnesses. Thus budget 108 requires a
+changed B58, strengthening the prior four-tail disjunction. Exactly 29 pairs
+are globally compatible: (0,0..21), (1..7,0). The other 22 have no assignment
+at any budget. This minimum and compatibility classification are computational;
+no new Lean cost theorem, unrestricted exclusion, Scholz instance or optimum
+addition-chain length is claimed.
+
+**Concrete blocker removed.** Reused the complement/production enumerator,
+adding necessary domains from two repeated-consumer substitutions and a proved
+on-paper population-count invariant. No new certificate format or solver.
+Initial 25s/40s probes and a 240s full attempt were incomplete. Profiling found
+redundant filtering after an empty domain; immediate rejection fixed it.
+The corrected 240s segment completed 48 pairs. Hash-checked continuation of
+only the three unfinished pairs, each bounded at 180s, completed the family
+in 502.834771s total. All 37 prior completed assignment hashes agree.
+Precise failed approaches, finite ranges and completeness argument are in
+`results/2026-10-16-clift109-fixed58.md`; full evidence is in the paired JSON.
+
+**Related obligation advanced.** Applied local production/reuse conditions to
+all 109 fixed-B51 terminal forms. Only the 52 blocks and separated parameters
+7 and 51 survive: 2,333 local (B58,B7) pairs, all shift sets independently
+checked. The other 55 separated forms are locally excluded. This took
+1.674960s and remains local computational evidence; earlier graph constraints
+and cost are not established by this check.
+
+**Verification.** Python 3.9.6, exact integers, no solver or random seed.
+2,205 direct domain-oracle checks and 522 comparisons of new budget pruning
+against unpruned minimisation passed. Required integration ran once:
+243.740516s, 25 successful commands, pinned Lean 4.27.0/974 jobs in 7.002251s,
+191-theorem standard-axiom audit in 17.125478s; 5 vendor and 99 input hashes
+matched. Earlier early/neighborhood counts, cost histograms and all minima
+remain unchanged. No Lean source or dependency changes. The new research
+experiment is separate from the standard CI workload. Full source/docs diff
+and structured results reviewed before commit.
+
+**Next.** Solve the remaining fixed-B51 forms globally: 51 shifted blocks and
+two separated forms after removing B58=M58. Reuse the new repeated-consumer
+domains with bounded work; both terminal parents varying remains outside the
+reductions. Do not repeat completed families or unrestricted solver timeouts.
+
 ## 2026-10-15 — Thursday — changed-tail domains proved in Lean
 
 Clean main at 249a4a0, expected origin, fetch and fast-forward-only merge already

@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 15 October 2026
+## Verified status — 16 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -99,9 +99,19 @@ forces `B51=M51*2^k`, `0≤k<8`, and `B7=M7*2^l`, `0≤l<44`, with either
 shift constraints. Separately, fixing B51=M51 gives a complete local domain
 for B58 of 52 shifted blocks and 57 separated-interval forms. The general
 complement classification proves both directions and a stronger half-block
-rigidity criterion. Whole-graph compatibility and minimum doubling cost in
-these larger families remain to be determined. See
+rigidity criterion. Whole-graph compatibility and minimum doubling cost for
+the fixed-B51 family remain to be determined. See
 `results/2026-10-15-clift109-tail-domains.md`.
+
+**The fixed-B58 family is now completely excluded at budget 108.** With only
+seed 1, B58=M58 and terminal M109 fixed, exact enumeration of all 51 reduced
+pairs and every compatible base assignment has minimum **109 doublings**.
+All nine other intermediate bases are free. Repeated-consumer equations
+make the finite enumeration tractable; the attaining 120-addition allocation
+is independently replayed. Consequently a budget-108 carry-free labelling of
+this selected graph must change **B58 itself**. The reduction is Lean; the
+compatibility/cost enumeration is computational, not a new Lean minimum theorem
+or an unrestricted graph exclusion. See `results/2026-10-16-clift109-fixed58.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;

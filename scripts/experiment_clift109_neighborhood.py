@@ -71,7 +71,7 @@ def production_domain(left, right, limit):
 pairs_cached = lru_cache(None)(local_pairs)
 
 
-def base_assignments(bases, counts):
+def base_assignments(bases, counts, extra_domains=None):
     # All determined equations are checked, including equations that were not
     # used to derive the branching domain. Unknown target values are never
     # silently accepted.
@@ -95,6 +95,11 @@ def base_assignments(bases, counts):
         else:
             continue
         domains[v] = domains.get(v, domain) & domain
+    if extra_domains is not None:
+        for v, domain in extra_domains(bases).items():
+            domains[v] = domains.get(v, domain) & domain
+    if any(not domain for domain in domains.values()):
+        return
     if not domains:
         # Coupled unknown parents can leave no one-unknown consumption sum.
         # Produce an unknown whose parents are known, using its smallest known
@@ -112,12 +117,20 @@ def base_assignments(bases, counts):
             require(bool(limits), 'missing fixed descendant')
             domains[i] = production_domain(bases[p], bases[q], min(limits))
     require(bool(domains), 'no complete finite branching domain')
+    # Seed 1 has one set bit; every accepted local sum is carry-free. Induction
+    # along the selected source graph therefore fixes popcount(B_v)=v, even
+    # before all its production equations have been assigned. This necessary
+    # condition avoids branching on impossible complements in larger families.
+    for v in sorted(domains, key=lambda v: len(domains[v])):
+        domains[v] = frozenset(x for x in domains[v] if bin(x).count('1') == SOURCE[v])
+        if not domains[v]:
+            return
     v, domain = min(domains.items(), key=lambda item: (len(item[1]), item[0]))
     counts['candidate_branches'] += len(domain)
     for value in sorted(domain):
         child = bases.copy()
         child[v] = value
-        yield from base_assignments(child, counts)
+        yield from base_assignments(child, counts, extra_domains)
 
 
 def run_case(extras):

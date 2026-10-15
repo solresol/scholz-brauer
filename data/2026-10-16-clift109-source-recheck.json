@@ -1,0 +1,17 @@
+{
+  "accessed_at": "2026-10-16T08:05:13.171954+11:00",
+  "version": "Live undated primary source; content hashes identify version",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+      "matches_8_october": true
+    },
+    {
+      "url": "https://www.additionchains.com/LargeNonHansen.png",
+      "sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6",
+      "matches_8_october": true
+    }
+  ],
+  "claim_used": "Selected 109 parent graph; no novelty or unrestricted impossibility claim"
+}

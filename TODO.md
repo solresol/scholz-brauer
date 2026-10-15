@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-15 (Thursday, Australia/Sydney).
+Updated 2026-10-16 (Friday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -208,18 +208,27 @@ See `results/2026-10-08-clift109-obstruction.md`.
 - [x] Prove the complete local domain for B58 when B51=M51: 52 block forms
   plus 57 separated-interval forms, each satisfying the terminal equation.
 
-**Next substantive question.** Determine graph compatibility and the minimum
-cap sum when only B58=M58 is fixed. Reuse the existing exact complement and
-production enumerator over the newly proved 51 candidate (B51,B7) pairs;
-all bases at 2,4,5,8,15,23,28 must remain free. Establish any additional
-pruning before using it and keep the search bounded/checkpointed. Alternatively
-use repeated-consumer equations to close these cases analytically. The 51
-pairs are necessary candidates, not proved whole-graph solutions. If moving
-to fixed B51 instead, impose its production/reuse equations on the 109 local
-B58 forms before claiming graph compatibility.
+- [x] Exhaust all 51 fixed-B58 pairs with the other nine bases free. Complete
+  compatibility and cost search gives minimum 109 doublings; independently
+  replay the attaining allocation. This is a computational minimum, not a
+  Lean cost theorem. Repeated-consumer substitution removes the concrete
+  forward-domain blocker without a new certificate format or solver.
 
-Any budget-108 labelling still needs a non-Mersenne odd part, at least three
-changed vertices outside 5 and 7, and a changed tail among 23,28,51,58.
+- [x] With B51=M51, impose the local B58 production equation and 2*B7<M51
+  on all 109 terminal forms. Exactly 52 blocks and separated parameters 7,51
+  survive (2,333 pairs with B7); independently check all local shift options.
+  This is local computational compatibility, not whole-graph feasibility.
+
+**Next substantive question.** Impose whole-graph compatibility and cost on
+these fixed-B51 survivors. The B58=M58 member is excluded above, leaving
+51 other shifted blocks and two separated forms. Reuse the existing
+complement/production enumerator and repeated-consumer constraints, keep the work bounded/checkpointed, and prove
+any additional pruning before relying on it. Both terminal parents varying
+remains outside these reductions. Do not repeat the completed fixed-B58 search
+or increase old unrestricted solver timeouts without a concrete new reason.
+
+Any budget-108 carry-free labelling needs a non-Mersenne odd part, at least
+three changed vertices outside 5 and 7, and **B58 different from M58**.
 The arbitrary-labelling problem remains unproved here, especially when both
 terminal parents vary. Do not reuse the old 323-pair domain without its four
 fixed-tail hypotheses, repeat completed searches, or increase the old solver
