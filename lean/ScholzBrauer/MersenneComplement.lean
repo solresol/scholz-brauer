@@ -318,4 +318,240 @@ theorem Clift109.fixed51_terminal_domain (u : ℕ) :
       u = (2 ^ (58 - (b : ℕ)) - 1) * 2 ^ (51 + (b : ℕ)) + (2 ^ (b : ℕ) - 1)) :=
   mersenne_complement_domain (by decide) (by decide)
 
+/-- Kernel arithmetic for the residual after removing M51 from a shifted M58.
+The remaining odd part is M7 or too large for the repeated-use bound. -/
+private theorem shifted58_residual : ∀ t : Fin 52, ∀ b : Fin 59,
+    let r := (2 ^ 58 - 1) * 2 ^ (t : ℕ) - (2 ^ 51 - 1) * 2 ^ (b : ℕ)
+    0 < r →
+    (r = (2 ^ 7 - 1) * 2 ^ (51 + (t : ℕ)) ∨
+      r = (2 ^ 7 - 1) * 2 ^ (t : ℕ)) ∨
+    (let v := r / 2 ^ min (t : ℕ) (b : ℕ);
+      r = v * 2 ^ min (t : ℕ) (b : ℕ) ∧ v % 2 = 1 ∧ 2 ^ 51 - 1 ≤ 2 * v) := by
+  decide +kernel
+
+/-- Kernel arithmetic for every separated terminal form and every possible
+shift of the M51 summand. No enumeration over the unknown natural base. -/
+private theorem separated58_residual : ∀ b : Fin 58, ∀ e : Fin 59,
+    let r := (2 ^ (58 - (b : ℕ)) - 1) * 2 ^ (51 + (b : ℕ)) +
+      (2 ^ (b : ℕ) - 1) - (2 ^ 51 - 1) * 2 ^ (e : ℕ)
+    0 < (b : ℕ) → 0 < r →
+    ((b : ℕ) = 51 ∧ (e : ℕ) = 0 ∧ r = (2 ^ 7 - 1) * 2 ^ 102) ∨
+    ((b : ℕ) = 7 ∧ (e : ℕ) = 58 ∧ r = 2 ^ 7 - 1) ∨
+    (let s := if (e : ℕ) = 0 then min (b : ℕ) 51 else 0;
+      let v := r / 2 ^ s;
+      r = v * 2 ^ s ∧ v % 2 = 1 ∧ 2 ^ 51 - 1 ≤ 2 * v) := by
+  decide +kernel
+
+/-- The complete necessary local domain with B51=M51. Repeated use supplies
+2*u<M51. No carry-free, bit-count, seed or cost hypothesis is needed. -/
+theorem Clift109.fixed51_local_rigid {u v a b c d : ℕ}
+    (hu : 0 < u) (hsmall : 2 * u < 2 ^ 51 - 1)
+    (h58 : (2 ^ 51 - 1) * 2 ^ a + u * 2 ^ b = v)
+    (h109 : v * 2 ^ c + (2 ^ 51 - 1) * 2 ^ d = 2 ^ 109 - 1) :
+    ∃ l : Fin 44, u = (2 ^ 7 - 1) * 2 ^ (l : ℕ) ∧
+      ((∃ t : Fin 52, v = (2 ^ 58 - 1) * 2 ^ (t : ℕ)) ∨
+       (v = (2 ^ 51 - 1) * 2 ^ 58 + (2 ^ 7 - 1) ∧ (l : ℕ) = 0) ∨
+       v = (2 ^ 7 - 1) * 2 ^ 102 + (2 ^ 51 - 1)) := by
+  have lower := Nat.le_mul_of_pos_right v (Nat.two_pow_pos c)
+  have pv := Nat.mul_pos hu (Nat.two_pow_pos b)
+  have va : v < 2 ^ 109 := by omega
+  have ha : a < 59 := by
+    by_contra hn
+    have he := Nat.pow_le_pow_right (by decide : 1 ≤ 2) (show 59 ≤ a by omega)
+    norm_num at he h58 va
+    omega
+  have rem : v - (2 ^ 51 - 1) * 2 ^ a = u * 2 ^ b := by omega
+  have rempos : 0 < v - (2 ^ 51 - 1) * 2 ^ a := by omega
+  have finish (hk : ∃ k, u = (2 ^ 7 - 1) * 2 ^ k) :
+      ∃ l : Fin 44, u = (2 ^ 7 - 1) * 2 ^ (l : ℕ) := by
+    obtain ⟨k, hk⟩ := hk
+    have bound : k < 44 := by
+      by_contra hn
+      have he := Nat.pow_le_pow_right (by decide : 1 ≤ 2) (show 44 ≤ k by omega)
+      norm_num at he hk hsmall
+      omega
+    exact ⟨⟨k, bound⟩, hk⟩
+  have reject {r v' t : ℕ} (he : r = u * 2 ^ b)
+      (hf : r = v' * 2 ^ t) (ho : v' % 2 = 1) (hb : 2 ^ 51 - 1 ≤ 2 * v') : False := by
+    obtain ⟨k, hk⟩ := factor_of_shifted_odd ho (he.symm.trans hf)
+    have le := Nat.le_mul_of_pos_right v' (Nat.two_pow_pos k)
+    omega
+  rcases (fixed51_terminal_domain v).mp ⟨c, d, h109⟩ with ⟨t, ht⟩ | ⟨e, he, hv⟩
+  · have cases := shifted58_residual t ⟨a, ha⟩ (by simpa only [ht] using rempos)
+    rcases cases with (h | h) | ⟨hf, ho, hb⟩
+    · obtain ⟨l, hl⟩ := finish (factor_of_shifted_odd (a := b) (by decide : (2 ^ 7 - 1 : ℕ) % 2 = 1)
+        (by simpa only [← ht, rem] using h))
+      exact ⟨l, hl, Or.inl ⟨t, ht⟩⟩
+    · obtain ⟨l, hl⟩ := finish (factor_of_shifted_odd (a := b) (by decide : (2 ^ 7 - 1 : ℕ) % 2 = 1)
+        (by simpa only [← ht, rem] using h))
+      exact ⟨l, hl, Or.inl ⟨t, ht⟩⟩
+    · exact (reject (by simpa only [ht] using rem) hf ho hb).elim
+  · have cases := separated58_residual e ⟨a, ha⟩ he (by simpa only [hv] using rempos)
+    rcases cases with ⟨he51, ha0, hr⟩ | ⟨he7, ha58, hr⟩ | ⟨hf, ho, hb⟩
+    · obtain ⟨l, hl⟩ := finish (factor_of_shifted_odd (a := b) (by decide : (2 ^ 7 - 1 : ℕ) % 2 = 1)
+        (by simpa only [← hv, rem] using hr))
+      exact ⟨l, hl, Or.inr (Or.inr (by simpa [he51] using hv))⟩
+    · have hr' : u * 2 ^ b = 2 ^ 7 - 1 := by simpa only [← hv, rem] using hr
+      have hb0 : b = 0 := by
+        by_contra hn
+        obtain ⟨b, rfl⟩ := Nat.exists_eq_succ_of_ne_zero hn
+        have hm := congrArg (· % 2) hr'
+        simp [pow_succ, Nat.mul_mod] at hm
+      have hu7 : u = 2 ^ 7 - 1 := by simpa [hb0] using hr'
+      exact ⟨0, by simpa using hu7, Or.inr (Or.inl ⟨by simpa [he7] using hv, rfl⟩)⟩
+    · exact (reject (by simpa only [hv] using rem) hf ho hb).elim
+
+/-- Exact local classification, including sufficiency: 52*44 block pairs,
+one separated-7 pair, and 44 separated-51 pairs. This asserts only the two
+tail equations and the repeated-use bound, not earlier graph feasibility. -/
+theorem Clift109.fixed51_local_domain (u v : ℕ) :
+    (0 < u ∧ 2 * u < 2 ^ 51 - 1 ∧ ∃ a b c d : ℕ,
+      (2 ^ 51 - 1) * 2 ^ a + u * 2 ^ b = v ∧
+      v * 2 ^ c + (2 ^ 51 - 1) * 2 ^ d = 2 ^ 109 - 1) ↔
+    (∃ t : Fin 52, ∃ l : Fin 44,
+      u = (2 ^ 7 - 1) * 2 ^ (l : ℕ) ∧ v = (2 ^ 58 - 1) * 2 ^ (t : ℕ)) ∨
+    (u = 2 ^ 7 - 1 ∧ v = (2 ^ 51 - 1) * 2 ^ 58 + (2 ^ 7 - 1)) ∨
+    (∃ l : Fin 44, u = (2 ^ 7 - 1) * 2 ^ (l : ℕ) ∧
+      v = (2 ^ 7 - 1) * 2 ^ 102 + (2 ^ 51 - 1)) := by
+  constructor
+  · rintro ⟨hu, hsmall, a, b, c, d, h58, h109⟩
+    obtain ⟨l, hl, hv⟩ := fixed51_local_rigid hu hsmall h58 h109
+    rcases hv with ⟨t, ht⟩ | ⟨hv, hz⟩ | hv
+    · exact Or.inl ⟨t, l, hl, ht⟩
+    · exact Or.inr (Or.inl ⟨by simpa [hz] using hl, hv⟩)
+    · exact Or.inr (Or.inr ⟨l, hl, hv⟩)
+  · have small : ∀ l : Fin 44,
+        0 < (2 ^ 7 - 1) * 2 ^ (l : ℕ) ∧
+        2 * ((2 ^ 7 - 1) * 2 ^ (l : ℕ)) < 2 ^ 51 - 1 := by decide +kernel
+    rintro (⟨t, l, rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨l, rfl, rfl⟩)
+    · refine ⟨(small l).1, (small l).2, t, 51 + (t : ℕ) - l, 51 - (t : ℕ), 0, ?_, ?_⟩
+      · rw [Nat.mul_assoc, ← pow_add,
+          show (l : ℕ) + (51 + (t : ℕ) - l) = 51 + (t : ℕ) by have := l.isLt; omega]
+        norm_num [pow_add]
+        ring
+      · rw [Nat.mul_assoc, ← pow_add,
+          show (t : ℕ) + (51 - (t : ℕ)) = 51 by have := t.isLt; omega]
+        norm_num
+    · exact ⟨by decide, by decide, 58, 0, 0, 7, by decide, by decide⟩
+    · refine ⟨(small l).1, (small l).2, 0, 102 - (l : ℕ), 0, 51, ?_, by decide⟩
+      rw [Nat.mul_assoc, ← pow_add,
+        show (l : ℕ) + (102 - (l : ℕ)) = 102 by have := l.isLt; omega]
+      norm_num
+
+/-- Apply the complete local reduction to the actual selected graph. The
+strict half bound follows from two uses of the positive B7 contribution in
+B51; no numerical assumptions are made about the earlier intermediate bases. -/
+theorem Clift109.fixed51_tail_rigid (B a b : ℕ → ℕ)
+    (hpos : ∀ v ∈ Clift109.source, 0 < B v)
+    (hsteps : ∀ s ∈ Clift109.selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (h51 : B 51 = 2 ^ 51 - 1) (h109 : B 109 = 2 ^ 109 - 1) :
+    (∃ t : Fin 52, ∃ l : Fin 44,
+      B 7 = (2 ^ 7 - 1) * 2 ^ (l : ℕ) ∧ B 58 = (2 ^ 58 - 1) * 2 ^ (t : ℕ)) ∨
+    (B 7 = 2 ^ 7 - 1 ∧ B 58 = (2 ^ 51 - 1) * 2 ^ 58 + (2 ^ 7 - 1)) ∨
+    (∃ l : Fin 44, B 7 = (2 ^ 7 - 1) * 2 ^ (l : ℕ) ∧
+      B 58 = (2 ^ 7 - 1) * 2 ^ 102 + (2 ^ 51 - 1)) := by
+  have s15 := hsteps (8, 7) (by decide)
+  have s23 := hsteps (15, 8) (by decide)
+  have s28 := hsteps (23, 5) (by decide)
+  have s51 := hsteps (28, 23) (by decide)
+  have s58 := hsteps (51, 7) (by decide)
+  have s109 := hsteps (58, 51) (by decide)
+  norm_num only at s15 s23 s28 s51 s58 s109
+  have lower (v e : ℕ) : B v ≤ B v * 2 ^ e :=
+    Nat.le_mul_of_pos_right _ (Nat.two_pow_pos _)
+  have p8 := Nat.mul_pos (hpos 8 (by decide)) (Nat.two_pow_pos (a 15))
+  have p5 := Nat.mul_pos (hpos 5 (by decide)) (Nat.two_pow_pos (b 28))
+  have half : 2 * B 7 < B 51 := by
+    have := lower 7 (b 15)
+    have := lower 15 (a 23)
+    have := lower 23 (a 28)
+    have := lower 28 (a 51)
+    have := lower 23 (b 51)
+    omega
+  apply (fixed51_local_domain (B 7) (B 58)).mp
+  exact ⟨hpos 7 (by decide), by simpa [h51] using half,
+    a 58, b 58, a 109, b 109, by simpa [h51] using s58,
+    by simpa [h51, h109] using s109⟩
+
+/-- The separated-51 tail already needs 110 doublings at just vertices 7
+and 51. Earlier caps are nonnegative, so this locally surviving form cannot
+meet budget 108, regardless of earlier graph choices or binary carries. -/
+theorem Clift109.fixed51_separated51_cost {u a b c d cap7 cap51 : ℕ}
+    (hu : 0 < u) (hsmall : 2 * u < 2 ^ 51 - 1)
+    (h58 : (2 ^ 51 - 1) * 2 ^ a + u * 2 ^ b =
+      (2 ^ 7 - 1) * 2 ^ 102 + (2 ^ 51 - 1))
+    (h109 : ((2 ^ 7 - 1) * 2 ^ 102 + (2 ^ 51 - 1)) * 2 ^ c +
+      (2 ^ 51 - 1) * 2 ^ d = 2 ^ 109 - 1)
+    (hb : b ≤ cap7) (hd : d ≤ cap51) : 110 ≤ cap7 + cap51 := by
+  obtain ⟨l, hl, hdomain⟩ := fixed51_local_rigid hu hsmall h58 h109
+  clear hdomain
+  have ha : a < 59 := by
+    by_contra hn
+    have he := Nat.pow_le_pow_right (by decide : 1 ≤ 2) (show 59 ≤ a by omega)
+    norm_num at he h58
+    omega
+  have rem : ((2 ^ 7 - 1) * 2 ^ 102 + (2 ^ 51 - 1)) -
+      (2 ^ 51 - 1) * 2 ^ a = u * 2 ^ b := by omega
+  have positive := Nat.mul_pos hu (Nat.two_pow_pos b)
+  have cases := separated58_residual ⟨51, by decide⟩ ⟨a, ha⟩ (by decide)
+    (by simpa only [rem] using positive)
+  have a0 : a = 0 := by
+    rcases cases with ⟨_, ha0, _⟩ | ⟨hne, _, _⟩ | ⟨hf, ho, hbig⟩
+    · exact ha0
+    · norm_num at hne
+    · obtain ⟨k, hk⟩ := factor_of_shifted_odd ho (rem.symm.trans hf)
+      have large : 2 ^ 51 - 1 ≤ 2 * u := by
+        rw [hk]
+        exact le_trans hbig (Nat.mul_le_mul_left 2
+          (Nat.le_mul_of_pos_right _ (Nat.two_pow_pos k)))
+      omega
+  clear cases rem positive ha
+  have eb : (l : ℕ) + b = 102 := by
+    rw [hl, Nat.mul_assoc, ← pow_add] at h58
+    have hp : 2 ^ ((l : ℕ) + b) = 2 ^ 102 := by
+      norm_num [a0] at h58 ⊢
+      omega
+    exact Nat.pow_right_injective (by decide : 2 ≤ 2) hp
+  have c0 : c = 0 := by
+    by_contra hn
+    have he := Nat.pow_le_pow_right (by decide : 1 ≤ 2) (Nat.one_le_iff_ne_zero.mpr hn)
+    norm_num at he h109
+    nlinarith only [he, h109, Nat.two_pow_pos d]
+  have ed : d = 51 := by
+    have hp : 2 ^ d = 2 ^ 51 := by
+      norm_num [c0] at h109 ⊢
+      nlinarith only [h109]
+    exact Nat.pow_right_injective (by decide : 2 ≤ 2) hp
+  have := l.isLt
+  clear hu hsmall h58 h109 hl a0 c0
+  omega
+
+/-- Budget 108 removes the separated-51 form from the selected graph's
+necessary domain. Only shifted M58 blocks and the separated-7 form remain. -/
+theorem Clift109.fixed51_budget_tail (B a b cap : ℕ → ℕ)
+    (hpos : ∀ v ∈ Clift109.source, 0 < B v)
+    (hsteps : ∀ s ∈ Clift109.selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (h51 : B 51 = 2 ^ 51 - 1) (h109 : B 109 = 2 ^ 109 - 1)
+    (hcap7 : b 58 ≤ cap 7) (hcap51 : b 109 ≤ cap 51)
+    (hbudget : cap 1 + cap 2 + cap 4 + cap 5 + cap 7 + cap 8 + cap 15 +
+      cap 23 + cap 28 + cap 51 + cap 58 ≤ 108) :
+    (∃ t : Fin 52, ∃ l : Fin 44,
+      B 7 = (2 ^ 7 - 1) * 2 ^ (l : ℕ) ∧ B 58 = (2 ^ 58 - 1) * 2 ^ (t : ℕ)) ∨
+    (B 7 = 2 ^ 7 - 1 ∧ B 58 = (2 ^ 51 - 1) * 2 ^ 58 + (2 ^ 7 - 1)) := by
+  rcases fixed51_tail_rigid B a b hpos hsteps h51 h109 with h | h | ⟨l, hl, hv⟩
+  · exact Or.inl h
+  · exact Or.inr h
+  · have small : ∀ l : Fin 44,
+        2 * ((2 ^ 7 - 1) * 2 ^ (l : ℕ)) < 2 ^ 51 - 1 := by decide +kernel
+    have s58 := hsteps (51, 7) (by decide)
+    have s109 := hsteps (58, 51) (by decide)
+    norm_num only at s58 s109
+    have cost := fixed51_separated51_cost (hpos 7 (by decide))
+      (by simpa only [hl] using small l)
+      (by simpa only [h51, hv] using s58)
+      (by simpa only [h51, h109, hv] using s109) hcap7 hcap51
+    omega
+
 end ScholzBrauer

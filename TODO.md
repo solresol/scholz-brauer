@@ -219,12 +219,22 @@ See `results/2026-10-08-clift109-obstruction.md`.
   survive (2,333 pairs with B7); independently check all local shift options.
   This is local computational compatibility, not whole-graph feasibility.
 
+- [x] Kernel-check the exact fixed-B51 local iff and apply it to the selected
+  graph: 52*44 shifted-block pairs, one separated-7 pair, 44 separated-51
+  pairs. Prove this without carry-free or population-count assumptions.
+- [x] Exclude the separated-51 form in Lean: forced shifts give cap7+cap51>=110.
+  Prove the resulting graph-level necessary domain at total budget 108.
+
 **Next substantive question.** Impose whole-graph compatibility and cost on
-these fixed-B51 survivors. The B58=M58 member is excluded above, leaving
-51 other shifted blocks and two separated forms. Reuse the existing
-complement/production enumerator and repeated-consumer constraints, keep the work bounded/checkpointed, and prove
-any additional pruning before relying on it. Both terminal parents varying
-remains outside these reductions. Do not repeat the completed fixed-B58 search
+51 changed shifted blocks and the separated-7 form. B58=M58 was already
+excluded computationally; separated-51 is now excluded in Lean. All remaining
+forms have B7=M7*2^l, l<44 (l=0 in separated-7). Reuse existing complement,
+production and repeated-consumer domains; no new infrastructure is needed.
+A promising reduction is to compare tail costs with fixed-B58 allocations:
+for a shifted block the two orientations force a58=7+t or a58=t, and t>0
+forces a109=51-t, b109=0. Prove any cost comparison before using it; the
+complete fixed-B51 cost problem is still open here. Both terminal parents
+varying remains outside these reductions. Do not repeat completed searches
 or increase old unrestricted solver timeouts without a concrete new reason.
 
 Any budget-108 carry-free labelling needs a non-Mersenne odd part, at least

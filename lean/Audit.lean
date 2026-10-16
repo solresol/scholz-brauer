@@ -211,3 +211,9 @@ import ScholzBrauer
 #print axioms ScholzBrauer.mersenne_complement_domain
 #print axioms ScholzBrauer.Clift109.fixed58_tail_rigid
 #print axioms ScholzBrauer.Clift109.fixed51_terminal_domain
+
+#print axioms ScholzBrauer.Clift109.fixed51_local_rigid
+#print axioms ScholzBrauer.Clift109.fixed51_local_domain
+#print axioms ScholzBrauer.Clift109.fixed51_tail_rigid
+#print axioms ScholzBrauer.Clift109.fixed51_separated51_cost
+#print axioms ScholzBrauer.Clift109.fixed51_budget_tail

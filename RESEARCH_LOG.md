@@ -1,5 +1,54 @@
 # Research log
 
+## 2026-10-17 — Saturday — fixed-B51 local domain and budget obstruction
+
+Clean main at 8c15a7a, correct origin, no competing run or active lock. Fetch
+and fast-forward-only merge were already current; acquired an exclusive lock.
+Read actual sources, roadmap, prior results and automation memory. Rechecked
+Clift's primary page/diagram hashes, unchanged, and inspected the vendored
+upstream definitions, open reference statement and Apache-2.0 licence.
+Prior commit's remote CI is confirmed successful. Milestones 1/2 remain complete.
+
+**Substantive milestone-3 advance.** Lean now proves both directions of the
+fixed-B51 local domain: 52 shifted M58 blocks with 44 B7 shifts, separated-7
+with B7=M7, and separated-51 with 44 shifts (2,333 pairs). Applied this result
+to the actual graph by proving 2*B7<B51 from repeated consumption. Unlike the
+prior local computation, no carry-free, bit-count or seed hypothesis is needed.
+
+Continued through the related budget obligation: the separated-51 form forces
+b58=102-l>=59 and b109=51, hence cap7+cap51>=110. Lean excludes it at budget
+108 and proves the remaining necessary graph domain. This is a new formal
+obstruction, not a minimum attained by the full graph or unrestricted exclusion.
+Remaining whole-graph work: 51 changed shifted-block forms and separated-7,
+using the prior computational fixed-B58 exclusion in its carry-free scope.
+
+**Proof strategy.** Reused the existing complement and odd-factor lemmas and
+selected graph. Kernel arithmetic classifies 3,068 shifted and 3,422 guarded
+separated residual cases; the unknown base and its shift remain symbolic.
+The finite shift ranges follow from the equations. No infrastructure, solver,
+exporter, certificate format or dependency change was needed. Over-eager simp
+and nested-let parsing were corrected. Broad omega exhausted 200k/1m heartbeats;
+the final proof uses direct order facts, small arithmetic contexts and explicit
+positivity with nlinarith only, at the default heartbeat limit. Final direct
+module check passed in 7.39s. Failed attempts prove nothing.
+
+**Verification.** Required integration passed once in 191.902104s, Python
+3.9.6, all 25 commands successful. Lean 4.27.0 built 974 jobs in 19.105721s;
+196-theorem axiom audit passed in 7.267471s, only propext/Quot.sound/
+Classical.choice. All five vendor and 99 input hashes matched, with final
+readback. Complete source/document diff and structured report reviewed;
+proof-token scan found no sorry, custom axiom, native_decide or unsafe in
+compiled sources. No dependency change; repeated experiments were integration
+only and are not counted as new research results.
+See results/2026-10-17-clift109-fixed51-lean.md for precise statements,
+failed approaches, ranges, source evidence and validation.
+
+**Next.** Analyse whole-graph cost for changed shifted M58 blocks and
+separated-7. Tail orientations suggest comparisons with completed fixed-B58
+cases, but prove those comparisons before relying on them. Both terminal
+parents varying remains outside the reductions. Do not repeat earlier searches
+or use larger timeouts as a substitute for a structural argument.
+
 ## 2026-10-16 — Friday — fixed-B58 family excluded
 
 Clean main at 83d3dfa, correct origin, fetch and fast-forward-only merge already

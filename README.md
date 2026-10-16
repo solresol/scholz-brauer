@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 16 October 2026
+## Verified status — 17 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -99,8 +99,8 @@ forces `B51=M51*2^k`, `0≤k<8`, and `B7=M7*2^l`, `0≤l<44`, with either
 shift constraints. Separately, fixing B51=M51 gives a complete local domain
 for B58 of 52 shifted blocks and 57 separated-interval forms. The general
 complement classification proves both directions and a stronger half-block
-rigidity criterion. Whole-graph compatibility and minimum doubling cost for
-the fixed-B51 family remain to be determined. See
+rigidity criterion. The subsequent local classification and budget pruning
+are proved below; whole-graph compatibility and the minimum cost remain to be determined. See
 `results/2026-10-15-clift109-tail-domains.md`.
 
 **The fixed-B58 family is now completely excluded at budget 108.** With only
@@ -112,6 +112,17 @@ is independently replayed. Consequently a budget-108 carry-free labelling of
 this selected graph must change **B58 itself**. The reduction is Lean; the
 compatibility/cost enumeration is computational, not a new Lean minimum theorem
 or an unrestricted graph exclusion. See `results/2026-10-16-clift109-fixed58.md`.
+
+**The fixed-B51 local domain and a further obstruction are now Lean theorems.**
+Only 52 shifted M58 blocks and two separated forms survive the repeated-use
+bound `2*B7<M51`: exactly 2,333 local pairs, with both necessity and sufficiency
+proved. This strengthens the prior computational reduction: no carry-free,
+population-count or seed hypothesis is needed. For the separated form
+`B58=M7*2^102+M51`, the forced shifts require **at least 110 doublings at
+vertices 7 and 51 alone**, excluding it at budget 108. A graph-level corollary
+leaves only shifted M58 blocks and `B58=M51*2^58+M7` with B7=M7. This is a
+local classification and a necessary budget domain, not whole-graph feasibility
+or unrestricted impossibility. See `results/2026-10-17-clift109-fixed51-lean.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
@@ -237,7 +248,7 @@ The Python checker does not itself establish the general theorem.
 See `results/2026-09-30-hansen-allocation.md`.
 
 Integration includes both Python lifts, both exhaustive exclusions, the portable
-exclusion checker, the Lean build and 191-theorem axiom audit. Both **Lean**
+exclusion checker, the Lean build and 196-theorem axiom audit. Both **Lean**
 and the independent **computational** evidence establish
 `ℓ(12509)=17`; the proved Scholz right-hand side is exactly 12525.
 See `results/2026-09-21-hansen-lift.md` for the construction and its then-current

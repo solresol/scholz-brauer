@@ -356,3 +356,19 @@ The key repeated-use inequality is 2*B7<B51<M58.
 `Clift109.fixed51_terminal_domain` instead gives the complete local 109-form
 domain for B58 with fixed B51. It does not assert whole-graph feasibility.
 All five new theorems are covered by the 191-theorem dependency audit.
+
+## Fixed-B51 local classification and budget obstruction (17 October 2026)
+
+`MersenneComplement.lean` now proves `Clift109.fixed51_local_rigid`, the exact
+`fixed51_local_domain` iff, and `fixed51_tail_rigid` for the selected graph.
+The local domain has 2,333 pairs: 52 shifted M58 forms with 44 M7 shifts each,
+separated parameter 7 with B7=M7, and separated parameter 51 with 44 shifts.
+No carry-free, bit-count, seed or finite cutoff on the unknown base is assumed.
+The finite residual lemmas use `decide +kernel`; their shift bounds are proved
+from the equations, and the existing odd-factor theorem handles arbitrary bases.
+
+`fixed51_separated51_cost` proves cap7+cap51>=110 for the separated-51 form.
+`fixed51_budget_tail` removes it from the graph domain at total budget 108.
+The five public theorems and their private dependencies are included in the
+196-theorem axiom audit. The shifted blocks and separated-7 form still require
+whole-graph cost analysis. No new Scholz instance or optimum is asserted.
