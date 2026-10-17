@@ -1,5 +1,62 @@
 # Research log
 
+## 2026-10-18 — Sunday — budget 108 excluded for the whole selected 109 graph
+
+Interactive session, starting about 00:00 AEDT, from clean main at 1f70fe6
+(correct origin, no active run lock; the 14 October stale lock record is
+untouched). Read README, TODO, recent results/log and the Clift109 Lean and
+Python sources.
+
+**Substantive milestone-3 result.** For Clift's selected 109 graph with only
+seed 1 and terminal M109 fixed, every labelling with arbitrary nonnegative
+shifts needs **at least 109 doublings**; 109 is attained. Budget 108 is
+therefore impossible with no fixed intermediate base, no carry-free assumption
+and no shift bound. This computationally confirms Clift's obstruction for the
+selected graph and closes the open question of 17 October. It is not a Lean
+theorem, Scholz instance or optimum. Full account:
+`results/2026-10-18-clift109-box-exclusion.md`.
+
+**New reduction.** Binary weight forces 109 distinct path weights; cost bounds
+every path weight, so cost >= 108 and cost 108 forces weights exactly 0..108
+plus a critical path. The 64 paths through vertex 8 form a box: a translate
+of the subset sums of six differences, which therefore have distinct subset
+sums (31,048 sets). The other 45 weights have a rigid rectangle/pair/point
+structure, and odd-run counts plus unique halving by 2^d+1 make the search
+complete and finite. Exactly **216** interval configurations exist. Every
+labelling of a configuration is one particular labelling plus a gauge on the
+ten intermediate vertices, so cost 108 becomes a difference system.
+
+**Evidence.** A C++ enumeration (sink-side halving) and an independent Python
+enumeration (source-side halving, different set generation and halving code)
+give identical configurations. All 3,456 configuration/role/orientation cases
+have a stored negative cycle refuting cost 108, rechecked by a separate
+checker that also rejects seven corrupted reports. Exact minima by min-cost
+flow with explicit optimal labellings: 109..250, 69 cases at 109, all replayed
+as 120-addition chains. 109 is also attained by labellings with no shifted
+Mersenne intermediate base (e.g. B2=2^51+1). Every earlier family is recounted
+exactly from the enumeration: 256 standard orientations, the two-exception
+family (63/2,304), all 36 neighborhood cases with full histograms, the six
+early bases (2,763/52,512/88 minimising bases), shifted Mersennes (109) and
+all 29 fixed-B58 pairs (4,279,900 base assignments). Run: 1073.0 s under
+uv/Python 3.12.7, Apple clang 21.0.0, seed 20261018 for 3,000 random model
+self-tests only.
+
+**Integration.** Required suite passed once in 169.4 s (26 commands, Lean
+4.27.0 build 5.6 s, 196-theorem audit 18.2 s, standard axioms only, 5 vendor
+and 104 input hashes). The new certificate checker (1.1 s) now runs there.
+No Lean, toolchain or dependency changes.
+
+**Failed or bounded attempts.** CP-SAT 9.15 on the raw labelling model
+returned UNKNOWN at 120 s for budget 109 (no exclusion; not a dependency).
+A first Python prototype spent 25 s on one six-set; the final searches add
+odd-run pruning or run in C++. With the box pinned at the top, 466,380
+E-candidates remain, so a direct Lean kernel replay looks unrealistic given the
+263 s needed for 29,865 contexts at 12509.
+
+**Next.** Formalise the reduction in Lean and look for a classification small
+enough for the kernel (min(u,d1)=1 is a candidate lemma); then apply the box
+method to other non-Hansen parent graphs. Do not repeat the enumeration.
+
 ## 2026-10-17 — Saturday — fixed-B51 local domain and budget obstruction
 
 Clean main at 8c15a7a, correct origin, no competing run or active lock. Fetch

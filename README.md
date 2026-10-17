@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 17 October 2026
+## Verified status — 18 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -123,6 +123,22 @@ vertices 7 and 51 alone**, excluding it at budget 108. A graph-level corollary
 leaves only shifted M58 blocks and `B58=M51*2^58+M7` with B7=M7. This is a
 local classification and a necessary budget domain, not whole-graph feasibility
 or unrestricted impossibility. See `results/2026-10-17-clift109-fixed51-lean.md`.
+
+**Budget 108 is now excluded for every labelling of Clift's selected 109 graph.**
+Only seed 1 and terminal M109 are fixed; every base and every nonnegative shift
+is free. Every labelling then needs **at least 109 doublings**, and 109 is
+attained (replayed 120-addition allocations). Binary weight forces the 109
+path weights to be distinct, so a cost-108 labelling would have weights exactly
+0..108 and a critical path collecting every cap. The 64 paths through vertex 8
+have weights forming a translated set of subset sums of six differences, which
+must therefore all be distinct. Two independent programs (C++ and Python, halving
+on opposite sides) enumerate every such configuration: exactly **216**. For each
+of the 3,456 role/orientation cases, a stored negative cycle proves cost 108
+infeasible; an exact min-cost flow gives the minimum. Every restricted family of
+8–16 October is recounted exactly, including all 4,279,900 fixed-B58 base
+assignments and every stored cost histogram. This computationally confirms
+Clift's obstruction for this graph; it is not a Lean theorem, Scholz instance
+or optimum. See `results/2026-10-18-clift109-box-exclusion.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
@@ -293,6 +309,11 @@ reference and is not imported into the proofs.
 
 ## Files and next work
 
+- `scripts/clift109_box_search.cpp`, `scripts/clift109_box_dual.py`: two independent
+  complete enumerations of interval configurations of Clift's selected 109 graph.
+- `scripts/experiment_clift109_box.py`: budget-108 negative cycles, exact minimum
+  costs, witness replay and recounts of every earlier 109-family result.
+- `scripts/check_clift109_box.py`: fast independent check of the saved certificates.
 - `lean/ScholzBrauer/Clift109.lean`: selected graph, alternate star/Hansen source,
   orientation minimum and rigidity of the two detour bases.
 - `scripts/experiment_clift109.py`: complete two-exception labellings and
@@ -358,10 +379,10 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: extend the proved complement restrictions on Clift's selected 109 graph
-to additional changing bases or a complete critical-path case split. The one-gap
-family and two-detour obstruction are complete; unrestricted graph exclusion
-remains unproved here. Milestones 1 and 2 remain complete. See `TODO.md`.
+Next: formalise the 109 reduction in Lean and find a classification argument
+small enough for the kernel; then apply the box method to other non-Hansen
+parent graphs. The selected 109 graph is resolved computationally (minimum 109).
+Milestones 1 and 2 remain complete. See `TODO.md`.
 
 ## Sources
 

@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-16 (Friday, Australia/Sydney).
+Updated 2026-10-18 (Sunday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -225,25 +225,34 @@ See `results/2026-10-08-clift109-obstruction.md`.
 - [x] Exclude the separated-51 form in Lean: forced shifts give cap7+cap51>=110.
   Prove the resulting graph-level necessary domain at total budget 108.
 
-**Next substantive question.** Impose whole-graph compatibility and cost on
-51 changed shifted blocks and the separated-7 form. B58=M58 was already
-excluded computationally; separated-51 is now excluded in Lean. All remaining
-forms have B7=M7*2^l, l<44 (l=0 in separated-7). Reuse existing complement,
-production and repeated-consumer domains; no new infrastructure is needed.
-A promising reduction is to compare tail costs with fixed-B58 allocations:
-for a shifted block the two orientations force a58=7+t or a58=t, and t>0
-forces a109=51-t, b109=0. Prove any cost comparison before using it; the
-complete fixed-B51 cost problem is still open here. Both terminal parents
-varying remains outside these reductions. Do not repeat completed searches
-or increase old unrestricted solver timeouts without a concrete new reason.
+- [x] Remove every remaining restriction: only seed 1 and terminal M109 fixed.
+  Binary weight forces distinct path weights; cost 108 forces weights 0..108
+  and a critical path. The 64 paths through 8 give a box of subset sums of six
+  differences with distinct subset sums. Two independent complete enumerations
+  find exactly 216 interval configurations.
+- [x] Prove cost 108 infeasible for all 3,456 configuration/role/orientation
+  cases with stored negative cycles, independently rechecked; compute exact
+  minima by min-cost flow. Minimum 109, attained and replayed (120 additions).
+- [x] Recount every earlier 109 family from the enumeration: standard
+  orientations, two-exception, 36 neighborhood cases, six early bases,
+  shifted Mersennes, all 29 fixed-B58 pairs (4,279,900 base assignments).
 
-Any budget-108 carry-free labelling needs a non-Mersenne odd part, at least
-three changed vertices outside 5 and 7, and **B58 different from M58**.
-The arbitrary-labelling problem remains unproved here, especially when both
-terminal parents vary. Do not reuse the old 323-pair domain without its four
-fixed-tail hypotheses, repeat completed searches, or increase the old solver
-timeouts. Larger 5,784,689 cases remain deferred. See
-`results/2026-10-15-clift109-tail-domains.md`.
+**Status.** The selected 109 graph is resolved computationally: no labelling
+meets the 108-doubling budget, and 109 is the exact minimum. This supersedes
+the fixed-B51/fixed-B58 case analysis; those Lean theorems remain valid and
+are consistent with the enumeration. See
+`results/2026-10-18-clift109-box-exclusion.md`.
+
+**Next.** (1) Formalise the reduction in Lean: path expansion, binary-weight
+distinctness, cost >= every path weight, the box identity and the gauge
+description. (2) Find a classification of the interval configurations small
+enough for the kernel. With the box pinned at the top, the current search
+still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
+contexts, so a direct replay is unrealistic. A short argument that
+min(u,d1)=1 would be a natural first lemma. (3) Apply the box/halving method
+to other non-Hansen parent graphs. Do not repeat the completed enumeration,
+raise unrestricted solver timeouts, or move to 5,784,689 without a concrete
+reason.
 
 ## Retained constraints and failed shortcuts
 

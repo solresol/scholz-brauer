@@ -132,7 +132,8 @@ def main():
                        ROOT / "results/2026-09-18-12509-star-certificate.json",
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
                        ROOT / "results/2026-09-25-12509-exclusion-certificate.json",
-                       ROOT / "results/2026-10-03-12509-limit15-exclusion.json"})
+                       ROOT / "results/2026-10-03-12509-limit15-exclusion.json",
+                       ROOT / "results/2026-10-18-clift109-box-exclusion.json"})
     hashes = {str(p.relative_to(ROOT)): sha256(p) for p in inputs}
     vendor = ROOT / "lean/vendor/formal-conjectures"
     provenance = json.loads((vendor / "provenance.json").read_text())
@@ -143,6 +144,12 @@ def main():
     clift109_early = json.loads(run([sys.executable, "scripts/experiment_clift109_early.py"]))
     clift109_neighborhood = json.loads(run([sys.executable, "scripts/experiment_clift109_neighborhood.py"]))
     clift109 = json.loads(run([sys.executable, "scripts/experiment_clift109.py"]))
+    # Saved budget-108 certificates for the selected 109 graph; the complete
+    # enumeration itself is a separate research run (experiment_clift109_box.py).
+    clift109_box = json.loads(run([sys.executable, "scripts/check_clift109_box.py",
+                                   "results/2026-10-18-clift109-box-exclusion.json"]))
+    if clift109_box["minimum_doublings"] != 109 or clift109_box["cases"] != 3456:
+        raise ValueError("Clift 109 certificate summary changed")
     one_gap_family = json.loads(run([sys.executable, "scripts/experiment_one_gap_family.py"]))
     non_hansen29 = json.loads(run([sys.executable, "scripts/experiment_non_hansen29.py"]))
     witness = json.loads(run([sys.executable, "scripts/check_12509.py"]))
@@ -259,6 +266,7 @@ def main():
         "clift109_experiment": clift109,
         "clift109_neighborhood": clift109_neighborhood,
         "clift109_early": clift109_early,
+        "clift109_box_certificates": clift109_box,
         "hansen_checks": hansen, "search_checks": search,
         "lean_export_checks": export,
         "hansen_allocation_checks": allocation,
