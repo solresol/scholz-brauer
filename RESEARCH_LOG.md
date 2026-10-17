@@ -1,5 +1,54 @@
 # Research log
 
+## 2026-10-18 — Sunday automation — critical-path obligation closed in Lean
+
+Started around 08:00 AEDT from clean main f737015, correct origin; fetched and
+fast-forward-only merge was already current. No competing run or active lock;
+acquired an exclusive run lock. Read current sources and the intervening
+interactive records, which superseded the 17 October automation handoff.
+Milestones 1/2 are complete; the full selected-109 minimum is computationally
+settled, so no fixed-tail search or earlier 12509 work was repeated as research.
+
+**Milestone 3 advance.** Proved the general critical-path condition in
+`CliftLabelling.lean`: any weight attaining the entire cap budget has a path
+whose selected shifts equal the caps at their tails and whose skipped earlier
+vertices have cap zero. Combined it with the existing Mersenne interval theorem
+for any valid source at budget n-1. Instantiated at 109 and continued through
+the outgoing-edge obligation: every edge from a skipped tail has shift zero.
+This completes step 4 of the box reduction. It does not formalise the finite
+classification or establish a new Scholz instance or addition-chain optimum.
+
+**Representation and proof.** The weight multiset did not retain visited
+vertices; a small selected-parent `Path` witness relation removes that concrete
+blocker. Its shift sum is proved to belong to the existing multiset. Saturation
+of two existing prefix-budget inequalities forces both the maximum-shift and
+zero-cap conditions inductively. No new infrastructure, exporter, format,
+solver, search, toolchain or dependency. Initial compilation failures concerned
+`if True` simplification and an unavailable Boolean lemma; fixed by explicit
+reduction and Boolean extensionality. No failed mathematical hypothesis.
+Final direct module check passed without warnings in 10.26s.
+
+**Sources.** Re-fetched Clift's primary page and diagram; both hashes unchanged.
+Re-inspected adapted upstream definitions, the uncompiled open Scholz statement
+and Apache-2.0 licence. No novelty or frontier claim. Exact record and proof
+account: `results/2026-10-18-critical-path-lean.md`.
+
+**Verification.** Required integration passed once in 151.595785s under Python
+3.11.6: all 26 commands successful, pinned Lean 4.27.0 build 1,125 jobs
+(15.021225s), 213-theorem axiom audit (9.080743s), only the standard axioms.
+Five vendor and 105 input hashes matched and were read back. Proof-token scan
+clear; full source/docs/evidence diff reviewed. Saved 109 certificates checked,
+with no rerun of the large enumeration. No new computational experiment/seed.
+Evidence: `results/2026-10-18-integration-checks-critical-path.json`.
+
+**Sunday assessment.** A substantive general proof obligation closed, and the
+current representation supports this step. Next isolate the 64 paths through 8
+inside the terminal weight multiset, prove their six-difference subset-sum
+factorisation and inherit distinctness; then formalise the gauge description.
+The finite classification still needs a smaller argument. Do not restart
+superseded fixed-tail searches, rerun the completed enumeration or brute-force
+5,784,689. No strategy reset is needed for the closed critical-path obligation.
+
 ## 2026-10-18 — Sunday (continued) — general path-weight bounds in Lean
 
 Same interactive session, after commit 17585b1. Formalised steps 1-3 of the

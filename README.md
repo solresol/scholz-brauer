@@ -150,6 +150,14 @@ least 108, and Clift's 29 repair (28 doublings) is optimal for its parent graph.
 The final 109 classification remains computational. See
 `lean/ScholzBrauer/CliftLabelling.lean` and `results/2026-10-18-clift-labelling-lean.md`.
 
+**The critical-path condition is now proved in Lean.** For any valid source
+chain labelled from seed 1 to M_n within cap budget n-1, a path of weight n-1
+uses a maximum outgoing shift at every visited tail, and every skipped vertex
+below n has cap zero. The selected 109 graph corollary also proves every
+outgoing edge from a skipped vertex has shift zero. This closes step 4 of the
+box reduction; the box identity, gauge description and finite classification
+remain to be formalised. See `results/2026-10-18-critical-path-lean.md`.
+
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
 all standard all-Mersenne orientations need at least 32 doublings. That finite

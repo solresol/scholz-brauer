@@ -392,3 +392,20 @@ and `NonHansen29.cost_ge_28`, which makes the 28-doubling repair of Clift's 29
 graph optimal among labellings of that graph. The classification showing the
 109 graph needs 109 is computational (`results/2026-10-18-clift109-box-exclusion.md`).
 The 13 public theorems are in the 209-theorem axiom audit.
+
+## Critical paths for budget-attaining labellings (18 October 2026)
+
+`CliftLabelling.Path` records selected-parent edges as `(tail, shift)`, latest
+first. `Path.weight_mem` connects its shift sum to the existing `weights`
+multiset. `critical_path_of_weight` proves that a weight attaining `capBelow`
+has such a path, all its shifts equal their tail caps, and every skipped earlier
+vertex has cap zero. `CliftLabelling.critical_path_of_budget` combines this with
+the Mersenne interval theorem to obtain a path of weight n-1 for any valid
+source with cap budget at most n-1. The singleton source is included.
+
+`Clift109.critical_path_of_budget` specialises the result at 109 and proves
+that every outgoing edge from a skipped tail has shift zero. This closes step 4
+of the box reduction. It does not formalise the box identity, gauge description
+or the finite classification excluding budget 108. The four public theorems
+are included in `Audit.lean`; no toolchain or dependency changed. See
+`../results/2026-10-18-critical-path-lean.md`.

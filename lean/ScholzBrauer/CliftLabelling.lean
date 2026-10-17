@@ -18,7 +18,9 @@ distinct, and each path weight is at most the sum of the outgoing caps of the
 earlier vertices. Hence every labelling of every chain for `n` has cap sum at
 least `n - 1`, and cap sum `n - 1` forces the weights to be exactly
 `0, ..., n - 1`. These general facts are instantiated for Clift's selected 109
-graph; the classification of its interval labellings remains computational
+graph. A budget-attaining labelling has a critical path: each selected edge
+attains its tail cap, and skipped vertices have cap zero. The classification
+of the interval labellings remains computational
 (`results/2026-10-18-clift109-box-exclusion.md`). -/
 
 namespace ScholzBrauer.CliftLabelling
@@ -282,6 +284,137 @@ theorem weight_le_capBelow (a b cap : ℕ → ℕ) :
       have := ih v hv x hx
       simpa [capBelow, vals, List.filter_cons, hnlt] using this
 
+/-! ## Critical paths
+
+A path records its edges latest first as `(tail vertex, shift)`. The constructors
+retain the selected parent even when two parents coincide. This small witness
+relation is needed because the existing multiset records weights, not paths.
+-/
+
+/-- A selected-parent path from seed 1, with edges recorded latest first. -/
+inductive Path (a b : ℕ → ℕ) : List (ℕ × ℕ) → ℕ → List (ℕ × ℕ) → Prop
+  | seed : Path a b [] 1 []
+  | older {s rest v es} : v ≠ s.1 + s.2 → Path a b rest v es →
+      Path a b (s :: rest) v es
+  | left {s rest es} : Path a b rest s.1 es →
+      Path a b (s :: rest) (s.1 + s.2) ((s.1, a (s.1 + s.2)) :: es)
+  | right {s rest es} : Path a b rest s.2 es →
+      Path a b (s :: rest) (s.1 + s.2) ((s.2, b (s.1 + s.2)) :: es)
+
+/-- Every path witness has its recorded shift sum in the existing weight multiset. -/
+theorem Path.weight_mem {a b : ℕ → ℕ} {L v es} (h : Path a b L v es) :
+    (es.map Prod.snd).sum ∈ weights a b L v := by
+  induction h with
+  | seed => simp [weights]
+  | older hne _ ih => simpa [weights, hne] using ih
+  | left _ ih =>
+    simp only [List.map_cons, List.sum_cons, weights, ite_true, Multiset.mem_add]
+    exact Or.inl (Multiset.mem_map.mpr ⟨_, ih, by omega⟩)
+  | right _ ih =>
+    simp only [List.map_cons, List.sum_cons, weights, ite_true, Multiset.mem_add]
+    exact Or.inr (Multiset.mem_map.mpr ⟨_, ih, by omega⟩)
+
+/-- A saturated prefix-plus-parent budget leaves no cap above that parent. -/
+private theorem cap_zero_above (cap : ℕ → ℕ) (l : List ℕ) (p u : ℕ)
+    (hp : p ∈ l) (hu : u ∈ l) (hpu : p < u)
+    (heq : ((l.filter (· < p)).map cap).sum + cap p = (l.map cap).sum) :
+    cap u = 0 := by
+  have hp' : p ∈ l.filter (· < u) := List.mem_filter.mpr ⟨hp, by simpa using hpu⟩
+  have hfilter : (l.filter (· < u)).filter (· < p) = l.filter (· < p) := by
+    rw [List.filter_filter]
+    congr 1
+    funext x
+    apply Bool.eq_iff_iff.mpr
+    simp only [Bool.and_eq_true, decide_eq_true_eq]
+    omega
+  have hlow := sum_filter_add_le cap p (l.filter (· < u)) hp'
+  rw [hfilter] at hlow
+  have hhigh := sum_filter_add_le cap u l hu
+  omega
+
+/-- If a weight attains the entire cap budget, it has a path witness using a
+maximum shift at every visited tail, and every skipped earlier vertex has cap 0. -/
+theorem critical_path_of_weight (a b cap : ℕ → ℕ) :
+    ∀ L : List (ℕ × ℕ), valid L = true →
+      (∀ s ∈ L, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2) →
+      ∀ v ∈ vals L, capBelow cap L v ∈ weights a b L v →
+      ∃ es, Path a b L v es ∧ (es.map Prod.snd).sum = capBelow cap L v ∧
+        (∀ e ∈ es, e.2 = cap e.1) ∧
+        (∀ u ∈ vals L, u < v → u ∉ es.map Prod.fst → cap u = 0)
+  | [], _, _, v, hv, _ => by
+    simp only [vals, List.mem_singleton] at hv
+    subst v
+    refine ⟨[], Path.seed, ?_, ?_, ?_⟩
+    · simp [capBelow, vals]
+    · simp
+    · simp [vals]
+  | s :: rest, hL, hc, v, hv, hw => by
+    obtain ⟨hp, hq, hlt, hr⟩ := valid_cons hL
+    have hc' : ∀ t ∈ rest, a (t.1 + t.2) ≤ cap t.1 ∧ b (t.1 + t.2) ≤ cap t.2 :=
+      fun t ht => hc t (List.mem_cons_of_mem _ ht)
+    have ih := critical_path_of_weight a b cap rest hr hc'
+    rcases List.mem_cons.mp hv with rfl | hv
+    · have hall : (vals rest).filter (· < s.1 + s.2) = vals rest :=
+        List.filter_eq_self.mpr (fun u hu => by simpa using hlt u hu)
+      have htotal : capBelow cap (s :: rest) (s.1 + s.2) = ((vals rest).map cap).sum := by
+        simp [capBelow, vals, hall]
+      rw [htotal, weights, if_pos rfl] at hw
+      simp only [Multiset.mem_add, Multiset.mem_map] at hw
+      have branch (p shift : ℕ) (hp : p ∈ vals rest) (hshift : shift ≤ cap p)
+          (hw : ∃ y ∈ weights a b rest p, y + shift = ((vals rest).map cap).sum)
+          (extend : ∀ es, Path a b rest p es →
+            Path a b (s :: rest) (s.1 + s.2) ((p, shift) :: es)) :
+          ∃ es, Path a b (s :: rest) (s.1 + s.2) es ∧
+            (es.map Prod.snd).sum = capBelow cap (s :: rest) (s.1 + s.2) ∧
+            (∀ e ∈ es, e.2 = cap e.1) ∧
+            (∀ u ∈ vals (s :: rest), u < s.1 + s.2 →
+              u ∉ es.map Prod.fst → cap u = 0) := by
+        obtain ⟨y, hy, heq⟩ := hw
+        have hbound := weight_le_capBelow a b cap rest hr hc' p hp y hy
+        have hsum := sum_filter_add_le cap p (vals rest) hp
+        have hycap : y = capBelow cap rest p := by unfold capBelow at *; omega
+        have hmax : shift = cap p := by unfold capBelow at *; omega
+        have hfull : capBelow cap rest p + cap p = ((vals rest).map cap).sum := by omega
+        rw [hycap] at hy
+        obtain ⟨es, hpath, hweight, hsat, hzero⟩ := ih p hp hy
+        refine ⟨(p, shift) :: es, extend es hpath, ?_, ?_, ?_⟩
+        · simp only [List.map_cons, List.sum_cons, htotal]
+          omega
+        · intro e he
+          rcases List.mem_cons.mp he with rfl | he
+          · exact hmax
+          · exact hsat e he
+        · intro u hu huv hnot
+          have hu' : u ∈ vals rest := by
+            rcases List.mem_cons.mp hu with rfl | hu
+            · omega
+            · exact hu
+          have hne : u ≠ p := by
+            intro he
+            apply hnot
+            simp [he]
+          have hnot' : u ∉ es.map Prod.fst := fun hm =>
+            hnot (List.mem_cons_of_mem _ hm)
+          rcases lt_or_gt_of_ne hne with hup | hpu
+          · exact hzero u hu' hup hnot'
+          · exact cap_zero_above cap (vals rest) p u hp hu' hpu hfull
+      rcases hw with hw | hw
+      · exact branch s.1 _ hp (hc s (List.mem_cons_self ..)).1 hw
+          (fun _ h => Path.left h)
+      · exact branch s.2 _ hq (hc s (List.mem_cons_self ..)).2 hw
+          (fun _ h => Path.right h)
+    · have hne : v ≠ s.1 + s.2 := (hlt v hv).ne
+      have hnlt : ¬ s.1 + s.2 < v := by have := hlt v hv; omega
+      have hsame : capBelow cap (s :: rest) v = capBelow cap rest v := by
+        simp [capBelow, vals, hnlt]
+      rw [hsame, weights, if_neg hne] at hw
+      obtain ⟨es, hpath, hweight, hsat, hzero⟩ := ih v hv hw
+      refine ⟨es, Path.older hne hpath, by simpa [hsame] using hweight, hsat, ?_⟩
+      intro u hu huv hnot
+      rcases List.mem_cons.mp hu with rfl | hu
+      · omega
+      · exact hzero u hu huv hnot
+
 section Bounds
 
 variable (a b B cap : ℕ → ℕ) (L : List (ℕ × ℕ)) (hL : valid L = true) (h1 : B 1 = 1)
@@ -313,6 +446,22 @@ theorem weights_eq_range (hbudget : capBelow cap L n ≤ n - 1) :
   intro x hx
   have := weight_le_capBelow a b cap L hL hcap n hn x hx
   omega
+
+/-- An interval labelling has a critical path of weight `n-1`: each selected
+edge attains its tail's cap, and every skipped vertex below `n` has cap zero. -/
+theorem critical_path_of_budget (hbudget : capBelow cap L n ≤ n - 1) :
+    ∃ es, Path a b L n es ∧ (es.map Prod.snd).sum = n - 1 ∧
+      (∀ e ∈ es, e.2 = cap e.1) ∧
+      (∀ u ∈ vals L, u < n → u ∉ es.map Prod.fst → cap u = 0) := by
+  have hcost : capBelow cap L n = n - 1 :=
+    Nat.le_antisymm hbudget (capBelow_ge a b B cap L hL h1 hsteps hcap hn hB)
+  have hrange := weights_eq_range a b B cap L hL h1 hsteps hcap hn hB hbudget
+  have hpos := one_le_of_mem_vals L hL n hn
+  have hw : capBelow cap L n ∈ weights a b L n := by
+    rw [hcost, hrange, Multiset.mem_range]
+    omega
+  obtain ⟨es, hp, hw, hs, hz⟩ := critical_path_of_weight a b cap L hL hcap n hn hw
+  exact ⟨es, hp, by omega, hs, hz⟩
 
 end Bounds
 
@@ -366,6 +515,43 @@ theorem weights_range_of_budget (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
     (fun s hs => hsteps s (List.mem_reverse.mp hs))
     (fun s hs => hcap s (List.mem_reverse.mp hs))
     (by rw [vals_stepsRev]; decide) h109 (by rw [capBelow_stepsRev]; omega)
+
+/-- The critical-path conditions for the selected 109 graph: a weight-108
+path attains every visited cap and every outgoing edge from an unvisited tail
+has shift zero. This is step 4 of the computational box reduction. -/
+theorem critical_path_of_budget (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1)
+    (hbudget : cap 1 + cap 2 + cap 4 + cap 5 + cap 7 + cap 8 + cap 15 +
+      cap 23 + cap 28 + cap 51 + cap 58 ≤ 108) :
+    ∃ es, Path a b stepsRev 109 es ∧ (es.map Prod.snd).sum = 108 ∧
+      (∀ e ∈ es, e.2 = cap e.1) ∧
+      (∀ u ∈ source, u < 109 → u ∉ es.map Prod.fst → cap u = 0) ∧
+      (∀ s ∈ selectedSteps,
+        (s.1 ∉ es.map Prod.fst → a (s.1 + s.2) = 0) ∧
+        (s.2 ∉ es.map Prod.fst → b (s.1 + s.2) = 0)) := by
+  obtain ⟨es, hp, hw, hs, hz⟩ := CliftLabelling.critical_path_of_budget a b B cap
+    stepsRev stepsRev_valid h1
+    (fun s hs => hsteps s (List.mem_reverse.mp hs))
+    (fun s hs => hcap s (List.mem_reverse.mp hs))
+    (by rw [vals_stepsRev]; decide) h109 (by rw [capBelow_stepsRev]; omega)
+  have hz' : ∀ u ∈ source, u < 109 → u ∉ es.map Prod.fst → cap u = 0 := by
+    simpa only [vals_stepsRev, List.mem_reverse] using hz
+  refine ⟨es, hp, hw, hs, hz', ?_⟩
+  have hparents : ∀ s ∈ selectedSteps,
+      s.1 ∈ source ∧ s.1 < 109 ∧ s.2 ∈ source ∧ s.2 < 109 := by decide
+  intro s hmem
+  obtain ⟨hp, hp_lt, hq, hq_lt⟩ := hparents s hmem
+  obtain ⟨ha, hb⟩ := hcap s hmem
+  constructor
+  · intro hnot
+    have := hz' s.1 hp hp_lt hnot
+    omega
+  · intro hnot
+    have := hz' s.2 hq hq_lt hnot
+    omega
 
 end ScholzBrauer.Clift109
 

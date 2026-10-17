@@ -248,9 +248,14 @@ the fixed-B51/fixed-B58 case analysis; those Lean theorems remain valid and
 are consistent with the enumeration. See
 `results/2026-10-18-clift109-box-exclusion.md`.
 
-**Next.** (1) Extend the Lean reduction beyond the proved path-weight bounds:
-the box identity and dissociation, the critical-path zero conditions and the
-gauge description. (2) Find a classification of the interval configurations small
+- [x] Lean: a budget-attaining weight has a selected-parent path whose edges
+  attain their tail caps and whose skipped earlier vertices have cap zero.
+  Apply the general theorem at 109, including zero outgoing shifts from every
+  skipped tail (`critical_path_of_budget`); this closes reduction step 4.
+
+**Next.** (1) Prove the 8-box identity and dissociation and the gauge description
+in Lean; path-weight bounds and critical-path zero conditions are complete.
+(2) Find a classification of the interval configurations small
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that

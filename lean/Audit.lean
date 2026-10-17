@@ -231,3 +231,8 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.cost_ge_108
 #print axioms ScholzBrauer.Clift109.weights_range_of_budget
 #print axioms ScholzBrauer.NonHansen29.cost_ge_28
+
+#print axioms ScholzBrauer.CliftLabelling.Path.weight_mem
+#print axioms ScholzBrauer.CliftLabelling.critical_path_of_weight
+#print axioms ScholzBrauer.CliftLabelling.critical_path_of_budget
+#print axioms ScholzBrauer.Clift109.critical_path_of_budget
