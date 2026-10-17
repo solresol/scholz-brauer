@@ -259,6 +259,23 @@ to other non-Hansen parent graphs. Do not repeat the completed enumeration,
 raise unrestricted solver timeouts, or move to 5,784,689 without a concrete
 reason.
 
+**Next frontier: the optimal chains of 5,784,689.** Clift's page (hash
+unchanged since 8 October) lists 16 optimal 27-step chains, each with a unique
+parent graph (`data/2026-10-18-clift5784689-chains.json`), and leaves open
+whether any can be labelled with cost n-1. A cost-(n-1) labelling of one would
+give `l(2^5784689-1) <= 5784715`, Scholz at the first non-Hansen number, which
+the sources checked on 18 October (Clift's pages, Wikipedia) do not settle.
+Verified structure: chain 9 (`... 64 65 97 128 225 353 ...`) is exactly the
+selected 109 graph with doubling runs re-inserted. Skeleton vertex 2 becomes
+the run 1..32 (x16), 23 the run 353..180736 (x512), 51 the run
+361537..2892296 (x8). Every run vertex has parallel out-edges, so it lies on
+the critical path, leaving the same 12 critical-path families. The 8-box
+becomes a 2^22-path box through 128, and chain 9's reversed path counts are
+the values of chains 1-8 (the families are transposes). The top halving alone
+leaves 1,180 differences (97 small, 587 windows near n/k). The 109 obstruction
+does not transfer automatically: runs add freedom. Needs a box-generalised
+search over sets of millions of elements; do not attempt it by brute force.
+
 ## Retained constraints and failed shortcuts
 
 - Sequential whole-anchor blocks fail when shifted values interleave with

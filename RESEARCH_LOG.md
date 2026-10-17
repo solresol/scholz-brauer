@@ -21,6 +21,14 @@ Details: `results/2026-10-18-clift-labelling-lean.md`.
 **Next.** Box identity and dissociation, critical-path zero conditions and the
 gauge description in Lean; a smaller finite classification for the kernel.
 
+**Scoping 5,784,689.** Re-fetched Clift's page (hash unchanged) and saved its
+16 optimal 27-step chains for 5,784,689 with exact sum checks; each has a
+unique parent graph. Chain 9 is the selected 109 graph with runs of 4, 9 and 3
+extra doublings re-inserted, so the same 12 critical-path families arise and
+the obstruction does not transfer automatically. Chain 9's transpose has the
+values of chains 1-8. Clift leaves labellability open; no checked source
+settles Scholz at 5,784,689. Recorded as the next frontier in TODO.md.
+
 ## 2026-10-18 — Sunday — budget 108 excluded for the whole selected 109 graph
 
 Interactive session, starting about 00:00 AEDT, from clean main at 1f70fe6
