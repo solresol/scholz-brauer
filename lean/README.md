@@ -372,3 +372,23 @@ from the equations, and the existing odd-factor theorem handles arbitrary bases.
 The five public theorems and their private dependencies are included in the
 196-theorem axiom audit. The shifted blocks and separated-7 form still require
 whole-graph cost analysis. No new Scholz instance or optimum is asserted.
+
+## General path-weight bounds for Clift labellings (18 October 2026)
+
+`CliftLabelling.lean` treats any source chain, given by its parent steps
+latest first (`valid` checks each step adds two earlier values and exceeds all
+of them). `weights a b L v` is the multiset of shift sums of the paths from 1
+to `v`. With seed `B 1 = 1`, `base_eq_sum` proves `B v` is the sum of `2 ^ w`
+over these weights, `card_weights` that there are exactly `v` of them, and
+`weight_le_capBelow` that each is at most the caps of the earlier vertices.
+
+Binary weight is defined from `Nat.digits 2`; Legendre's formula and
+`m! n! ∣ (m+n)!` give subadditivity (`bw_add_le`). Hence `B n = 2^n - 1`
+forces distinct weights (`weights_nodup`), every labelling has cap sum at least
+`n - 1` (`capBelow_ge`), and cap sum `n - 1` forces the weights to be exactly
+`0, ..., n - 1` (`weights_eq_range`). No carry-free, base or shift assumption is
+made. Instances: `Clift109.cost_ge_108`, `Clift109.weights_range_of_budget`,
+and `NonHansen29.cost_ge_28`, which makes the 28-doubling repair of Clift's 29
+graph optimal among labellings of that graph. The classification showing the
+109 graph needs 109 is computational (`results/2026-10-18-clift109-box-exclusion.md`).
+The 13 public theorems are in the 209-theorem axiom audit.

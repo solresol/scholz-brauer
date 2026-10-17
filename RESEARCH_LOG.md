@@ -1,5 +1,26 @@
 # Research log
 
+## 2026-10-18 — Sunday (continued) — general path-weight bounds in Lean
+
+Same interactive session, after commit 17585b1. Formalised steps 1-3 of the
+new 109 reduction for every source chain, in `CliftLabelling.lean`: path-weight
+multisets, `B v = sum 2^w`, exactly `v` paths, each weight at most the earlier
+caps, and binary-weight subadditivity from Mathlib's Legendre formula. Hence
+`B n = M n` forces distinct path weights, every labelling has cap sum at least
+`n-1`, and cap sum `n-1` forces weights `0..n-1`. No carry-free, base or shift
+assumption. Instances: `Clift109.cost_ge_108`, `weights_range_of_budget`, and
+`NonHansen29.cost_ge_28`, making the 6 October 28-doubling repair optimal for
+Clift's 29 parent graph. The 109 classification itself stays computational.
+
+Checks: module compiles without warnings; `lake build` 1,125 jobs; 13 new
+theorems, 209-theorem audit with only standard axioms; required integration
+passed once in 258.8 s (26 commands, 105 input hashes). Development fixes only:
+two `rfl` base cases, a namespace, and simp preempting `if_pos rfl`.
+Details: `results/2026-10-18-clift-labelling-lean.md`.
+
+**Next.** Box identity and dissociation, critical-path zero conditions and the
+gauge description in Lean; a smaller finite classification for the kernel.
+
 ## 2026-10-18 — Sunday — budget 108 excluded for the whole selected 109 graph
 
 Interactive session, starting about 00:00 AEDT, from clean main at 1f70fe6

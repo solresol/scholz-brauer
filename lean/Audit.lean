@@ -217,3 +217,17 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.fixed51_tail_rigid
 #print axioms ScholzBrauer.Clift109.fixed51_separated51_cost
 #print axioms ScholzBrauer.Clift109.fixed51_budget_tail
+
+#print axioms ScholzBrauer.CliftLabelling.bw_add_le
+#print axioms ScholzBrauer.CliftLabelling.bw_mersenne
+#print axioms ScholzBrauer.CliftLabelling.nodup_of_bw_eq
+#print axioms ScholzBrauer.CliftLabelling.eq_range_of_nodup
+#print axioms ScholzBrauer.CliftLabelling.card_weights
+#print axioms ScholzBrauer.CliftLabelling.base_eq_sum
+#print axioms ScholzBrauer.CliftLabelling.weight_le_capBelow
+#print axioms ScholzBrauer.CliftLabelling.weights_nodup
+#print axioms ScholzBrauer.CliftLabelling.capBelow_ge
+#print axioms ScholzBrauer.CliftLabelling.weights_eq_range
+#print axioms ScholzBrauer.Clift109.cost_ge_108
+#print axioms ScholzBrauer.Clift109.weights_range_of_budget
+#print axioms ScholzBrauer.NonHansen29.cost_ge_28

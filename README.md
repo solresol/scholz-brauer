@@ -140,6 +140,16 @@ assignments and every stored cost histogram. This computationally confirms
 Clift's obstruction for this graph; it is not a Lean theorem, Scholz instance
 or optimum. See `results/2026-10-18-clift109-box-exclusion.md`.
 
+**Lean now proves the general path-weight bounds behind this reduction.**
+For any source chain for `n` and any labelling with seed 1 and `B n = 2^n-1`,
+the `n` path weights are distinct (binary weight, via Legendre's formula), so
+the cap sum is at least `n-1`; cap sum `n-1` forces weights exactly
+`0,...,n-1`. Thus no Clift labelling of an `r`-step source can beat
+`n-1+r` additions. Instances: every labelling of the selected 109 graph costs at
+least 108, and Clift's 29 repair (28 doublings) is optimal for its parent graph.
+The final 109 classification remains computational. See
+`lean/ScholzBrauer/CliftLabelling.lean` and `results/2026-10-18-clift-labelling-lean.md`.
+
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
 all standard all-Mersenne orientations need at least 32 doublings. That finite
@@ -314,6 +324,8 @@ reference and is not imported into the proofs.
 - `scripts/experiment_clift109_box.py`: budget-108 negative cycles, exact minimum
   costs, witness replay and recounts of every earlier 109-family result.
 - `scripts/check_clift109_box.py`: fast independent check of the saved certificates.
+- `lean/ScholzBrauer/CliftLabelling.lean`: path-weight multisets, binary weight,
+  the general `n-1` cap lower bound and interval characterisation.
 - `lean/ScholzBrauer/Clift109.lean`: selected graph, alternate star/Hansen source,
   orientation minimum and rigidity of the two detour bases.
 - `scripts/experiment_clift109.py`: complete two-exception labellings and

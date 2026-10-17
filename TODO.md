@@ -237,15 +237,20 @@ See `results/2026-10-08-clift109-obstruction.md`.
   orientations, two-exception, 36 neighborhood cases, six early bases,
   shifted Mersennes, all 29 fixed-B58 pairs (4,279,900 base assignments).
 
+- [x] Lean: for every source chain and labelling with seed 1 and `B n = M n`,
+  path weights are distinct, cap sum >= n-1, and cap sum n-1 forces weights
+  0..n-1 (`CliftLabelling.lean`). Instances at 109 (>= 108) and 29 (>= 28,
+  so the 28-doubling repair is optimal for that graph).
+
 **Status.** The selected 109 graph is resolved computationally: no labelling
 meets the 108-doubling budget, and 109 is the exact minimum. This supersedes
 the fixed-B51/fixed-B58 case analysis; those Lean theorems remain valid and
 are consistent with the enumeration. See
 `results/2026-10-18-clift109-box-exclusion.md`.
 
-**Next.** (1) Formalise the reduction in Lean: path expansion, binary-weight
-distinctness, cost >= every path weight, the box identity and the gauge
-description. (2) Find a classification of the interval configurations small
+**Next.** (1) Extend the Lean reduction beyond the proved path-weight bounds:
+the box identity and dissociation, the critical-path zero conditions and the
+gauge description. (2) Find a classification of the interval configurations small
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that
