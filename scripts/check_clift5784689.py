@@ -11,7 +11,12 @@
   chain-9 root splits must reproduce the stored job lists (hash), and a seeded
   sample of small chain-9 jobs must reproduce their stored node counts.
 
-It does not repeat the multi-hour search; completeness is the experiment's
+With `--detour` it also checks the saved results of the independently written
+detour-model search (`clift5784689_detour_search.cpp`): source hash, complete
+job coverage of all 12 critical paths with no labelling, a fresh G(1,0,0) run,
+a small brute-force comparison and one replayed chain-9 job.
+
+It does not repeat the multi-hour searches; completeness is the experiments'
 claim. Standard library only.
 """
 import argparse
@@ -20,6 +25,7 @@ import json
 from pathlib import Path
 import random
 import subprocess
+import sys
 import tempfile
 
 import clift5784689_reference as ref
@@ -58,10 +64,70 @@ def tree_totals(c9):
     return nodes, configs, runs
 
 
+def check_detour(path, tmp):
+    """Saved results of the independent detour-model search."""
+    root = exp.ROOT
+    rep = json.loads(Path(path).read_text())
+    src = root / 'scripts/clift5784689_detour_search.cpp'
+    chk = root / 'scripts/clift5784689_detour_check.py'
+    for p in (src, chk):
+        if hashlib.sha256(p.read_bytes()).hexdigest() != rep['source_sha256'][str(p.relative_to(root))]:
+            fail('detour source changed: %s' % p.name)
+    if rep['source_used_for_runs_sha256'] != rep['source_sha256']['scripts/clift5784689_detour_search.cpp']:
+        fail('detour runs used another source')
+    jobs = rep['chain9_jobs']
+    want = {('14:3:1',), ('14:3:2',)} | {('14:3:0', '20:4:%d' % j) for j in range(4)}
+    seen = {}
+    for j in jobs:
+        if j['result'] != 'no labelling' or j['leaves'] or j['labellings'] or j['feasible_systems'] or j['truncated']:
+            fail('detour job %s is not a clean exclusion' % j['file'])
+        if len(j['pstars']) != 1:
+            fail('detour job covers several critical paths')
+        seen.setdefault(j['pstars'][0], set()).add(tuple('%d:%d:%d' % tuple(x) for x in j['splits']))
+    if sorted(seen) != list(range(12)) or any(v != want for v in seen.values()):
+        fail('detour jobs do not cover every critical path completely')
+    comb = rep['chain9_combined']
+    if comb['result'] != 'no labelling' or comb['problems'] or comb['total_nodes'] != sum(j['nodes'] for j in jobs):
+        fail('detour combined summary inconsistent')
+    if any(v['result'] != 'no labelling' for v in rep['ladder'].values()):
+        fail('detour ladder has a labelling')
+    for k in ('brute_force_validation_n14_steps6', 'brute_force_validation_n18_steps5'):
+        if rep[k]['mismatches'] != 0:
+            fail('detour brute-force mismatch')
+    binary = str(Path(tmp) / 'detour')
+    subprocess.run(['c++'] + exp.FLAGS + ['-o', binary, str(src)], check=True)
+
+    def run(args):
+        r = subprocess.run([binary, '--no-describe'] + args, capture_output=True, text=True, check=True)
+        return json.loads(r.stdout)
+
+    g = run(['--abc', '1,0,0'])
+    if g['result'] != 'no labelling' or g['total_nodes'] != rep['ladder']['1,0,0']['nodes']:
+        fail('detour G(1,0,0) changed')
+    job = min(jobs, key=lambda j: j['seconds'])
+    args = ['--abc', '5,9,3', '--max-labellings', '100', '--pstar', str(job['pstars'][0])]
+    for x in job['splits']:
+        args += ['--split', '%d:%d:%d' % tuple(x)]
+    r = run(args)
+    if r['result'] != 'no labelling' or sum(x['nodes'] for x in r['pstars']) != job['nodes']:
+        fail('detour chain-9 job %s changed' % job['file'])
+    val = Path(tmp) / 'val'
+    val.mkdir()
+    res = subprocess.run([sys.executable, str(chk), 'validate', '--max-n', '12', '--max-steps', '5',
+                          '--scratch', str(val), '--binary', binary], capture_output=True, text=True, check=True)
+    v = json.loads(res.stdout[res.stdout.index('{'):])
+    if v['mismatches'] != 0 or v['graphs_with_labellings'] == 0:
+        fail('detour brute-force comparison failed')
+    return {'critical_paths': len(seen), 'jobs': len(jobs), 'nodes': comb['total_nodes'],
+            'g100_nodes': g['total_nodes'], 'replayed_job': job['file'],
+            'brute_force_graphs': v['graphs'], 'brute_force_labellings': v['labellings_total']}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('report', type=Path)
     ap.add_argument('--samples', type=int, default=24)
+    ap.add_argument('--detour', type=Path, default=None)
     args = ap.parse_args()
     rep = json.loads(args.report.read_text())
     out = {}
@@ -129,6 +195,8 @@ def main():
                     fail('chain-9 job %s %s changed' % (anchor, rid))
                 sampled.append([anchor, rid, nodes])
         out['chain9_jobs_replayed'] = len(sampled)
+        if args.detour:
+            out['detour'] = check_detour(args.detour, tmp)
     out['status'] = 'checked'
     print(json.dumps(out))
 

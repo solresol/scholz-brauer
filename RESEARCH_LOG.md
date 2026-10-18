@@ -54,8 +54,20 @@ busy with another job). No configuration survived.
 
 `check_clift5784689.py` re-derives the job-tree totals, reproduces the root
 job lists and replays 24 jobs; it is added to the integration run.
-An independently specified second program (detour model) was still running at
-this commit; its cross-check and the required integration run follow.
+**Second program.** An independently written program (separate agent,
+specification only), `clift5784689_detour_search.cpp`, searched per critical
+path over individual detours with automatically derived cap systems:
+- it matches brute force on 631 small parent graphs (1.68M labellings,
+  0 mismatches);
+- for chain 9 it also finds no labelling: 25,009,029 nodes over all 12
+  critical paths, 29,397 CPU-seconds on the Mac and 2 raksasa cores.
+
+Its evidence is `results/2026-10-19-clift5784689-chain9-detour.json`, and the
+checker covers it. Required integration passed once in 204.4 s: 27 commands,
+213-theorem audit with standard axioms only, 115 input hashes
+(`results/2026-10-19-integration-checks.json`). An earlier dry run timed out on
+the existing 109 neighbourhood check while both searches loaded the Mac; it was
+rerun on a quiet machine.
 
 **Failures recorded.**
 - The unpruned greedy (tree doubling per doubling step) was not usable for

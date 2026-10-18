@@ -1,0 +1,2032 @@
+{
+ "description": "Independent second search for budget-attaining labellings of G(5,9,3) (chain 9 of 5784689): per-critical-path detour model derived automatically from the parent graph (scripts/clift5784689_detour_search.cpp), written from a mathematical specification without access to scripts/clift5784689_loss_search.cpp; validated against brute force by scripts/clift5784689_detour_check.py.",
+ "run_date_australia_sydney": "2026-10-19 03:33-05:25 AEDT (chain 9); validation and ladder earlier the same night",
+ "source_sha256": {
+  "scripts/clift5784689_detour_search.cpp": "9267ff1262ce527b2253079875ecf02b46f35e36af7a3346013c2c5e6e0eb7d0",
+  "scripts/clift5784689_detour_check.py": "90a118694405b2d1ff234f489f6f1796e38b3d231fa2cb3e6230adda2fa5c25e"
+ },
+ "source_used_for_runs_sha256": "9267ff1262ce527b2253079875ecf02b46f35e36af7a3346013c2c5e6e0eb7d0",
+ "compilers": {
+  "mac": "Apple clang 21.0.0, -O2 -std=c++17 -Wall -Wextra -Werror",
+  "raksasa": "g++ 15.2.0 (Ubuntu), same flags"
+ },
+ "chain9_combined": {
+  "n": 5784689,
+  "num_pstars": 12,
+  "covered_pstars": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "problems": [],
+  "total_nodes": 25009029,
+  "total_labellings": 0,
+  "result": "no labelling",
+  "per_pstar": {
+   "0": {
+    "runs": 6,
+    "nodes": 4321635,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 4461.2,
+    "job_seconds_max": 930.6
+   },
+   "1": {
+    "runs": 6,
+    "nodes": 4196277,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 6029.5,
+    "job_seconds_max": 1361.3
+   },
+   "2": {
+    "runs": 6,
+    "nodes": 3370051,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 3259.1,
+    "job_seconds_max": 663.8
+   },
+   "3": {
+    "runs": 6,
+    "nodes": 3245500,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 3982.5,
+    "job_seconds_max": 842.8
+   },
+   "4": {
+    "runs": 6,
+    "nodes": 2279374,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 2481.2,
+    "job_seconds_max": 525.2
+   },
+   "5": {
+    "runs": 6,
+    "nodes": 2276936,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 2729.7,
+    "job_seconds_max": 600.3
+   },
+   "6": {
+    "runs": 6,
+    "nodes": 1497487,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 1519.9,
+    "job_seconds_max": 309.7
+   },
+   "7": {
+    "runs": 6,
+    "nodes": 1495049,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 1747.2,
+    "job_seconds_max": 391.2
+   },
+   "8": {
+    "runs": 6,
+    "nodes": 747894,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 962.8,
+    "job_seconds_max": 251.1
+   },
+   "9": {
+    "runs": 6,
+    "nodes": 746702,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 1065.8,
+    "job_seconds_max": 262.4
+   },
+   "10": {
+    "runs": 6,
+    "nodes": 416658,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 417.1,
+    "job_seconds_max": 105.5
+   },
+   "11": {
+    "runs": 6,
+    "nodes": 415466,
+    "leaves": 0,
+    "feasible_systems": 0,
+    "labellings": 0,
+    "truncated": false,
+    "rejected": null,
+    "job_seconds_sum": 741.0,
+    "job_seconds_max": 174.8
+   }
+  }
+ },
+ "chain9_jobs": [
+  {
+   "file": "pstar0_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    0
+   ],
+   "nodes": 1790436,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 917.8,
+   "sha256": "efabdd15d1ee7645c39edb236873e8b201db8105afd69041a103b8a54cb544fd"
+  },
+  {
+   "file": "pstar0_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    0
+   ],
+   "nodes": 294468,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 919.3,
+   "sha256": "ee32cd466df9a653205193a15694f46df6640f4ce99e9d51f6914534bfd27962"
+  },
+  {
+   "file": "pstar0_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    0
+   ],
+   "nodes": 283203,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 916.0,
+   "sha256": "89a9f7ca04292eb892352500627bb4cf352cb6b1e771c9bc67c479387be58720"
+  },
+  {
+   "file": "pstar0_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    0
+   ],
+   "nodes": 316628,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 930.6,
+   "sha256": "653f050e89d601e20fd261fdb60697ffaaa5f8716f5afaaf9eb976803e7f6133"
+  },
+  {
+   "file": "pstar0_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    0
+   ],
+   "nodes": 445008,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 256.0,
+   "sha256": "d04f9c64abb47d8890b2ef82a447cc9e04f0999f2b1e7d6fe175bb44be813057"
+  },
+  {
+   "file": "pstar0_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    0
+   ],
+   "nodes": 1191892,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 521.6,
+   "sha256": "4eed1933c86b9143d287b1cc29f1d12f1068e6ed87fe95d8b1a9c2cdd16ecc9d"
+  },
+  {
+   "file": "pstar10_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    10
+   ],
+   "nodes": 257728,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 74.2,
+   "sha256": "4eba37c3732e03baf8838e2a61b79412481c6913ecca406f7188f1fc49d32215"
+  },
+  {
+   "file": "pstar10_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    10
+   ],
+   "nodes": 21248,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 87.8,
+   "sha256": "61a70480c3cc393bfcf49025a2b22c2094b80e0566d64f53ceb56f97887438ad"
+  },
+  {
+   "file": "pstar10_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    10
+   ],
+   "nodes": 28090,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 90.3,
+   "sha256": "0c2df86e8a491453b589bb58f86b05ceabbb5ba9c3251c347eb43ec5e2621363"
+  },
+  {
+   "file": "pstar10_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    10
+   ],
+   "nodes": 27128,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 105.5,
+   "sha256": "f053a6dd7ba96df337af05350adb4e37d0d0716bc6747ba6d9651fb0e8fc95d0"
+  },
+  {
+   "file": "pstar10_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    10
+   ],
+   "nodes": 43637,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 39.8,
+   "sha256": "50a1c3bb7380cdf573c2f368fcaf250c03f3443602b0619e2b74de9589bf776a"
+  },
+  {
+   "file": "pstar10_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    10
+   ],
+   "nodes": 38827,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 19.6,
+   "sha256": "3071846c961844e07f1892ad8f5af527a5bc7ca265cc6d41b6bc44b44dcb2aad"
+  },
+  {
+   "file": "pstar11_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    11
+   ],
+   "nodes": 254392,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 158.8,
+   "sha256": "b7e8e95d04146c774ded7377eb74fa810656d78643f887eb3383f3cad61c3124"
+  },
+  {
+   "file": "pstar11_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    11
+   ],
+   "nodes": 20564,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 160.4,
+   "sha256": "9222bc4c50d5d5b74881b1787b87beb02ec707345bee6b1fd637770ec475f406"
+  },
+  {
+   "file": "pstar11_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    11
+   ],
+   "nodes": 30486,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 172.9,
+   "sha256": "38e9ca5dc3351de0f840f9c9db298ee3a725e980df61ec5a5d2c105218b330dc"
+  },
+  {
+   "file": "pstar11_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    11
+   ],
+   "nodes": 27560,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 174.8,
+   "sha256": "ecbc19eb5f4b3025251e436d2970cee9de129fe70c5439eea3a148f41828b536"
+  },
+  {
+   "file": "pstar11_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    11
+   ],
+   "nodes": 43637,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 40.1,
+   "sha256": "3948889cd59a74d8696c9f171e8551dbad7a305faa7c30e63ae9fe7d46079ed3"
+  },
+  {
+   "file": "pstar11_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    11
+   ],
+   "nodes": 38827,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 34.0,
+   "sha256": "7de439536635b86bf9827c8379323e62beabc08e052e7968034c1f7c8b6cbb11"
+  },
+  {
+   "file": "pstar1_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    1
+   ],
+   "nodes": 1355092,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 1343.7,
+   "sha256": "6078266e2d2223a676fe55a175cfff8a9f2a69e35d73cb102919d53e12c0c233"
+  },
+  {
+   "file": "pstar1_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    1
+   ],
+   "nodes": 190772,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 1361.3,
+   "sha256": "41f9bffd771338709a8cb95804ceb0788049d2800b1d5c22906a81186a411365"
+  },
+  {
+   "file": "pstar1_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    1
+   ],
+   "nodes": 179358,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 1029.4,
+   "sha256": "674cc7d509365ec14cf3b6c7cd3d877a58b55725f112fd8581d2ef553ddb6e5d"
+  },
+  {
+   "file": "pstar1_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    1
+   ],
+   "nodes": 232376,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 1058.5,
+   "sha256": "b87b215f3ac9b214ded19550d250ad7c0adadebf507be7d06cb2156bb2596de0"
+  },
+  {
+   "file": "pstar1_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    1
+   ],
+   "nodes": 1169924,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 628.2,
+   "sha256": "f9e7354b4a3b21fb0ec8a179b3bfdc8b3a1bd26359efc0181f8512a371c7481b"
+  },
+  {
+   "file": "pstar1_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    1
+   ],
+   "nodes": 1068755,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 608.4,
+   "sha256": "ad5b5b7216083340fed323e74d616349314f71107f90d23b51e43bdc1e8f2333"
+  },
+  {
+   "file": "pstar2_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    2
+   ],
+   "nodes": 1347394,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 663.8,
+   "sha256": "ec9182382eb78e70888f1765da6360f6111b4f2fca27a5aae52f6cae9edc4425"
+  },
+  {
+   "file": "pstar2_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    2
+   ],
+   "nodes": 191915,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 652.5,
+   "sha256": "cb235a4be66d2aa2df97f7b01e9e97616ce1960846d66db9b8d2068d757af2cd"
+  },
+  {
+   "file": "pstar2_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    2
+   ],
+   "nodes": 213065,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 656.7,
+   "sha256": "be8c257a7e13d2e12934a626c1343ca69eda7eccdda53828fd37c7a95437f9f7"
+  },
+  {
+   "file": "pstar2_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    2
+   ],
+   "nodes": 187623,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 643.2,
+   "sha256": "326f1adef034f61857af7c1be4f82ad193af26f8222dbb8e584b84f7c3bf034a"
+  },
+  {
+   "file": "pstar2_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    2
+   ],
+   "nodes": 731823,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 319.9,
+   "sha256": "c5c891a379b896edafdaabdd8912490c077a9241ba8be31a90c4aa6f88fda079"
+  },
+  {
+   "file": "pstar2_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    2
+   ],
+   "nodes": 698231,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 323.1,
+   "sha256": "aefcaf308980394a5783099217b33f570cabf4797eb28effdddb2cb7ee78d6f0"
+  },
+  {
+   "file": "pstar3_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    3
+   ],
+   "nodes": 1341942,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 767.1,
+   "sha256": "7729092f95f334095ab4ea67d7ba1352317003c731f882951915c9bb4ffb06cf"
+  },
+  {
+   "file": "pstar3_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    3
+   ],
+   "nodes": 189156,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 767.7,
+   "sha256": "0275b73566ce0ba5a2e6836a32667590018e6a3e36060356acebb700945a6018"
+  },
+  {
+   "file": "pstar3_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    3
+   ],
+   "nodes": 158938,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 835.3,
+   "sha256": "a334b9888790a92e86c7f97876a309ac9cef7a13d05a990ca2aaf7a619fcf472"
+  },
+  {
+   "file": "pstar3_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    3
+   ],
+   "nodes": 168044,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 842.8,
+   "sha256": "38f477e13f60b914c60dda9f6800525ae0852fead21f656ad05b378531a6bba1"
+  },
+  {
+   "file": "pstar3_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    3
+   ],
+   "nodes": 687042,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 389.9,
+   "sha256": "69c6327fd7cf503c948cf0420eb3532e3eb11cbb03e20693007e102d96257ac5"
+  },
+  {
+   "file": "pstar3_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    3
+   ],
+   "nodes": 700378,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 379.7,
+   "sha256": "fc60c1bcd913c61bb1ed4cfb69860949b430c375c5a709dece4ad76743fb3dda"
+  },
+  {
+   "file": "pstar4_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    4
+   ],
+   "nodes": 1032915,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 515.1,
+   "sha256": "e716add38cff987cd5d3d43a8571838982e7d094658b74b8564c087c84484f08"
+  },
+  {
+   "file": "pstar4_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    4
+   ],
+   "nodes": 130595,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 522.3,
+   "sha256": "8169515b349167a96b9841334b766e6505ea20dbeae1ef0de8b9d608491032b9"
+  },
+  {
+   "file": "pstar4_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    4
+   ],
+   "nodes": 132346,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 515.7,
+   "sha256": "8472a1dee760d4953627713fdeeef19ee2ac626db9703e6023cd8b0defe83d38"
+  },
+  {
+   "file": "pstar4_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    4
+   ],
+   "nodes": 141416,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 525.2,
+   "sha256": "8881701329db2a5c21dfae1d65bf405943db62835fe6907e2830ab7e64b2e770"
+  },
+  {
+   "file": "pstar4_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    4
+   ],
+   "nodes": 440911,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 217.5,
+   "sha256": "f153de6271500f6050f3a103a5a9eed73b29f42087aeb706d17f705a34a0b73b"
+  },
+  {
+   "file": "pstar4_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    4
+   ],
+   "nodes": 401191,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 185.5,
+   "sha256": "d7eb5e0a5bdc3bc05a17875d88ffb6a2ef3aeb6104d23b4527a8c1ca9e8b65bf"
+  },
+  {
+   "file": "pstar5_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    5
+   ],
+   "nodes": 1030795,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 589.0,
+   "sha256": "b3ef5368af6453331f8ee39dd4119d63481340c4a57cfe7a0a690762b6056bb6"
+  },
+  {
+   "file": "pstar5_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    5
+   ],
+   "nodes": 128627,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 590.1,
+   "sha256": "6f9b75e22ecd77e3fc6c735053f6d74f1ce9fcb3fb4ba7a9226e7fee4d8b7dc3"
+  },
+  {
+   "file": "pstar5_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    5
+   ],
+   "nodes": 126235,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 454.5,
+   "sha256": "6a8cdb605447912dc9340aaa71ff93f97cd9c8c3b58557d1efc4691af696e56f"
+  },
+  {
+   "file": "pstar5_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    5
+   ],
+   "nodes": 149389,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 600.3,
+   "sha256": "57a10f0511081321169c4b38404a04900a02eec627be958fe0fac327733f8fd6"
+  },
+  {
+   "file": "pstar5_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    5
+   ],
+   "nodes": 440826,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 267.8,
+   "sha256": "5973e56961d95fe923d72b042438192d28e9319dc8a13d006b12b0a34289aba7"
+  },
+  {
+   "file": "pstar5_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    5
+   ],
+   "nodes": 401064,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 228.0,
+   "sha256": "faa547a727910893d6658a1a1450bf15f229174d36b9419e3b5092ca4cb79d57"
+  },
+  {
+   "file": "pstar6_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    6
+   ],
+   "nodes": 658780,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 309.7,
+   "sha256": "b3e80dd1882a0cf42fe5e2433b1c029103fa373530ded77526090bbdd104e0b2"
+  },
+  {
+   "file": "pstar6_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    6
+   ],
+   "nodes": 67838,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 308.6,
+   "sha256": "4e1d0b06cef703d768a03f0788d8c7ec0bd2a716c535f03e91e87930c5eb26ec"
+  },
+  {
+   "file": "pstar6_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    6
+   ],
+   "nodes": 71634,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 308.4,
+   "sha256": "90c050dec3a51afd23c8dcf969debeb8b5a9beb68927e6f680d3d1bae7aa8562"
+  },
+  {
+   "file": "pstar6_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    6
+   ],
+   "nodes": 66438,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 307.9,
+   "sha256": "4e0f0cd8b204ea05932917cf9b750e761a9b14f8565285ffeefa57a1921ec7e1"
+  },
+  {
+   "file": "pstar6_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    6
+   ],
+   "nodes": 288789,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 138.7,
+   "sha256": "6b03d68feadabaf6ae48a6f002ec2ed4031ae574436d622377b074d71bb23c67"
+  },
+  {
+   "file": "pstar6_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    6
+   ],
+   "nodes": 344008,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 146.8,
+   "sha256": "8d64ee2285fb49384b56768bcd02e8b3ee3675f998d7d75a617afa4a06c9dc55"
+  },
+  {
+   "file": "pstar7_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    7
+   ],
+   "nodes": 661842,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 391.2,
+   "sha256": "ea62616a2bc9cdb01eacd90ff4f2c4a599a4dca3322e37eedce3da610ae187e5"
+  },
+  {
+   "file": "pstar7_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    7
+   ],
+   "nodes": 59601,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 345.3,
+   "sha256": "799a34aa26e1189833c5fa8924f851f79a1fc535d16b9accfa8e15ee95100628"
+  },
+  {
+   "file": "pstar7_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    7
+   ],
+   "nodes": 74204,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 339.3,
+   "sha256": "58fed8fba55e7e33556e2913116b8c3d4963e81449f974621b4282bfd3642fc1"
+  },
+  {
+   "file": "pstar7_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    7
+   ],
+   "nodes": 66817,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 327.1,
+   "sha256": "9c1cb41c314e780c6b2c9907f9d510640842d654798ebfa306fcebce66952442"
+  },
+  {
+   "file": "pstar7_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    7
+   ],
+   "nodes": 288734,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 168.3,
+   "sha256": "3db4d7fa5eb0cb11d254b7badcf00412cc79f522d97356e44a34166f70ee82b6"
+  },
+  {
+   "file": "pstar7_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    7
+   ],
+   "nodes": 343851,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 176.0,
+   "sha256": "3a433f3d78b8d2fc3d56ee01fecb98f1a2ddda08cc9c870863a29016818ab679"
+  },
+  {
+   "file": "pstar8_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    8
+   ],
+   "nodes": 455691,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 206.4,
+   "sha256": "9246c477b3a084ca2bf4a8b23cca80670f529ada61639e7e3e68df7bfc1bcd5f"
+  },
+  {
+   "file": "pstar8_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    8
+   ],
+   "nodes": 49655,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 201.3,
+   "sha256": "013e84fd227f42f60058df5eb5095c6fe488e50ae426c7d039a61ae2094b9c67"
+  },
+  {
+   "file": "pstar8_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    8
+   ],
+   "nodes": 57237,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 226.8,
+   "sha256": "91d4f8921afb3df33ba2eb6605af8959780c6de0336bede93b7c57721bdb3309"
+  },
+  {
+   "file": "pstar8_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    8
+   ],
+   "nodes": 62992,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 251.1,
+   "sha256": "77b2d031e7cdc23d52af1f68432ee1af6a79e4276db6ca1c48877f6539d19891"
+  },
+  {
+   "file": "pstar8_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    8
+   ],
+   "nodes": 75591,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 49.1,
+   "sha256": "3f6433716a874258a7bc6fc5dbd57d138b996cf8dde77364e2806cfb79d32b73"
+  },
+  {
+   "file": "pstar8_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    8
+   ],
+   "nodes": 46728,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 28.2,
+   "sha256": "6a2157329ab7fb72fc1648ed7a330fb54b8dabaf4b65944a660d540675dc1444"
+  },
+  {
+   "file": "pstar9_s14-3-0_s20-4-0.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     0
+    ]
+   ],
+   "pstars": [
+    9
+   ],
+   "nodes": 457907,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 227.9,
+   "sha256": "ec564724b1bf0adefb212edb987e84ed921be0c19ccffc82b48a407bb9ce3aef"
+  },
+  {
+   "file": "pstar9_s14-3-0_s20-4-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     1
+    ]
+   ],
+   "pstars": [
+    9
+   ],
+   "nodes": 59154,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 234.1,
+   "sha256": "bf517cee342a47583065a9ad59313d52be343e8e825dbe87cc4353091495fe2c"
+  },
+  {
+   "file": "pstar9_s14-3-0_s20-4-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     2
+    ]
+   ],
+   "pstars": [
+    9
+   ],
+   "nodes": 53825,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 249.2,
+   "sha256": "d10f467c4c894f6f9487fc73d5334a9af50c4e0ce84f5a2cad409c41e690fc77"
+  },
+  {
+   "file": "pstar9_s14-3-0_s20-4-3.json",
+   "splits": [
+    [
+     14,
+     3,
+     0
+    ],
+    [
+     20,
+     4,
+     3
+    ]
+   ],
+   "pstars": [
+    9
+   ],
+   "nodes": 53497,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 262.4,
+   "sha256": "1561db3598bb25c7a7e67462b6ff8325eb045a4e65aa117ff35bfa3de2c9319c"
+  },
+  {
+   "file": "pstar9_s14-3-1.json",
+   "splits": [
+    [
+     14,
+     3,
+     1
+    ]
+   ],
+   "pstars": [
+    9
+   ],
+   "nodes": 75591,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 57.7,
+   "sha256": "68e8eb934d00b8de6b80104dcdc4ce0b950a8d55f354a371287be691644aff1a"
+  },
+  {
+   "file": "pstar9_s14-3-2.json",
+   "splits": [
+    [
+     14,
+     3,
+     2
+    ]
+   ],
+   "pstars": [
+    9
+   ],
+   "nodes": 46728,
+   "leaves": 0,
+   "feasible_systems": 0,
+   "labellings": 0,
+   "truncated": false,
+   "result": "no labelling",
+   "seconds": 34.5,
+   "sha256": "2537b57992137baa44663d5b2c41f4d34bb44df40d4899ead9504a013ba3c3e8"
+  }
+ ],
+ "ladder": {
+  "1,0,0": {
+   "n": 109,
+   "pstars": 15,
+   "nodes": 142406,
+   "result": "no labelling",
+   "seconds": 1.3
+  },
+  "1,0,1": {
+   "n": 211,
+   "pstars": 14,
+   "nodes": 257315,
+   "result": "no labelling",
+   "seconds": 2.8
+  },
+  "1,1,0": {
+   "n": 201,
+   "pstars": 12,
+   "nodes": 116497,
+   "result": "no labelling",
+   "seconds": 1.2
+  },
+  "1,1,3": {
+   "n": 1559,
+   "pstars": 12,
+   "nodes": 471532,
+   "result": "no labelling",
+   "seconds": 10.2
+  },
+  "1,9,0": {
+   "n": 47121,
+   "pstars": 12,
+   "nodes": 460132,
+   "result": "no labelling",
+   "seconds": 43.9
+  },
+  "2,0,0": {
+   "n": 211,
+   "pstars": 15,
+   "nodes": 225736,
+   "result": "no labelling",
+   "seconds": 2.4
+  },
+  "2,1,1": {
+   "n": 769,
+   "pstars": 12,
+   "nodes": 325041,
+   "result": "no labelling",
+   "seconds": 4.8
+  },
+  "3,3,1": {
+   "n": 5789,
+   "pstars": 12,
+   "nodes": 386918,
+   "result": "no labelling",
+   "seconds": 11.6
+  },
+  "5,1,1": {
+   "n": 6005,
+   "pstars": 12,
+   "nodes": 617629,
+   "result": "no labelling",
+   "seconds": 22.7
+  },
+  "5,9,0": {
+   "n": 723171,
+   "pstars": 12,
+   "nodes": 2070443,
+   "result": "no labelling",
+   "seconds": 525.7
+  }
+ },
+ "brute_force_validation_n14_steps6": {
+  "max_n": 14,
+  "max_steps": 6,
+  "graphs": 472,
+  "graphs_with_labellings": 471,
+  "graphs_without": 1,
+  "labellings_total": 1552956,
+  "cpp_labellings_replayed": 2014947,
+  "mismatches": 0,
+  "cpp_seconds": 4.55,
+  "brute_force_and_compare_seconds": 626.93,
+  "total_seconds": 635.21,
+  "mismatches_list": []
+ },
+ "brute_force_validation_n18_steps5": {
+  "max_n": 18,
+  "max_steps": 5,
+  "graphs": 159,
+  "graphs_with_labellings": 159,
+  "graphs_without": 0,
+  "labellings_total": 131538,
+  "cpp_labellings_replayed": 161088,
+  "mismatches": 0,
+  "cpp_seconds": 0.37,
+  "brute_force_and_compare_seconds": 55.47,
+  "total_seconds": 56.11,
+  "mismatches_list": []
+ },
+ "ablation_consistency": {
+  "graphs": 1066,
+  "compared": 434,
+  "skipped_truncated": 632,
+  "compared_with_labellings": 429,
+  "disagreements": 0,
+  "seconds": 298.3,
+  "disagreements_list": []
+ }
+}

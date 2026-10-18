@@ -171,8 +171,10 @@ critical path, the cap difference constraints of its detours. The search
 this chain does not give `ℓ(2^5784689-1) ≤ 5784715`. The pruning and
 enumeration are validated against random saturated labellings (including
 chain 9 itself), an independent Python reference, the 109 box enumeration,
-explicit cost-(n-1) checks and a positive control. This is a computational
-exclusion for one chain, not a Lean theorem. Chains 1-8 and 10-16 have other
+explicit cost-(n-1) checks and a positive control. An independently written
+second program agrees: a per-critical-path detour search validated against
+brute force, 25.0M nodes. This is a computational exclusion for one chain,
+not a Lean theorem. Chains 1-8 and 10-16 have other
 graphs, and nothing is claimed about Scholz-Brauer at 5,784,689. See
 `results/2026-10-19-clift5784689-chain9.md`.
 
@@ -351,7 +353,9 @@ reference and is not imported into the proofs.
   checkpointed parallel driver; `scripts/clift5784689_reference.py`: independent
   Python model, reference enumeration and explicit cost-(n-1) check.
 - `scripts/experiment_clift5784689.py`: validation suite and chain-9 run;
-  `scripts/check_clift5784689.py`: fast check of the saved evidence.
+  `scripts/check_clift5784689.py`: fast check of the saved evidence of both programs.
+- `scripts/clift5784689_detour_search.cpp`, `scripts/clift5784689_detour_check.py`:
+  independently written per-critical-path detour search and its brute-force validation.
 - `scripts/clift109_box_search.cpp`, `scripts/clift109_box_dual.py`: two independent
   complete enumerations of interval configurations of Clift's selected 109 graph.
 - `scripts/experiment_clift109_box.py`: budget-108 negative cycles, exact minimum
