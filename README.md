@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 18 October 2026
+## Verified status — 19 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -157,6 +157,24 @@ below n has cap zero. The selected 109 graph corollary also proves every
 outgoing edge from a skipped vertex has shift zero. This closes step 4 of the
 box reduction; the box identity, gauge description and finite classification
 remain to be formalised. See `results/2026-10-18-critical-path-lean.md`.
+
+**Chain 9 of 5,784,689 has no labelling with n-1 doublings.** Clift lists 16
+optimal 27-step chains for 5,784,689. Chain 9 is the 109 graph with doubling
+runs re-inserted: the run-generalised graph G(5,9,3). Every run vertex has
+parallel out-edges, so it lies on the critical path; 12 critical paths remain.
+Measured as loss = (n-1) - weight, the 5,784,689 path losses split into nine
+translated subset-sum components. The smallest loss not yet produced is
+always the minimal element of a new atom, which gives a complete bottom-up
+enumeration. It uses lazy class assignment, halving candidates and, for each
+critical path, the cap difference constraints of its detours. The search
+(20.9M nodes, about 1.8 core-hours) finds no labelling of cost 5,784,688. So
+this chain does not give `ℓ(2^5784689-1) ≤ 5784715`. The pruning and
+enumeration are validated against random saturated labellings (including
+chain 9 itself), an independent Python reference, the 109 box enumeration,
+explicit cost-(n-1) checks and a positive control. This is a computational
+exclusion for one chain, not a Lean theorem. Chains 1-8 and 10-16 have other
+graphs, and nothing is claimed about Scholz-Brauer at 5,784,689. See
+`results/2026-10-19-clift5784689-chain9.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
@@ -327,6 +345,13 @@ reference and is not imported into the proofs.
 
 ## Files and next work
 
+- `scripts/clift5784689_loss_search.cpp`: complete loss-coordinate enumeration of
+  budget-attaining labellings of the run-generalised Clift graphs G(a,b,c),
+  chain 9 of 5,784,689 = G(5,9,3); `scripts/clift5784689_parallel.py`: its
+  checkpointed parallel driver; `scripts/clift5784689_reference.py`: independent
+  Python model, reference enumeration and explicit cost-(n-1) check.
+- `scripts/experiment_clift5784689.py`: validation suite and chain-9 run;
+  `scripts/check_clift5784689.py`: fast check of the saved evidence.
 - `scripts/clift109_box_search.cpp`, `scripts/clift109_box_dual.py`: two independent
   complete enumerations of interval configurations of Clift's selected 109 graph.
 - `scripts/experiment_clift109_box.py`: budget-108 negative cycles, exact minimum
@@ -399,9 +424,10 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: formalise the 109 reduction in Lean and find a classification argument
-small enough for the kernel; then apply the box method to other non-Hansen
-parent graphs. The selected 109 graph is resolved computationally (minimum 109).
+Next: the other 15 optimal chains of 5,784,689 (a generic engine deriving
+components and cap constraints from the parent graph), and a Lean formalisation
+of the 109 and chain-9 reductions. The selected 109 graph is resolved
+computationally (minimum 109); chain 9 of 5,784,689 has no cost-(n-1) labelling.
 Milestones 1 and 2 remain complete. See `TODO.md`.
 
 ## Sources

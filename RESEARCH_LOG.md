@@ -1,5 +1,79 @@
 # Research log
 
+## 2026-10-19 — Monday (interactive) — chain 9 of 5,784,689 excluded
+
+Started from clean main 820b57f in a session spawned to settle the "next
+frontier": can chain 9 of Clift's 16 optimal chains for 5,784,689 be labelled
+with cost n-1? Read the 109 box exclusion, its programs, `CliftLabelling.lean`
+and the TODO paragraph. No sibling notes existed in the shared folder.
+
+**Result.** Chain 9 is the run-generalised graph G(5,9,3) (checked against the
+saved chain, unique parents). It has **no labelling of cost n-1 = 5,784,688**,
+so it does not give `l(2^5784689-1) <= 5784715` by a Clift labelling. This is a
+computational exclusion for this one chain, not a Lean theorem. It is not a
+statement about chains 1-8 or 10-16, other chains for the Mersenne number, or
+the conjecture at 5,784,689.
+
+**Method.** In loss coordinates, loss = (n-1) - weight relative to the
+critical path P*. The n losses are nine translated subset-sum components:
+- 22 doubling-type differences in classes U, v, W, F, G;
+- bases t, A1, A2, A3 and offsets p, q;
+- the anchor t = 0 (P* through 4-8) or A1 = 0 (P* through 4-5-7-15).
+
+Components are down-closed, so the smallest loss not yet produced is the
+minimal element of a new atom. That gives an exact bottom-up enumeration, with
+classes assigned lazily by refining blocks when components activate. Pruning:
+- exact cover on 5.78M-bit bitsets;
+- the box bound;
+- halving candidates for the F and G classes (1,137 and 97 exceptional
+  losses);
+- the critical-path zero constraints, as difference constraints on prefix
+  cap sums for all 12 critical paths, with sound lower bounds for unknown
+  atoms and lazy classes.
+
+The top-down halving search first planned was not needed.
+
+**Run.** `clift5784689_loss_search.cpp` with the checkpointed driver
+`clift5784689_parallel.py` used 10,771,735 + 10,161,180 nodes and 635,246 job
+runs. That was about 6,400 core-seconds on the Mac (2-4 workers; raksasa was
+busy with another job). No configuration survived.
+
+**Validation** (`experiment_clift5784689.py`, seed 20261019, 1,386 s):
+- 4,000 random saturated labellings confirm the nine-component decomposition
+  and anchors for all 12 families;
+- the caps test accepts 6,594 relaxed queries, plus 4,000 from saturated
+  labellings of G(5,9,3) and three other large graphs;
+- without caps pruning the C++ search equals an independent Python reference
+  enumeration on five small graphs (48 configurations each);
+- at 109 these 48 are exactly the anchored, positive configurations of the
+  18 October box enumeration;
+- every such configuration fails the explicit cost-(n-1) system;
+- a positive control (constraint groups dropped) recovers exactly the
+  leaf-passing configurations, 419 in 64 cases;
+- 14 ladder graphs are all excluded.
+
+`check_clift5784689.py` re-derives the job-tree totals, reproduces the root
+job lists and replays 24 jobs; it is added to the integration run.
+An independently specified second program (detour model) was still running at
+this commit; its cross-check and the required integration run follow.
+
+**Failures recorded.**
+- The unpruned greedy (tree doubling per doubling step) was not usable for
+  chain 9.
+- A first caps relaxation was unsound: it ignored unresolved run candidates.
+  The random test caught it (31/6,000 rejections) and it was fixed;
+  exploratory numbers from that build were discarded.
+- Forward checking did not pay.
+- The first parallel driver deadlocked on pipe buffers; it was replaced by a
+  batched, re-splitting driver.
+- Observed but unproved: every small G(a,b,c) has the 48 configurations of
+  109, lifted.
+
+Details: `results/2026-10-19-clift5784689-chain9.md`.
+
+**Next.** The other 15 optimal chains (eight skeleton variants and their
+transposes) via a generic engine; Lean formalisation of the reduction.
+
 ## 2026-10-18 — Sunday automation — critical-path obligation closed in Lean
 
 Started around 08:00 AEDT from clean main f737015, correct origin; fetched and

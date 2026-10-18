@@ -133,7 +133,9 @@ def main():
                        ROOT / "results/2026-09-21-12509-hansen-certificate.json",
                        ROOT / "results/2026-09-25-12509-exclusion-certificate.json",
                        ROOT / "results/2026-10-03-12509-limit15-exclusion.json",
-                       ROOT / "results/2026-10-18-clift109-box-exclusion.json"})
+                       ROOT / "results/2026-10-18-clift109-box-exclusion.json",
+                       ROOT / "data/2026-10-18-clift5784689-chains.json",
+                       ROOT / "results/2026-10-19-clift5784689-chain9.json"})
     hashes = {str(p.relative_to(ROOT)): sha256(p) for p in inputs}
     vendor = ROOT / "lean/vendor/formal-conjectures"
     provenance = json.loads((vendor / "provenance.json").read_text())
@@ -150,6 +152,12 @@ def main():
                                    "results/2026-10-18-clift109-box-exclusion.json"]))
     if clift109_box["minimum_doublings"] != 109 or clift109_box["cases"] != 3456:
         raise ValueError("Clift 109 certificate summary changed")
+    # Saved chain-9 (5784689) exclusion evidence: job-tree totals, fresh small
+    # reruns and replayed chain-9 jobs; the full search is a separate research run.
+    chain9 = json.loads(run([sys.executable, "scripts/check_clift5784689.py",
+                             "results/2026-10-19-clift5784689-chain9.json"]))
+    if chain9["status"] != "checked":
+        raise ValueError("chain-9 evidence check failed")
     one_gap_family = json.loads(run([sys.executable, "scripts/experiment_one_gap_family.py"]))
     non_hansen29 = json.loads(run([sys.executable, "scripts/experiment_non_hansen29.py"]))
     witness = json.loads(run([sys.executable, "scripts/check_12509.py"]))
@@ -267,6 +275,7 @@ def main():
         "clift109_neighborhood": clift109_neighborhood,
         "clift109_early": clift109_early,
         "clift109_box_certificates": clift109_box,
+        "clift5784689_chain9_checks": chain9,
         "hansen_checks": hansen, "search_checks": search,
         "lean_export_checks": export,
         "hansen_allocation_checks": allocation,

@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-18 (Sunday, Australia/Sydney).
+Updated 2026-10-19 (Monday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -260,26 +260,30 @@ enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that
 min(u,d1)=1 would be a natural first lemma. (3) Apply the box/halving method
-to other non-Hansen parent graphs. Do not repeat the completed enumeration,
-raise unrestricted solver timeouts, or move to 5,784,689 without a concrete
-reason.
+to other non-Hansen parent graphs. Do not repeat the completed enumeration
+or raise unrestricted solver timeouts.
 
-**Next frontier: the optimal chains of 5,784,689.** Clift's page (hash
-unchanged since 8 October) lists 16 optimal 27-step chains, each with a unique
-parent graph (`data/2026-10-18-clift5784689-chains.json`), and leaves open
-whether any can be labelled with cost n-1. A cost-(n-1) labelling of one would
-give `l(2^5784689-1) <= 5784715`, Scholz at the first non-Hansen number, which
-the sources checked on 18 October (Clift's pages, Wikipedia) do not settle.
-Verified structure: chain 9 (`... 64 65 97 128 225 353 ...`) is exactly the
-selected 109 graph with doubling runs re-inserted. Skeleton vertex 2 becomes
-the run 1..32 (x16), 23 the run 353..180736 (x512), 51 the run
-361537..2892296 (x8). Every run vertex has parallel out-edges, so it lies on
-the critical path, leaving the same 12 critical-path families. The 8-box
-becomes a 2^22-path box through 128, and chain 9's reversed path counts are
-the values of chains 1-8 (the families are transposes). The top halving alone
-leaves 1,180 differences (97 small, 587 windows near n/k). The 109 obstruction
-does not transfer automatically: runs add freedom. Needs a box-generalised
-search over sets of millions of elements; do not attempt it by brute force.
+- [x] Chain 9 of Clift's 16 optimal chains for 5,784,689 is the
+  run-generalised graph G(5,9,3) (runs re-inserted into the 109 graph; every
+  run vertex lies on the critical path, 12 critical-path families). In loss
+  coordinates the n losses are nine translated subset-sum components; a
+  complete bottom-up enumeration (smallest uncovered loss = minimal element of
+  a new atom, lazy classes, halving candidates, cap difference constraints for
+  all 12 families) finds **no labelling of cost n-1**: 20,932,915 nodes, no
+  survivor. Validated against random saturated labellings (including chain 9
+  itself), an independent Python reference enumeration, the 109 box
+  enumeration, generic cost-(n-1) leaf checks and a positive control; see
+  `results/2026-10-19-clift5784689-chain9.md` for the independent program.
+
+**Next.** (1) The same question for the other 15 optimal chains: chains 10-16
+are eight skeleton variants (256=128+128, 361472=2*180736, 5784592=2*2892296)
+and chains 1-8 are their transposes (cost is not transpose-invariant). Write a
+generic engine that derives components, detours and cap constraints from any
+parent graph rather than hand tables. (2) Formalise the loss decomposition,
+minimal-element enumeration and cap constraints in Lean, or find a lifting
+lemma (every small G(a,b,c) tested has exactly the 48 configurations of the
+109 graph, lifted; unproved). Do not rerun the chain-9 search without a
+concrete reason.
 
 ## Retained constraints and failed shortcuts
 

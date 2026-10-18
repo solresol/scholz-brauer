@@ -1,0 +1,2783 @@
+{
+ "started_at_australia_sydney": "2026-10-19T01:50:03.172698+11:00",
+ "python": "3.12.7",
+ "seed": 20261019,
+ "arithmetic": "exact integers; standard library",
+ "input_sha256": {
+  "scripts/experiment_clift5784689.py": "03d3360d0e1ec751942e3174616274e045ede8646e16dc6f66f7c88c6826a759",
+  "scripts/clift5784689_loss_search.cpp": "d85025ea9e33486773a3f0e2dbdf1b05d7e564231164e9a0585ae868bd3f02e4",
+  "scripts/clift5784689_reference.py": "f7f05d05d7adfde41b213c3553f54d675aec805472b1c159c7d18bc2c1b781af",
+  "scripts/clift5784689_parallel.py": "10828580af2d03c051b853660fa0f8f51ce184e300a2ca1357493b3fd36e89dc",
+  "data/2026-10-18-clift5784689-chains.json": "f5eb65851622e8fc4ec95969f2c36a561b545a0446d6d6909362f33873ffc520",
+  "results/2026-10-18-clift109-box-exclusion.json": "dca9a0be146137c95e6f251cdfd8f44abaf84364b4d026d2af0a628f8f875241"
+ },
+ "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+ "flags": [
+  "-O2",
+  "-std=c++17",
+  "-Wall",
+  "-Wextra",
+  "-Werror"
+ ],
+ "provenance": {
+  "chain9": [
+   1,
+   2,
+   4,
+   8,
+   16,
+   32,
+   64,
+   65,
+   97,
+   128,
+   225,
+   353,
+   706,
+   1412,
+   2824,
+   5648,
+   11296,
+   22592,
+   45184,
+   90368,
+   180736,
+   180801,
+   361537,
+   723074,
+   1446148,
+   2892296,
+   2892393,
+   5784689
+  ],
+  "n": 5784689,
+  "steps": 27,
+  "graph_109_values": [
+   1,
+   2,
+   4,
+   5,
+   7,
+   8,
+   15,
+   23,
+   28,
+   51,
+   58,
+   109
+  ],
+  "unique_parent_pairs_checked": 27
+ },
+ "decomposition_and_caps_tests": {
+  "labellings": 4000,
+  "caps_eligible": 2198,
+  "caps_queries_accepted": 6594
+ },
+ "caps_tests_large_graphs": {
+  "5,9,3": 1000,
+  "5,5,3": 1000,
+  "3,9,1": 1000,
+  "5,3,1": 1000
+ },
+ "reference_comparison": {
+  "1,0,0,t": {
+   "configurations": 40,
+   "reference_nodes": 474741,
+   "reference_seconds": 38.548,
+   "cpp_nodes_without_caps": 394848,
+   "cost_n_minus_1_labellings": 0
+  },
+  "1,0,0,A1": {
+   "configurations": 8,
+   "reference_nodes": 271400,
+   "reference_seconds": 22.957,
+   "cpp_nodes_without_caps": 229531,
+   "cost_n_minus_1_labellings": 0
+  },
+  "2,0,0,t": {
+   "configurations": 40,
+   "reference_nodes": 947837,
+   "reference_seconds": 78.521,
+   "cpp_nodes_without_caps": 850485,
+   "cost_n_minus_1_labellings": 0
+  },
+  "2,0,0,A1": {
+   "configurations": 8,
+   "reference_nodes": 543063,
+   "reference_seconds": 42.103,
+   "cpp_nodes_without_caps": 487183,
+   "cost_n_minus_1_labellings": 0
+  },
+  "1,1,0,t": {
+   "configurations": 40,
+   "reference_nodes": 1015057,
+   "reference_seconds": 74.655,
+   "cpp_nodes_without_caps": 775735,
+   "cost_n_minus_1_labellings": 0
+  },
+  "1,1,0,A1": {
+   "configurations": 8,
+   "reference_nodes": 529382,
+   "reference_seconds": 32.146,
+   "cpp_nodes_without_caps": 420042,
+   "cost_n_minus_1_labellings": 0
+  },
+  "1,0,1,t": {
+   "configurations": 40,
+   "reference_nodes": 1007447,
+   "reference_seconds": 71.314,
+   "cpp_nodes_without_caps": 713734,
+   "cost_n_minus_1_labellings": 0
+  },
+  "1,0,1,A1": {
+   "configurations": 8,
+   "reference_nodes": 543063,
+   "reference_seconds": 34.312,
+   "cpp_nodes_without_caps": 391162,
+   "cost_n_minus_1_labellings": 0
+  },
+  "2,1,1,t": {
+   "configurations": 40,
+   "reference_nodes": 5215850,
+   "reference_seconds": 438.9,
+   "cpp_nodes_without_caps": 3992854,
+   "cost_n_minus_1_labellings": 0
+  },
+  "2,1,1,A1": {
+   "configurations": 8,
+   "reference_nodes": 2486521,
+   "reference_seconds": 183.259,
+   "cpp_nodes_without_caps": 1988509,
+   "cost_n_minus_1_labellings": 0
+  }
+ },
+ "box109_comparison": {
+  "box_configurations": 216,
+  "anchored_positive": 48,
+  "equal": true
+ },
+ "positive_control": [
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 1,
+   "leaf_accepted": 15,
+   "search_found": 15
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 2,
+   "leaf_accepted": 16,
+   "search_found": 16
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 4,
+   "leaf_accepted": 12,
+   "search_found": 12
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 8,
+   "leaf_accepted": 6,
+   "search_found": 6
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 16,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 32,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 6,
+   "leaf_accepted": 32,
+   "search_found": 32
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 24,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 1,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 2,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 4,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 8,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 16,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 32,
+   "leaf_accepted": 4,
+   "search_found": 4
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 6,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 24,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 1,
+   "leaf_accepted": 15,
+   "search_found": 15
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 2,
+   "leaf_accepted": 16,
+   "search_found": 16
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 4,
+   "leaf_accepted": 12,
+   "search_found": 12
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 8,
+   "leaf_accepted": 6,
+   "search_found": 6
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 16,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 32,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 6,
+   "leaf_accepted": 32,
+   "search_found": 32
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 24,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 1,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 2,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 4,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 8,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 16,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 32,
+   "leaf_accepted": 4,
+   "search_found": 4
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 6,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    2,
+    0,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 24,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 1,
+   "leaf_accepted": 15,
+   "search_found": 15
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 2,
+   "leaf_accepted": 16,
+   "search_found": 16
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 4,
+   "leaf_accepted": 12,
+   "search_found": 12
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 8,
+   "leaf_accepted": 6,
+   "search_found": 6
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 16,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 32,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 6,
+   "leaf_accepted": 32,
+   "search_found": 32
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "t",
+   "drop_mask": 24,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 1,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 2,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 4,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 8,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 16,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 32,
+   "leaf_accepted": 4,
+   "search_found": 4
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 6,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    1,
+    0
+   ],
+   "anchor": "A1",
+   "drop_mask": 24,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 1,
+   "leaf_accepted": 15,
+   "search_found": 15
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 2,
+   "leaf_accepted": 16,
+   "search_found": 16
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 4,
+   "leaf_accepted": 12,
+   "search_found": 12
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 8,
+   "leaf_accepted": 6,
+   "search_found": 6
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 16,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 32,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 6,
+   "leaf_accepted": 32,
+   "search_found": 32
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "t",
+   "drop_mask": 24,
+   "leaf_accepted": 8,
+   "search_found": 8
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 1,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 2,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 4,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 8,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 16,
+   "leaf_accepted": 0,
+   "search_found": 0
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 32,
+   "leaf_accepted": 4,
+   "search_found": 4
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 6,
+   "leaf_accepted": 1,
+   "search_found": 1
+  },
+  {
+   "graph": [
+    1,
+    0,
+    1
+   ],
+   "anchor": "A1",
+   "drop_mask": 24,
+   "leaf_accepted": 1,
+   "search_found": 1
+  }
+ ],
+ "ladder": {
+  "1,0,0,t": {
+   "nodes": 12656,
+   "configurations": 0,
+   "job_runs": 2602,
+   "seconds": 2.1
+  },
+  "1,0,0,A1": {
+   "nodes": 21671,
+   "configurations": 0,
+   "job_runs": 4391,
+   "seconds": 2.1
+  },
+  "2,0,0,t": {
+   "nodes": 25817,
+   "configurations": 0,
+   "job_runs": 2415,
+   "seconds": 2.1
+  },
+  "2,0,0,A1": {
+   "nodes": 42733,
+   "configurations": 0,
+   "job_runs": 5308,
+   "seconds": 2.1
+  },
+  "1,1,0,t": {
+   "nodes": 17761,
+   "configurations": 0,
+   "job_runs": 1858,
+   "seconds": 2.0
+  },
+  "1,1,0,A1": {
+   "nodes": 27120,
+   "configurations": 0,
+   "job_runs": 3529,
+   "seconds": 2.1
+  },
+  "1,0,1,t": {
+   "nodes": 22175,
+   "configurations": 0,
+   "job_runs": 2373,
+   "seconds": 2.1
+  },
+  "1,0,1,A1": {
+   "nodes": 35649,
+   "configurations": 0,
+   "job_runs": 4834,
+   "seconds": 2.1
+  },
+  "2,1,1,t": {
+   "nodes": 62960,
+   "configurations": 0,
+   "job_runs": 1407,
+   "seconds": 4.1
+  },
+  "2,1,1,A1": {
+   "nodes": 105037,
+   "configurations": 0,
+   "job_runs": 3791,
+   "seconds": 4.1
+  },
+  "3,0,0,t": {
+   "nodes": 49722,
+   "configurations": 0,
+   "job_runs": 2241,
+   "seconds": 2.1
+  },
+  "3,0,0,A1": {
+   "nodes": 78965,
+   "configurations": 0,
+   "job_runs": 5219,
+   "seconds": 4.1
+  },
+  "5,0,0,t": {
+   "nodes": 161065,
+   "configurations": 0,
+   "job_runs": 2217,
+   "seconds": 4.1
+  },
+  "5,0,0,A1": {
+   "nodes": 247348,
+   "configurations": 0,
+   "job_runs": 4495,
+   "seconds": 4.1
+  },
+  "1,9,0,t": {
+   "nodes": 85756,
+   "configurations": 0,
+   "job_runs": 1033,
+   "seconds": 6.1
+  },
+  "1,9,0,A1": {
+   "nodes": 96291,
+   "configurations": 0,
+   "job_runs": 1609,
+   "seconds": 4.1
+  },
+  "1,0,3,t": {
+   "nodes": 61499,
+   "configurations": 0,
+   "job_runs": 2217,
+   "seconds": 4.1
+  },
+  "1,0,3,A1": {
+   "nodes": 81876,
+   "configurations": 0,
+   "job_runs": 4193,
+   "seconds": 4.1
+  },
+  "3,3,1,t": {
+   "nodes": 234188,
+   "configurations": 0,
+   "job_runs": 587,
+   "seconds": 8.1
+  },
+  "3,3,1,A1": {
+   "nodes": 303448,
+   "configurations": 0,
+   "job_runs": 1213,
+   "seconds": 6.1
+  },
+  "5,1,1,t": {
+   "nodes": 453170,
+   "configurations": 0,
+   "job_runs": 1202,
+   "seconds": 14.1
+  },
+  "5,1,1,A1": {
+   "nodes": 856933,
+   "configurations": 0,
+   "job_runs": 2554,
+   "seconds": 12.1
+  },
+  "2,2,2,t": {
+   "nodes": 136788,
+   "configurations": 0,
+   "job_runs": 1002,
+   "seconds": 6.1
+  },
+  "2,2,2,A1": {
+   "nodes": 179051,
+   "configurations": 0,
+   "job_runs": 2282,
+   "seconds": 4.1
+  },
+  "5,3,1,t": {
+   "nodes": 1442943,
+   "configurations": 0,
+   "job_runs": 563,
+   "seconds": 48.2
+  },
+  "5,3,1,A1": {
+   "nodes": 2843168,
+   "configurations": 0,
+   "job_runs": 775,
+   "seconds": 50.2
+  },
+  "3,5,2,t": {
+   "nodes": 422268,
+   "configurations": 0,
+   "job_runs": 491,
+   "seconds": 30.1
+  },
+  "3,5,2,A1": {
+   "nodes": 443915,
+   "configurations": 0,
+   "job_runs": 931,
+   "seconds": 16.1
+  }
+ },
+ "chain9": {
+  "t": {
+   "nodes": 10771735,
+   "configurations": [],
+   "job_runs": 477122,
+   "splits": 5,
+   "longest_job_seconds": 36.016,
+   "summary_seconds": 9.9,
+   "job_seconds_total": 3743.9,
+   "split_records": [
+    {
+     "id": "root",
+     "nodes": 2699,
+     "jobs": 1047,
+     "children": 1047,
+     "split_children": [
+      "root.1046"
+     ],
+     "run_children": 1046,
+     "run_children_nodes": 1695512,
+     "configurations": 0
+    },
+    {
+     "id": "root.1046",
+     "nodes": 1683,
+     "jobs": 1204,
+     "children": 1204,
+     "split_children": [
+      "root.1046.1203"
+     ],
+     "run_children": 1203,
+     "run_children_nodes": 639022,
+     "configurations": 0
+    },
+    {
+     "id": "root.1046.1203",
+     "nodes": 15854,
+     "jobs": 14700,
+     "children": 14700,
+     "split_children": [
+      "root.1046.1203.14699"
+     ],
+     "run_children": 14699,
+     "run_children_nodes": 1882723,
+     "configurations": 0
+    },
+    {
+     "id": "root.1046.1203.14699",
+     "nodes": 123449,
+     "jobs": 114390,
+     "children": 114390,
+     "split_children": [
+      "root.1046.1203.14699.114389"
+     ],
+     "run_children": 114389,
+     "run_children_nodes": 3607057,
+     "configurations": 0
+    },
+    {
+     "id": "root.1046.1203.14699.114389",
+     "nodes": 388394,
+     "jobs": 345785,
+     "children": 345785,
+     "split_children": [],
+     "run_children": 345785,
+     "run_children_nodes": 2892468,
+     "configurations": 0
+    }
+   ],
+   "replay_sample": [
+    [
+     "root.304",
+     1
+    ],
+    [
+     "root.548",
+     153
+    ],
+    [
+     "root.310",
+     2
+    ],
+    [
+     "root.193",
+     2
+    ],
+    [
+     "root.438",
+     2
+    ],
+    [
+     "root.1035",
+     8
+    ],
+    [
+     "root.329",
+     1
+    ],
+    [
+     "root.26",
+     40
+    ],
+    [
+     "root.465",
+     1
+    ],
+    [
+     "root.331",
+     929
+    ],
+    [
+     "root.908",
+     1
+    ],
+    [
+     "root.54",
+     1
+    ],
+    [
+     "root.420",
+     40
+    ],
+    [
+     "root.952",
+     1
+    ],
+    [
+     "root.499",
+     1
+    ],
+    [
+     "root.8",
+     1
+    ],
+    [
+     "root.66",
+     1
+    ],
+    [
+     "root.840",
+     371
+    ],
+    [
+     "root.263",
+     1
+    ],
+    [
+     "root.743",
+     1
+    ],
+    [
+     "root.790",
+     1
+    ],
+    [
+     "root.694",
+     2
+    ],
+    [
+     "root.69",
+     2
+    ],
+    [
+     "root.930",
+     1
+    ],
+    [
+     "root.407",
+     1
+    ],
+    [
+     "root.935",
+     1
+    ],
+    [
+     "root.692",
+     10
+    ],
+    [
+     "root.97",
+     1
+    ],
+    [
+     "root.953",
+     1
+    ],
+    [
+     "root.564",
+     45
+    ],
+    [
+     "root.397",
+     2
+    ],
+    [
+     "root.238",
+     40
+    ],
+    [
+     "root.391",
+     1
+    ],
+    [
+     "root.386",
+     2
+    ],
+    [
+     "root.7",
+     1
+    ],
+    [
+     "root.406",
+     1
+    ],
+    [
+     "root.593",
+     2
+    ],
+    [
+     "root.804",
+     1
+    ],
+    [
+     "root.111",
+     1
+    ],
+    [
+     "root.444",
+     256
+    ],
+    [
+     "root.806",
+     1
+    ],
+    [
+     "root.996",
+     1
+    ],
+    [
+     "root.701",
+     1134
+    ],
+    [
+     "root.700",
+     162
+    ],
+    [
+     "root.959",
+     1
+    ],
+    [
+     "root.341",
+     1
+    ],
+    [
+     "root.489",
+     959
+    ],
+    [
+     "root.1003",
+     1
+    ],
+    [
+     "root.880",
+     77
+    ],
+    [
+     "root.457",
+     1
+    ],
+    [
+     "root.372",
+     1
+    ],
+    [
+     "root.394",
+     2
+    ],
+    [
+     "root.622",
+     1
+    ],
+    [
+     "root.140",
+     1
+    ],
+    [
+     "root.249",
+     45
+    ],
+    [
+     "root.799",
+     1134
+    ],
+    [
+     "root.4",
+     1
+    ],
+    [
+     "root.623",
+     1
+    ],
+    [
+     "root.856",
+     3
+    ],
+    [
+     "root.218",
+     1
+    ],
+    [
+     "root.1041",
+     8
+    ],
+    [
+     "root.31",
+     40
+    ],
+    [
+     "root.990",
+     1
+    ],
+    [
+     "root.303",
+     1
+    ],
+    [
+     "root.41",
+     2
+    ],
+    [
+     "root.286",
+     1
+    ],
+    [
+     "root.1015",
+     10
+    ],
+    [
+     "root.889",
+     1
+    ],
+    [
+     "root.480",
+     1
+    ],
+    [
+     "root.845",
+     1
+    ],
+    [
+     "root.937",
+     1
+    ],
+    [
+     "root.690",
+     1
+    ],
+    [
+     "root.869",
+     1
+    ],
+    [
+     "root.972",
+     1
+    ],
+    [
+     "root.177",
+     256
+    ],
+    [
+     "root.361",
+     539
+    ],
+    [
+     "root.290",
+     929
+    ],
+    [
+     "root.189",
+     1
+    ],
+    [
+     "root.469",
+     1
+    ],
+    [
+     "root.659",
+     1
+    ],
+    [
+     "root.943",
+     1
+    ],
+    [
+     "root.610",
+     68
+    ],
+    [
+     "root.827",
+     77
+    ],
+    [
+     "root.1022",
+     8
+    ],
+    [
+     "root.42",
+     68
+    ],
+    [
+     "root.298",
+     89
+    ],
+    [
+     "root.52",
+     2
+    ],
+    [
+     "root.202",
+     1
+    ],
+    [
+     "root.178",
+     8
+    ],
+    [
+     "root.668",
+     153
+    ],
+    [
+     "root.188",
+     1
+    ],
+    [
+     "root.681",
+     2
+    ],
+    [
+     "root.160",
+     68
+    ],
+    [
+     "root.992",
+     1
+    ],
+    [
+     "root.224",
+     1
+    ],
+    [
+     "root.404",
+     1
+    ],
+    [
+     "root.875",
+     1
+    ],
+    [
+     "root.910",
+     1
+    ],
+    [
+     "root.667",
+     270
+    ],
+    [
+     "root.540",
+     3
+    ],
+    [
+     "root.579",
+     4
+    ],
+    [
+     "root.217",
+     1
+    ],
+    [
+     "root.576",
+     1
+    ],
+    [
+     "root.192",
+     98
+    ],
+    [
+     "root.866",
+     1
+    ],
+    [
+     "root.826",
+     68
+    ],
+    [
+     "root.766",
+     1
+    ],
+    [
+     "root.144",
+     89
+    ],
+    [
+     "root.281",
+     1
+    ],
+    [
+     "root.442",
+     1
+    ],
+    [
+     "root.154",
+     1
+    ],
+    [
+     "root.518",
+     45
+    ],
+    [
+     "root.577",
+     256
+    ],
+    [
+     "root.9",
+     270
+    ],
+    [
+     "root.379",
+     1
+    ],
+    [
+     "root.422",
+     1
+    ],
+    [
+     "root.559",
+     45
+    ],
+    [
+     "root.29",
+     68
+    ],
+    [
+     "root.998",
+     1
+    ],
+    [
+     "root.403",
+     1
+    ],
+    [
+     "root.707",
+     1134
+    ],
+    [
+     "root.1038",
+     108
+    ],
+    [
+     "root.440",
+     2
+    ],
+    [
+     "root.764",
+     1
+    ],
+    [
+     "root.187",
+     2
+    ],
+    [
+     "root.199",
+     1
+    ],
+    [
+     "root.425",
+     2
+    ],
+    [
+     "root.977",
+     1
+    ],
+    [
+     "root.846",
+     1
+    ],
+    [
+     "root.677",
+     45
+    ],
+    [
+     "root.962",
+     1
+    ],
+    [
+     "root.754",
+     1
+    ],
+    [
+     "root.332",
+     959
+    ],
+    [
+     "root.319",
+     1
+    ],
+    [
+     "root.863",
+     1
+    ],
+    [
+     "root.317",
+     1
+    ],
+    [
+     "root.859",
+     1
+    ],
+    [
+     "root.735",
+     1
+    ],
+    [
+     "root.95",
+     1
+    ],
+    [
+     "root.638",
+     1
+    ],
+    [
+     "root.458",
+     1
+    ],
+    [
+     "root.74",
+     68
+    ],
+    [
+     "root.481",
+     45
+    ],
+    [
+     "root.574",
+     2
+    ],
+    [
+     "root.628",
+     40
+    ],
+    [
+     "root.195",
+     1
+    ],
+    [
+     "root.343",
+     68
+    ],
+    [
+     "root.911",
+     1
+    ],
+    [
+     "root.185",
+     279
+    ],
+    [
+     "root.919",
+     1
+    ],
+    [
+     "root.993",
+     1
+    ],
+    [
+     "root.72",
+     68
+    ],
+    [
+     "root.603",
+     1
+    ],
+    [
+     "root.402",
+     1
+    ],
+    [
+     "root.756",
+     1
+    ],
+    [
+     "root.350",
+     1
+    ],
+    [
+     "root.1026",
+     82
+    ],
+    [
+     "root.647",
+     3
+    ],
+    [
+     "root.476",
+     40
+    ],
+    [
+     "root.384",
+     45
+    ],
+    [
+     "root.848",
+     1132
+    ],
+    [
+     "root.239",
+     1
+    ],
+    [
+     "root.209",
+     1
+    ],
+    [
+     "root.59",
+     1
+    ],
+    [
+     "root.989",
+     1
+    ],
+    [
+     "root.431",
+     957
+    ],
+    [
+     "root.530",
+     45
+    ],
+    [
+     "root.287",
+     45
+    ],
+    [
+     "root.155",
+     45
+    ],
+    [
+     "root.527",
+     83
+    ],
+    [
+     "root.885",
+     1
+    ],
+    [
+     "root.351",
+     918
+    ],
+    [
+     "root.744",
+     1004
+    ],
+    [
+     "root.936",
+     77
+    ],
+    [
+     "root.105",
+     1
+    ],
+    [
+     "root.1005",
+     1
+    ],
+    [
+     "root.729",
+     1059
+    ],
+    [
+     "root.876",
+     1
+    ],
+    [
+     "root.828",
+     1
+    ],
+    [
+     "root.289",
+     2
+    ],
+    [
+     "root.151",
+     1
+    ],
+    [
+     "root.805",
+     1
+    ],
+    [
+     "root.1028",
+     8
+    ],
+    [
+     "root.477",
+     1
+    ],
+    [
+     "root.302",
+     1
+    ],
+    [
+     "root.508",
+     10
+    ],
+    [
+     "root.233",
+     1
+    ],
+    [
+     "root.411",
+     2
+    ],
+    [
+     "root.38",
+     1
+    ],
+    [
+     "root.16",
+     1
+    ],
+    [
+     "root.655",
+     1
+    ],
+    [
+     "root.879",
+     1
+    ],
+    [
+     "root.985",
+     1
+    ],
+    [
+     "root.529",
+     1
+    ],
+    [
+     "root.432",
+     68
+    ],
+    [
+     "root.549",
+     2
+    ],
+    [
+     "root.322",
+     2
+    ],
+    [
+     "root.412",
+     1
+    ],
+    [
+     "root.58",
+     1
+    ],
+    [
+     "root.123",
+     45
+    ]
+   ],
+   "records_canonical_sha256": "03a09f7d4303bcdf3aff310cbeede1adb4d452781c07f6a1278d160eca086c6d",
+   "root_jobs_sha256": "16b3a60a7042aebaee32984ef13b8ec10a6772ae96353a993288dbb79678f15a"
+  },
+  "A1": {
+   "nodes": 10161180,
+   "configurations": [],
+   "job_runs": 158124,
+   "splits": 4,
+   "longest_job_seconds": 48.147,
+   "summary_seconds": 5.4,
+   "job_seconds_total": 2655.0,
+   "split_records": [
+    {
+     "id": "root",
+     "nodes": 3999,
+     "jobs": 1953,
+     "children": 1953,
+     "split_children": [
+      "root.1952"
+     ],
+     "run_children": 1952,
+     "run_children_nodes": 2715078,
+     "configurations": 0
+    },
+    {
+     "id": "root.1952",
+     "nodes": 11626,
+     "jobs": 8591,
+     "children": 8591,
+     "split_children": [
+      "root.1952.8590"
+     ],
+     "run_children": 8590,
+     "run_children_nodes": 1285606,
+     "configurations": 0
+    },
+    {
+     "id": "root.1952.8590",
+     "nodes": 85236,
+     "jobs": 61891,
+     "children": 61891,
+     "split_children": [
+      "root.1952.8590.61890"
+     ],
+     "run_children": 61890,
+     "run_children_nodes": 3296364,
+     "configurations": 0
+    },
+    {
+     "id": "root.1952.8590.61890",
+     "nodes": 138599,
+     "jobs": 85692,
+     "children": 85692,
+     "split_children": [],
+     "run_children": 85692,
+     "run_children_nodes": 2782799,
+     "configurations": 0
+    }
+   ],
+   "replay_sample": [
+    [
+     "root.1733",
+     1
+    ],
+    [
+     "root.1329",
+     4
+    ],
+    [
+     "root.1378",
+     1
+    ],
+    [
+     "root.1681",
+     1
+    ],
+    [
+     "root.439",
+     2
+    ],
+    [
+     "root.18",
+     1
+    ],
+    [
+     "root.699",
+     2
+    ],
+    [
+     "root.1905",
+     3
+    ],
+    [
+     "root.743",
+     1
+    ],
+    [
+     "root.1217",
+     1
+    ],
+    [
+     "root.1734",
+     1
+    ],
+    [
+     "root.1135",
+     8
+    ],
+    [
+     "root.172",
+     45
+    ],
+    [
+     "root.1004",
+     1516
+    ],
+    [
+     "root.447",
+     2
+    ],
+    [
+     "root.1018",
+     1
+    ],
+    [
+     "root.1640",
+     1
+    ],
+    [
+     "root.216",
+     1
+    ],
+    [
+     "root.83",
+     45
+    ],
+    [
+     "root.411",
+     1
+    ],
+    [
+     "root.3",
+     40
+    ],
+    [
+     "root.1600",
+     1
+    ],
+    [
+     "root.464",
+     1
+    ],
+    [
+     "root.1142",
+     1
+    ],
+    [
+     "root.1428",
+     2
+    ],
+    [
+     "root.1923",
+     1
+    ],
+    [
+     "root.543",
+     1
+    ],
+    [
+     "root.809",
+     1
+    ],
+    [
+     "root.477",
+     1
+    ],
+    [
+     "root.1226",
+     1
+    ],
+    [
+     "root.736",
+     1
+    ],
+    [
+     "root.1105",
+     1
+    ],
+    [
+     "root.1783",
+     1
+    ],
+    [
+     "root.1541",
+     1
+    ],
+    [
+     "root.1526",
+     9
+    ],
+    [
+     "root.536",
+     2
+    ],
+    [
+     "root.481",
+     1
+    ],
+    [
+     "root.697",
+     8
+    ],
+    [
+     "root.339",
+     1
+    ],
+    [
+     "root.244",
+     8
+    ],
+    [
+     "root.1798",
+     7
+    ],
+    [
+     "root.823",
+     1
+    ],
+    [
+     "root.92",
+     2
+    ],
+    [
+     "root.1015",
+     1
+    ],
+    [
+     "root.200",
+     1
+    ],
+    [
+     "root.845",
+     1
+    ],
+    [
+     "root.1056",
+     3
+    ],
+    [
+     "root.981",
+     12
+    ],
+    [
+     "root.531",
+     1
+    ],
+    [
+     "root.421",
+     2
+    ],
+    [
+     "root.1757",
+     8
+    ],
+    [
+     "root.1462",
+     1
+    ],
+    [
+     "root.515",
+     1
+    ],
+    [
+     "root.560",
+     1
+    ],
+    [
+     "root.998",
+     8
+    ],
+    [
+     "root.294",
+     1
+    ],
+    [
+     "root.1731",
+     1
+    ],
+    [
+     "root.519",
+     957
+    ],
+    [
+     "root.555",
+     957
+    ],
+    [
+     "root.730",
+     45
+    ],
+    [
+     "root.671",
+     1
+    ],
+    [
+     "root.886",
+     1
+    ],
+    [
+     "root.292",
+     929
+    ],
+    [
+     "root.1417",
+     1
+    ],
+    [
+     "root.416",
+     1
+    ],
+    [
+     "root.757",
+     1067
+    ],
+    [
+     "root.732",
+     2
+    ],
+    [
+     "root.1154",
+     17
+    ],
+    [
+     "root.826",
+     8
+    ],
+    [
+     "root.1753",
+     1
+    ],
+    [
+     "root.1381",
+     1
+    ],
+    [
+     "root.993",
+     1
+    ],
+    [
+     "root.1223",
+     1
+    ],
+    [
+     "root.547",
+     98
+    ],
+    [
+     "root.640",
+     2
+    ],
+    [
+     "root.1748",
+     1
+    ],
+    [
+     "root.204",
+     1
+    ],
+    [
+     "root.1069",
+     4
+    ],
+    [
+     "root.1936",
+     1
+    ],
+    [
+     "root.55",
+     40
+    ],
+    [
+     "root.934",
+     1
+    ],
+    [
+     "root.1890",
+     6
+    ],
+    [
+     "root.1865",
+     1
+    ],
+    [
+     "root.735",
+     1
+    ],
+    [
+     "root.1317",
+     12
+    ],
+    [
+     "root.1901",
+     1
+    ],
+    [
+     "root.375",
+     12
+    ],
+    [
+     "root.874",
+     2
+    ],
+    [
+     "root.1636",
+     1
+    ],
+    [
+     "root.360",
+     68
+    ],
+    [
+     "root.856",
+     1
+    ],
+    [
+     "root.1871",
+     1
+    ],
+    [
+     "root.225",
+     2
+    ],
+    [
+     "root.66",
+     40
+    ],
+    [
+     "root.378",
+     1
+    ],
+    [
+     "root.1119",
+     1
+    ],
+    [
+     "root.1389",
+     1
+    ],
+    [
+     "root.813",
+     1
+    ],
+    [
+     "root.558",
+     1
+    ],
+    [
+     "root.986",
+     1
+    ],
+    [
+     "root.436",
+     2
+    ],
+    [
+     "root.1203",
+     1
+    ],
+    [
+     "root.1058",
+     1
+    ],
+    [
+     "root.933",
+     2
+    ],
+    [
+     "root.147",
+     1
+    ],
+    [
+     "root.1722",
+     1
+    ],
+    [
+     "root.155",
+     40
+    ],
+    [
+     "root.1125",
+     1
+    ],
+    [
+     "root.755",
+     77
+    ],
+    [
+     "root.1425",
+     8
+    ],
+    [
+     "root.1692",
+     1
+    ],
+    [
+     "root.1705",
+     1
+    ],
+    [
+     "root.1276",
+     1
+    ],
+    [
+     "root.188",
+     1
+    ],
+    [
+     "root.1633",
+     1
+    ],
+    [
+     "root.1668",
+     1
+    ],
+    [
+     "root.1502",
+     1
+    ],
+    [
+     "root.157",
+     1
+    ],
+    [
+     "root.273",
+     1
+    ],
+    [
+     "root.724",
+     45
+    ],
+    [
+     "root.659",
+     40
+    ],
+    [
+     "root.1567",
+     1
+    ],
+    [
+     "root.1805",
+     5
+    ],
+    [
+     "root.862",
+     40
+    ],
+    [
+     "root.1068",
+     4
+    ],
+    [
+     "root.1489",
+     5
+    ],
+    [
+     "root.1736",
+     1
+    ],
+    [
+     "root.108",
+     2
+    ],
+    [
+     "root.1653",
+     1
+    ],
+    [
+     "root.1382",
+     1
+    ],
+    [
+     "root.1538",
+     1
+    ],
+    [
+     "root.20",
+     62
+    ],
+    [
+     "root.140",
+     40
+    ],
+    [
+     "root.1940",
+     1
+    ],
+    [
+     "root.291",
+     2
+    ],
+    [
+     "root.1566",
+     1
+    ],
+    [
+     "root.1742",
+     1
+    ],
+    [
+     "root.859",
+     45
+    ],
+    [
+     "root.1687",
+     1
+    ],
+    [
+     "root.1042",
+     8
+    ],
+    [
+     "root.158",
+     68
+    ],
+    [
+     "root.1609",
+     1
+    ],
+    [
+     "root.806",
+     1
+    ],
+    [
+     "root.1512",
+     2
+    ],
+    [
+     "root.1284",
+     1
+    ],
+    [
+     "root.604",
+     1
+    ],
+    [
+     "root.1280",
+     1
+    ],
+    [
+     "root.940",
+     1
+    ],
+    [
+     "root.660",
+     1
+    ],
+    [
+     "root.1601",
+     1
+    ],
+    [
+     "root.643",
+     2
+    ],
+    [
+     "root.430",
+     2
+    ],
+    [
+     "root.126",
+     77
+    ],
+    [
+     "root.1039",
+     17
+    ],
+    [
+     "root.130",
+     1
+    ],
+    [
+     "root.1480",
+     22
+    ],
+    [
+     "root.1242",
+     1
+    ],
+    [
+     "root.62",
+     1
+    ],
+    [
+     "root.651",
+     2
+    ],
+    [
+     "root.1263",
+     1
+    ],
+    [
+     "root.1479",
+     22
+    ],
+    [
+     "root.1912",
+     1
+    ],
+    [
+     "root.7",
+     1
+    ],
+    [
+     "root.259",
+     1
+    ],
+    [
+     "root.972",
+     54
+    ],
+    [
+     "root.1830",
+     3
+    ],
+    [
+     "root.1236",
+     1
+    ],
+    [
+     "root.57",
+     1
+    ],
+    [
+     "root.1932",
+     5
+    ],
+    [
+     "root.51",
+     1
+    ],
+    [
+     "root.1872",
+     1
+    ],
+    [
+     "root.1048",
+     36
+    ],
+    [
+     "root.796",
+     1
+    ],
+    [
+     "root.880",
+     105
+    ],
+    [
+     "root.962",
+     40
+    ],
+    [
+     "root.1856",
+     2
+    ],
+    [
+     "root.448",
+     40
+    ],
+    [
+     "root.1311",
+     1
+    ],
+    [
+     "root.1164",
+     105
+    ],
+    [
+     "root.1761",
+     1
+    ],
+    [
+     "root.1132",
+     3
+    ],
+    [
+     "root.737",
+     256
+    ],
+    [
+     "root.1191",
+     1
+    ],
+    [
+     "root.1827",
+     3
+    ],
+    [
+     "root.839",
+     2
+    ],
+    [
+     "root.1762",
+     1
+    ],
+    [
+     "root.496",
+     2
+    ],
+    [
+     "root.1576",
+     1
+    ],
+    [
+     "root.594",
+     8
+    ],
+    [
+     "root.1741",
+     1
+    ],
+    [
+     "root.681",
+     2
+    ],
+    [
+     "root.1210",
+     1
+    ],
+    [
+     "root.609",
+     1
+    ],
+    [
+     "root.116",
+     1
+    ],
+    [
+     "root.657",
+     2
+    ],
+    [
+     "root.1221",
+     1
+    ],
+    [
+     "root.1199",
+     8
+    ],
+    [
+     "root.977",
+     12
+    ],
+    [
+     "root.1022",
+     2
+    ],
+    [
+     "root.1699",
+     1
+    ]
+   ],
+   "records_canonical_sha256": "7aff46783b4f2aeb79418c4f61da93bf744112ff3b1b5ac5f5fdf95b746388d6",
+   "root_jobs_sha256": "f5cd8ac7476cc984971a6aa2b8c7a3a2729291f1746ae967129d2bd6af7f1433"
+  }
+ },
+ "timings_seconds": {
+  "provenance": 0.0,
+  "random": 19.3,
+  "random_large": 0.8,
+  "reference": 1025.2,
+  "box109": 0.4,
+  "control": 70.1,
+  "ladder": 252.6,
+  "chain9": 15.5
+ },
+ "claim_boundary": "Computational exclusion: no labelling of chain 9 (G(5,9,3)) of the optimal chains for 5784689 has cap sum 5784688, by a complete loss-coordinate enumeration with sound pruning, validated as recorded. Not a Lean theorem; says nothing about chains 1-8 or 10-16, about other addition chains for 2^5784689-1, or about the Scholz-Brauer conjecture at 5784689.",
+ "runtime_seconds": 1385.9
+}
