@@ -1,5 +1,32 @@
 # Research log
 
+## 2026-10-19 — Monday afternoon (interactive) — the other 15 chains of 5,784,689
+
+Continued at the parent session's request after the user released raksasa
+("drive it as hard as you like"). Their accepted `tw41` job and another
+user's classifier were already using about 13 cores, so raksasa was
+oversubscribed throughout.
+
+**Structure.** All 16 optimal chains are run-generalised graphs G(a,s,b,c),
+with s doublings from 2 to 4 and three chord variants. Chains 1-8 are
+G(4,10,0,4) and chains 9-16 are G(5,1,9,3); every chain was checked.
+The 18 October "transposes" description of chains 1-8 was wrong and is
+corrected in TODO.
+
+The nine-component loss form is unchanged, which was verified on 2,000 random
+saturated labellings across variants and s <= 3. The C++ search therefore
+gained only `var=` and `s=` (critical paths and cap constraints), and it
+reproduces every earlier node count when both are at their defaults.
+
+**Done so far.** Chains 13-16 are excluded by both programs:
+- loss search, 5.24M, 5.23M, 1.92M and 1.91M nodes;
+- detour search, 2.33M, 1.16M, 0.83M and 0.42M nodes;
+- evidence `results/2026-10-19-clift5784689-chains13-16.json`, validated by
+  `experiment_clift5784689_chains.py` (307.5 s).
+
+The detour search has also finished chains 4-8 and 10-12, with no labelling.
+The rest are still running.
+
 ## 2026-10-19 — Monday (interactive) — chain 9 of 5,784,689 excluded
 
 Started from clean main 820b57f in a session spawned to settle the "next

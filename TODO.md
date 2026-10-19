@@ -280,12 +280,15 @@ chains are run-generalised graphs G(a,s,b,c) with s doublings from 2 to 4 and
 three chord variants (vX: 16=2*8, vY: 2*Fb, vZ: 2*Gc). Chains 1-8 are
 G(4,10,0,4) and chains 9-16 are G(5,1,9,3), with variant = binary(k-1) and
 binary(k-9). The 18 October description of chains 1-8 as "transposes" was
-wrong: the reversed path counts of chain 9 have only 25 distinct values. The
-nine-component loss form is unchanged; only the critical paths and cap
-constraints differ. `clift5784689_loss_search.cpp` now takes `s=` and `var=`,
-and `experiment_clift5784689_chains.py` validates and summarises both
-searches per chain. Next: finish the runs, write the results note, run the
-integration.
+wrong: the reversed path counts of chain 9 have only 25 distinct values.
+
+- [x] Chains 13, 14, 15, 16: no cost-(n-1) labelling, by both the loss search
+  and the independent detour search
+  (`results/2026-10-19-clift5784689-chains.md`).
+- [ ] Chains 10, 11, 12: detour search done (no labelling); loss search
+  running.
+- [ ] Chains 4-8: detour search done (no labelling); loss search running.
+- [ ] Chains 1-3: both searches running (about 5x heavier per critical path).
 
 ## Retained constraints and failed shortcuts
 

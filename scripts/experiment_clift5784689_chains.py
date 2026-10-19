@@ -221,10 +221,10 @@ def positive_control(binary, workdir):
     return out
 
 
-def chain_runs(rundirs, rng):
-    """Summaries of the completed loss-coordinate searches of every chain."""
+def chain_runs(rundirs, rng, chains):
+    """Summaries of the completed loss-coordinate searches of the given chains."""
     out = {}
-    for k in list(range(1, 9)) + list(range(10, 17)):
+    for k in chains:
         a, b, c, s, var = chain_params(k)
         for anchor in ('t', 'A1'):
             if anchor == 'A1' and var[0]:
@@ -266,7 +266,7 @@ def chain_runs(rundirs, rng):
     return out
 
 
-def detour_runs(dirs, pstars):
+def detour_runs(dirs, pstars, chains):
     """Coverage and outcome of the independent detour search jobs per chain."""
     files = {}
     for d in dirs:
@@ -274,7 +274,7 @@ def detour_runs(dirs, pstars):
             files[os.path.basename(f)] = f
     out = {}
     want = {('14:3:1',), ('14:3:2',)} | {('14:3:0', '20:4:%d' % j) for j in range(4)}
-    for k in list(range(1, 9)) + list(range(10, 17)):
+    for k in chains:
         jobs, seen = [], {}
         for name, f in sorted(files.items()):
             if not name.startswith('c%d_p' % k):
@@ -308,6 +308,9 @@ def main():
     ap.add_argument('--detour', type=Path, nargs='+', required=True, help='directories of detour job JSONs')
     ap.add_argument('--seed', type=int, default=20261020)
     ap.add_argument('--samples', type=int, default=3000)
+    ap.add_argument('--chain-list', default='1,2,3,4,5,6,7,8,10,11,12,13,14,15,16')
+    ap.add_argument('--small-s', default='1,0,0,2;1,0,0,3;2,0,0,2',
+                    help='graphs a,b,c,s with s > 1 for the reference comparison (empty: none)')
     args = ap.parse_args()
     with args.output.open('x') as fh:
         fh.write('{}\n')
@@ -336,19 +339,22 @@ def main():
     report['chains'] = timed('provenance', provenance)
     report['random_tests'] = timed('random', random_tests, binary, rng, args.samples)
     report['chain_graph_caps_tests'] = timed('chain_graphs', chain_graph_tests, binary, rng, 400)
-    report['reference_and_leaf_checks'] = timed('reference', reference_and_leaves, binary, args.workdir)
+    small_s = [tuple(map(int, x.split(','))) for x in args.small_s.split(';') if x]
+    report['reference_and_leaf_checks'] = timed('reference', reference_and_leaves, binary, args.workdir, small_s)
     report['positive_control'] = timed('control', positive_control, binary, args.workdir)
-    report['chain_runs'] = timed('runs', chain_runs, args.runs, rng)
+    chains = [int(x) for x in args.chain_list.split(',')]
+    report['chain_list'] = chains
+    report['chain_runs'] = timed('runs', chain_runs, args.runs, rng, chains)
     pstars = {k: 0 for k in range(1, 17)}
     for k in pstars:
         pstars[k] = len(ref.families(chain_params(k)[4]))
     # the detour program also lists critical paths it rejects outright
     pstars.update({1: 14, 2: 7})
-    report['detour_runs'] = timed('detour', detour_runs, [str(d) for d in args.detour], pstars)
+    report['detour_runs'] = timed('detour', detour_runs, [str(d) for d in args.detour], pstars, chains)
     report['timings_seconds'] = timings
     report['claim_boundary'] = (
-        'Computational exclusion, chain by chain, of cost-(n-1) labellings of the optimal 27-step chains 1-8 '
-        'and 10-16 for 5784689 (chain 9: 2026-10-19 report), by two independently written complete searches. '
+        'Computational exclusion, chain by chain, of cost-(n-1) labellings of the listed optimal 27-step chains '
+        'for 5784689 (chain 9: 2026-10-19 report), by two independently written complete searches. '
         'Not a Lean theorem; no statement about other chains for 2^5784689-1 or about Scholz-Brauer at 5784689.')
     report['runtime_seconds'] = round(time.perf_counter() - t_all, 1)
     args.output.write_text(json.dumps(report, indent=1) + '\n')

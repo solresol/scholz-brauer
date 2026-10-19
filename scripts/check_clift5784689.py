@@ -158,13 +158,15 @@ def check_chains(path, binary, tmp, rng):
             if got['nodes'] != n or got['configurations']:
                 fail('chain %d job %s changed' % (k, rid))
         settled.setdefault(k, []).append(run['anchor'])
-    for k in list(range(1, 9)) + list(range(10, 17)):
+    for k in rep['chain_list']:
         a, b, c, s, var = ch.chain_params(k)
         if sorted(settled.get(k, [])) != sorted(['t'] + ([] if var[0] else ['A1'])):
             fail('chain %d: anchors missing' % k)
         d = rep['detour_runs'][str(k)]
         if d['result'] != 'no labelling' or len({j['pstar'] for j in d['jobs']}) != d['critical_paths']:
             fail('chain %d: detour coverage' % k)
+    if sorted(settled) != sorted(rep['chain_list']):
+        fail('chain runs do not match the chain list')
     caps = ch.chain_graph_tests(binary, rng, 40)
     return {'chains_settled': sorted(settled), 'chain_runs_checked': len(rep['chain_runs']),
             'caps_queries_per_chain_graph': 40, 'chain_graph_caps_tests': len(caps)}
@@ -176,7 +178,18 @@ def main():
     ap.add_argument('--samples', type=int, default=24)
     ap.add_argument('--detour', type=Path, default=None)
     ap.add_argument('--chains', type=Path, default=None)
+    ap.add_argument('--only-chains', action='store_true',
+                    help='check only the --chains report (the first argument is then ignored)')
     args = ap.parse_args()
+    if args.only_chains:
+        out = {}
+        with tempfile.TemporaryDirectory() as tmp:
+            binary, version = exp.compile_search(tmp)
+            out['compiler'] = version
+            out['chains'] = check_chains(args.chains, binary, tmp, random.Random(20261020))
+        out['status'] = 'checked'
+        print(json.dumps(out))
+        return
     rep = json.loads(args.report.read_text())
     out = {}
     # structure

@@ -178,6 +178,14 @@ not a Lean theorem. Chains 1-8 and 10-16 have other
 graphs, and nothing is claimed about Scholz-Brauer at 5,784,689. See
 `results/2026-10-19-clift5784689-chain9.md`.
 
+**Chains 13-16 of 5,784,689 are excluded too; the rest are running.** All 16
+optimal chains are run-generalised Clift graphs: chains 1-8 are G(4,10,0,4)
+and chains 9-16 are G(5,1,9,3), each with three chord variants. They are not
+transposes, as recorded on 18 October. The nine-component loss form carries
+over unchanged, and only the critical paths change. Chains 13, 14, 15 and 16
+have no cost-(n-1) labelling by both independent searches. See
+`results/2026-10-19-clift5784689-chains.md`.
+
 The motivating 29 repair is Clift's published example. The previous fixed-spine
 search found a unique labelling within its restricted 28-doubling domain;
 all standard all-Mersenne orientations need at least 32 doublings. That finite

@@ -136,7 +136,8 @@ def main():
                        ROOT / "results/2026-10-18-clift109-box-exclusion.json",
                        ROOT / "data/2026-10-18-clift5784689-chains.json",
                        ROOT / "results/2026-10-19-clift5784689-chain9.json",
-                       ROOT / "results/2026-10-19-clift5784689-chain9-detour.json"})
+                       ROOT / "results/2026-10-19-clift5784689-chain9-detour.json"}
+                    | set((ROOT / "results").glob("2026-10-*-clift5784689-chains*.json")))
     hashes = {str(p.relative_to(ROOT)): sha256(p) for p in inputs}
     vendor = ROOT / "lean/vendor/formal-conjectures"
     provenance = json.loads((vendor / "provenance.json").read_text())
@@ -161,6 +162,15 @@ def main():
                              "--detour", "results/2026-10-19-clift5784689-chain9-detour.json"]))
     if chain9["status"] != "checked" or chain9["detour"]["critical_paths"] != 12:
         raise ValueError("chain-9 evidence check failed")
+    # The other optimal chains of 5784689, one evidence report per completed block.
+    other_chains = {}
+    for report_path in sorted((ROOT / "results").glob("2026-10-*-clift5784689-chains*.json")):
+        name = str(report_path.relative_to(ROOT))
+        checked = json.loads(run([sys.executable, "scripts/check_clift5784689.py", "-",
+                                  "--only-chains", "--chains", name]))
+        if checked["status"] != "checked":
+            raise ValueError("chains evidence check failed: " + name)
+        other_chains[name] = checked["chains"]
     one_gap_family = json.loads(run([sys.executable, "scripts/experiment_one_gap_family.py"]))
     non_hansen29 = json.loads(run([sys.executable, "scripts/experiment_non_hansen29.py"]))
     witness = json.loads(run([sys.executable, "scripts/check_12509.py"]))
@@ -279,6 +289,7 @@ def main():
         "clift109_early": clift109_early,
         "clift109_box_certificates": clift109_box,
         "clift5784689_chain9_checks": chain9,
+        "clift5784689_other_chain_checks": other_chains,
         "hansen_checks": hansen, "search_checks": search,
         "lean_export_checks": export,
         "hansen_allocation_checks": allocation,
