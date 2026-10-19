@@ -15,6 +15,8 @@ only the critical paths and their cap constraints change. This driver
    reference for small graphs with s > 1, and checks every configuration
    found by the explicit cost-(n-1) system under all eight variants;
 4. positive control with variants and s > 1 (constraint groups dropped);
+   the same with the option halve=all (halving test for every class), and the
+   enumeration without caps pruning is unchanged by that option;
 5. summarises the completed chain runs of `clift5784689_parallel.py` (search
    directories c<k>_<anchor>) and of the independent detour search
    (`clift5784689_detour_search.cpp`, one JSON per job).
@@ -199,7 +201,7 @@ def leaf_checks(a, b, c, s, cfgs):
     return {'configurations': len(cfgs), 'labellings_by_variant': res}
 
 
-def positive_control(binary, workdir):
+def positive_control(binary, workdir, extras=([], ['halve=all'])):
     out = []
     for (a, b, c, s) in [(1, 0, 0, 2), (2, 0, 0, 1), (1, 1, 0, 1)]:
         n = ref.graph(a, b, c, (0, 0, 0), s)[2]['S']
@@ -212,12 +214,38 @@ def positive_control(binary, workdir):
                     env = dict(os.environ, LPDROP=str(mask))
                     acc = lptest(binary, a, b, c, s, var, [(n, n, at, d) for at, d in cfgs], env=env) if cfgs else []
                     want = sorted(base.key(x) for x, ok in zip(cfgs, acc) if ok)
-                    _, got = run_cpp(binary, a, b, c, s, var, anchor, Path(workdir) / 'pc2.txt', env=env)
-                    got = sorted(base.key(x) for x in got)
-                    require(got == want, 'positive control failed at %s %s %s %d' % ((a, b, c, s), var, anchor, mask))
-                    out.append({'graph': [a, b, c, s], 'variant': vflag(var), 'anchor': anchor, 'drop_mask': mask,
-                                'leaf_accepted': len(want), 'search_found': len(got)})
+                    for extra in extras:
+                        _, got = run_cpp(binary, a, b, c, s, var, anchor, Path(workdir) / 'pc2.txt', extra, env=env)
+                        got = sorted(base.key(x) for x in got)
+                        require(got == want, 'positive control failed at %s %s %s %d %s'
+                                % ((a, b, c, s), var, anchor, mask, extra))
+                        out.append({'graph': [a, b, c, s], 'variant': vflag(var), 'anchor': anchor, 'drop_mask': mask,
+                                    'options': extra, 'leaf_accepted': len(want), 'search_found': len(got)})
     require(any(r['search_found'] for r in out), 'positive control never positive')
+    return out
+
+
+HALVING_CASES = [(1, 0, 0, 1, (0, 0, 0)), (2, 0, 0, 1, (0, 0, 0)), (1, 1, 0, 1, (0, 0, 0)), (1, 0, 1, 1, (0, 0, 0)),
+                 (1, 0, 0, 2, (0, 0, 0)), (1, 0, 0, 3, (0, 0, 0)), (2, 0, 0, 2, (0, 0, 0)), (1, 0, 1, 2, (0, 1, 1)),
+                 (1, 1, 0, 2, (0, 1, 0)), (1, 0, 0, 2, (1, 1, 1)), (2, 0, 1, 2, (1, 0, 1)), (2, 1, 1, 1, (0, 0, 0))]
+
+
+def halving_tests(binary, workdir):
+    """The option halve=all only prunes: without caps pruning it returns the
+    same configurations (every exact cover passes the halving test)."""
+    out = {}
+    for (a, b, c, s, var) in HALVING_CASES:
+        for anchor in ('t', 'A1'):
+            if anchor == 'A1' and var[0]:
+                continue
+            st0, c0 = run_cpp(binary, a, b, c, s, var, anchor, Path(workdir) / 'h0.txt', ['nolp'])
+            st1, c1 = run_cpp(binary, a, b, c, s, var, anchor, Path(workdir) / 'h1.txt', ['nolp', 'halve=all'])
+            require(st1['halve_all'] == 1 and st0['halve_all'] == 0, 'halve option not applied')
+            require(sorted(base.key(x) for x in c0) == sorted(base.key(x) for x in c1),
+                    'HALVING TEST CHANGES THE CONFIGURATIONS at %s' % ((a, b, c, s, var, anchor),))
+            out['%d,%d,%d,s%d,%s,%s' % (a, b, c, s, vflag(var), anchor)] = {
+                'configurations': len(c0), 'nodes': st0['nodes'], 'nodes_halve_all': st1['nodes']}
+    require(sum(v['configurations'] for v in out.values()) > 0, 'halving tests saw no configuration')
     return out
 
 
@@ -234,6 +262,11 @@ def chain_runs(rundirs, rng, chains):
                 if (Path(d) / ('c%d_%s' % (k, anchor)) / 'records.jsonl').exists():
                     wd = Path(d) / ('c%d_%s' % (k, anchor))
             require(wd is not None, 'no run directory for chain %d %s' % (k, anchor))
+            # options.json is written by the driver; older runs used the defaults
+            extra = json.loads((wd / 'options.json').read_text())['extra'] if (wd / 'options.json').exists() \
+                else opts(var, s)
+            require(extra[:len(opts(var, s))] == opts(var, s) and extra[len(opts(var, s)):] in ([], ['halve=all']),
+                    'unexpected options for chain %d %s' % (k, anchor))
             recs = {}
             for line in (wd / 'records.jsonl').read_text().splitlines():
                 r = json.loads(line)
@@ -256,7 +289,7 @@ def chain_runs(rundirs, rng, chains):
             canon = ''.join(json.dumps([rid, r['kind'], r['nodes'], r.get('jobs', 0), len(r['configurations'])]) + '\n'
                             for rid, r in sorted(recs.items()))
             out['%d,%s' % (k, anchor)] = {
-                'chain': k, 'anchor': anchor, 'variant': vflag(var), 's': s, 'nodes': s_['nodes'],
+                'chain': k, 'anchor': anchor, 'variant': vflag(var), 's': s, 'options': extra, 'nodes': s_['nodes'],
                 'configurations': s_['configurations'], 'job_runs': s_['job_runs'], 'splits': s_['splits'],
                 'longest_job_seconds': s_['longest_job_seconds'],
                 'job_seconds_total': round(sum(r.get('seconds', 0) for r in recs.values()), 1),
@@ -342,6 +375,7 @@ def main():
     small_s = [tuple(map(int, x.split(','))) for x in args.small_s.split(';') if x]
     report['reference_and_leaf_checks'] = timed('reference', reference_and_leaves, binary, args.workdir, small_s)
     report['positive_control'] = timed('control', positive_control, binary, args.workdir)
+    report['halving_all_tests'] = timed('halving', halving_tests, binary, args.workdir)
     chains = [int(x) for x in args.chain_list.split(',')]
     report['chain_list'] = chains
     report['chain_runs'] = timed('runs', chain_runs, args.runs, rng, chains)

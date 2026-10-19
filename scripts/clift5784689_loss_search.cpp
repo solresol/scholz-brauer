@@ -40,6 +40,8 @@
 //  * halving: X = [0,n) minus the components without class F (resp. G) is
 //    halved by every F (resp. G) difference d, so [0,n) has at most |E| odd
 //    runs in steps of d, |E_G| = val("7"), |E_F| = val("7") + val("5")2^(c+1);
+//    option halve=all applies the same test to U, V and W (for chains 1-8,
+//    |E_U| = 97 and |E_V| = 1137);
 //  * caps: for every critical-path family the prefix cap sums P_0=0 <= ... <=
 //    P_S=n-1 must satisfy the detour inequalities (family_ok), with unknown
 //    atoms replaced by valid lower bounds and lazy classes by bounds valid for
@@ -80,7 +82,8 @@ static bool use_lp = true;
 static ll nodes = 0, solutions = 0, lp_prunes = 0, bound_prunes = 0, cand_prunes = 0, collisions = 0, jobs_out = 0;
 static int split_depth = -1;
 static FILE *out;
-static std::vector<char> candF, candG;
+static std::vector<char> cand[5];  // halving candidates per class (empty: no test)
+static bool halve_all = false;      // option halve=all: test U, V and W too
 static ll lp_slack = 0;  // test hook: total caps may reach n-1+slack
 static int lp_drop = 0;  // test hook: drop constraint groups (1 A1, 2 A2, 4 A3, 8 p, 16 q, 32 t)
 
@@ -156,12 +159,13 @@ static int blocks_for(const bool rd[9], int out_blocks[5]) {
 static int capof(int mask) { int c = 0; for (int k = 0; k < 5; k++) if (mask >> k & 1) c += capc[k]; return c; }
 static int total_diffs() { return capc[0] + capc[1] + capc[2] + capc[3] + capc[4]; }
 static int count_block(int B) { int c = 0; for (auto &d : diffs) if (d.second == B) c++; return c; }
-// Halving candidates: a difference whose block lies in F|G (resp. is G).
+// Halving candidates: a difference of block B belongs to one class of B, so it
+// must be a candidate of some class in B (a class without a table always is).
 static bool cand_ok(ll e, int mask) {
   if (e <= 0 || e >= n) return false;
-  if (!(mask & ~(CF | CG)) && !candF[e]) return false;
-  if (mask == CG && !candG[e]) return false;
-  return true;
+  for (int k = 0; k < 5; k++)
+    if ((mask >> k & 1) && (cand[k].empty() || cand[k][e])) return true;
+  return false;
 }
 
 // ------------------------------------------------------------ caps LP ------
@@ -568,6 +572,7 @@ int main(int argc, char **argv) {
     if (!strcmp(argv[i], "nolp")) use_lp = false;
     if (!strncmp(argv[i], "split=", 6)) split_depth = atoi(argv[i] + 6);
     if (!strncmp(argv[i], "s=", 2)) gs = atoi(argv[i] + 2);
+    if (!strcmp(argv[i], "halve=all")) halve_all = true;
     if (!strncmp(argv[i], "var=", 4) && strlen(argv[i]) == 7) {
       gvX = argv[i][4] == '1'; gvY = argv[i][5] == '1'; gvZ = argv[i][6] == '1';
     }
@@ -577,11 +582,17 @@ int main(int argc, char **argv) {
   NW = (int)((n + 63) / 64);
   if (gs < 1 || gs > 30) { fprintf(stderr, "bad s\n"); return 2; }
   capc[0] = ga; capc[1] = gs; capc[2] = 2; capc[3] = gb + 1; capc[4] = gc + 1;
-  ll eG = v7, eF = v7 + v5 * (1LL << (gc + 1));
-  candF.assign(n + 1, 0); candG.assign(n + 1, 0);
+  // E_k = the components without class k: |E_G| = val("7"),
+  // |E_F| = val("7") + val("5")2^(c+1); with halve=all also E_U, E_V, E_W.
+  ll E[5] = {0, 0, 0, 0, 0};
+  for (int k = 0; k < 5; k++)
+    for (int c = 0; c < 9; c++)
+      if (!(COMPS[c].mask >> k & 1)) E[k] += 1LL << capof(COMPS[c].mask);
+  if (E[4] != v7 || E[3] != v7 + v5 * (1LL << (gc + 1))) { fprintf(stderr, "halving sets\n"); return 4; }
+  for (int k = 0; k < 5; k++) if (k >= 3 || halve_all) cand[k].assign(n + 1, 0);
   for (ll d = 1; d < n; d++) {
     ll k = n / d, rr = n % d, odd = (k % 2 == 0) ? rr : d - rr;
-    candF[d] = odd <= eF; candG[d] = odd <= eG;
+    for (int j = 0; j < 5; j++) if (!cand[j].empty()) cand[j][d] = odd <= E[j];
   }
   cov.assign(NW + 1, 0);
   for (int c = 0; c < 9; c++) comp[c].w.assign(NW + 1, 0);
@@ -623,10 +634,10 @@ int main(int argc, char **argv) {
     fprintf(stderr, "unknown mode\n"); return 2;
   }
   fclose(out);
-  printf("{\"a\": %d, \"b\": %d, \"c\": %d, \"variant\": \"%d%d%d\", \"s\": %d, \"n\": %lld, \"mode\": \"%s\", \"lp\": %d, \"nodes\": %lld, "
+  printf("{\"a\": %d, \"b\": %d, \"c\": %d, \"variant\": \"%d%d%d\", \"s\": %d, \"halve_all\": %d, \"n\": %lld, \"mode\": \"%s\", \"lp\": %d, \"nodes\": %lld, "
          "\"configurations\": %lld, \"jobs\": %lld, \"bound_prunes\": %lld, \"lp_prunes\": %lld, "
          "\"candidate_prunes\": %lld, \"collisions\": %lld}\n",
-         ga, gb, gc, gvX, gvY, gvZ, gs, n, mode.c_str(), use_lp, nodes, solutions, jobs_out, bound_prunes, lp_prunes,
+         ga, gb, gc, gvX, gvY, gvZ, gs, (int)halve_all, n, mode.c_str(), use_lp, nodes, solutions, jobs_out, bound_prunes, lp_prunes,
          cand_prunes, collisions);
   return 0;
 }

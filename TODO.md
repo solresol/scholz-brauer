@@ -275,7 +275,7 @@ or raise unrestricted solver timeouts.
   enumeration, generic cost-(n-1) leaf checks and a positive control; see
   `results/2026-10-19-clift5784689-chain9.md` for the independent program.
 
-**In progress (19-20 October): the other 15 optimal chains.** All 16 optimal
+**Done (19 October): the other 15 optimal chains.** All 16 optimal
 chains are run-generalised graphs G(a,s,b,c) with s doublings from 2 to 4 and
 three chord variants (vX: 16=2*8, vY: 2*Fb, vZ: 2*Gc). Chains 1-8 are
 G(4,10,0,4) and chains 9-16 are G(5,1,9,3), with variant = binary(k-1) and
@@ -285,10 +285,13 @@ wrong: the reversed path counts of chain 9 have only 25 distinct values.
 - [x] Chains 13, 14, 15, 16: no cost-(n-1) labelling, by both the loss search
   and the independent detour search
   (`results/2026-10-19-clift5784689-chains.md`).
-- [ ] Chains 10, 11, 12: detour search done (no labelling); loss search
-  running.
-- [ ] Chains 4-8: detour search done (no labelling); loss search running.
-- [ ] Chains 1-3: both searches running (about 5x heavier per critical path).
+- [x] Chains 1-8 and 10-12: no cost-(n-1) labelling, by both searches. Chains
+  1-8 needed the halving test for every class (`halve=all`; |E_V| = 1,137);
+  without it the chain-8 loss search passed 71M nodes and was still growing.
+  Evidence `results/2026-10-19-clift5784689-chains1-12.json`.
+- [ ] Next: formalise the nine-component loss decomposition and the halving
+  test in Lean, so that the per-chain exclusions rest on proved reductions
+  rather than on validated code.
 
 ## Retained constraints and failed shortcuts
 

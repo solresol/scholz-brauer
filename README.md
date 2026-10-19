@@ -178,12 +178,17 @@ not a Lean theorem. Chains 1-8 and 10-16 have other
 graphs, and nothing is claimed about Scholz-Brauer at 5,784,689. See
 `results/2026-10-19-clift5784689-chain9.md`.
 
-**Chains 13-16 of 5,784,689 are excluded too; the rest are running.** All 16
-optimal chains are run-generalised Clift graphs: chains 1-8 are G(4,10,0,4)
-and chains 9-16 are G(5,1,9,3), each with three chord variants. They are not
-transposes, as recorded on 18 October. The nine-component loss form carries
-over unchanged, and only the critical paths change. Chains 13, 14, 15 and 16
-have no cost-(n-1) labelling by both independent searches. See
+**All 16 optimal chains of 5,784,689 have no labelling with n-1 doublings.**
+All 16 optimal chains are run-generalised Clift graphs: chains 1-8 are
+G(4,10,0,4) and chains 9-16 are G(5,1,9,3), each with three chord variants.
+They are not transposes, as recorded on 18 October. The nine-component loss
+form carries over unchanged, and only the critical paths change. Every chain
+is excluded by both independent searches, the loss search and the detour
+search. Chains 1-8 needed one new pruning rule: the halving test for every
+class (`halve=all`). Without it, their ten-doubling run left the search almost
+unconstrained. So no optimal chain gives `ℓ(2^5784689-1) ≤ 5784715` through a
+Clift labelling. This is computational, not a Lean theorem, and says nothing
+about other chains or about Scholz-Brauer at 5,784,689. See
 `results/2026-10-19-clift5784689-chains.md`.
 
 The motivating 29 repair is Clift's published example. The previous fixed-spine
@@ -356,12 +361,15 @@ reference and is not imported into the proofs.
 ## Files and next work
 
 - `scripts/clift5784689_loss_search.cpp`: complete loss-coordinate enumeration of
-  budget-attaining labellings of the run-generalised Clift graphs G(a,b,c),
-  chain 9 of 5,784,689 = G(5,9,3); `scripts/clift5784689_parallel.py`: its
+  budget-attaining labellings of the run-generalised Clift graphs G(a,s,b,c)
+  with chord variants (all 16 optimal chains of 5,784,689; chain 9 =
+  G(5,1,9,3)); `scripts/clift5784689_parallel.py`: its
   checkpointed parallel driver; `scripts/clift5784689_reference.py`: independent
   Python model, reference enumeration and explicit cost-(n-1) check.
 - `scripts/experiment_clift5784689.py`: validation suite and chain-9 run;
-  `scripts/check_clift5784689.py`: fast check of the saved evidence of both programs.
+  `scripts/experiment_clift5784689_chains.py`: validation and evidence for the
+  other 15 chains; `scripts/check_clift5784689.py`: fast check of the saved
+  evidence of both programs.
 - `scripts/clift5784689_detour_search.cpp`, `scripts/clift5784689_detour_check.py`:
   independently written per-critical-path detour search and its brute-force validation.
 - `scripts/clift109_box_search.cpp`, `scripts/clift109_box_dual.py`: two independent
@@ -436,10 +444,9 @@ reference and is not imported into the proofs.
 - `results/`: dated verification evidence and source notes.
 - `RESEARCH_LOG.md`: dated increments; `TODO.md`: ordered roadmap.
 
-Next: the other 15 optimal chains of 5,784,689 (a generic engine deriving
-components and cap constraints from the parent graph), and a Lean formalisation
-of the 109 and chain-9 reductions. The selected 109 graph is resolved
-computationally (minimum 109); chain 9 of 5,784,689 has no cost-(n-1) labelling.
+Next: a Lean formalisation of the 109 and 5,784,689 loss reductions. The
+selected 109 graph is resolved computationally (minimum 109); none of the 16
+optimal chains of 5,784,689 has a cost-(n-1) labelling.
 Milestones 1 and 2 remain complete. See `TODO.md`.
 
 ## Sources

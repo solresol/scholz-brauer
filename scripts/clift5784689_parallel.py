@@ -10,7 +10,9 @@ Every finished record is appended to <workdir>/records.jsonl, so an interrupted
 run resumes where it stopped.
 
     uv run scripts/clift5784689_parallel.py BINARY A B C ANCHOR WORKDIR \
-        [--workers 3] [--depth 10] [--step 3] [--timeout 120] [--batch 32] [--var XYZ] [--s S]
+        [--workers 3] [--depth 10] [--step 3] [--timeout 120] [--batch 32] [--var XYZ] [--s S] [--halve-all]
+
+The binary's extra options are kept in <workdir>/options.json.
 """
 import argparse
 import json
@@ -32,6 +34,12 @@ def run_search(binary, a, b, c, anchor, workdir, workers=3, depth=10, step=3, ti
     workdir.mkdir(parents=True, exist_ok=True)
     abc = [str(a), str(b), str(c)]
     extra = list(extra)
+    opt_path = workdir / 'options.json'  # the search options, for the evidence reports
+    if opt_path.exists():
+        if json.loads(opt_path.read_text())['extra'] != extra:
+            raise SystemExit('workdir was searched with other options')
+    else:
+        opt_path.write_text(json.dumps({'extra': extra}) + '\n')
     records_path = workdir / 'records.jsonl'
     records = {}
     if records_path.exists():
@@ -246,12 +254,14 @@ def main():
     ap.add_argument('--batch', type=int, default=32)
     ap.add_argument('--var', default='000', help='chord variant XYZ (chains 9-16 and 1-8)')
     ap.add_argument('--s', type=int, default=1, help='doublings from "2" to "4" (10 for chains 1-8)')
+    ap.add_argument('--halve-all', action='store_true', help='halving test for every class (option halve=all)')
     args = ap.parse_args()
     t0 = time.time()
     s = run_search(args.binary, args.a, args.b, args.c, args.anchor, args.workdir, args.workers,
                    args.depth, args.step, args.timeout, log=lambda m: print(m, flush=True),
                    batch_size=args.batch,
-                   extra=(['var=' + args.var] if args.var != '000' else []) + (['s=%d' % args.s] if args.s != 1 else []))
+                   extra=(['var=' + args.var] if args.var != '000' else []) + (['s=%d' % args.s] if args.s != 1 else [])
+                   + (['halve=all'] if args.halve_all else []))
     s['wall_seconds'] = round(time.time() - t0, 1)
     print(json.dumps(s), flush=True)
 

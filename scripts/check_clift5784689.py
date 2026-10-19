@@ -13,9 +13,9 @@
 
 With `--chains` it checks the report of `experiment_clift5784689_chains.py` for
 chains 1-8 and 10-16 in the same way: complete job trees, both root job lists
-of every chain reproduced by hash, a seeded sample of jobs replayed, complete
-coverage of every critical path by the detour jobs, and caps soundness on
-every chain graph.
+of every chain reproduced by hash, a seeded sample of jobs replayed (with the
+search source and options recorded in the report), complete coverage of every
+critical path by the detour jobs, and caps soundness on every chain graph.
 
 With `--detour` it also checks the saved results of the independently written
 detour-model search (`clift5784689_detour_search.cpp`): source hash, complete
@@ -129,13 +129,34 @@ def check_detour(path, tmp):
             'brute_force_graphs': v['graphs'], 'brute_force_labellings': v['labellings_total']}
 
 
+def recorded_source(rel, digest):
+    """The committed version of `rel` whose sha256 is `digest` (the source a
+    report was made with; the current file if it still matches)."""
+    cur = exp.ROOT / rel
+    if hashlib.sha256(cur.read_bytes()).hexdigest() == digest:
+        return cur.read_bytes()
+    revs = subprocess.run(['git', '-C', str(exp.ROOT), 'log', '--format=%H', '--', rel],
+                          capture_output=True, text=True, check=True).stdout.split()
+    for h in revs:
+        data = subprocess.run(['git', '-C', str(exp.ROOT), 'show', '%s:%s' % (h, rel)],
+                              capture_output=True, check=True).stdout
+        if hashlib.sha256(data).hexdigest() == digest:
+            return data
+    fail('no committed version of %s has the recorded hash' % rel)
+
+
 def check_chains(path, binary, tmp, rng):
-    """Saved evidence for chains 1-8 and 10-16."""
+    """Saved evidence for chains 1-8 and 10-16, rerun with the search source
+    recorded in the report (taken from the git history if it has changed since)."""
     import experiment_clift5784689_chains as ch
     rep = json.loads(Path(path).read_text())
-    src = exp.ROOT / 'scripts/clift5784689_loss_search.cpp'
-    if hashlib.sha256(src.read_bytes()).hexdigest() != rep['input_sha256']['scripts/clift5784689_loss_search.cpp']:
-        fail('search source changed since the chains report')
+    rel = 'scripts/clift5784689_loss_search.cpp'
+    data = recorded_source(rel, rep['input_sha256'][rel])
+    if data != (exp.ROOT / rel).read_bytes():
+        src = Path(tmp) / 'recorded_loss_search.cpp'
+        src.write_bytes(data)
+        binary = str(Path(tmp) / 'recorded_loss_search')
+        subprocess.run(['c++'] + exp.FLAGS + ['-o', binary, str(src)], check=True)
     settled = {}
     for key, run in rep['chain_runs'].items():
         nodes, configs, runs = tree_totals(run)
@@ -143,7 +164,7 @@ def check_chains(path, binary, tmp, rng):
             fail('chain run %s totals inconsistent' % key)
         k = run['chain']
         a, b, c, s, var = ch.chain_params(k)
-        extra = ch.opts(var, s)
+        extra = run.get('options', ch.opts(var, s))
         o = Path(tmp) / ('root_%d_%s.txt' % (k, run['anchor']))
         subprocess.run([binary, str(a), str(b), str(c), run['anchor'], str(o), 'split=10'] + extra,
                        capture_output=True, check=True)

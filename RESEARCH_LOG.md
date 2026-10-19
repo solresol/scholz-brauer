@@ -1,5 +1,37 @@
 # Research log
 
+## 2026-10-19 — Monday evening (interactive) — all 16 chains of 5,784,689 settled
+
+**Result.** Chains 1-8 and 10-12 are excluded by both programs, which
+completes all 16 optimal chains. Evidence:
+`results/2026-10-19-clift5784689-chains1-12.json`; the note is
+`results/2026-10-19-clift5784689-chains.md`.
+
+**The obstacle.** The loss search for chains 1-8 (s = 10) blew up. On
+raksasa, chain 8 reached 71M nodes, 2.09M job records and 9.4M pending jobs
+after 5 hours, and it was still growing. The ten V differences had almost no
+constraint: halving was applied only to F and G.
+
+**The fix.** Halving holds for every class: the components containing class k
+pair up under each of its differences. So [0, n) has at most |E_k| odd runs in
+steps of d, where E_k is the set of components without class k. For chains
+1-8, |E_V| = 1,137 and |E_U| = 97. With `halve=all`, chain 8 took 635,527
+nodes and 39 s. Every remaining loss run then finished in 1-5 minutes per
+anchor (chains 10 and 11 A1 also used it). The option is off by default, so
+the earlier evidence replays unchanged. Without caps pruning it returns the
+same configurations on 22 small cases, and the positive control was rerun
+with it.
+
+**Raksasa.** The stalled chain-8 run was stopped with SIGSTOP at 19:31 by
+someone other than this session, and it was not resumed. The detour campaign
+had already finished there. Its paused processes are obsolete and are left
+for the user to remove.
+
+**Checker.** `check_clift5784689.py --chains` now compiles the search
+source recorded in each report, taken from the git history when the file has
+changed since. It also replays jobs with each run's recorded options
+(`options.json`, written by the driver).
+
 ## 2026-10-19 — Monday afternoon (interactive) — the other 15 chains of 5,784,689
 
 Continued at the parent session's request after the user released raksasa
