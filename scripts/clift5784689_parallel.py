@@ -10,7 +10,7 @@ Every finished record is appended to <workdir>/records.jsonl, so an interrupted
 run resumes where it stopped.
 
     uv run scripts/clift5784689_parallel.py BINARY A B C ANCHOR WORKDIR \
-        [--workers 3] [--depth 10] [--step 3] [--timeout 120] [--batch 32]
+        [--workers 3] [--depth 10] [--step 3] [--timeout 120] [--batch 32] [--var XYZ] [--s S]
 """
 import argparse
 import json
@@ -27,10 +27,11 @@ def job_depth(line):
 
 
 def run_search(binary, a, b, c, anchor, workdir, workers=3, depth=10, step=3, timeout=120, log=print,
-               batch_size=32):
+               batch_size=32, extra=()):
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
     abc = [str(a), str(b), str(c)]
+    extra = list(extra)
     records_path = workdir / 'records.jsonl'
     records = {}
     if records_path.exists():
@@ -43,7 +44,7 @@ def run_search(binary, a, b, c, anchor, workdir, workers=3, depth=10, step=3, ti
         for p in (out, root_jobs):
             if p.exists():
                 p.unlink()
-        res = subprocess.run([binary] + abc + [anchor, str(out), 'split=%d' % depth],
+        res = subprocess.run([binary] + abc + [anchor, str(out), 'split=%d' % depth] + extra,
                              capture_output=True, text=True, check=True)
         stats = json.loads(res.stdout)
         lines = out.read_text().splitlines()
@@ -91,7 +92,7 @@ def run_search(binary, a, b, c, anchor, workdir, workers=3, depth=10, step=3, ti
             out.unlink()
         begin = time.time()
         try:
-            res = subprocess.run([binary] + abc + ['resume', str(out)], input=line + '\n',
+            res = subprocess.run([binary] + abc + ['resume', str(out)] + extra, input=line + '\n',
                                  capture_output=True, text=True, timeout=timeout, check=True)
             job = json.loads(res.stdout.splitlines()[0])
             cfg = [l for l in out.read_text().splitlines() if l.startswith('C')]
@@ -102,7 +103,7 @@ def run_search(binary, a, b, c, anchor, workdir, workers=3, depth=10, step=3, ti
             if out.exists():
                 out.unlink()
             d = job_depth(line) + step
-            res = subprocess.run([binary] + abc + ['resume', str(out), 'split=%d' % d],
+            res = subprocess.run([binary] + abc + ['resume', str(out), 'split=%d' % d] + extra,
                                  input=line + '\n', capture_output=True, text=True, check=True)
             job = json.loads(res.stdout.splitlines()[0])
             lines = out.read_text().splitlines()
@@ -125,7 +126,7 @@ def run_search(binary, a, b, c, anchor, workdir, workers=3, depth=10, step=3, ti
             out.unlink()
         begin = time.time()
         try:
-            res = subprocess.run([binary] + abc + ['resume', str(out)],
+            res = subprocess.run([binary] + abc + ['resume', str(out)] + extra,
                                  input=''.join(line + '\n' for _, line in batch),
                                  capture_output=True, text=True, timeout=timeout, check=True)
         except subprocess.TimeoutExpired:
@@ -243,11 +244,14 @@ def main():
     ap.add_argument('--step', type=int, default=3)
     ap.add_argument('--timeout', type=float, default=120)
     ap.add_argument('--batch', type=int, default=32)
+    ap.add_argument('--var', default='000', help='chord variant XYZ (chains 9-16 and 1-8)')
+    ap.add_argument('--s', type=int, default=1, help='doublings from "2" to "4" (10 for chains 1-8)')
     args = ap.parse_args()
     t0 = time.time()
     s = run_search(args.binary, args.a, args.b, args.c, args.anchor, args.workdir, args.workers,
                    args.depth, args.step, args.timeout, log=lambda m: print(m, flush=True),
-                   batch_size=args.batch)
+                   batch_size=args.batch,
+                   extra=(['var=' + args.var] if args.var != '000' else []) + (['s=%d' % args.s] if args.s != 1 else []))
     s['wall_seconds'] = round(time.time() - t0, 1)
     print(json.dumps(s), flush=True)
 

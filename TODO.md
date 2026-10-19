@@ -275,15 +275,17 @@ or raise unrestricted solver timeouts.
   enumeration, generic cost-(n-1) leaf checks and a positive control; see
   `results/2026-10-19-clift5784689-chain9.md` for the independent program.
 
-**Next.** (1) The same question for the other 15 optimal chains: chains 10-16
-are eight skeleton variants (256=128+128, 361472=2*180736, 5784592=2*2892296)
-and chains 1-8 are their transposes (cost is not transpose-invariant). Write a
-generic engine that derives components, detours and cap constraints from any
-parent graph rather than hand tables. (2) Formalise the loss decomposition,
-minimal-element enumeration and cap constraints in Lean, or find a lifting
-lemma (every small G(a,b,c) tested has exactly the 48 configurations of the
-109 graph, lifted; unproved). Do not rerun the chain-9 search without a
-concrete reason.
+**In progress (19-20 October): the other 15 optimal chains.** All 16 optimal
+chains are run-generalised graphs G(a,s,b,c) with s doublings from 2 to 4 and
+three chord variants (vX: 16=2*8, vY: 2*Fb, vZ: 2*Gc). Chains 1-8 are
+G(4,10,0,4) and chains 9-16 are G(5,1,9,3), with variant = binary(k-1) and
+binary(k-9). The 18 October description of chains 1-8 as "transposes" was
+wrong: the reversed path counts of chain 9 have only 25 distinct values. The
+nine-component loss form is unchanged; only the critical paths and cap
+constraints differ. `clift5784689_loss_search.cpp` now takes `s=` and `var=`,
+and `experiment_clift5784689_chains.py` validates and summarises both
+searches per chain. Next: finish the runs, write the results note, run the
+integration.
 
 ## Retained constraints and failed shortcuts
 

@@ -11,6 +11,12 @@
   chain-9 root splits must reproduce the stored job lists (hash), and a seeded
   sample of small chain-9 jobs must reproduce their stored node counts.
 
+With `--chains` it checks the report of `experiment_clift5784689_chains.py` for
+chains 1-8 and 10-16 in the same way: complete job trees, both root job lists
+of every chain reproduced by hash, a seeded sample of jobs replayed, complete
+coverage of every critical path by the detour jobs, and caps soundness on
+every chain graph.
+
 With `--detour` it also checks the saved results of the independently written
 detour-model search (`clift5784689_detour_search.cpp`): source hash, complete
 job coverage of all 12 critical paths with no labelling, a fresh G(1,0,0) run,
@@ -123,11 +129,53 @@ def check_detour(path, tmp):
             'brute_force_graphs': v['graphs'], 'brute_force_labellings': v['labellings_total']}
 
 
+def check_chains(path, binary, tmp, rng):
+    """Saved evidence for chains 1-8 and 10-16."""
+    import experiment_clift5784689_chains as ch
+    rep = json.loads(Path(path).read_text())
+    src = exp.ROOT / 'scripts/clift5784689_loss_search.cpp'
+    if hashlib.sha256(src.read_bytes()).hexdigest() != rep['input_sha256']['scripts/clift5784689_loss_search.cpp']:
+        fail('search source changed since the chains report')
+    settled = {}
+    for key, run in rep['chain_runs'].items():
+        nodes, configs, runs = tree_totals(run)
+        if nodes != run['nodes'] or runs != run['job_runs'] or configs or run['configurations']:
+            fail('chain run %s totals inconsistent' % key)
+        k = run['chain']
+        a, b, c, s, var = ch.chain_params(k)
+        extra = ch.opts(var, s)
+        o = Path(tmp) / ('root_%d_%s.txt' % (k, run['anchor']))
+        subprocess.run([binary, str(a), str(b), str(c), run['anchor'], str(o), 'split=10'] + extra,
+                       capture_output=True, check=True)
+        lines = [l for l in o.read_text().splitlines() if l.startswith('J')]
+        if hashlib.sha256(''.join(l + '\n' for l in lines).encode()).hexdigest() != run['root_jobs_sha256']:
+            fail('chain %d %s root jobs differ' % (k, run['anchor']))
+        for rid, n in rng.sample(run['replay_sample'], min(2, len(run['replay_sample']))):
+            r = subprocess.run([binary, str(a), str(b), str(c), 'resume', str(Path(tmp) / 'cr.txt')] + extra,
+                               input=lines[int(rid.split('.')[1])] + '\n', capture_output=True, text=True, check=True)
+            (Path(tmp) / 'cr.txt').unlink()
+            got = json.loads(r.stdout.splitlines()[0])
+            if got['nodes'] != n or got['configurations']:
+                fail('chain %d job %s changed' % (k, rid))
+        settled.setdefault(k, []).append(run['anchor'])
+    for k in list(range(1, 9)) + list(range(10, 17)):
+        a, b, c, s, var = ch.chain_params(k)
+        if sorted(settled.get(k, [])) != sorted(['t'] + ([] if var[0] else ['A1'])):
+            fail('chain %d: anchors missing' % k)
+        d = rep['detour_runs'][str(k)]
+        if d['result'] != 'no labelling' or len({j['pstar'] for j in d['jobs']}) != d['critical_paths']:
+            fail('chain %d: detour coverage' % k)
+    caps = ch.chain_graph_tests(binary, rng, 40)
+    return {'chains_settled': sorted(settled), 'chain_runs_checked': len(rep['chain_runs']),
+            'caps_queries_per_chain_graph': 40, 'chain_graph_caps_tests': len(caps)}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('report', type=Path)
     ap.add_argument('--samples', type=int, default=24)
     ap.add_argument('--detour', type=Path, default=None)
+    ap.add_argument('--chains', type=Path, default=None)
     args = ap.parse_args()
     rep = json.loads(args.report.read_text())
     out = {}
@@ -197,6 +245,8 @@ def main():
         out['chain9_jobs_replayed'] = len(sampled)
         if args.detour:
             out['detour'] = check_detour(args.detour, tmp)
+        if args.chains:
+            out['chains'] = check_chains(args.chains, binary, tmp, rng)
     out['status'] = 'checked'
     print(json.dumps(out))
 

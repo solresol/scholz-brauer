@@ -45,7 +45,8 @@
 //    atoms replaced by valid lower bounds and lazy classes by bounds valid for
 //    every resolution.  Feasibility is Bellman-Ford on difference constraints.
 //
-// Modes: `a b c t|A1 OUT [split=D]` searches one anchor (emitting `J` job
+// Modes (append `var=XYZ` for the chord variants of chains 10-16, X,Y,Z in
+// {0,1}): `a b c t|A1 OUT [split=D]` searches one anchor (emitting `J` job
 // lines at depth D); `a b c resume OUT [split=D]` reads job lines on stdin and
 // searches each (or splits it further at depth D), printing per-job JSON;
 // `a b c lptest` evaluates the caps test on stdin lines (validation hook).
@@ -72,6 +73,8 @@ static const CompDef COMPS[9] = {
 static ll n;
 static int NW;
 static int ga, gb, gc;
+static int gvX = 0, gvY = 0, gvZ = 0;  // chord variants (chains 9-16, 1-8)
+static int gs = 1;  // doublings from "2" to "4" (1 for chains 9-16, 10 for chains 1-8)
 static int capc[5];
 static bool use_lp = true;
 static ll nodes = 0, solutions = 0, lp_prunes = 0, bound_prunes = 0, cand_prunes = 0, collisions = 0, jobs_out = 0;
@@ -164,6 +167,11 @@ static bool cand_ok(ll e, int mask) {
 // ------------------------------------------------------------ caps LP ------
 // Families: X = 0 (A: P* 4-8-15-23), 1 (B: 4-8-23), 2 (C: 4-5-7-15-23);
 // i2 = 0 (F_b-51 direct) or 1 (F_b-28-51); i1 = 0 (G_c-sink) or 1 (G_c-58-sink).
+// Chord variants (chains 10-16) double a chord: vX ("16"=2"8", F0="16"+"7")
+// leaves only X = 3 (4-8-16-23, d3 the pair difference at "8"); vY ("46"=2Fb,
+// G0="46"+"5") only i2 = 2 (Fb-46-51, d2 at Fb, q rejoins at G0); vZ
+// ("102"=2Gc, n="102"+"7") only i1 = 2 (Gc-102-n, d1 at Gc, p rejoins at n).
+// The nine components are the same in every variant.
 // Positions on P*: R0..R(a-1) = 0..a-1, Ra = a, "4" = a+1, then A: "8" a+2,
 // "15" a+3, F0 a+4; B: "8" a+2, F0 a+3; C: "5" a+2, "7" a+3, "15" a+4, F0 a+5.
 // A detour from position s rejoining at e with first shift in [0, c_s] has loss
@@ -197,9 +205,8 @@ struct LP {
 };
 struct AI { bool k; ll v; };  // known exact value, or lower bound v
 struct ClassInfo {
-  ll LBU, LBF, LBG, maxF, minF, maxG, minG, minU, runF, runG, runU1;
-  bool allF, allG, allU;
-  AI vv;
+  ll LBU, LBF, LBG, LBV, maxF, minF, maxG, minG, minU, minV, runF, runG, runU1, runV1;
+  bool allF, allG, allU, allV;
 };
 struct CLP {
   int map[96]; int nn = 0; LP L;
@@ -207,13 +214,13 @@ struct CLP {
   void ge(int i, int j, ll w) { L.ge(map[i], map[j], w); }
 };
 static bool family_ok(int X, int i2, int i1, const AI at[6], AI wv, AI dv, const ClassInfo &ci) {
-  int a = ga, b = gb, c = gc;
-  int f0 = X == 0 ? a + 4 : X == 1 ? a + 3 : a + 5;
-  int Fb = f0 + b, g0 = i2 == 0 ? Fb + 1 : Fb + 2, r28 = Fb + 1, Gc = g0 + c;
-  int S = i1 == 0 ? Gc + 1 : Gc + 2, r58 = i1 == 0 ? S : Gc + 1;
+  int a = ga, b = gb, c = gc, p4 = ga + gs;  // "2" at a, "4" at p4
+  int f0 = X == 0 ? p4 + 3 : X == 1 ? p4 + 2 : X == 2 ? p4 + 4 : p4 + 3;
+  int Fb = f0 + b, g0 = i2 == 0 ? Fb + 1 : Fb + 2, r28 = i2 == 2 ? Fb + 2 : Fb + 1, Gc = g0 + c;
+  int S = i1 == 0 ? Gc + 1 : Gc + 2, r58 = i1 == 1 ? Gc + 1 : S;
   CLP C;
   bool used[96] = {false};
-  int keep[] = {0, 1, a, a + 1, a + 2, a + 3, a + 4, a + 5, f0, Fb, Fb + 1, Fb + 2, g0, Gc, Gc + 1, Gc + 2, S};
+  int keep[] = {0, 1, a, a + 1, p4, p4 + 1, p4 + 2, p4 + 3, p4 + 4, f0, Fb, Fb + 1, Fb + 2, g0, Gc, Gc + 1, Gc + 2, S};
   for (int p : keep) if (p <= S) used[p] = true;
   for (int p = 0; p <= S; p++) C.map[p] = used[p] ? C.nn++ : -1;
   C.L.S = C.nn - 1;
@@ -227,37 +234,48 @@ static bool family_ok(int X, int i2, int i1, const AI at[6], AI wv, AI dv, const
     C.ge(hi_i, j, v.v);
   };
   if (X <= 1) {
-    int r15 = a + 3;
-    range(1, at[AA1], a + 2, r15, a + 1);
+    int r15 = p4 + 2;
+    range(1, at[AA1], p4 + 1, r15, p4);
     range(2, at[AA2], a + 1, r15, a);
     range(4, at[AA3], 1, r15, 0);
     if (!(lp_drop & 8)) { if (at[AP].k) C.le(r15, r58, at[AP].v); C.ge(r15, r58, at[AP].v); }
     if (!(lp_drop & 16)) { if (at[AQ].k) C.le(r15, r28, at[AQ].v); C.ge(r15, r28, at[AQ].v); }
-    C.ge(a + 1, a + 2, wv.v);
-    if (X == 0) { C.ge(a + 2, a + 4, dv.v); if (dv.k) C.le(a + 3, a + 4, dv.v); }
-    else C.ge(a + 2, a + 3, dv.v);
+    C.ge(p4, p4 + 1, wv.v);
+    if (X == 0) { C.ge(p4 + 1, p4 + 3, dv.v); if (dv.k) C.le(p4 + 2, p4 + 3, dv.v); }
+    else C.ge(p4 + 1, p4 + 2, dv.v);
+  } else if (X == 3) {  // 4-8-16-23: detours from "7" rejoin at F0
+    int r = p4 + 3;
+    range(1, at[AA1], p4 + 1, r, p4);
+    range(2, at[AA2], a + 1, r, a);
+    range(4, at[AA3], 1, r, 0);
+    if (!(lp_drop & 8)) { if (at[AP].k) C.le(r, r58, at[AP].v); C.ge(r, r58, at[AP].v); }
+    if (!(lp_drop & 16)) { if (at[AQ].k) C.le(r, r28, at[AQ].v); C.ge(r, r28, at[AQ].v); }
+    C.ge(p4, p4 + 1, wv.v);
+    C.ge(p4 + 1, p4 + 2, dv.v);
   } else {
-    range(32, at[AT], a + 2, a + 4, a + 1);
-    range(2, at[AA2], a + 1, a + 3, a);
-    range(4, at[AA3], 1, a + 2, 0);
-    range(8, at[AP], a + 4, r58, a + 3);
-    range(16, at[AQ], a + 3, r28, a + 2);
-    C.ge(a + 1, a + 4, at[AT].v + wv.v);
-    C.ge(a + 4, a + 5, dv.v); if (dv.k) C.le(a + 4, a + 5, dv.v);
+    range(32, at[AT], p4 + 1, p4 + 3, p4);
+    range(2, at[AA2], a + 1, p4 + 2, a);
+    range(4, at[AA3], 1, p4 + 1, 0);
+    range(8, at[AP], p4 + 3, r58, p4 + 2);
+    range(16, at[AQ], p4 + 2, r28, p4 + 1);
+    C.ge(p4, p4 + 3, at[AT].v + wv.v);
+    C.ge(p4 + 3, p4 + 4, dv.v); if (dv.k) C.le(p4 + 3, p4 + 4, dv.v);
   }
   C.ge(0, a, ci.LBU);
   C.ge(1, a, ci.runU1);
   if (ci.allU) C.ge(0, 1, ci.minU);
-  C.ge(a, a + 1, ci.vv.v);
-  C.ge(f0, i2 == 0 ? Fb + 1 : Fb + 2, ci.LBF);
+  C.ge(a, p4, ci.LBV);          // V run (s differences) at positions a..p4-1
+  C.ge(a + 1, p4, ci.runV1);     // all but the one at "2" (which also leaves by theta)
+  if (ci.allV) C.ge(a, a + 1, ci.minV);
+  C.ge(f0, i2 == 1 ? Fb + 2 : Fb + 1, ci.LBF);
   C.ge(f0, Fb, ci.runF);
   if (ci.allF) {
-    if (i2 == 0) C.ge(Fb, Fb + 1, ci.minF); else { C.le(Fb + 1, Fb + 2, ci.maxF); C.ge(Fb, Fb + 2, ci.minF); }
+    if (i2 != 1) C.ge(Fb, Fb + 1, ci.minF); else { C.le(Fb + 1, Fb + 2, ci.maxF); C.ge(Fb, Fb + 2, ci.minF); }
   }
-  C.ge(g0, S, ci.LBG);
+  C.ge(g0, i1 == 1 ? S : Gc + 1, ci.LBG);
   C.ge(g0, Gc, ci.runG);
   if (ci.allG) {
-    if (i1 == 0) C.ge(Gc, S, ci.minG); else { C.le(Gc + 1, S, ci.maxG); C.ge(Gc, S, ci.minG); }
+    if (i1 != 1) C.ge(Gc, Gc + 1, ci.minG); else { C.le(Gc + 1, S, ci.maxG); C.ge(Gc, S, ci.minG); }
   }
   return C.L.feasible();
 }
@@ -313,8 +331,19 @@ static bool caps_ok2(ll x, const DV *d1, size_t n1, const DV *d2, size_t n2) {
   ci.runF = smallest_sum(cand[3], ncand[3], (int)(capc[3] - resCnt[3]), lbd, gb);
   ci.runG = smallest_sum(cand[4], ncand[4], (int)(capc[4] - resCnt[4]), lbd, gc);
   ci.runU1 = smallest_sum(cand[0], ncand[0], (int)(capc[0] - resCnt[0]), lbd, ga - 1);
-  if (resCnt[1]) ci.vv = {true, resVals[1][0]};
-  else { ll m = lbd; if (unresMin[1] >= 0) m = std::min(m, unresMin[1]); ci.vv = {false, m}; }
+  // V class (s differences): resolved ones plus the smallest possible others.
+  {
+    ll un[96]; int nu = 0;
+    for (size_t t = 0; t < n1 + n2; t++) {
+      const DV &d = t < n1 ? d1[t] : d2[t - n1];
+      if (__builtin_popcount(d.second) > 1 && (d.second & CV)) un[nu++] = d.first;
+    }
+    int rest = (int)(capc[1] - resCnt[1]);
+    ci.LBV = resSum[1] + smallest_sum(un, nu, rest, lbd, rest);
+    ci.runV1 = smallest_sum(cand[1], ncand[1], rest, lbd, gs - 1);
+    ci.allV = resCnt[1] == capc[1];
+    ci.minV = ci.allV ? *std::min_element(resVals[1], resVals[1] + nres[1]) : 0;
+  }
   ci.allF = resCnt[3] == capc[3]; ci.allG = resCnt[4] == capc[4]; ci.allU = resCnt[0] == capc[0];
   ci.maxF = ci.minF = ci.maxG = ci.minG = ci.minU = 0;
   if (ci.allF) { ci.maxF = *std::max_element(resVals[3], resVals[3] + nres[3]); ci.minF = *std::min_element(resVals[3], resVals[3] + nres[3]); }
@@ -328,14 +357,19 @@ static bool caps_ok2(ll x, const DV *d1, size_t n1, const DV *d2, size_t n2) {
   else { wo[0][0] = {false, otherW}; wo[0][1] = {false, otherW}; nwo = 1; }
   static int last = 0;  // start with the family that succeeded last (speed only)
   int fams[8], nf = 0;
-  for (int X = 0; X < 3; X++) {
-    if (anchorT ? X == 2 : X != 2) continue;  // anchor t: families A, B; A1: C
-    for (int i2 = 0; i2 < 2; i2++) for (int i1 = 0; i1 < 2; i1++) fams[nf++] = X * 4 + i2 * 2 + i1;
+  const int Xs0[3] = {0, 1, 2}, Xs1[1] = {3};
+  const int *Xs = gvX ? Xs1 : Xs0; int nX = gvX ? 1 : 3;
+  for (int xi = 0; xi < nX; xi++) {
+    int X = Xs[xi];
+    if (anchorT ? X == 2 : X != 2) continue;  // anchor t: families A, B (or A'); A1: C
+    for (int i2 = (gvY ? 2 : 0); i2 < (gvY ? 3 : 2); i2++)
+      for (int i1 = (gvZ ? 2 : 0); i1 < (gvZ ? 3 : 2); i1++) fams[nf++] = X * 9 + i2 * 3 + i1;
   }
+  if (nf == 0) return false;  // no critical path with this anchor (anchor A1 under vX)
   for (int t = 0; t < nf; t++) {
     int f = fams[(t + last) % nf];
     for (int w = 0; w < nwo; w++)
-      if (family_ok(f / 4, (f / 2) % 2, f % 2, at, wo[w][0], wo[w][1], ci)) { last = (t + last) % nf; return true; }
+      if (family_ok(f / 9, (f / 3) % 3, f % 3, at, wo[w][0], wo[w][1], ci)) { last = (t + last) % nf; return true; }
   }
   return false;
 }
@@ -476,7 +510,7 @@ static void step(ll x0) {
 }
 
 static ll chain_value(int a, int b, int c, ll &v7, ll &v5) {
-  ll two = 1LL << a, four = 2 * two, five = four + 1, seven = five + two, eight = 2 * four;
+  ll two = 1LL << a, four = two << gs, five = four + 1, seven = five + two, eight = 2 * four;
   ll s15 = eight + seven, s23 = s15 + eight, fb = s23 << b, s28 = fb + five, s51 = s28 + fb;
   ll g = s51 << c, s58 = g + seven;
   v7 = seven; v5 = five;
@@ -530,14 +564,19 @@ int main(int argc, char **argv) {
   if (getenv("LPSLACK")) lp_slack = atoll(getenv("LPSLACK"));
   if (getenv("LPDROP")) lp_drop = atoi(getenv("LPDROP"));
   std::string mode = argv[4];
-  for (int i = 6; i < argc; i++) {
+  for (int i = 5; i < argc; i++) {
     if (!strcmp(argv[i], "nolp")) use_lp = false;
     if (!strncmp(argv[i], "split=", 6)) split_depth = atoi(argv[i] + 6);
+    if (!strncmp(argv[i], "s=", 2)) gs = atoi(argv[i] + 2);
+    if (!strncmp(argv[i], "var=", 4) && strlen(argv[i]) == 7) {
+      gvX = argv[i][4] == '1'; gvY = argv[i][5] == '1'; gvZ = argv[i][6] == '1';
+    }
   }
   ll v7, v5;
   n = chain_value(ga, gb, gc, v7, v5);
   NW = (int)((n + 63) / 64);
-  capc[0] = ga; capc[1] = 1; capc[2] = 2; capc[3] = gb + 1; capc[4] = gc + 1;
+  if (gs < 1 || gs > 30) { fprintf(stderr, "bad s\n"); return 2; }
+  capc[0] = ga; capc[1] = gs; capc[2] = 2; capc[3] = gb + 1; capc[4] = gc + 1;
   ll eG = v7, eF = v7 + v5 * (1LL << (gc + 1));
   candF.assign(n + 1, 0); candG.assign(n + 1, 0);
   for (ll d = 1; d < n; d++) {
@@ -584,10 +623,10 @@ int main(int argc, char **argv) {
     fprintf(stderr, "unknown mode\n"); return 2;
   }
   fclose(out);
-  printf("{\"a\": %d, \"b\": %d, \"c\": %d, \"n\": %lld, \"mode\": \"%s\", \"lp\": %d, \"nodes\": %lld, "
+  printf("{\"a\": %d, \"b\": %d, \"c\": %d, \"variant\": \"%d%d%d\", \"s\": %d, \"n\": %lld, \"mode\": \"%s\", \"lp\": %d, \"nodes\": %lld, "
          "\"configurations\": %lld, \"jobs\": %lld, \"bound_prunes\": %lld, \"lp_prunes\": %lld, "
          "\"candidate_prunes\": %lld, \"collisions\": %lld}\n",
-         ga, gb, gc, n, mode.c_str(), use_lp, nodes, solutions, jobs_out, bound_prunes, lp_prunes,
+         ga, gb, gc, gvX, gvY, gvZ, gs, n, mode.c_str(), use_lp, nodes, solutions, jobs_out, bound_prunes, lp_prunes,
          cand_prunes, collisions);
   return 0;
 }

@@ -29,36 +29,69 @@ COMPONENTS = [('box', ('t',), 31), ('eK', ('A1',), 27), ('ep', ('A1', 'p'), 3),
 ATOMS = ('t', 'A1', 'A2', 'A3', 'p', 'q')
 
 
-def graph(a, b, c):
-    """Vertex names in chain order, parents (first, second) and values."""
+def graph(a, b, c, var=(0, 0, 0), s=1):
+    """Vertex names in chain order, parents (first, second) and values.
+
+    var = (vX, vY, vZ) selects the chord variants of chains 9-16: vX replaces
+    "15" = "8"+"7" by "16" = "8"+"8" (then F0 = "16"+"7"); vY replaces
+    "28" = Fb+"5" by "46" = Fb+Fb (then G0 = "46"+"5"); vZ replaces
+    "58" = Gc+"7" by "102" = Gc+Gc (then n = "102"+"7"). s is the number of
+    doublings from "2" to "4" (V1, ..., V(s-1), "4"): 1 for chains 9-16, 10
+    for chains 1-8."""
+    vX, vY, vZ = var
     names = ['R%d' % i for i in range(a + 1)]
     par = {}
     for i in range(1, a + 1):
         par['R%d' % i] = ('R%d' % (i - 1),) * 2
     two = 'R%d' % a
-    par.update({'4': (two, two), '5': ('4', 'R0'), '7': ('5', two), '8': ('4', '4'),
-                '15': ('8', '7'), 'F0': ('15', '8')})
-    names += ['4', '5', '7', '8', '15', 'F0']
+    prev = two
+    for j in range(1, s):
+        par['V%d' % j] = (prev, prev)
+        names.append('V%d' % j)
+        prev = 'V%d' % j
+    par.update({'4': (prev, prev), '5': ('4', 'R0'), '7': ('5', two), '8': ('4', '4')})
+    if vX:
+        par.update({'16': ('8', '8'), 'F0': ('16', '7')})
+        names += ['4', '5', '7', '8', '16', 'F0']
+    else:
+        par.update({'15': ('8', '7'), 'F0': ('15', '8')})
+        names += ['4', '5', '7', '8', '15', 'F0']
     for j in range(1, b + 1):
         par['F%d' % j] = ('F%d' % (j - 1),) * 2
         names.append('F%d' % j)
     fb = 'F%d' % b
-    par.update({'28': (fb, '5'), 'G0': ('28', fb)})
-    names += ['28', 'G0']
+    if vY:
+        par.update({'46': (fb, fb), 'G0': ('46', '5')})
+        names += ['46', 'G0']
+    else:
+        par.update({'28': (fb, '5'), 'G0': ('28', fb)})
+        names += ['28', 'G0']
     for j in range(1, c + 1):
         par['G%d' % j] = ('G%d' % (j - 1),) * 2
         names.append('G%d' % j)
     gc = 'G%d' % c
-    par.update({'58': (gc, '7'), 'S': ('58', gc)})
-    names += ['58', 'S']
+    if vZ:
+        par.update({'102': (gc, gc), 'S': ('102', '7')})
+        names += ['102', 'S']
+    else:
+        par.update({'58': (gc, '7'), 'S': ('58', gc)})
+        names += ['58', 'S']
     val = {'R0': 1}
     for v in names[1:]:
         val[v] = val[par[v][0]] + val[par[v][1]]
     return names, par, val
 
 
-def capacities(a, b, c):
-    return {U: a, V: 1, W: 2, F: b + 1, G: c + 1}
+def families(var=(0, 0, 0)):
+    """Critical-path families (X, i2, i1) of a variant; X=3, i2=2, i1=2 are the
+    single paths through the doubled chords."""
+    vX, vY, vZ = var
+    return [(X, i2, i1) for X in ((3,) if vX else (0, 1, 2)) for i2 in ((2,) if vY else (0, 1))
+            for i1 in ((2,) if vZ else (0, 1))]
+
+
+def capacities(a, b, c, s=1):
+    return {U: a, V: s, W: 2, F: b + 1, G: c + 1}
 
 
 def subset_sums(xs):
@@ -93,20 +126,25 @@ def all_paths(names, par):
 FAMILIES = [(X, i2, i1) for X in range(3) for i2 in range(2) for i1 in range(2)]
 
 
-def critical_path(a, b, c, fam):
+def critical_path(a, b, c, fam, s=1):
     """Vertices of the candidate critical path for family (X, i2, i1)."""
     X, i2, i1 = fam
-    pi = ['R%d' % i for i in range(a + 1)] + ['4']
-    pi += {0: ['8', '15'], 1: ['8'], 2: ['5', '7', '15']}[X]
-    pi += ['F%d' % j for j in range(b + 1)] + (['28'] if i2 else [])
-    pi += ['G%d' % j for j in range(c + 1)] + (['58'] if i1 else []) + ['S']
+    pi = ['R%d' % i for i in range(a + 1)] + ['V%d' % j for j in range(1, s)] + ['4']
+    pi += {0: ['8', '15'], 1: ['8'], 2: ['5', '7', '15'], 3: ['8', '16']}[X]
+    pi += ['F%d' % j for j in range(b + 1)] + {0: [], 1: ['28'], 2: ['46']}[i2]
+    pi += ['G%d' % j for j in range(c + 1)] + {0: [], 1: ['58'], 2: ['102']}[i1] + ['S']
     return pi
 
 
-def random_saturated(a, b, c, fam, rng, scale):
+def variant_of(fam):
+    X, i2, i1 = fam
+    return (int(X == 3), int(i2 == 2), int(i1 == 2))
+
+
+def random_saturated(a, b, c, fam, rng, scale, s=1):
     """Random labelling saturating the given critical path."""
-    names, par, _ = graph(a, b, c)
-    pi = critical_path(a, b, c, fam)
+    names, par, _ = graph(a, b, c, variant_of(fam), s)
+    pi = critical_path(a, b, c, fam, s)
     on = set(pi)
     pedges = set()
     for x, y in zip(pi, pi[1:]):
@@ -127,25 +165,44 @@ def random_saturated(a, b, c, fam, rng, scale):
     return names, par, L, sum(cap.values())
 
 
+def chord_edges(par):
+    """Edges defining the p and q offsets and the route differences d3, d2, d1."""
+    e7 = ('58', 1) if '58' in par else ('S', 1)      # 7 -> 58 or 7 -> n
+    e5 = ('28', 1) if '28' in par else ('G0', 1)     # 5 -> 28 or 5 -> G0
+    return e7, e5
+
+
+def route_diffs(par, L, b, c):
+    d = lambda v: abs(L[v][0] - L[v][1])
+    d3 = d('16') if '16' in par else abs(L['15'][0] + L['F0'][0] - L['F0'][1])
+    d2 = d('46') if '46' in par else abs(L['28'][0] + L['G0'][0] - L['G0'][1])
+    d1 = d('102') if '102' in par else abs(L['58'][0] + L['S'][0] - L['S'][1])
+    return d3, d2, d1
+
+
 def atoms_of_labelling(names, par, L, C, a, b, c):
     """Configuration atoms (loss coordinates, loss = C - weight) by enumeration."""
     paths = all_paths(names, par)
+    e7, e5 = chord_edges(par)
     loss = lambda p: C - sum(L[v][k] for v, k in p)
     eps = [p for p in paths if ('5', 0) in p]
     at = {'t': min(loss(p) for p in paths if any(v == '8' for v, _ in p)),
           'A1': min(map(loss, eps)),
           'A2': min(loss(p) for p in paths if ('7', 1) in p),
           'A3': min(loss(p) for p in paths if ('5', 1) in p)}
-    at['p'] = min(loss(p) for p in eps if ('58', 1) in p) - at['A1']
-    at['q'] = min(loss(p) for p in eps if ('28', 1) in p) - at['A1']
+    at['p'] = min(loss(p) for p in eps if e7 in p) - at['A1']
+    at['q'] = min(loss(p) for p in eps if e5 in p) - at['A1']
+    return at, diff_list(par, L, a, b, c), sorted(loss(p) for p in paths)
+
+
+def diff_list(par, L, a, b, c):
     d = lambda v: abs(L[v][0] - L[v][1])
-    diffs = [(d('R%d' % i), U) for i in range(1, a + 1)] + [(d('4'), V), (d('8'), W)]
-    diffs.append((abs(L['15'][0] + L['F0'][0] - L['F0'][1]), W))
-    diffs += [(d('F%d' % j), F) for j in range(1, b + 1)]
-    diffs.append((abs(L['28'][0] + L['G0'][0] - L['G0'][1]), F))
-    diffs += [(d('G%d' % j), G) for j in range(1, c + 1)]
-    diffs.append((abs(L['58'][0] + L['S'][0] - L['S'][1]), G))
-    return at, diffs, sorted(loss(p) for p in paths)
+    d3, d2, d1 = route_diffs(par, L, b, c)
+    vrun = [v for v in par if v.startswith('V')] + ['4']
+    diffs = [(d('R%d' % i), U) for i in range(1, a + 1)] + [(d(v), V) for v in vrun] + [(d('8'), W), (d3, W)]
+    diffs += [(d('F%d' % j), F) for j in range(1, b + 1)] + [(d2, F)]
+    diffs += [(d('G%d' % j), G) for j in range(1, c + 1)] + [(d1, G)]
+    return diffs
 
 
 def atoms_by_dp(names, par, L, C, a, b, c):
@@ -169,16 +226,10 @@ def atoms_by_dp(names, par, L, C, a, b, c):
           'A1': C - best_eps,
           'A2': C - (pre[two] + L['7'][1] + suf['7']),
           'A3': C - (L['5'][1] + suf['5'])}
-    at['p'] = C - (pre['4'] + L['5'][0] + L['7'][0] + L['58'][1] + suf['58']) - at['A1']
-    at['q'] = C - (pre['4'] + L['5'][0] + L['28'][1] + suf['28']) - at['A1']
-    d = lambda v: abs(L[v][0] - L[v][1])
-    diffs = [(d('R%d' % i), U) for i in range(1, a + 1)] + [(d('4'), V), (d('8'), W)]
-    diffs.append((abs(L['15'][0] + L['F0'][0] - L['F0'][1]), W))
-    diffs += [(d('F%d' % j), F) for j in range(1, b + 1)]
-    diffs.append((abs(L['28'][0] + L['G0'][0] - L['G0'][1]), F))
-    diffs += [(d('G%d' % j), G) for j in range(1, c + 1)]
-    diffs.append((abs(L['58'][0] + L['S'][0] - L['S'][1]), G))
-    return at, diffs
+    (v7, k7), (v5, k5) = chord_edges(par)
+    at['p'] = C - (pre['4'] + L['5'][0] + L['7'][0] + L[v7][k7] + suf[v7]) - at['A1']
+    at['q'] = C - (pre['4'] + L['5'][0] + L[v5][k5] + suf[v5]) - at['A1']
+    return at, diff_list(par, L, a, b, c)
 
 
 def minimal_element(atoms, diffs, item):
@@ -204,9 +255,9 @@ class Reference:
     induced by the active components, refined (by branching) on activation.
     """
 
-    def __init__(self, a, b, c, anchor):
-        self.n = graph(a, b, c)[2]['S']
-        self.cap = capacities(a, b, c)
+    def __init__(self, a, b, c, anchor, s=1):
+        self.n = graph(a, b, c, (0, 0, 0), s)[2]['S']
+        self.cap = capacities(a, b, c, s)
         self.ndiffs = sum(self.cap.values())
         self.anchor = anchor
         self.solutions = []
@@ -299,7 +350,7 @@ def to_weight(n, atoms, diffs):
     cl = {k: sorted(e for e, m in diffs if m == k) for k in (U, V, W, F, G)}
     SK = sum(cl[F]) + sum(cl[G])
     SU = sum(cl[U])
-    v, = cl[V]
+    v = sum(cl[V])
     tot = SU + v + sum(cl[W]) + SK
     w = {'t': n - 1 - tot - atoms['t'], 'A1': n - 1 - SU - v - SK - atoms['A1'],
          'A2': n - 1 - SU - SK - atoms['A2'], 'A3': n - 1 - SK - atoms['A3'],
@@ -307,14 +358,28 @@ def to_weight(n, atoms, diffs):
     return w, cl
 
 
-def particular(a, b, c, w, Us, v, ww, d3, Fs, d2, Gs, d1, o):
-    """A labelling (shifts may be negative) with the given weight configuration."""
+def particular(a, b, c, w, Us, Vs, ww, d3, Fs, d2, Gs, d1, o, var=(0, 0, 0)):
+    """A labelling (shifts may be negative) with the given weight configuration.
+    Vs are the differences of the run "2" -> "4" in order (one for chains 9-16)."""
+    if isinstance(Vs, int):
+        Vs = [Vs]
     o1, o2, o3 = o
+    vX, vY, vZ = var
     L = {'R%d' % i: (Us[i - 1], 0) for i in range(1, a + 1)}
-    L.update({'4': (v, 0), '5': (w['A1'], w['A3']), '7': (0, w['A2']), '8': (ww + w['t'], w['t']),
-              '15': (0 if o3 else d3, 0), 'F0': (0, d3 if o3 else 0),
-              '28': (0 if o2 else d2, w['q']), 'G0': (0, d2 if o2 else 0),
-              '58': (0 if o1 else d1, w['p']), 'S': (0, d1 if o1 else 0)})
+    L.update({'V%d' % j: (Vs[j - 1], 0) for j in range(1, len(Vs))})
+    L.update({'4': (Vs[-1], 0), '5': (w['A1'], w['A3']), '7': (0, w['A2']), '8': (ww + w['t'], w['t'])})
+    if vX:
+        L.update({'16': (d3, 0), 'F0': (0, 0)})
+    else:
+        L.update({'15': (0 if o3 else d3, 0), 'F0': (0, d3 if o3 else 0)})
+    if vY:
+        L.update({'46': (d2, 0), 'G0': (0, w['q'])})
+    else:
+        L.update({'28': (0 if o2 else d2, w['q']), 'G0': (0, d2 if o2 else 0)})
+    if vZ:
+        L.update({'102': (d1, 0), 'S': (0, w['p'])})
+    else:
+        L.update({'58': (0 if o1 else d1, w['p']), 'S': (0, d1 if o1 else 0)})
     L.update({'F%d' % j: (Fs[j - 1], 0) for j in range(1, b + 1)})
     L.update({'G%d' % j: (Gs[j - 1], 0) for j in range(1, c + 1)})
     return L
@@ -405,14 +470,15 @@ def replay(names, par, n, M):
     return sum(caps.values())
 
 
-def budget_check(a, b, c, atoms, diffs):
+def budget_check(a, b, c, atoms, diffs, var=(0, 0, 0), s=1):
     """Every role choice and orientation: interval test and cost-(n-1) system."""
-    names, par, val = graph(a, b, c)
+    names, par, val = graph(a, b, c, var, s)
     n = val['S']
     w, cl = to_weight(n, atoms, diffs)
     out = {'interval': None, 'cases': 0, 'feasible': []}
-    v, = cl[V]
-    for iw in (0, 1):
+    # the V-run difference at "2" is special (theta also leaves "2"); the others commute
+    vorders = [[x] + cl[V][:i] + cl[V][i + 1:] for i, x in enumerate(cl[V])]
+    for iw, Vs in itertools.product((0, 1), vorders):
         ww, d3 = cl[W][iw], cl[W][1 - iw]
         for i2, d2 in enumerate(cl[F]):
             Fr = cl[F][:i2] + cl[F][i2 + 1:]
@@ -421,7 +487,7 @@ def budget_check(a, b, c, atoms, diffs):
                 for i0, u0 in enumerate(cl[U]):
                     Ur = [u0] + cl[U][:i0] + cl[U][i0 + 1:]
                     for o in itertools.product((0, 1), repeat=3):
-                        L = particular(a, b, c, w, Ur, v, ww, d3, Fr, d2, Gr, d1, o)
+                        L = particular(a, b, c, w, Ur, Vs, ww, d3, Fr, d2, Gr, d1, o, var)
                         S = weight_sets(names, par, L)
                         ok = S is not None and S['S'][0] == 0 and S['S'][1] == (1 << n) - 1
                         if out['interval'] is None:
@@ -435,6 +501,6 @@ def budget_check(a, b, c, atoms, diffs):
                         if M is not None:
                             if replay(names, par, n, M) != n - 1:
                                 raise ValueError('budget labelling has the wrong cost')
-                            out['feasible'].append({'roles': [iw, d2, d1, u0, list(o)],
+                            out['feasible'].append({'roles': [iw, Vs[0], d2, d1, u0, list(o)],
                                                     'shifts': {k: list(s) for k, s in M.items()}})
     return out
