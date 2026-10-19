@@ -142,8 +142,10 @@ rerun on a quiet machine.
 
 Details: `results/2026-10-19-clift5784689-chain9.md`.
 
-**Next.** The other 15 optimal chains (eight skeleton variants and their
-transposes) via a generic engine; Lean formalisation of the reduction.
+**Next.** The other 15 optimal chains via a generic engine; Lean
+formalisation of the reduction. (Corrected later the same day: chains 1-8 are
+not transposes of chains 9-16. All 16 are run-generalised graphs G(a,s,b,c) with chord
+variants; see the evening entry.)
 
 ## 2026-10-18 — Sunday automation — critical-path obligation closed in Lean
 
