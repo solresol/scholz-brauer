@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 19 October 2026
+## Verified status — 21 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -155,8 +155,23 @@ chain labelled from seed 1 to M_n within cap budget n-1, a path of weight n-1
 uses a maximum outgoing shift at every visited tail, and every skipped vertex
 below n has cap zero. The selected 109 graph corollary also proves every
 outgoing edge from a skipped vertex has shift zero. This closes step 4 of the
-box reduction; the box identity, gauge description and finite classification
-remain to be formalised. See `results/2026-10-18-critical-path-lean.md`.
+box reduction. The subsequent box and signed-gauge proofs are recorded below;
+the orientation-normalized classification remains to be formalised. See
+`results/2026-10-18-critical-path-lean.md`.
+
+**The 64-path box and an integral gauge normal form are now proved in Lean.**
+The 109 path weights partition exactly into a 64-weight box and a 45-weight
+remainder. The box is a translated multiset of subset sums of six differences.
+Mersenne termination forces distinct subset sums and positive, pairwise distinct
+differences; budget 108 bounds the translated maximum by 108. Independently,
+twelve signed coordinates classify all integer edge labellings up to a gauge
+with both endpoint potentials zero. An explicit integral section and ten
+interior potentials reconstruct every labelling, and a general path-weight
+theorem proves gauge invariance. The canonical representative may have negative
+shifts. Connecting these signed coordinates to the enumeration's absolute-value
+orientations and normalized remainder, then kernel-checking a smaller finite
+classification, remains open in this repository. The full 109 exclusion remains
+computational. See `results/2026-10-21-box-gauge-lean.md`.
 
 **Chain 9 of 5,784,689 has no labelling with n-1 doublings.** Clift lists 16
 optimal 27-step chains for 5,784,689. Chain 9 is the 109 graph with doubling

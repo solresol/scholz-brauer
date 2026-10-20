@@ -1,5 +1,33 @@
 # Research log
 
+## 2026-10-21 — Wednesday — box dissociation and integral gauge classification in Lean
+
+Milestone 3 advanced on the existing 109 reduction; milestones 1/2 were already
+complete. The checkout was clean at 7cea133, the previous overlapping Claude
+processes were gone, and fetch/fast-forward was already current. No necessary
+computational blocker remained, so this computational day continued the proof.
+
+`Clift109Box.lean` proves the exact 64+45 partition and translated six-difference
+subset-sum identity. Mersenne termination forces distinct subset sums without a
+budget assumption; budget 108 bounds their translated maximum. Positivity and
+pairwise distinctness of the six differences follow, rather than being assumed.
+`Clift109Gauge.lean` proves a complete signed integer gauge classification:
+twelve explicit coordinates, an integral section, reconstruction via ten interior
+potentials, and equivalence of equal coordinates with an endpoint-fixed gauge.
+A general theorem connects gauge transformations to the existing natural path
+weights. No exporter, checker, solver, format or dependency was added.
+
+The signed coordinates avoid absolute-value orientation case splits. Their
+connection to the normalized enumeration coordinates and remainder is still
+needed, followed by cap-constraint transport and a smaller finite classification.
+No full Lean 109 exclusion or new Scholz/optimality theorem is claimed. No
+completed large computation was repeated. Development errors were local Lean
+elaboration/simplification issues, detailed with checks in
+`results/2026-10-21-box-gauge-lean.md`; no mathematical hypothesis failed.
+Required integration passed in 210.903700 s (Lean 4.27.0, 1,127 jobs,
+236 audited theorems with only permitted standard axioms). All 120 input
+hashes and five vendor hashes matched; complete diff reviewed.
+
 ## 2026-10-19 — Monday evening (interactive) — all 16 chains of 5,784,689 settled
 
 **Result.** Chains 1-8 and 10-12 are excluded by both programs, which

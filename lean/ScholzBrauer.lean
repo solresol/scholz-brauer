@@ -20,3 +20,5 @@ import ScholzBrauer.Clift109
 import ScholzBrauer.Clift109Shifted
 import ScholzBrauer.MersenneComplement
 import ScholzBrauer.CliftLabelling
+import ScholzBrauer.Clift109Box
+import ScholzBrauer.Clift109Gauge

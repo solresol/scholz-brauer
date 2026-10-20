@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-19 (Monday, Australia/Sydney).
+Updated 2026-10-21 (Wednesday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -253,8 +253,18 @@ are consistent with the enumeration. See
   Apply the general theorem at 109, including zero outgoing shifts from every
   skipped tail (`critical_path_of_budget`); this closes reduction step 4.
 
-**Next.** (1) Prove the 8-box identity and dissociation and the gauge description
-in Lean; path-weight bounds and critical-path zero conditions are complete.
+- [x] Lean: partition all 109 weights into a 64-weight box and 45-weight
+  remainder, normalize the box to six differences and prove distinct subset
+  sums, positive pairwise-distinct differences, and translated maximum <=108.
+- [x] Lean: twelve signed coordinates classify integer labellings exactly up
+  to endpoint-fixed gauges; give an integral section, reconstruct every
+  labelling with ten interior potentials, and prove path-weight invariance
+  generally and for the selected graph. No matrix saturation is assumed.
+
+**Next.** (1) Connect the signed gauge coordinates to the absolute-value/minimum
+orientations and the normalized 45-weight remainder used by the enumeration.
+Transport the critical-path cap inequalities to those coordinates. The box,
+dissociation, signed gauge classification and path-weight invariance are complete.
 (2) Find a classification of the interval configurations small
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865

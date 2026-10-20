@@ -236,3 +236,27 @@ import ScholzBrauer
 #print axioms ScholzBrauer.CliftLabelling.critical_path_of_weight
 #print axioms ScholzBrauer.CliftLabelling.critical_path_of_budget
 #print axioms ScholzBrauer.Clift109.critical_path_of_budget
+
+#print axioms ScholzBrauer.CliftLabelling.shift_shift
+#print axioms ScholzBrauer.CliftLabelling.shift_add
+#print axioms ScholzBrauer.CliftLabelling.branch_add
+#print axioms ScholzBrauer.CliftLabelling.branch_normalize
+#print axioms ScholzBrauer.CliftLabelling.choices_normalize
+#print axioms ScholzBrauer.CliftLabelling.card_subsetSums
+#print axioms ScholzBrauer.CliftLabelling.zero_mem_subsetSums
+#print axioms ScholzBrauer.CliftLabelling.sum_mem_subsetSums
+#print axioms ScholzBrauer.CliftLabelling.positive_of_subsetSums_nodup
+#print axioms ScholzBrauer.CliftLabelling.mem_subsetSums_of_mem
+#print axioms ScholzBrauer.CliftLabelling.nodup_of_subsetSums_nodup
+#print axioms ScholzBrauer.Clift109.weights_box_partition
+#print axioms ScholzBrauer.Clift109.box_normalize
+#print axioms ScholzBrauer.Clift109.card_box
+#print axioms ScholzBrauer.Clift109.card_boxRemainder
+#print axioms ScholzBrauer.Clift109.box_dissociated
+#print axioms ScholzBrauer.Clift109.box_constraints_of_budget
+#print axioms ScholzBrauer.CliftLabelling.weights_gauge
+#print axioms ScholzBrauer.Clift109.gaugeCoordinates_section
+#print axioms ScholzBrauer.Clift109.gauge_reconstruction
+#print axioms ScholzBrauer.Clift109.gaugeCoordinates_invariant
+#print axioms ScholzBrauer.Clift109.gaugeCoordinates_eq_iff
+#print axioms ScholzBrauer.Clift109.weights_eq_of_gaugeCoordinates_eq

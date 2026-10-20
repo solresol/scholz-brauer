@@ -409,3 +409,14 @@ of the box reduction. It does not formalise the box identity, gauge description
 or the finite classification excluding budget 108. The four public theorems
 are included in `Audit.lean`; no toolchain or dependency changed. See
 `../results/2026-10-18-critical-path-lean.md`.
+
+`Clift109Box.lean` proves the exact 64+45 path-weight partition, the
+six-difference subset-sum identity, dissociation from Mersenne termination,
+and the interval budget constraints. `Clift109Gauge.lean` proves general
+integer-potential telescoping for the existing natural path weights and an
+explicit twelve-coordinate signed gauge classification of the selected graph,
+including an integral section and both directions of gauge equivalence.
+Canonical representatives may have negative shifts; the natural-weight
+corollary requires natural edge shifts on both sides. The orientation-normalized
+configuration link, cap-constraint transport and finite classification remain
+unformalised. These modules do not prove the full budget-108 exclusion.
