@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-21 (Wednesday, Australia/Sydney).
+Updated 2026-10-22 (Thursday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -261,10 +261,21 @@ are consistent with the enumeration. See
   labelling with ten interior potentials, and prove path-weight invariance
   generally and for the selected graph. No matrix saturation is assumed.
 
-**Next.** (1) Connect the signed gauge coordinates to the absolute-value/minimum
-orientations and the normalized 45-weight remainder used by the enumeration.
-Transport the critical-path cap inequalities to those coordinates. The box,
-dissociation, signed gauge classification and path-weight invariance are complete.
+- [x] Prove integer path-weight recursion agrees with the natural recursion
+  and telescopes arbitrary signed gauges, including negative canonical edges.
+- [x] Prove the signed 64+45 coordinate factorisation, absolute/minimum
+  normalization of all three remainder components, and equality with the
+  experiment's minimum-based coordinate formulas. Derive the exact normalized
+  interval equation for every budget-108 labelling.
+- [x] Transport outgoing cap bounds to the signed canonical section as integer
+  difference constraints, with both endpoint potentials zero.
+
+**Next.** (1) Recover the finite orientation choices lost by absolute-value
+normalization and transport the signed cap constraints to the experiment's
+oriented representatives. Combine with critical-path saturation. The normalized
+weight equation is now proved; it does not by itself prove cap feasibility or
+classification completeness. Do not repeat the signed/natural bridge or remainder
+normalization. See `results/2026-10-22-normalized-remainder-lean.md`.
 (2) Find a classification of the interval configurations small
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865

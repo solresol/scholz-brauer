@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 21 October 2026
+## Verified status — 22 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -168,10 +168,21 @@ twelve signed coordinates classify all integer edge labellings up to a gauge
 with both endpoint potentials zero. An explicit integral section and ten
 interior potentials reconstruct every labelling, and a general path-weight
 theorem proves gauge invariance. The canonical representative may have negative
-shifts. Connecting these signed coordinates to the enumeration's absolute-value
-orientations and normalized remainder, then kernel-checking a smaller finite
-classification, remains open in this repository. The full 109 exclusion remains
-computational. See `results/2026-10-21-box-gauge-lean.md`.
+shifts. The subsequent signed-to-absolute normalization is proved below; the
+orientation-dependent cap classification still remains. The full 109 exclusion
+remains computational. See `results/2026-10-21-box-gauge-lean.md`.
+
+**The normalized 64+45 decomposition is now proved in Lean.** Integer path
+weights bridge natural labellings to their possibly negative canonical
+representatives. The signed decomposition factors the remainder into components
+of sizes 28, 10 and 7; absolute differences and minimum offsets preserve the
+complete multiset. The resulting coordinates equal the minimum-based formulas
+used in the saved experiment. A budget-108 labelling therefore satisfies the
+exact normalized interval equation with weights 0..108. Outgoing cap constraints
+also transport to the signed canonical section. Recovering the orientation cases
+for normalized cap constraints and kernel-checking a smaller finite classification
+remain separate obligations. No new Scholz instance or unrestricted Lean
+exclusion follows yet. See `results/2026-10-22-normalized-remainder-lean.md`.
 
 **Chain 9 of 5,784,689 has no labelling with n-1 doublings.** Clift lists 16
 optimal 27-step chains for 5,784,689. Chain 9 is the 109 graph with doubling

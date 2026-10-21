@@ -260,3 +260,21 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.gaugeCoordinates_invariant
 #print axioms ScholzBrauer.Clift109.gaugeCoordinates_eq_iff
 #print axioms ScholzBrauer.Clift109.weights_eq_of_gaugeCoordinates_eq
+
+#print axioms ScholzBrauer.CliftLabelling.weightsZ_cast
+#print axioms ScholzBrauer.CliftLabelling.weightsZ_gauge
+#print axioms ScholzBrauer.Clift109.zshift_add
+#print axioms ScholzBrauer.Clift109.zshift_shift
+#print axioms ScholzBrauer.Clift109.zbranch_shift
+#print axioms ScholzBrauer.Clift109.zbranch_abs
+#print axioms ScholzBrauer.Clift109.zSS_abs
+#print axioms ScholzBrauer.Clift109.canonical_weights
+#print axioms ScholzBrauer.Clift109.weights_coordinates
+#print axioms ScholzBrauer.Clift109.rem7_normalize
+#print axioms ScholzBrauer.Clift109.rem5_normalize
+#print axioms ScholzBrauer.Clift109.coordinateBox_normalize
+#print axioms ScholzBrauer.Clift109.coordinateRemainder_normalize
+#print axioms ScholzBrauer.Clift109.weights_normalized
+#print axioms ScholzBrauer.Clift109.normalize_gaugeCoordinates
+#print axioms ScholzBrauer.Clift109.normalized_interval_of_budget
+#print axioms ScholzBrauer.Clift109.canonical_cap_constraints

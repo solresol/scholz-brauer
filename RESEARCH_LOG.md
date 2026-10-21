@@ -1,5 +1,33 @@
 # Research log
 
+## 2026-10-22 — Thursday — normalized 109 box/remainder identity in Lean
+
+Milestone 3 advanced; milestones 1/2 remain complete. Clean main at 85b1d38,
+correct origin, fetch/fast-forward already current, no competing process.
+`Clift109Normalize.lean` closes the signed-to-absolute/minimum weight reduction:
+integer path weights bridge to negative canonical representatives, all 109
+weights factor into the box and three remainder components, normalization
+preserves multiplicities, and the coordinates equal the experiment's direct
+minimum-based formulas. Every budget-108 labelling consequently gives the exact
+normalized interval 0..108. Outgoing cap bounds transport to the signed section.
+
+The next obligations are recovering orientations for normalized cap constraints
+and proving a smaller finite classification. Full 109 exclusion remains
+computational; no new Scholz instance or optimum is proved. No completed search
+was repeated. The integer recursion was needed because the existing natural-only
+gauge theorem cannot transport to a negative representative; its cast bridge is
+proved, not assumed. No exporter, checker, solver, format or dependency was added.
+
+Default-heartbeat simplification limits were resolved by multiset AC reasoning
+and explicit offset equalities, without increasing limits. Final standalone
+Lean check passed in 14.61 seconds without warnings. Primary source hashes are
+unchanged; the open upstream target remains unimported. See
+`results/2026-10-22-normalized-remainder-lean.md` for precise statements,
+failed approaches, provenance and integration evidence. Required integration
+passed once in 232.987320 seconds: all 29 commands, Lean 4.27.0 / 1,128 jobs,
+and 253 audited theorems with only permitted standard axioms. All 121 input
+hashes and five vendor hashes matched; complete diff reviewed.
+
 ## 2026-10-21 — Wednesday — box dissociation and integral gauge classification in Lean
 
 Milestone 3 advanced on the existing 109 reduction; milestones 1/2 were already

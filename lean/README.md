@@ -417,6 +417,16 @@ integer-potential telescoping for the existing natural path weights and an
 explicit twelve-coordinate signed gauge classification of the selected graph,
 including an integral section and both directions of gauge equivalence.
 Canonical representatives may have negative shifts; the natural-weight
-corollary requires natural edge shifts on both sides. The orientation-normalized
-configuration link, cap-constraint transport and finite classification remain
-unformalised. These modules do not prove the full budget-108 exclusion.
+corollary requires natural edge shifts on both sides.
+
+`Clift109Normalize.lean` removes that restriction using integer path weights,
+a proved natural-cast bridge and signed gauge telescoping. `canonical_weights`
+and `weights_coordinates` factor the signed weights into a box plus the three
+remainder components. `weights_normalized` proves the full absolute/minimum
+normalization; `normalize_gaugeCoordinates` identifies the direct formulas used
+by the experiment. `normalized_interval_of_budget` gives exactly the interval
+0..108, retaining multiplicities. `canonical_cap_constraints` transports caps
+to the signed section. The finite orientation reconstruction for normalized cap
+constraints and the finite classification remain unformalised. These modules
+do not prove the full budget-108 exclusion. All 17 new public theorems are
+included in `Audit.lean`; the toolchain and dependencies are unchanged.
