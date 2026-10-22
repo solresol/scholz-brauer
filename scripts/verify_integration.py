@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 import platform
 import re
+import shlex
 import subprocess
 import sys
 import tempfile
@@ -20,6 +21,29 @@ from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+DIAGNOSTIC_LIMIT = 12000
+
+
+def run_checked(argv, cwd, timeout=180):
+    """Keep successful JSON output clean; expose bounded diagnostics on failure."""
+    try:
+        return subprocess.run(argv, cwd=cwd, text=True, stdout=subprocess.PIPE,
+                              stderr=subprocess.STDOUT, timeout=timeout, check=True)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+        output = error.output or ""
+        # TimeoutExpired may carry bytes even with text=True.
+        if isinstance(output, bytes):
+            output = output.decode("utf-8", errors="replace")
+        reason = (f"timed out after {timeout}s" if isinstance(error, subprocess.TimeoutExpired)
+                  else f"exited with status {error.returncode}")
+        print(f"Command {reason}: {shlex.join(map(str, argv))}\ncwd: {cwd}",
+              file=sys.stderr)
+        if len(output) > DIAGNOSTIC_LIMIT:
+            print(f"[output truncated; last {DIAGNOSTIC_LIMIT} characters]", file=sys.stderr)
+        print(output[-DIAGNOSTIC_LIMIT:] or "[no subprocess output]", file=sys.stderr)
+        raise
 
 
 def sha256(path):
@@ -97,13 +121,14 @@ def main():
 
     def run(argv, cwd=ROOT):
         begin = time.perf_counter()
-        result = subprocess.run(argv, cwd=cwd, text=True, stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT, timeout=180, check=True)
+        result = run_checked(argv, cwd)
         commands.append({"argv": argv, "cwd": str(cwd.relative_to(ROOT)),
                          "exit_code": result.returncode,
                          "runtime_seconds": round(time.perf_counter() - begin, 6),
                          "output": result.stdout})
         return result.stdout
+
+    run([sys.executable, "scripts/verify_integration_runner.py"])
 
     # Record exact inputs, including local modifications beyond the base commit.
     inputs = sorted(set((ROOT / "scripts").glob("*.py"))
