@@ -259,4 +259,96 @@ theorem canonical_cap_constraints (a b cap : ℕ → ℕ)
   exact ⟨⟨Int.natCast_nonneg _, Int.ofNat_le.mpr hca⟩,
     ⟨Int.natCast_nonneg _, Int.ofNat_le.mpr hcb⟩⟩
 
+/-- Six independent orientation bits; true selects the negative difference. -/
+abbrev Orientations := Fin 6 → Bool
+
+theorem card_orientations : Fintype.card Orientations = 64 := by
+  decide +kernel
+
+def signedDifference (negative : Bool) (d : ℤ) : ℤ := if negative then -d else d
+
+/-- Invert minimum normalization after choosing the six signs. Offsets must
+be restored as well; simply changing the signs would lose the remainder. -/
+def orientCoordinates (c : GaugeCoordinates) (o : Orientations) : GaugeCoordinates :=
+  let u := signedDifference (o 0) c.u
+  let v := signedDifference (o 1) c.v
+  let w := signedDifference (o 2) c.w
+  let d1 := signedDifference (o 3) c.d1
+  let d2 := signedDifference (o 4) c.d2
+  let d3 := signedDifference (o 5) c.d3
+  { u, v, w, d1, d2, d3
+    t := c.t - min d3 0 - min d2 0 - min d1 0 - min w 0 - min v 0 - min u 0
+    p := c.p + min d1 0 + min d2 0
+    q := c.q + min d2 0
+    A1 := c.A1 - min u 0 - min v 0 - min d1 0 - min d2 0
+    A2 := c.A2 - min u 0 - min d1 0 - min d2 0
+    A3 := c.A3 - min d1 0 - min d2 0 }
+
+def coordinateSigns (c : GaugeCoordinates) : Orientations :=
+  fun i => decide ((match i.val with
+    | 0 => c.u | 1 => c.v | 2 => c.w | 3 => c.d1 | 4 => c.d2 | _ => c.d3) < 0)
+
+private theorem signedDifference_abs (x : ℤ) :
+    signedDifference (decide (x < 0)) |x| = x := by
+  by_cases h : x < 0
+  · simp [signedDifference, h, abs_of_neg h]
+  · simp [signedDifference, h, abs_of_nonneg (by omega : 0 ≤ x)]
+
+/-- Every signed tuple is recovered by one of the 64 orientations of its
+normalized tuple, including zero differences. No positivity is assumed. -/
+theorem orient_normalize (c : GaugeCoordinates) :
+    orientCoordinates (normalizeCoordinates c) (coordinateSigns c) = c := by
+  ext <;> simp only [orientCoordinates, coordinateSigns, normalizeCoordinates,
+    signedDifference_abs] <;> omega
+
+/-- Nonnegative normalized differences are the only condition needed for the
+reverse identity. The other six coordinates may be arbitrary integers. -/
+theorem normalize_orient (c : GaugeCoordinates) (o : Orientations)
+    (hu : 0 ≤ c.u) (hv : 0 ≤ c.v) (hw : 0 ≤ c.w)
+    (h1 : 0 ≤ c.d1) (h2 : 0 ≤ c.d2) (h3 : 0 ≤ c.d3) :
+    normalizeCoordinates (orientCoordinates c o) = c := by
+  have habs (b : Bool) (x : ℤ) (hx : 0 ≤ x) : |signedDifference b x| = x := by
+    cases b <;> simp [signedDifference, abs_of_nonneg hx]
+  ext <;> simp only [normalizeCoordinates, orientCoordinates,
+    habs _ _ hu, habs _ _ hv, habs _ _ hw, habs _ _ h1, habs _ _ h2, habs _ _ h3] <;> omega
+
+/-- Exact finite classification of the fibre of normalization. -/
+theorem normalize_eq_iff (c n : GaugeCoordinates)
+    (hu : 0 ≤ n.u) (hv : 0 ≤ n.v) (hw : 0 ≤ n.w)
+    (h1 : 0 ≤ n.d1) (h2 : 0 ≤ n.d2) (h3 : 0 ≤ n.d3) :
+    normalizeCoordinates c = n ↔ ∃ o : Orientations, c = orientCoordinates n o := by
+  constructor
+  · intro h
+    exact ⟨coordinateSigns c, h ▸ (orient_normalize c).symm⟩
+  · rintro ⟨o, rfl⟩
+    exact normalize_orient n o hu hv hw h1 h2 h3
+
+/-- Every orientation has exactly the normalized path-weight multiset. This
+identity alone does not assert feasible nonnegative edges or a cap budget. -/
+theorem oriented_weights (c : GaugeCoordinates) (o : Orientations)
+    (hu : 0 ≤ c.u) (hv : 0 ≤ c.v) (hw : 0 ≤ c.w)
+    (h1 : 0 ≤ c.d1) (h2 : 0 ≤ c.d2) (h3 : 0 ≤ c.d3) :
+    weightsZ (canonicalA (orientCoordinates c o))
+      (canonicalB (orientCoordinates c o)) stepsRev 109 = coordinateWeights c := by
+  rw [canonical_weights]
+  unfold coordinateWeights
+  rw [coordinateBox_normalize, coordinateRemainder_normalize,
+    normalize_orient c o hu hv hw h1 h2 h3]
+
+/-- Cap feasibility transports to one of precisely six-bit oriented sections
+of the minimum coordinates, preserving both endpoint potentials and every
+lower/upper edge inequality. The original natural cap function is retained. -/
+theorem oriented_cap_constraints (a b cap : ℕ → ℕ)
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2) :
+    let n := minimumCoordinates (fun i => a i) (fun i => b i)
+    ∃ o : Orientations, ∃ g : ℕ → ℤ, g 1 = 0 ∧ g 109 = 0 ∧ ∀ s ∈ selectedSteps,
+      (0 ≤ canonicalA (orientCoordinates n o) (s.1 + s.2) + g (s.1 + s.2) - g s.1 ∧
+        canonicalA (orientCoordinates n o) (s.1 + s.2) + g (s.1 + s.2) - g s.1 ≤ cap s.1) ∧
+      (0 ≤ canonicalB (orientCoordinates n o) (s.1 + s.2) + g (s.1 + s.2) - g s.2 ∧
+        canonicalB (orientCoordinates n o) (s.1 + s.2) + g (s.1 + s.2) - g s.2 ≤ cap s.2) := by
+  dsimp only
+  refine ⟨coordinateSigns (gaugeCoordinates (fun i => a i) (fun i => b i)), ?_⟩
+  rw [← normalize_gaugeCoordinates, orient_normalize]
+  exact canonical_cap_constraints a b cap hcap
+
 end ScholzBrauer.Clift109

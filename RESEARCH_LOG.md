@@ -1,5 +1,31 @@
 # Research log
 
+## 2026-10-23 — Friday — finite orientations and cap transport in Lean
+
+Milestone 3 advanced; milestones 1/2 remain complete. Clean main at 1176782,
+correct origin, fetch/fast-forward already current, no competing process found.
+`Clift109Normalize.lean` now recovers every signed preimage of normalization
+using six Boolean choices, proves both inverse identities and exact fibre
+classification, and preserves the full normalized weight multiset. Outgoing
+cap inequalities transport to these oriented canonical sections with endpoint
+potentials zero. Zero differences may give duplicate representatives.
+
+This closes orientation reconstruction and cap transport. Combining these
+constraints with critical-path saturation and proving the finite exclusion
+remains. Full selected-109 exclusion/minimum 109 is still computational;
+no new Scholz or optimum theorem is claimed. The section is explicit but not
+identified with the Python experiment's particular gauge. No new infrastructure
+or search was needed, and no completed experiment was repeated.
+
+Initial unavailable vector notation and cardinality lemma were replaced by
+explicit Fin-value cases and a 64-choice kernel reduction. Standalone compilation
+passed without warnings in 5.36 s; default heartbeat limits unchanged. Primary
+source hashes match yesterday; upstream unproved target remains unimported.
+Required integration passed once in 216.847775 s: 29 commands, 259 audited
+theorems, only permitted standard axioms, all 121 input hashes verified.
+See `results/2026-10-23-oriented-caps-lean.md` and the associated integration
+report. Complete diff inspected. Remote CI not checked.
+
 ## 2026-10-22 — Thursday — normalized 109 box/remainder identity in Lean
 
 Milestone 3 advanced; milestones 1/2 remain complete. Clean main at 85b1d38,

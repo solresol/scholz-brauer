@@ -1,6 +1,6 @@
 # Research roadmap
 
-Updated 2026-10-22 (Thursday, Australia/Sydney).
+Updated 2026-10-23 (Friday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -270,12 +270,18 @@ are consistent with the enumeration. See
 - [x] Transport outgoing cap bounds to the signed canonical section as integer
   difference constraints, with both endpoint potentials zero.
 
-**Next.** (1) Recover the finite orientation choices lost by absolute-value
-normalization and transport the signed cap constraints to the experiment's
-oriented representatives. Combine with critical-path saturation. The normalized
-weight equation is now proved; it does not by itself prove cap feasibility or
-classification completeness. Do not repeat the signed/natural bridge or remainder
-normalization. See `results/2026-10-22-normalized-remainder-lean.md`.
+- [x] Recover all signed preimages of normalization by six Boolean orientation
+  choices (64 choices, potentially repeated representatives at zero differences).
+  Prove both inverse identities, exact fibre classification and equality of
+  oriented path weights. Transport every cap inequality and endpoint potential
+  to these explicitly oriented canonical sections.
+
+**Next.** (1) Combine the oriented cap constraints with critical-path saturation
+and derive a smaller finite classification. The inverse section is proved;
+identification with the Python experiment's particular gauge is not asserted.
+The normalized weight equation alone does not establish cap feasibility.
+Do not repeat orientation reconstruction or remainder normalization.
+See `results/2026-10-23-oriented-caps-lean.md`.
 (2) Find a classification of the interval configurations small
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865

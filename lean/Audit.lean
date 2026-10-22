@@ -278,3 +278,10 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.normalize_gaugeCoordinates
 #print axioms ScholzBrauer.Clift109.normalized_interval_of_budget
 #print axioms ScholzBrauer.Clift109.canonical_cap_constraints
+
+#print axioms ScholzBrauer.Clift109.card_orientations
+#print axioms ScholzBrauer.Clift109.orient_normalize
+#print axioms ScholzBrauer.Clift109.normalize_orient
+#print axioms ScholzBrauer.Clift109.normalize_eq_iff
+#print axioms ScholzBrauer.Clift109.oriented_weights
+#print axioms ScholzBrauer.Clift109.oriented_cap_constraints

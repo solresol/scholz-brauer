@@ -426,7 +426,16 @@ remainder components. `weights_normalized` proves the full absolute/minimum
 normalization; `normalize_gaugeCoordinates` identifies the direct formulas used
 by the experiment. `normalized_interval_of_budget` gives exactly the interval
 0..108, retaining multiplicities. `canonical_cap_constraints` transports caps
-to the signed section. The finite orientation reconstruction for normalized cap
-constraints and the finite classification remain unformalised. These modules
+to the signed section. At the 22 October checkpoint, orientation reconstruction
+and the finite classification remained unformalised. These modules
 do not prove the full budget-108 exclusion. All 17 new public theorems are
 included in `Audit.lean`; the toolchain and dependencies are unchanged.
+
+On 23 October, `Clift109Normalize.lean` additionally proves the exact fibre
+classification of normalization by `Fin 6 → Bool` (64 orientation choices),
+both inverse identities, preservation of oriented weights and transport of
+all cap constraints to the oriented section. Zero differences may duplicate
+representatives. This closes orientation reconstruction; combining the cap
+constraints with critical-path saturation and finite exclusion remains. It does
+not equate the canonical section with the Python implementation's chosen gauge.
+All six new public theorems are included in `Audit.lean`.

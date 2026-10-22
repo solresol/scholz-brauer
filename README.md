@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 22 October 2026
+## Verified status — 23 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -179,10 +179,17 @@ of sizes 28, 10 and 7; absolute differences and minimum offsets preserve the
 complete multiset. The resulting coordinates equal the minimum-based formulas
 used in the saved experiment. A budget-108 labelling therefore satisfies the
 exact normalized interval equation with weights 0..108. Outgoing cap constraints
-also transport to the signed canonical section. Recovering the orientation cases
-for normalized cap constraints and kernel-checking a smaller finite classification
-remain separate obligations. No new Scholz instance or unrestricted Lean
+also transport to the signed canonical section. Kernel-checking a smaller finite
+classification remains. No new Scholz instance or unrestricted Lean
 exclusion follows yet. See `results/2026-10-22-normalized-remainder-lean.md`.
+
+**The normalized orientation and cap reduction is now proved in Lean.** Six
+Boolean choices recover every signed preimage of normalization, with both
+inverse identities proved. All 64 choices preserve the normalized weights;
+zero differences may repeat a representative. Every natural labelling's cap
+inequalities transport to one of these oriented canonical sections. Combining
+this with critical-path saturation and closing the finite exclusion remains.
+See `results/2026-10-23-oriented-caps-lean.md`.
 
 **Chain 9 of 5,784,689 has no labelling with n-1 doublings.** Clift lists 16
 optimal 27-step chains for 5,784,689. Chain 9 is the 109 graph with doubling
