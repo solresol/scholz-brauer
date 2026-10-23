@@ -1,5 +1,20 @@
 # Research log
 
+## 2026-10-24 — first weekly human-research literature baseline
+
+Reviewed exact unrestricted-chain and active non-Hansen targets at 4ff74d3.
+Located the September De Koninck–Doyon–Verreault counting preprint and an
+author-uploaded July conditional sigma/tau construction. The latter's printed
+predicates hold on the existing optimal 29-source but its dominant track
+decreases, exposing the proof's unsupported monotonicity inference. Exact
+parent/index/predicate arithmetic was checked; no new Lean theorem. Screened Li's
+September general-proof claim: its page-2 path representation assumes a star
+chain, an unjustified restriction for the target. Rechecked Clift and the revised
+carry preprint. No validated general resolution or new internal proof is claimed.
+The [weekly review](results/2026-10-24-literature-review.md) records precise
+assumptions, versions/access dates, reading decisions, source-access limits and
+the new/revised search checkpoint. Literature/documentation work only.
+
 ## 2026-10-24 — Saturday — fifteen critical-path families in Lean
 
 Milestone 3 advanced; milestones 1/2 remain complete. Clean main fast-forwarded
