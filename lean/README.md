@@ -439,3 +439,11 @@ representatives. This closes orientation reconstruction; combining the cap
 constraints with critical-path saturation and finite exclusion remains. It does
 not equate the canonical section with the Python implementation's chosen gauge.
 All six new public theorems are included in `Audit.lean`.
+
+On 24 October, `Clift109Normalize.lean` adds `Path.tails_mem`, the positivity
+of the three doubling-parent caps, and `critical_fifteen_of_budget`.
+`criticalTailFamilies` has kernel-checked cardinality 15. The combined
+`oriented_critical_constraints` theorem preserves the normalized interval,
+critical-path saturation and all cap inequalities, and proves zero equalities
+for edges out of skipped tails. It does not assert feasibility of these
+families or complete the exclusion. All five public theorems enter the audit.

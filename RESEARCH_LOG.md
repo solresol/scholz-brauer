@@ -1,5 +1,31 @@
 # Research log
 
+## 2026-10-24 — Saturday — fifteen critical-path families in Lean
+
+Milestone 3 advanced; milestones 1/2 remain complete. Clean main fast-forwarded
+from c82c64d to f9b112c on the intended origin; no competing run found.
+`doubling_caps_positive` proves the caps at 1, 2 and 4 are positive from
+box dissociation. Every saturated critical path must visit these vertices.
+Sound path erasure and a kernel cardinality check reduce the graph to fifteen
+necessary tail families. `oriented_critical_constraints` combines these with
+the normalized interval, saturation, oriented cap bounds and exact zero edges
+out of skipped tails. Five new public theorems enter the audit.
+
+This closes the critical-path/orientation combination, but not the finite
+interval classification or full Lean exclusion at 109. Next: prune interval
+configurations using these cases and equalities, then kernel-check exclusion.
+No new Scholz/optimality/novelty claim, completed search rerun, solver or exporter.
+The requested weekly literature handoff was absent from the repository;
+primary graph page/diagram hashes are unchanged, broader literature unassessed.
+
+Standalone compilation passed in 7.14 s without warnings. Required integration
+passed once in 219.813415 s: 30 commands, 1,128 Lean build jobs, 264 audited
+theorems using only standard permitted axioms, 122 input hashes independently
+read back and five vendor hashes checked. Complete diff reviewed and whitespace
+check passed. Remote CI not checked. See
+`results/2026-10-24-critical-families-lean.md` and its integration report.
+
+
 ## 2026-10-23 — Friday — finite orientations and cap transport in Lean
 
 Milestone 3 advanced; milestones 1/2 remain complete. Clean main at 1176782,

@@ -285,3 +285,9 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.normalize_eq_iff
 #print axioms ScholzBrauer.Clift109.oriented_weights
 #print axioms ScholzBrauer.Clift109.oriented_cap_constraints
+
+#print axioms ScholzBrauer.CliftLabelling.Path.tails_mem
+#print axioms ScholzBrauer.Clift109.doubling_caps_positive
+#print axioms ScholzBrauer.Clift109.card_criticalTailFamilies
+#print axioms ScholzBrauer.Clift109.critical_fifteen_of_budget
+#print axioms ScholzBrauer.Clift109.oriented_critical_constraints

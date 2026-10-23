@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-10-23 (Friday, Australia/Sydney).
+Updated 2026-10-24 (Saturday, Australia/Sydney).
 
 ## Verified foundation
 
@@ -299,12 +299,13 @@ are consistent with the enumeration. See
   oriented path weights. Transport every cap inequality and endpoint potential
   to these explicitly oriented canonical sections.
 
-**Next.** (1) Combine the oriented cap constraints with critical-path saturation
-and derive a smaller finite classification. The inverse section is proved;
+**Next.** (1) Use the combined oriented constraints and fifteen critical-tail
+families proved on 24 October to derive a smaller interval classification.
+The inverse section is proved;
 identification with the Python experiment's particular gauge is not asserted.
 The normalized weight equation alone does not establish cap feasibility.
 Do not repeat orientation reconstruction or remainder normalization.
-See `results/2026-10-23-oriented-caps-lean.md`.
+See `results/2026-10-24-critical-families-lean.md`.
 (2) Find a classification of the interval configurations small
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
@@ -342,6 +343,22 @@ wrong: the reversed path counts of chain 9 have only 25 distinct values.
 - [ ] Next: formalise the nine-component loss decomposition and the halving
   test in Lean, so that the per-chain exclusions rest on proved reductions
   rather than on validated code.
+
+### 24 October: critical-path reduction in Lean
+
+- [x] Prove that the doubling-parent caps at 1, 2 and 4 are positive from box
+  dissociation, hence every budget-attaining critical path visits all three.
+- [x] Prove sound erasure of paths to finite tail sequences; kernel-check the
+  fifteen surviving families. Combine their saturation with oriented cap
+  inequalities and exact zero equalities on every skipped tail.
+- [ ] Reduce the remaining normalized interval configurations using these
+  fifteen necessary families and the 64 orientations, then kernel-check exclusion.
+  The families are a necessary superset, not fifteen feasible cases. The full
+  109 exclusion/minimum remains computational. No completed search needs rerunning.
+
+The requested weekly human-authored literature handoff was not found in the
+repository on 24 October. The primary graph source was rechecked unchanged;
+this does not establish the state of broader current literature or novelty.
 
 ## Retained constraints and failed shortcuts
 

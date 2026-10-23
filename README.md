@@ -19,7 +19,7 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 23 October 2026
+## Verified status — 24 October 2026
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
@@ -481,6 +481,14 @@ Next: a Lean formalisation of the 109 and 5,784,689 loss reductions. The
 selected 109 graph is resolved computationally (minimum 109); none of the 16
 optimal chains of 5,784,689 has a cost-(n-1) labelling.
 Milestones 1 and 2 remain complete. See `TODO.md`.
+
+On 24 October, Lean further reduces every budget-108 critical path for the
+selected 109 graph to fifteen tail sequences: the doubling-parent caps at
+1, 2 and 4 must be positive. `oriented_critical_constraints` combines this
+finite reduction with the normalized interval, saturation and oriented cap
+bounds, forcing every edge out of a skipped tail to zero. These are necessary
+conditions; finite exclusion remains to be formalised. See
+`results/2026-10-24-critical-families-lean.md`.
 
 ## Sources
 

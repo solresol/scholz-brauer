@@ -6,6 +6,27 @@ all 109 weights, including multiplicities and the three remainder components. -/
 
 namespace ScholzBrauer.CliftLabelling
 
+/-- All possible tail sequences, forgetting shifts but retaining parent choices. -/
+def tailPaths : List (ℕ × ℕ) → ℕ → Finset (List ℕ)
+  | [], v => if v = 1 then {[]} else ∅
+  | s :: rest, v => if v = s.1 + s.2 then
+      (tailPaths rest s.1).image (s.1 :: ·) ∪
+      (tailPaths rest s.2).image (s.2 :: ·)
+    else tailPaths rest v
+
+/-- Erasing shifts from any path lands in the exact finite graph enumeration. -/
+theorem Path.tails_mem {a b : ℕ → ℕ} {L v es} (h : Path a b L v es) :
+    es.map Prod.fst ∈ tailPaths L v := by
+  induction h with
+  | seed => simp [tailPaths]
+  | older hne _ ih => simpa [tailPaths, hne] using ih
+  | left _ ih =>
+    simp only [tailPaths, ite_true, List.map_cons, Finset.mem_union]
+    exact Or.inl (Finset.mem_image.mpr ⟨_, ih, rfl⟩)
+  | right _ ih =>
+    simp only [tailPaths, ite_true, List.map_cons, Finset.mem_union]
+    exact Or.inr (Finset.mem_image.mpr ⟨_, ih, rfl⟩)
+
 /-- Integer version of `weights`, including signed canonical representatives. -/
 def weightsZ (a b : ℕ → ℤ) : List (ℕ × ℕ) → ℕ → Multiset ℤ
   | [], v => if v = 1 then {0} else 0
@@ -350,5 +371,101 @@ theorem oriented_cap_constraints (a b cap : ℕ → ℕ)
   refine ⟨coordinateSigns (gaugeCoordinates (fun i => a i) (fun i => b i)), ?_⟩
   rw [← normalize_gaugeCoordinates, orient_normalize]
   exact canonical_cap_constraints a b cap hcap
+
+/-- The three doubling parents must carry positive caps: otherwise the
+corresponding box difference vanishes, contradicting dissociation. -/
+theorem doubling_caps_positive (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1) :
+    0 < cap 1 ∧ 0 < cap 2 ∧ 0 < cap 4 := by
+  have hp := positive_of_subsetSums_nodup _ (box_dissociated B a b h1 hsteps h109)
+  have h2 := hp (pairGap (a 2, b 2)) (by simp [boxPairs])
+  have h4 := hp (pairGap (a 4, b 4)) (by simp [boxPairs])
+  have h8 := hp (pairGap (a 8, b 8)) (by simp [boxPairs])
+  have hc2 := hcap (1, 1) (by decide)
+  have hc4 := hcap (2, 2) (by decide)
+  have hc8 := hcap (4, 4) (by decide)
+  simp only [pairGap] at h2 h4 h8
+  norm_num at hc2 hc4 hc8
+  omega
+
+/-- Only fifteen tail sequences survive the mandatory doubling parents.
+This is a necessary family, not an assertion that any member is feasible. -/
+def criticalTailFamilies : Finset (List ℕ) :=
+  (tailPaths stepsRev 109).filter (fun p => 1 ∈ p ∧ 2 ∈ p ∧ 4 ∈ p)
+
+theorem card_criticalTailFamilies : criticalTailFamilies.card = 15 := by
+  decide +kernel
+
+/-- A budget-attaining labelling has a saturated path in one of the fifteen
+families, with every cap outside that path zero. -/
+theorem critical_fifteen_of_budget (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1)
+    (hbudget : cap 1 + cap 2 + cap 4 + cap 5 + cap 7 + cap 8 + cap 15 +
+      cap 23 + cap 28 + cap 51 + cap 58 ≤ 108) :
+    ∃ es, Path a b stepsRev 109 es ∧ es.map Prod.fst ∈ criticalTailFamilies ∧
+      (es.map Prod.snd).sum = 108 ∧ (∀ e ∈ es, e.2 = cap e.1) ∧
+      (∀ u ∈ source, u < 109 → u ∉ es.map Prod.fst → cap u = 0) := by
+  obtain ⟨es, hp, hw, hs, hz, _⟩ := critical_path_of_budget B a b cap h1 hsteps hcap h109 hbudget
+  obtain ⟨hpos1, hpos2, hpos4⟩ := doubling_caps_positive B a b cap h1 hsteps hcap h109
+  have hm1 : 1 ∈ es.map Prod.fst := by
+    by_contra hn
+    have := hz 1 (by decide) (by decide) hn
+    omega
+  have hm2 : 2 ∈ es.map Prod.fst := by
+    by_contra hn
+    have := hz 2 (by decide) (by decide) hn
+    omega
+  have hm4 : 4 ∈ es.map Prod.fst := by
+    by_contra hn
+    have := hz 4 (by decide) (by decide) hn
+    omega
+  exact ⟨es, hp, Finset.mem_filter.mpr ⟨hp.tails_mem, hm1, hm2, hm4⟩, hw, hs, hz⟩
+
+/-- Combine normalized interval classification, finite critical paths and
+oriented difference constraints. Skipped tails impose equalities, not merely
+upper bounds. This is the necessary system for the remaining finite exclusion. -/
+theorem oriented_critical_constraints (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1)
+    (hbudget : cap 1 + cap 2 + cap 4 + cap 5 + cap 7 + cap 8 + cap 15 +
+      cap 23 + cap 28 + cap 51 + cap 58 ≤ 108) :
+    let n := minimumCoordinates (fun i => a i) (fun i => b i)
+    coordinateWeights n = (Multiset.range 109).map Int.ofNat ∧
+    ∃ o : Orientations, ∃ g : ℕ → ℤ, ∃ es,
+      g 1 = 0 ∧ g 109 = 0 ∧ Path a b stepsRev 109 es ∧
+      es.map Prod.fst ∈ criticalTailFamilies ∧
+      (es.map Prod.snd).sum = 108 ∧ (∀ e ∈ es, e.2 = cap e.1) ∧
+      ∀ s ∈ selectedSteps,
+        (let x := canonicalA (orientCoordinates n o) (s.1 + s.2) + g (s.1 + s.2) - g s.1
+         0 ≤ x ∧ x ≤ cap s.1 ∧ (s.1 ∉ es.map Prod.fst → x = 0)) ∧
+        (let y := canonicalB (orientCoordinates n o) (s.1 + s.2) + g (s.1 + s.2) - g s.2
+         0 ≤ y ∧ y ≤ cap s.2 ∧ (s.2 ∉ es.map Prod.fst → y = 0)) := by
+  dsimp only
+  refine ⟨normalized_interval_of_budget B a b cap h1 hsteps hcap h109 hbudget, ?_⟩
+  obtain ⟨es, hp, hf, hw, hs, hz⟩ := critical_fifteen_of_budget B a b cap h1 hsteps hcap h109 hbudget
+  obtain ⟨o, g, hg1, hg109, hc⟩ := oriented_cap_constraints a b cap hcap
+  refine ⟨o, g, es, hg1, hg109, hp, hf, hw, hs, ?_⟩
+  have hparents : ∀ s ∈ selectedSteps,
+      s.1 ∈ source ∧ s.1 < 109 ∧ s.2 ∈ source ∧ s.2 < 109 := by decide
+  intro s hmem
+  obtain ⟨hpl, hplt, hpr, hprt⟩ := hparents s hmem
+  obtain ⟨⟨hl, hu⟩, ⟨hl', hu'⟩⟩ := hc s hmem
+  refine ⟨⟨hl, hu, ?_⟩, ⟨hl', hu', ?_⟩⟩
+  · intro hn
+    have := hz s.1 hpl hplt hn
+    simp only [this, Nat.cast_zero] at hu
+    exact le_antisymm hu hl
+  · intro hn
+    have := hz s.2 hpr hprt hn
+    simp only [this, Nat.cast_zero] at hu'
+    exact le_antisymm hu' hl'
 
 end ScholzBrauer.Clift109
