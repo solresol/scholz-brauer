@@ -447,3 +447,10 @@ of the three doubling-parent caps, and `critical_fifteen_of_budget`.
 critical-path saturation and all cap inequalities, and proves zero equalities
 for edges out of skipped tails. It does not assert feasibility of these
 families or complete the exclusion. All five public theorems enter the audit.
+
+On 25 October, `critical_twelve_of_budget` prunes three of the fifteen necessary
+critical families using dissociation and zero caps outside the critical path.
+`Path.weight_mem_through` and `through_eight_eq_box` connect paths through 8 to
+the existing 64-weight box. That branch has box maximum exactly 108; the other
+branch visits 5, 7 and 15. Nine additional public theorems enter the audit.
+These implications do not complete the interval classification or exclusion.

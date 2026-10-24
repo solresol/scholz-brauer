@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-10-24 (Saturday, Australia/Sydney).
+Updated 2026-10-25 (Sunday, Australia/Sydney).
 
 Latest weekly handoff: [24 October literature baseline](results/2026-10-24-literature-review.md).
 The September counting theorem does not supply fixed-instance exclusions. The
@@ -305,8 +305,16 @@ are consistent with the enumeration. See
   oriented path weights. Transport every cap inequality and endpoint potential
   to these explicitly oriented canonical sections.
 
-**Next.** (1) Use the combined oriented constraints and fifteen critical-tail
-families proved on 24 October to derive a smaller interval classification.
+- [x] Prune the fifteen critical families to twelve: a path cannot bypass both
+  8 and 15. If it misses 8 it visits 5, 7 and 15. Prove the path-to-box bridge
+  and that a critical path through 8 pins the box maximum at 108.
+
+**Next.** (1) Use the twelve critical families and oriented constraints to
+classify intervals. Split on visiting 8: in that branch the box offset is
+108 minus the sum of differences; the other branch visits 5, 7 and 15.
+This remains a necessary classification, not twelve feasible cases.
+See `results/2026-10-25-critical-pruning-lean.md`.
+The earlier fifteen-family and oriented theorems remain valid.
 The inverse section is proved;
 identification with the Python experiment's particular gauge is not asserted.
 The normalized weight equation alone does not establish cap feasibility.

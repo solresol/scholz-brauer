@@ -1,0 +1,18 @@
+{
+  "accessed_at": "2026-10-25T08:02:05.842037+11:00",
+  "version": "Live undated primary source; SHA-256 identifies version",
+  "claim_used": "Selected 109 parent graph only; no source optimality or novelty claim",
+  "weekly_literature_handoff": "Reviewed results/2026-10-24-literature-review.md fetched at 8e4ae2a; no result there discharges the active finite classification. No novelty claim.",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+      "matches_24_october": true
+    },
+    {
+      "url": "https://www.additionchains.com/LargeNonHansen.png",
+      "sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6",
+      "matches_24_october": true
+    }
+  ]
+}

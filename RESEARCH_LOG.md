@@ -1,5 +1,35 @@
 # Research log
 
+## 2026-10-25 — Sunday — twelve critical families and conditional box maximum
+
+Milestone 3 advanced; milestones 1/2 remain complete. Clean main fast-forwarded
+from 4ff74d3 to 8e4ae2a on the intended origin. Read the newly fetched weekly
+literature review before choosing work; it supplies no checked replacement for
+the current finite classification. Primary Clift page/diagram hashes match
+24 October. No competing research process or unrelated changes found.
+
+`critical_twelve_of_budget` closes three related obligations: prune paths
+bypassing both 8 and 15, prove the remaining missing-8 paths visit 5 and 7,
+and pin the box maximum to 108 when the critical path visits 8. The generic
+path-through-vertex recursion supplies the previously missing path-to-box
+membership bridge. Its fixed-graph expansion equals the existing box.
+Nine public theorems are added to the dependency audit. No new research search,
+solver, exporter or dependency was introduced.
+
+The twelve families remain necessary, not feasible. Full 109 exclusion/minimum
+remains computational. Next: classify the two branches using the fixed box
+offset or mandatory detour vertices, with existing oriented cap constraints.
+The symbolic strategy continues to close obligations and needs no reset.
+Standalone final compilation passed in 6.14 seconds without warnings; proof
+attempt corrections and integration evidence are recorded in
+`results/2026-10-25-critical-pruning-lean.md`.
+Required integration passed once in 222.73589 seconds (30 commands, 273 audited
+theorems, permitted standard axioms only); 122 input hashes independently
+matched and five vendor hashes checked. Existing computational regressions ran
+as part of integration. Complete diff reviewed; whitespace check passed.
+Remote CI was not checked.
+
+
 ## 2026-10-24 — first weekly human-research literature baseline
 
 Reviewed exact unrestricted-chain and active non-Hansen targets at 4ff74d3.

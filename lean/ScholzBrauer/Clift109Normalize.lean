@@ -27,6 +27,60 @@ theorem Path.tails_mem {a b : ℕ → ℕ} {L v es} (h : Path a b L v es) :
     simp only [tailPaths, ite_true, List.map_cons, Finset.mem_union]
     exact Or.inr (Finset.mem_image.mpr ⟨_, ih, rfl⟩)
 
+/-- Keep path weights only when the path visits the specified vertex. -/
+def throughWeights (a b : ℕ → ℕ) (target : ℕ) : List (ℕ × ℕ) → ℕ → Multiset ℕ
+  | [], v => if v = target then weights a b [] v else 0
+  | s :: rest, v => if v = target then weights a b (s :: rest) v else
+      if v = s.1 + s.2 then
+        (throughWeights a b target rest s.1).map (· + a v) +
+        (throughWeights a b target rest s.2).map (· + b v)
+      else throughWeights a b target rest v
+
+theorem Path.weight_mem_through {a b : ℕ → ℕ} {L v es target}
+    (h : Path a b L v es) (ht : target = v ∨ target ∈ es.map Prod.fst) :
+    (es.map Prod.snd).sum ∈ throughWeights a b target L v := by
+  induction h with
+  | seed =>
+    simp only [List.map_nil, List.not_mem_nil, or_false] at ht
+    subst target
+    simp [throughWeights, weights]
+  | @older s rest v es hne h ih =>
+    by_cases hv : v = target
+    · simpa [throughWeights, hv] using (Path.older hne h).weight_mem
+    · simpa [throughWeights, hv, hne] using ih ht
+  | @left s rest es h ih =>
+    by_cases hv : s.1 + s.2 = target
+    · simpa [throughWeights, hv] using (Path.left h).weight_mem
+    · have ht' : target = s.1 ∨ target ∈ es.map Prod.fst := by
+        simpa [List.map_cons, List.mem_cons, Ne.symm hv] using ht
+      simp only [throughWeights, if_neg hv, ite_true, List.map_cons,
+        List.sum_cons, Multiset.mem_add]
+      exact Or.inl (Multiset.mem_map.mpr ⟨_, ih ht', by omega⟩)
+  | @right s rest es h ih =>
+    by_cases hv : s.1 + s.2 = target
+    · simpa [throughWeights, hv] using (Path.right h).weight_mem
+    · have ht' : target = s.2 ∨ target ∈ es.map Prod.fst := by
+        simpa [List.map_cons, List.mem_cons, Ne.symm hv] using ht
+      simp only [throughWeights, if_neg hv, ite_true, List.map_cons,
+        List.sum_cons, Multiset.mem_add]
+      exact Or.inr (Multiset.mem_map.mpr ⟨_, ih ht', by omega⟩)
+
+/-- Every subset sum is at most the sum of the list. -/
+theorem subsetSum_le_sum {ds : List ℕ} {w : ℕ} (h : w ∈ subsetSums ds) :
+    w ≤ ds.sum := by
+  induction ds generalizing w with
+  | nil => simpa [subsetSums] using h
+  | cons d ds ih =>
+    simp only [subsetSums, Multiset.mem_add] at h
+    rcases h with h | h
+    · have := ih h
+      simp only [List.sum_cons]
+      omega
+    · obtain ⟨x, hx, rfl⟩ := Multiset.mem_map.mp h
+      have := ih hx
+      simp only [List.sum_cons]
+      omega
+
 /-- Integer version of `weights`, including signed canonical representatives. -/
 def weightsZ (a b : ℕ → ℤ) : List (ℕ × ℕ) → ℕ → Multiset ℤ
   | [], v => if v = 1 then {0} else 0
@@ -467,5 +521,98 @@ theorem oriented_critical_constraints (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
     have := hz s.2 hpr hprt hn
     simp only [this, Nat.cast_zero] at hu'
     exact le_antisymm hu' hl'
+
+/-- The paths through 8 are exactly the existing 64-weight box. -/
+theorem through_eight_eq_box (a b : ℕ → ℕ) :
+    throughWeights a b 8 stepsRev 109 = box a b := by
+  simp [throughWeights, weights, stepsRev, selectedSteps, box, boxPairs,
+    choices, branch, shift, add_assoc]
+
+/-- If no doubling is allocated at 8, dissociation forces a positive
+cap at 15. This removes critical paths that bypass both vertices. -/
+theorem cap15_positive_of_cap8_zero (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1) (hz : cap 8 = 0) : 0 < cap 15 := by
+  have hp := positive_of_subsetSums_nodup _ (box_dissociated B a b h1 hsteps h109)
+  have hd := hp (pairGap (a 15 + a 23, b 23)) (by simp [boxPairs])
+  have hc15 := hcap (8, 7) (by decide)
+  have hc23 := hcap (15, 8) (by decide)
+  norm_num at hc15 hc23
+  simp only [pairGap] at hd
+  omega
+
+/-- Necessary critical families after excluding paths bypassing both 8 and 15. -/
+def prunedCriticalFamilies : Finset (List ℕ) :=
+  criticalTailFamilies.filter (fun p => 8 ∈ p ∨ 15 ∈ p)
+
+theorem card_prunedCriticalFamilies : prunedCriticalFamilies.card = 12 := by
+  decide +kernel
+
+/-- The remaining paths missing 8 must pass through both detour bases. -/
+theorem pruned_missing_eight {p : List ℕ} (hp : p ∈ prunedCriticalFamilies)
+    (h8 : 8 ∉ p) : 5 ∈ p ∧ 7 ∈ p ∧ 15 ∈ p := by
+  have h : ∀ q ∈ prunedCriticalFamilies, 8 ∈ q ∨ (5 ∈ q ∧ 7 ∈ q ∧ 15 ∈ q) := by
+    decide +kernel
+  exact (h p hp).resolve_left h8
+
+/-- The positive cap forced at 15 excludes the other critical families. -/
+theorem critical_mem_pruned (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1)
+    {p : List ℕ} (hp : p ∈ criticalTailFamilies)
+    (hz : ∀ u ∈ source, u < 109 → u ∉ p → cap u = 0) :
+    p ∈ prunedCriticalFamilies := by
+  apply Finset.mem_filter.mpr
+  refine ⟨hp, ?_⟩
+  by_cases h8 : 8 ∈ p
+  · exact Or.inl h8
+  · right
+    have hc8 := hz 8 (by decide) (by decide) h8
+    have hpos := cap15_positive_of_cap8_zero B a b cap h1 hsteps hcap h109 hc8
+    by_contra h15
+    have := hz 15 (by decide) (by decide) h15
+    omega
+
+/-- A weight-108 path through 8 pins the box at the top, provided the
+existing box upper bound holds. Visiting 8 is an explicit hypothesis. -/
+theorem box_top_of_critical_eight (a b : ℕ → ℕ)
+    (hu : pairOffset (boxPairs a b) + ((boxPairs a b).map pairGap).sum ≤ 108)
+    {es : List (ℕ × ℕ)} (hp : Path a b stepsRev 109 es)
+    (h8 : 8 ∈ es.map Prod.fst) (hw : (es.map Prod.snd).sum = 108) :
+    pairOffset (boxPairs a b) + ((boxPairs a b).map pairGap).sum = 108 := by
+  have hm := hp.weight_mem_through (Or.inr h8)
+  rw [hw, through_eight_eq_box, box_normalize] at hm
+  obtain ⟨x, hx, heq⟩ := Multiset.mem_map.mp hm
+  have hl := subsetSum_le_sum hx
+  omega
+
+/-- Budget 108 forces one of twelve critical families. In the branch through
+8 the box translation is determined by its six differences; otherwise the
+critical path visits 5, 7 and 15. -/
+theorem critical_twelve_of_budget (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1)
+    (hbudget : cap 1 + cap 2 + cap 4 + cap 5 + cap 7 + cap 8 + cap 15 +
+      cap 23 + cap 28 + cap 51 + cap 58 ≤ 108) :
+    ∃ es, Path a b stepsRev 109 es ∧ es.map Prod.fst ∈ prunedCriticalFamilies ∧
+      (es.map Prod.snd).sum = 108 ∧ (∀ e ∈ es, e.2 = cap e.1) ∧
+      (∀ u ∈ source, u < 109 → u ∉ es.map Prod.fst → cap u = 0) ∧
+      (8 ∈ es.map Prod.fst →
+        pairOffset (boxPairs a b) + ((boxPairs a b).map pairGap).sum = 108) ∧
+      (8 ∉ es.map Prod.fst → 5 ∈ es.map Prod.fst ∧
+        7 ∈ es.map Prod.fst ∧ 15 ∈ es.map Prod.fst) := by
+  obtain ⟨es, hp, hf, hw, hs, hz⟩ :=
+    critical_fifteen_of_budget B a b cap h1 hsteps hcap h109 hbudget
+  have hf' := critical_mem_pruned B a b cap h1 hsteps hcap h109 hf hz
+  refine ⟨es, hp, hf', hw, hs, hz, ?_, pruned_missing_eight hf'⟩
+  intro h8
+  exact box_top_of_critical_eight a b
+    (box_constraints_of_budget B a b cap h1 hsteps hcap h109 hbudget).2.2.2.2 hp h8 hw
 
 end ScholzBrauer.Clift109

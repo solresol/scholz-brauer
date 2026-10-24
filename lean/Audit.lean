@@ -291,3 +291,13 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.card_criticalTailFamilies
 #print axioms ScholzBrauer.Clift109.critical_fifteen_of_budget
 #print axioms ScholzBrauer.Clift109.oriented_critical_constraints
+
+#print axioms ScholzBrauer.CliftLabelling.Path.weight_mem_through
+#print axioms ScholzBrauer.CliftLabelling.subsetSum_le_sum
+#print axioms ScholzBrauer.Clift109.through_eight_eq_box
+#print axioms ScholzBrauer.Clift109.cap15_positive_of_cap8_zero
+#print axioms ScholzBrauer.Clift109.card_prunedCriticalFamilies
+#print axioms ScholzBrauer.Clift109.pruned_missing_eight
+#print axioms ScholzBrauer.Clift109.critical_mem_pruned
+#print axioms ScholzBrauer.Clift109.box_top_of_critical_eight
+#print axioms ScholzBrauer.Clift109.critical_twelve_of_budget
