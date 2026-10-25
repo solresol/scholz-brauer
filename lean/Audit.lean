@@ -301,3 +301,18 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.critical_mem_pruned
 #print axioms ScholzBrauer.Clift109.box_top_of_critical_eight
 #print axioms ScholzBrauer.Clift109.critical_twelve_of_budget
+
+#print axioms ScholzBrauer.Clift109.halveAux_sound
+#print axioms ScholzBrauer.Clift109.halveAux_complete
+#print axioms ScholzBrauer.Clift109.halve_eq_some_iff
+#print axioms ScholzBrauer.Clift109.zbranch_injective
+#print axioms ScholzBrauer.Clift109.halve_eq_none_iff
+#print axioms ScholzBrauer.Clift109.remainder_sink_factor
+#print axioms ScholzBrauer.Clift109.remainder_source_factor
+#print axioms ScholzBrauer.Clift109.card_sinkExceptions
+#print axioms ScholzBrauer.Clift109.card_sinkHalf
+#print axioms ScholzBrauer.Clift109.card_sourceHalf
+#print axioms ScholzBrauer.Clift109.card_sourceExceptions
+#print axioms ScholzBrauer.Clift109.interval_halving
+#print axioms ScholzBrauer.Clift109.interval_halves_disjoint
+#print axioms ScholzBrauer.Clift109.halving_of_budget

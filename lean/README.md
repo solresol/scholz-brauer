@@ -454,3 +454,22 @@ critical families using dissociation and zero caps outside the critical path.
 the existing 64-weight box. That branch has box maximum exactly 108; the other
 branch visits 5, 7 and 15. Nine additional public theorems enter the audit.
 These implications do not complete the interval classification or exclusion.
+
+## Exact interval halving — 26 October 2026
+
+`Clift109Halving.lean` proves the least-weight peeling operation sound and
+complete for arbitrary finite multisets of integers and positive translations.
+Input cardinality provides sufficient fuel, acceptance recovers the unique
+half and rejection excludes every half. Signed and repeated weights are allowed;
+four kernel-evaluated examples cover empty input, negative/repeated weights,
+overlapping translates and rejection.
+
+For the existing normalized 109 coordinates, both source-side and sink-side
+factorizations of the 45-weight remainder are proved: seven exceptional weights
+plus nineteen weights and their translate. The interval equation forces all
+parts to be distinct and disjoint. `halving_of_budget` derives positivity of the
+two translations from box dissociation and proves both exact recoveries for any
+budget-108 labelling. This closes the mathematical halving step used by the two
+independent searches. It does not establish equivalence with their bit-mask code,
+the odd-run pruning, enumeration completeness or the full 109 exclusion.
+The pinned dependencies and upstream target boundary are unchanged.

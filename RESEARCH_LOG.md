@@ -1,5 +1,39 @@
 # Research log
 
+## 2026-10-26 — Monday — exact halving and both remainder factorizations
+
+Milestone 3 advanced; milestones 1/2 remain complete. Clean main dbbc124,
+correct origin, fetch/ff-only current, no competing research process found.
+Reviewed the 24 October weekly literature handoff; primary Clift page/diagram
+hashes are unchanged. No dependency or toolchain change.
+
+`Clift109Halving.lean` closes the exact-halving correctness obligation used by
+the existing interval searches. For arbitrary finite integer multisets and
+positive shifts, least-weight peeling is sound, complete and uniquely recovers
+the half; cardinality proves sufficient fuel, so rejection excludes every half.
+Both factorizations of the selected 109 graph's 45-weight remainder now hold
+in Lean: nineteen weights plus their translate and seven exceptions. Under
+the interval equation the parts are distinct/disjoint; `halving_of_budget`
+derives both successful recoveries for every budget-108 labelling.
+
+No new solver, exporter, certificate format or research enumeration was added.
+This proves the mathematical reduction, not bit-mask program equivalence,
+odd-run pruning, the complete classification or cap infeasibility. The full
+109 exclusion/minimum remains computational; no new Scholz/optimality/novelty
+claim. Next prove the seven-odd-run pruning condition or a stronger interval
+restriction, reusing the twelve critical families and oriented caps. Monday's
+work remained Lean because there was no missing computational result to obtain.
+
+Standalone final compilation passed without warnings in 15.65 seconds at
+default heartbeats. Proof details, minor failed tactics and verification are in
+`results/2026-10-26-halving-lean.md`.
+
+Required integration passed once in 437.335777 seconds: 30 commands, full pinned
+Lean build, 287 audited theorems using permitted standard axioms only, 123 input
+hashes independently matched and five vendor hashes checked. Complete diff and
+structured report reviewed; whitespace and proof-token scans passed. Remote CI
+was not checked.
+
 ## 2026-10-25 — Sunday — twelve critical families and conditional box maximum
 
 Milestone 3 advanced; milestones 1/2 remain complete. Clean main fast-forwarded

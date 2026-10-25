@@ -19,13 +19,15 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 25 October 2026
+## Verified status — 26 October 2026
 
-The latest Lean reduction prunes the selected 109 graph's critical paths from
-fifteen necessary families to twelve. A critical path through 8 pins the
-64-path box maximum at 108; a path missing 8 must visit 5, 7 and 15.
-Full interval exclusion remains computational. See
-`results/2026-10-25-critical-pruning-lean.md`.
+Lean now proves exact halving of finite integer-weight multisets: for every
+positive translation it recovers the unique half, and rejection excludes all
+halves. Both seven-exception factorizations of the selected 109 graph's
+45-weight remainder are proved and applied to every budget-108 labelling.
+The twelve critical-path families remain necessary conditions; full interval
+classification and the 109 exclusion remain computational. See
+`results/2026-10-26-halving-lean.md`.
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node

@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-10-25 (Sunday, Australia/Sydney).
+Updated 2026-10-26 (Monday, Australia/Sydney).
 
 Latest weekly handoff: [24 October literature baseline](results/2026-10-24-literature-review.md).
 The September counting theorem does not supply fixed-instance exclusions. The
@@ -309,6 +309,14 @@ are consistent with the enumeration. See
   8 and 15. If it misses 8 it visits 5, 7 and 15. Prove the path-to-box bridge
   and that a critical path through 8 pins the box maximum at 108.
 
+- [x] Prove soundness, completeness, sufficient fuel and uniqueness for exact
+  halving of arbitrary finite integer-weight multisets by a positive shift.
+  Factor the normalized 45-weight remainder on both sides into seven exceptions
+  plus a translated double of nineteen weights; prove distinctness/disjointness
+  under the interval equation and apply both recoveries to budget-108 labellings.
+  See `results/2026-10-26-halving-lean.md`. This proves the halving operation,
+  not the complete enumeration, its odd-run pruning or the machine bit-mask code.
+
 **Next.** (1) Use the twelve critical families and oriented constraints to
 classify intervals. Split on visiting 8: in that branch the box offset is
 108 minus the sum of differences; the other branch visits 5, 7 and 15.
@@ -324,7 +332,12 @@ See `results/2026-10-24-critical-families-lean.md`.
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that
-min(u,d1)=1 would be a natural first lemma. (3) Apply the box/halving method
+min(u,d1)=1 would be a natural first lemma. The two exact halving
+reductions now have complete Lean proofs; next justify the odd-run pruning
+(at most seven odd runs before deleting the seven exceptions) or a stronger interval
+restriction before attempting the remaining enumeration. Do not rerun halving
+correctness or simply replay the large candidate space.
+(3) Apply the box/halving method
 to other non-Hansen parent graphs. Do not repeat the completed enumeration
 or raise unrestricted solver timeouts.
 
