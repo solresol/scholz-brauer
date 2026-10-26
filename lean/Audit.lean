@@ -316,3 +316,13 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.interval_halving
 #print axioms ScholzBrauer.Clift109.interval_halves_disjoint
 #print axioms ScholzBrauer.Clift109.halving_of_budget
+
+#print axioms ScholzBrauer.Clift109.runClass_step
+#print axioms ScholzBrauer.Clift109.paired_class_count
+#print axioms ScholzBrauer.Clift109.odd_run_has_exception
+#print axioms ScholzBrauer.Clift109.oddRunCount_le_exceptions
+#print axioms ScholzBrauer.Clift109.oddRunCount_mod_two
+#print axioms ScholzBrauer.Clift109.oddRunCount_zbranch
+#print axioms ScholzBrauer.Clift109.remainder_odd_runs
+#print axioms ScholzBrauer.Clift109.interval_odd_runs
+#print axioms ScholzBrauer.Clift109.odd_runs_of_budget

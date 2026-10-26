@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-10-26 (Monday, Australia/Sydney).
+Updated 2026-10-27 (Tuesday, Australia/Sydney).
 
 Latest weekly handoff: [24 October literature baseline](results/2026-10-24-literature-review.md).
 The September counting theorem does not supply fixed-instance exclusions. The
@@ -317,6 +317,14 @@ are consistent with the enumeration. See
   See `results/2026-10-26-halving-lean.md`. This proves the halving operation,
   not the complete enumeration, its odd-run pruning or the machine bit-mask code.
 
+- [x] Prove the odd-run pruning mathematically: each odd connected component
+  of a translated double plus exceptions contains an exception. Apply both
+  seven-weight decompositions to the interval minus the box and to every
+  budget-108 labelling. Prove the parity restriction as well: the two counts
+  are each 1, 3, 5 or 7. See `results/2026-10-27-odd-runs-lean.md`.
+  The count uses step-connected components, not the C++ bit-mask routine;
+  program equivalence and complete enumeration remain separate obligations.
+
 **Next.** (1) Use the twelve critical families and oriented constraints to
 classify intervals. Split on visiting 8: in that branch the box offset is
 108 minus the sum of differences; the other branch visits 5, 7 and 15.
@@ -332,11 +340,12 @@ See `results/2026-10-24-critical-families-lean.md`.
 enough for the kernel. With the box pinned at the top, the current search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that
-min(u,d1)=1 would be a natural first lemma. The two exact halving
-reductions now have complete Lean proofs; next justify the odd-run pruning
-(at most seven odd runs before deleting the seven exceptions) or a stronger interval
-restriction before attempting the remaining enumeration. Do not rerun halving
-correctness or simply replay the large candidate space.
+min(u,d1)=1 would be a natural next lemma, but remains unproved. Both exact
+halving reductions and the at-most-seven-odd-runs pruning now have Lean proofs,
+including parity of the odd-run counts. Use these together with the critical
+families to obtain a stronger interval restriction before attempting the
+remaining enumeration. Do not rerun halving correctness, odd-run counting or
+simply replay the large candidate space.
 (3) Apply the box/halving method
 to other non-Hansen parent graphs. Do not repeat the completed enumeration
 or raise unrestricted solver timeouts.

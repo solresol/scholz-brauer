@@ -1,5 +1,37 @@
 # Research log
 
+## 2026-10-27 — Tuesday — odd-run pruning and parity in Lean
+
+Milestone 3 advanced; milestones 1/2 remain complete. Clean main 3a3dd7b,
+correct origin, fetch/ff-only current, no competing research command found.
+Reviewed the 24 October weekly literature handoff; live Clift page/diagram
+hashes match 26 October. No dependency or toolchain change.
+
+`Clift109OddRuns.lean` proves that each odd step-connected component of a
+translated double plus exceptions contains an exception, so the number of
+odd components is at most the exceptional weight count. It also proves parity
+of the component count and the all-even result without exceptions. Applying
+both proved 19+19+7 factorizations to every budget-108 labelling gives at most
+seven odd runs at both positive steps u,d1, before deleting any exceptions.
+Both counts are odd, hence 1,3,5 or 7. The interval-minus-box input is proved
+duplicate-free, making component multiplicity ordinary run length.
+
+This closes the mathematical pruning obligation, not the bit-mask program's
+equivalence or complete enumeration. The full 109 exclusion/minimum remains
+computational. Next use the odd-run restrictions, exact halvings, twelve
+critical families and oriented caps to obtain a smaller interval classification;
+min(u,d1)=1 remains only a proposed restriction. No new search, solver,
+exporter or certificate format. Standalone compilation passed without warnings
+in 12.56 seconds at default heartbeats. See
+`results/2026-10-27-odd-runs-lean.md` for the argument and proof-script repairs.
+
+Required integration passed once in 226.974026 seconds: 30 commands, full
+pinned Lean build and 296 audited theorems with permitted standard axioms
+only. All 124 input hashes independently matched; five vendor hashes checked.
+Structured comparison preserved prior mathematical summaries. Complete
+source/docs diff and report reviewed; whitespace and proof-token checks passed.
+Remote CI was not checked.
+
 ## 2026-10-26 — Monday — exact halving and both remainder factorizations
 
 Milestone 3 advanced; milestones 1/2 remain complete. Clean main dbbc124,

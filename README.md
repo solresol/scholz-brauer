@@ -19,15 +19,16 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 26 October 2026
+## Verified status — 27 October 2026
 
-Lean now proves exact halving of finite integer-weight multisets: for every
-positive translation it recovers the unique half, and rejection excludes all
-halves. Both seven-exception factorizations of the selected 109 graph's
-45-weight remainder are proved and applied to every budget-108 labelling.
-The twelve critical-path families remain necessary conditions; full interval
-classification and the 109 exclusion remain computational. See
-`results/2026-10-26-halving-lean.md`.
+Lean now proves the odd-run pruning condition for the selected 109 graph:
+before deleting either seven-weight exceptional set, the interval minus the
+box has at most seven odd-length runs at each of the two halving steps.
+Each count is odd, hence is 1, 3, 5 or 7. The general proof counts connected
+components of step edges and applies to every budget-108 labelling, reusing
+both remainder factorizations. Full interval classification and the 109
+exclusion remain computational; no equivalence with the C++ bit-mask routine
+is claimed. See `results/2026-10-27-odd-runs-lean.md`.
 
 **Milestone 1 is complete.** Lean proves the general Hansen lift: for an
 accepted marked source with `r` additions ending at `n`, every required node
