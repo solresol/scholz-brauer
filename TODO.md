@@ -25,11 +25,12 @@ does not enable or modify any schedule.
 
 Updated 2026-10-27 (Tuesday, Australia/Sydney).
 
-Latest weekly handoff: [24 October literature baseline](results/2026-10-24-literature-review.md).
-The September counting theorem does not supply fixed-instance exclusions. The
-sigma/tau preprint's monotonicity inference fails on the existing optimal
-29-source, and a separate inspected general-proof claim assumes star chains.
-Continue the current non-Hansen reductions without inferring a universal lift.
+Latest weekly handoff: [30 October literature checkpoint](results/2026-10-30-literature-review.md).
+No new validated result changes the current reductions. The two August
+multi-step-optimization copies have different hypotheses and do not supply an
+unrestricted proof; the earlier counting and sigma/tau/star-chain limitations
+remain. Continue the twelve-family non-Hansen reductions without inferring a
+universal lift.
 
 ## Verified foundation
 
