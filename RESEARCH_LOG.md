@@ -1,5 +1,23 @@
 # Research log
 
+## 2026-11-01 — Sunday — reconcile unfinished local residue work
+
+Explicit user cleanup authorization superseded the dirty-checkout stop for
+this reconciliation. Preserved both 28 October untracked artifacts; moved the
+Lean draft byte-for-byte to `research-drafts/2026-10-28/Clift109Residues.lean.txt`
+and retained its historical JSON source record. The draft is outside the
+compiled library and remains unvalidated. A standalone Lean check was stopped
+after 117.47 seconds without diagnostics; no proof completion is claimed.
+See the draft README for command, hash, timings and recovery instructions.
+
+Fetched origin and fast-forwarded main from 3065d4d to cfe9260, incorporating
+the 30 October literature checkpoint. No mathematical source was changed.
+Checked archive byte identity, JSON syntax, references and the full diff;
+no integration rerun was needed for this archival/documentation change.
+Milestones 1/2 remain recorded complete; milestone 3 still needs interval
+classification and full kernel-checked exclusion. No substantive research
+advance; the operational dirty-checkout blocker is reconciled.
+
 ## 2026-10-27 — Tuesday — odd-run pruning and parity in Lean
 
 Milestone 3 advanced; milestones 1/2 remain complete. Clean main 3a3dd7b,

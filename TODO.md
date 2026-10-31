@@ -160,6 +160,11 @@ Star optimum 18 remains a literature claim and is unnecessary for this result.
 
 ## Milestone 3 — extension beyond Hansen: SPECIFIC FAMILY PROVED
 
+Unfinished 28 October residue work is preserved in
+[the draft archive](research-drafts/2026-10-28/README.md). It is unvalidated
+and excluded from the build. Reconcile its proposed finite step restriction
+in Cloud before starting a duplicate residue argument.
+
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).
 - [x] Refute the standard all-Mersenne orientation hypothesis for this graph:
