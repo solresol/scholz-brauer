@@ -493,3 +493,14 @@ and positive normalized steps. Nine public theorems enter the axiom audit.
 The quotient-based count is a mathematical specification; it does not verify
 the C++ bit-mask procedure. Enumeration completeness, cap infeasibility and
 the full 109 exclusion remain unproved in Lean.
+
+## Full-interval residues — 2 November 2026
+
+`Clift109Residues.lean` combines both box/remainder pairings, cancels paired
+residue contributions modulo two and proves an explicit 27-value necessary
+domain for each positive halving step. The exact fingerprints and finite
+domains are transported to every budget-108 labelling. Eleven public theorems
+enter the axiom audit. The 109 Fin cases (zero is vacuous) are kernel checked
+with a local 2000000-heartbeat budget; a list-backed Finset avoids nested
+insertion blowup. No native evaluation, new axiom or target assumption is used.
+This completes the archived draft, not interval/cap classification or exclusion.

@@ -1,5 +1,33 @@
 # Research log
 
+## 2026-11-02 — Monday — complete the residue step restriction
+
+Milestone 3 advanced by completing the archived residue proof. Both full
+interval factorizations have 51 translated pairs and seven exceptions; the
+paired contributions cancel modulo two. Lean proves exact residue fingerprints
+and restricts each positive halving step to 27 explicitly listed values,
+then transports all four conclusions to every budget-108 labelling. No
+configuration feasibility, min(u,d1)=1 or full 109 exclusion is asserted.
+
+Profiling identified nested Finset insertion reduction as the earlier stall.
+A list-backed Finset and splitting the 109 Fin cases remove the bottleneck;
+the finite check uses a local 2000000-heartbeat limit. Standalone Lean passed
+without warnings in 116.36 seconds. Independent Counter and quotient/remainder
+calculations agree on all positive steps 1..108. No new infrastructure or
+large enumeration. Original draft preserved byte-for-byte. See
+`results/2026-11-02-residues-lean.md` for failed approaches and validation.
+
+Read the 30 October literature checkpoint; primary page and diagram hashes
+remain unchanged. Inspected pinned upstream definitions/licence/open target;
+no target import or dependency change. Next combine residue restrictions with
+the proved odd-run and critical-path constraints to close interval classification.
+
+Integration passed once in 391.511694 seconds: 30 commands, full pinned build
+(1132 jobs), 307 audited theorems with permitted standard axioms only. All 125
+input hashes independently matched; five vendor hashes checked. Structured
+comparison preserves previous mathematical summaries. Full diff reviewed;
+whitespace and proof-token checks clean. Remote CI not checked.
+
 ## 2026-11-01 — Sunday — reconcile unfinished local residue work
 
 Explicit user cleanup authorization superseded the dirty-checkout stop for

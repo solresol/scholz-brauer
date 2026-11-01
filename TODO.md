@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-10-27 (Tuesday, Australia/Sydney).
+Updated 2026-11-02 (Monday, Australia/Sydney).
 
 Latest weekly handoff: [30 October literature checkpoint](results/2026-10-30-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -160,10 +160,20 @@ Star optimum 18 remains a literature claim and is unnecessary for this result.
 
 ## Milestone 3 — extension beyond Hansen: SPECIFIC FAMILY PROVED
 
-Unfinished 28 October residue work is preserved in
-[the draft archive](research-drafts/2026-10-28/README.md). It is unvalidated
-and excluded from the build. Reconcile its proposed finite step restriction
-in Cloud before starting a duplicate residue argument.
+The original 28 October residue draft remains in
+[the archive](research-drafts/2026-10-28/README.md). Its completed replacement
+is `Clift109Residues.lean`: both halving steps belong to an explicit 27-value
+domain, with exact exceptional-residue fingerprints for every budget-108
+labelling. The finite kernel check now uses a duplicate-free list and separate
+Fin cases to remove the previous reduction bottleneck.
+
+- [x] Prove full-interval residue parity, both 51-pair plus seven-exception
+  factorizations, and the finite step restriction; apply to budget-108 labels.
+- [ ] Combine this 27-by-27 necessary domain and the exact fingerprints with
+  the odd-run restrictions, twelve critical families and 64 orientations to
+  finish interval/cap classification. Neither feasibility nor min(u,d1)=1
+  follows from the residue domain alone. See
+  [2 November result](results/2026-11-02-residues-lean.md).
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).

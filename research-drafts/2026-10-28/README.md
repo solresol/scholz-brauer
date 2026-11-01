@@ -22,3 +22,14 @@ Resume in the intended Cloud environment: restore a working copy under
 pinned build and axiom audit before importing or claiming these results.
 Keep the original here until the replacement is verified. The full Clift109
 interval classification and exclusion remain incomplete.
+
+## Completed replacement — 2 November 2026
+
+The user-authorized daily research run resumed locally in the specified
+repository. `../../lean/ScholzBrauer/Clift109Residues.lean` now completes the
+argument; the original bytes above remain untouched. Profiling found expensive
+nested Finset insertion reduction. A list-backed Finset and separate Fin cases
+resolved it; the completed theorem includes both finite domains and residue
+fingerprints for every budget-108 labelling. See
+`../../results/2026-11-02-residues-lean.md` for checks and remaining obligations.
+The historical incomplete-check statements above describe the archived file.

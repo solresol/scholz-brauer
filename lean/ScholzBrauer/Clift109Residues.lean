@@ -1,0 +1,157 @@
+import ScholzBrauer.Clift109OddRuns
+import Mathlib.Tactic.FinCases
+
+/-! Residue restrictions on the two halving steps. The box can be paired at
+both steps too, so parity can be applied to the entire interval, independently
+of its offset and its other four differences. -/
+
+set_option Elab.async false
+
+namespace ScholzBrauer.Clift109
+
+/-- Labels occurring an odd number of times, retaining multiset multiplicity. -/
+def oddLabels {α : Type*} [DecidableEq α] (s : Multiset α) : Finset α :=
+  s.toFinset.filter (fun q => s.count q % 2 = 1)
+
+/-- Paired contributions disappear modulo two, leaving exactly the exceptional
+labels, not merely an upper bound on their number. -/
+theorem oddLabels_paired {α : Type*} [DecidableEq α]
+    (d : ℤ) (a e : Multiset ℤ) (f : ℤ → α)
+    (hf : ∀ x ∈ a, f (x + d) = f x) :
+    oddLabels ((zbranch a d + e).map f) = oddLabels (e.map f) := by
+  ext q
+  have hc := paired_class_count d a e f hf q
+  simp only [oddLabels, Finset.mem_filter, Multiset.mem_toFinset]
+  constructor
+  · rintro ⟨_, hq⟩
+    have he : (e.map f).count q % 2 = 1 := by omega
+    exact ⟨Multiset.count_pos.mp (by omega), he⟩
+  · rintro ⟨_, hq⟩
+    have hs : ((zbranch a d + e).map f).count q % 2 = 1 := by omega
+    exact ⟨Multiset.count_pos.mp (by omega), hs⟩
+
+theorem oddLabels_card_le {α : Type*} [DecidableEq α] (s : Multiset α) :
+    (oddLabels s).card ≤ s.card :=
+  (Finset.card_le_card (Finset.filter_subset _ _)).trans (Multiset.toFinset_card_le s)
+
+/-- Odd residues of the whole target interval at a proposed halving step. -/
+def intervalOddResidues (d : ℤ) : Finset ℤ :=
+  oddLabels ((Multiset.range 109).map (fun i : ℕ => (i : ℤ) % d))
+
+/-- Every residue parity of the interval is supplied by the exceptional set. -/
+theorem interval_residue_fingerprint (d : ℤ) (a e : Multiset ℤ)
+    (h : (Multiset.range 109).map Int.ofNat = zbranch a d + e) :
+    intervalOddResidues d = oddLabels (e.map (· % d)) := by
+  have hf : ∀ x ∈ a, (x + d) % d = x % d := by intros; simp
+  have hp := oddLabels_paired d a e (fun x => x % d) hf
+  rw [← h] at hp
+  simpa [intervalOddResidues, Multiset.map_map] using hp
+
+/-- The box's 32 pairs can be combined with the remainder's nineteen pairs. -/
+theorem weights_source_factor (c : GaugeCoordinates) :
+    coordinateWeights c =
+      zbranch (zshift (zSS [c.d3, c.d2, c.d1, c.w, c.v]) c.t + sourceHalf c) c.u +
+      zshift (rem5 c) c.A3 := by
+  rw [coordinateWeights, remainder_source_factor]
+  simp [coordinateBox, zSS, zbranch, zshift]
+  simp only [Int.add_left_comm, Int.add_comm, ← Multiset.singleton_add]
+  ac_rfl
+
+theorem weights_sink_factor (c : GaugeCoordinates) :
+    coordinateWeights c =
+      zbranch (zshift (zSS [c.d3, c.d2, c.w, c.v, c.u]) c.t + sinkHalf c) c.d1 +
+      sinkExceptions c := by
+  rw [coordinateWeights, remainder_sink_factor]
+  simp [coordinateBox, zSS, zbranch, zshift]
+  simp only [Int.add_left_comm, Int.add_comm, ← Multiset.singleton_add]
+  ac_rfl
+
+/-- A nonempty half inside the interval forces its positive step below 109. -/
+theorem interval_pair_step_lt (d : ℤ) (a e : Multiset ℤ) (ha : a ≠ 0)
+    (h : (Multiset.range 109).map Int.ofNat = zbranch a d + e) : d < 109 := by
+  obtain ⟨x, hx⟩ := Multiset.exists_mem_of_ne_zero ha
+  have hmem : ∀ y ∈ zbranch a d, 0 ≤ y ∧ y < 109 := by
+    intro y hy
+    have hy' : y ∈ (Multiset.range 109).map Int.ofNat := by
+      rw [h]
+      exact Multiset.mem_add.mpr (Or.inl hy)
+    obtain ⟨i, hi, rfl⟩ := Multiset.mem_map.mp hy'
+    have hi' := Multiset.mem_range.mp hi
+    change 0 ≤ (i : ℤ) ∧ (i : ℤ) < 109
+    omega
+  have hx' := hmem x (Multiset.mem_add.mpr (Or.inl hx))
+  have hxd := hmem (x + d)
+    (Multiset.mem_add.mpr (Or.inr (Multiset.mem_map.mpr ⟨x, hx, rfl⟩)))
+  omega
+
+/-- Necessary step domain; this does not assert that any listed step extends
+to an interval configuration or a feasible cap assignment. -/
+-- A duplicate-free list avoids exponentially repeated nested-insert reduction.
+def residueSteps : Finset ℤ :=
+  ⟨(([1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17, 18, 19, 26, 27, 28, 29,
+   51, 52, 53, 54, 55, 56, 57, 58] : List ℤ) : Multiset ℤ), by decide⟩
+
+theorem card_residueSteps : residueSteps.card = 27 := by decide +kernel
+
+-- Only 108 possible steps are checked; no interval configuration is enumerated.
+set_option maxHeartbeats 2000000 in
+theorem interval_residue_domain_check : ∀ d : Fin 109, 0 < d.val →
+    ((intervalOddResidues (d.val : ℤ)).card ≤ 7 ↔ (d.val : ℤ) ∈ residueSteps) := by
+  intro d
+  fin_cases d <;> decide +kernel
+
+/-- Seven exceptions restrict every positive step to the explicit 27 values. -/
+theorem interval_pair_step_domain (d : ℤ) (hd : 0 < d)
+    (a e : Multiset ℤ) (ha : a ≠ 0) (he : e.card ≤ 7)
+    (h : (Multiset.range 109).map Int.ofNat = zbranch a d + e) :
+    d ∈ residueSteps := by
+  have hlt := interval_pair_step_lt d a e ha h
+  have hf := interval_residue_fingerprint d a e h
+  have hc : (intervalOddResidues d).card ≤ 7 := by
+    rw [hf]
+    exact (oddLabels_card_le _).trans (by simpa using he)
+  have hn : (d.toNat : ℤ) = d := Int.toNat_of_nonneg (by omega)
+  have hnat : d.toNat < 109 := by omega
+  have ht := interval_residue_domain_check ⟨d.toNat, hnat⟩ (show 0 < d.toNat by omega)
+  simpa only [hn] using ht.mp (by simpa only [hn] using hc)
+
+/-- The full interval imposes both finite step domains and exact exceptional
+residue fingerprints. Neither conclusion depends on the box offset. -/
+theorem interval_residues (c : GaugeCoordinates) (hu : 0 < c.u) (hd : 0 < c.d1)
+    (h : coordinateWeights c = (Multiset.range 109).map Int.ofNat) :
+    c.u ∈ residueSteps ∧ c.d1 ∈ residueSteps ∧
+    intervalOddResidues c.u = oddLabels ((zshift (rem5 c) c.A3).map (· % c.u)) ∧
+    intervalOddResidues c.d1 = oddLabels ((sinkExceptions c).map (· % c.d1)) := by
+  have hs := (weights_source_factor c).symm.trans h
+  have ht := (weights_sink_factor c).symm.trans h
+  have hsa : zshift (zSS [c.d3, c.d2, c.d1, c.w, c.v]) c.t + sourceHalf c ≠ 0 := by
+    intro hz
+    have hc := congrArg Multiset.card hz
+    simp [zshift, zSS, zbranch, card_sourceHalf] at hc
+  have hta : zshift (zSS [c.d3, c.d2, c.w, c.v, c.u]) c.t + sinkHalf c ≠ 0 := by
+    intro hz
+    have hc := congrArg Multiset.card hz
+    simp [zshift, zSS, zbranch, card_sinkHalf] at hc
+  exact ⟨interval_pair_step_domain _ hu _ _ hsa (by rw [card_sourceExceptions]) hs.symm,
+    interval_pair_step_domain _ hd _ _ hta (by rw [card_sinkExceptions]) ht.symm,
+    interval_residue_fingerprint _ _ _ hs.symm,
+    interval_residue_fingerprint _ _ _ ht.symm⟩
+
+/-- Applies the finite restriction to every hypothetical budget-108 labelling
+of the selected graph, with no assumed enumeration result. -/
+theorem residue_steps_of_budget (B a b cap : ℕ → ℕ) (h1 : B 1 = 1)
+    (hsteps : ∀ s ∈ selectedSteps,
+      B s.1 * 2 ^ a (s.1 + s.2) + B s.2 * 2 ^ b (s.1 + s.2) = B (s.1 + s.2))
+    (hcap : ∀ s ∈ selectedSteps, a (s.1 + s.2) ≤ cap s.1 ∧ b (s.1 + s.2) ≤ cap s.2)
+    (h109 : B 109 = 2 ^ 109 - 1)
+    (hbudget : cap 1 + cap 2 + cap 4 + cap 5 + cap 7 + cap 8 + cap 15 +
+      cap 23 + cap 28 + cap 51 + cap 58 ≤ 108) :
+    let c := minimumCoordinates (fun i => a i) (fun i => b i)
+    c.u ∈ residueSteps ∧ c.d1 ∈ residueSteps ∧
+    intervalOddResidues c.u = oddLabels ((zshift (rem5 c) c.A3).map (· % c.u)) ∧
+    intervalOddResidues c.d1 = oddLabels ((sinkExceptions c).map (· % c.d1)) := by
+  have hp := halving_of_budget B a b cap h1 hsteps hcap h109 hbudget
+  exact interval_residues _ hp.1 hp.2.1
+    (normalized_interval_of_budget B a b cap h1 hsteps hcap h109 hbudget)
+
+end ScholzBrauer.Clift109

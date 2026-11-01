@@ -19,7 +19,17 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 27 October 2026
+## Verified status — 2 November 2026
+
+Lean now restricts each of the two halving steps for the selected 109 graph
+to an explicit 27-value domain. Combining the box and remainder gives 51
+translated pairs and seven exceptions; residue parity proves both finite
+restrictions and exact exceptional-residue fingerprints for every budget-108
+labelling. The archived residue attempt is completed with a cheaper finite-set
+representation. These are necessary conditions; full interval/cap classification
+and exclusion remain incomplete. See `results/2026-11-02-residues-lean.md`.
+
+### Previous reduction — 27 October
 
 Lean now proves the odd-run pruning condition for the selected 109 graph:
 before deleting either seven-weight exceptional set, the interval minus the

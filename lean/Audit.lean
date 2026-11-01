@@ -326,3 +326,15 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.remainder_odd_runs
 #print axioms ScholzBrauer.Clift109.interval_odd_runs
 #print axioms ScholzBrauer.Clift109.odd_runs_of_budget
+
+#print axioms ScholzBrauer.Clift109.oddLabels_paired
+#print axioms ScholzBrauer.Clift109.oddLabels_card_le
+#print axioms ScholzBrauer.Clift109.interval_residue_fingerprint
+#print axioms ScholzBrauer.Clift109.weights_source_factor
+#print axioms ScholzBrauer.Clift109.weights_sink_factor
+#print axioms ScholzBrauer.Clift109.interval_pair_step_lt
+#print axioms ScholzBrauer.Clift109.card_residueSteps
+#print axioms ScholzBrauer.Clift109.interval_residue_domain_check
+#print axioms ScholzBrauer.Clift109.interval_pair_step_domain
+#print axioms ScholzBrauer.Clift109.interval_residues
+#print axioms ScholzBrauer.Clift109.residue_steps_of_budget
