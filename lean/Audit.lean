@@ -338,3 +338,11 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.interval_pair_step_domain
 #print axioms ScholzBrauer.Clift109.interval_residues
 #print axioms ScholzBrauer.Clift109.residue_steps_of_budget
+
+#print axioms ScholzBrauer.CliftLabelling.subsetSums_mem_le_sum
+#print axioms ScholzBrauer.CliftLabelling.subsetSums_packing
+#print axioms ScholzBrauer.CliftLabelling.subsetSums_sublist
+#print axioms ScholzBrauer.CliftLabelling.six_box_pair_packing
+#print axioms ScholzBrauer.Clift109.box_pair_packing_of_budget
+#print axioms ScholzBrauer.Clift109.residueSteps_gap
+#print axioms ScholzBrauer.Clift109.joint_steps_of_budget

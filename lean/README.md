@@ -504,3 +504,7 @@ enter the axiom audit. The 109 Fin cases (zero is vacuous) are kernel checked
 with a local 2000000-heartbeat budget; a list-backed Finset avoids nested
 insertion blowup. No native evaluation, new axiom or target assumption is used.
 This completes the archived draft, not interval/cap classification or exclusion.
+
+`Clift109Packing.lean` proves the general dissociated-box span bound and
+transports joint step pruning to every budget-108 labelling: offset ≤45,
+u+d1 ≤93, u≠d1 and min(u,d1)≤29. These are necessary conditions only.

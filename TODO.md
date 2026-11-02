@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-02 (Monday, Australia/Sydney).
+Updated 2026-11-03 (Tuesday, Australia/Sydney).
 
 Latest weekly handoff: [30 October literature checkpoint](results/2026-10-30-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -169,7 +169,11 @@ Fin cases to remove the previous reduction bottleneck.
 
 - [x] Prove full-interval residue parity, both 51-pair plus seven-exception
   factorizations, and the finite step restriction; apply to budget-108 labels.
-- [ ] Combine this 27-by-27 necessary domain and the exact fingerprints with
+- [x] Prove box packing and joint halving-step pruning: offset ≤45,
+  u+d1 ≤93, u≠d1 and min(u,d1)≤29 for every budget-108 labelling.
+  The remaining necessary ordered-pair domain has 646 entries; this is not
+  a feasibility count. See [3 November result](results/2026-11-03-packing-lean.md).
+- [ ] Combine the 646 necessary ordered step pairs and the exact fingerprints with
   the odd-run restrictions, twelve critical families and 64 orientations to
   finish interval/cap classification. Neither feasibility nor min(u,d1)=1
   follows from the residue domain alone. See

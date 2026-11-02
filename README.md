@@ -1,5 +1,10 @@
 # Scholz–Brauer research
 
+Latest advance (3 November): Lean box packing restricts every hypothetical
+budget-108 labelling of the selected 109 graph to distinct halving steps
+with sum at most 93 and minimum at most 29. Interval/cap classification
+remains incomplete. See [the proof record](results/2026-11-03-packing-lean.md).
+
 [![Verify proofs and certificates](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml/badge.svg)](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml)
 
 The first software release, **Hansen's Addition-Chain Construction in Lean 4**,

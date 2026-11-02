@@ -1,5 +1,23 @@
 # Research log
 
+## 2026-11-03 — Tuesday — joint halving-step packing
+
+Milestone 3 advanced: Lean proves the generic dissociated-box span bound,
+preservation under deleting dimensions, and its application to every
+budget-108 labelling. The six-dimensional box forces offset ≤45; removing
+u,d1 leaves sixteen distinct subset sums and forces offset+u+d1 ≤93.
+Combining with the residue domain and distinctness proves min(u,d1)≤29.
+This excludes simultaneous large steps 51..58 and leaves 646 necessary ordered
+pairs, not feasible configurations. Full interval/cap classification remains open.
+
+Standalone Lean passed without warnings in 8.15 seconds. No infrastructure or
+dependency change. Primary Clift page/diagram hashes match 2 November; reused
+the 30 October literature checkpoint. See `results/2026-11-03-packing-lean.md`
+for proof details, validation and next obligation. Integration passed once in
+268.953655 seconds: 30 commands, pinned build (1133 jobs), 314-theorem audit
+with standard axioms only; all 126 input hashes matched independently.
+Full diff reviewed; remote CI not checked.
+
 ## 2026-11-02 — Monday — complete the residue step restriction
 
 Milestone 3 advanced by completing the archived residue proof. Both full
