@@ -48,6 +48,16 @@ evidence; their results are not imported as axioms. `Audit.lean` checks the
 transitive dependencies of the key theorems. The independent witness check is
 `python3 ../scripts/check_12509.py`.
 
+`Clift47.lean` replays Clift's published 54-addition seed for `2^47-1`
+and verifies that it contains `8 * (2^11-1)` and `2^24-1`. A 63-node
+exclusion certificate through seven additions and an eight-step source witness
+give `additionChainLength 47 = 8` and the numerical Scholz bound at 47.
+A second exclusion certificate and the doubling bound prove that a source
+chain ending at 47 needs at least nine additions to store both 11 and 24.
+An explicit nine-addition source shows that this lower bound is sharp.
+The seed's 54 additions give a Mersenne upper bound. See
+[Clift's published construction](https://www.additionchains.com/ExactScholz.html).
+
 `BrauerBlock.lean` provides the next constructive layer:
 
 - `doublingSteps`: an executable summand-value certificate; replay is proved

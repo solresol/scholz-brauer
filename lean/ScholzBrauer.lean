@@ -16,6 +16,7 @@ import ScholzBrauer.ExclusionBitsChecks
 import ScholzBrauer.Exclusion12509Optimal
 import ScholzBrauer.NonHansen29
 import ScholzBrauer.OneGapLift
+import ScholzBrauer.Clift47
 import ScholzBrauer.Clift109
 import ScholzBrauer.Clift109Shifted
 import ScholzBrauer.MersenneComplement

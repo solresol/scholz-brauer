@@ -1,6 +1,7 @@
 import ScholzBrauer
 
 #print axioms ScholzBrauer.append_sum
+#print axioms IsAdditionChain.prefix
 #print axioms ScholzBrauer.replay_sound
 #print axioms ScholzBrauer.replay_length
 #print axioms ScholzBrauer.replay_upper_bound
@@ -346,3 +347,10 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.box_pair_packing_of_budget
 #print axioms ScholzBrauer.Clift109.residueSteps_gap
 #print axioms ScholzBrauer.Clift109.joint_steps_of_budget
+
+#print axioms ScholzBrauer.Clift47.seed_replay
+#print axioms ScholzBrauer.Clift47.seed_properties
+#print axioms ScholzBrauer.Clift47.length47_eq_eight
+#print axioms ScholzBrauer.Clift47.scholz47
+#print axioms ScholzBrauer.Clift47.not_mem_11_and_24
+#print axioms ScholzBrauer.Clift47.nine_step_source_with_seeds

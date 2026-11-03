@@ -32,6 +32,15 @@ theorem append_sum {c : List ℕ} (hc : IsAdditionChain c) {a b : ℕ}
     · have hxsum : x = a + b := List.mem_singleton.mp hx
       exact ⟨a, List.mem_append_left _ ha, b, List.mem_append_left _ hb, hxsum⟩
 
+/-- A nonempty prefix of an addition chain is itself an addition chain. -/
+theorem _root_.IsAdditionChain.prefix {c s : List ℕ} (hc : IsAdditionChain (c ++ s))
+    (hne : c ≠ []) : IsAdditionChain c := by
+  induction s using List.reverseRecOn with
+  | nil => simpa using hc
+  | append_singleton s x ih =>
+    have h : IsAdditionChain ((c ++ s) ++ [x]) := by simpa [List.append_assoc] using hc
+    exact ih (h.dropLast (by simp [hne]))
+
 theorem extend_sound {c d : List ℕ} {s : Step} (hc : IsAdditionChain c)
     (h : extend c s = some d) : IsAdditionChain d := by
   unfold extend at h
