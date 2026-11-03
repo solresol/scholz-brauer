@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-03 (Tuesday, Australia/Sydney).
+Updated 2026-11-04 (Wednesday, Australia/Sydney).
 
 Latest weekly handoff: [30 October literature checkpoint](results/2026-10-30-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -171,12 +171,16 @@ Fin cases to remove the previous reduction bottleneck.
   factorizations, and the finite step restriction; apply to budget-108 labels.
 - [x] Prove box packing and joint halving-step pruning: offset ≤45,
   u+d1 ≤93, u≠d1 and min(u,d1)≤29 for every budget-108 labelling.
-  The remaining necessary ordered-pair domain has 646 entries; this is not
-  a feasibility count. See [3 November result](results/2026-11-03-packing-lean.md).
-- [ ] Combine the 646 necessary ordered step pairs and the exact fingerprints with
+  This leaves 646 necessary ordered pairs before common-divisor pruning;
+  this is not a feasibility count. See [3 November result](results/2026-11-03-packing-lean.md).
+- [x] Use the paired shape of the seven exceptions to prove that gcd(u,d1)
+  divides 54 or 55. Apply it to every budget-108 labelling and kernel-check
+  the resulting 606-pair necessary domain (40 fewer pairs).
+  See [4 November result](results/2026-11-04-common-divisor-lean.md).
+- [ ] Combine the 606 necessary ordered step pairs and the exact fingerprints with
   the odd-run restrictions, twelve critical families and 64 orientations to
   finish interval/cap classification. Neither feasibility nor min(u,d1)=1
-  follows from the residue domain alone. See
+  is established by these necessary restrictions. See
   [2 November result](results/2026-11-02-residues-lean.md).
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique

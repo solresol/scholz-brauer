@@ -1,0 +1,57 @@
+{
+  "recorded_at_utc": "2026-11-03T21:17:35.210365+00:00",
+  "base_commit": "4d351b1aa302819ceb0ff9b7f2832cbb69c37616",
+  "lean": "Lean (version 4.27.0, x86_64-unknown-linux-gnu, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)",
+  "environment": "prepare.env_for(scholz); exact installed_tools binaries; published guarded runner",
+  "full_lean_build": {
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build"
+    ],
+    "exit_code": 0,
+    "jobs": 1135,
+    "guarded_runtime_seconds": 58.772,
+    "output": "Built ScholzBrauer.Clift109CommonDivisor (46s); Built ScholzBrauer (3.5s); Build completed successfully (1135 jobs)."
+  },
+  "axiom_audit": {
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "env",
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+      "Audit.lean"
+    ],
+    "exit_code": 0,
+    "audited_theorems": 328,
+    "new_theorems": 7,
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "guarded_runtime_seconds": 41.22,
+    "transcript": "results/2026-11-04-lean-audit.txt",
+    "transcript_sha256": "e1801a064f287a709f2e2b91eed95f6a07fe6debdc0f39fe15e41b051a8c0648"
+  },
+  "pins_match_published_allowlist": true,
+  "exact_dependency_heads_and_clean_tracked_sources": "verified",
+  "vendored_hashes_checked": 5,
+  "new_proof_has_no_placeholder_or_native_decide": true,
+  "input_sha256": {
+    "lean/ScholzBrauer/Clift109CommonDivisor.lean": "1b1600d70fc43e718636e892020c1ea43c2d851587330b4778806ba4cab84bd8",
+    "lean/ScholzBrauer.lean": "305f02cf80d78a35b5b56263a1e0a52630065f2cb01b1818dc00342a3e562da2",
+    "lean/Audit.lean": "470f5a3f20a1f8f61ffde7e7b24fba17020f87231189e75cc68486d676e36e7d",
+    "lean/lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "lean/lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8",
+    "lean/lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5",
+    "lean/vendor/formal-conjectures/provenance.json": "81c70c3ab8ce9362a23e647c0a4c072ed8995262363edeaf89d5195b0c995c76",
+    "lean/vendor/formal-conjectures/AdditionChain.lean": "12d7724f25ec543778e472c13f90490623378ff2d9fd19fe34c7eb77ec2b5e04",
+    "lean/vendor/formal-conjectures/ScholzConjecture.lean": "4155a3e2df71784bbf1326cf243689b3b25130cdac49237ee5b510a57912bb86",
+    "lean/vendor/formal-conjectures/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "lean/vendor/formal-conjectures/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+    "lean/vendor/formal-conjectures/lakefile.toml": "ebe6baca2edfacd491b91474438282fe6b711998f5e86798277e1850515bbb5f",
+    "data/2026-11-04-common-divisor-source-recheck.json": "7a887cb26093170d46327e2b9d0f60148ed8ff0d5a3bdc33a0d4ec1e5ecdad05",
+    "results/2026-11-04-common-divisor-pairs.json": "e89e9a2cac5359d661603c7185be232b7adb79ec2217951e79edd1b9cf269611"
+  },
+  "full_integration": "inconclusive: existing chain-9 evidence checker timed out after unchanged 180 seconds; see timeout record",
+  "claim_boundary": "Kernel-checked common-divisor restriction and 606-pair necessary domain; no full selected-109 exclusion or whole-integration success"
+}

@@ -354,3 +354,11 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift47.scholz47
 #print axioms ScholzBrauer.Clift47.not_mem_11_and_24
 #print axioms ScholzBrauer.Clift47.nine_step_source_with_seeds
+
+#print axioms ScholzBrauer.Clift109.sourceExceptions_pair
+#print axioms ScholzBrauer.Clift109.interval_common_divisor
+#print axioms ScholzBrauer.Clift109.singleton_residue_check
+#print axioms ScholzBrauer.Clift109.interval_gcd_restriction
+#print axioms ScholzBrauer.Clift109.gcd_restriction_of_budget
+#print axioms ScholzBrauer.Clift109.card_commonDivisorPairs
+#print axioms ScholzBrauer.Clift109.common_divisor_pairs_of_budget

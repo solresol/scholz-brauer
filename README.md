@@ -1,9 +1,10 @@
 # Scholz–Brauer research
 
-Latest advance (3 November): Lean box packing restricts every hypothetical
-budget-108 labelling of the selected 109 graph to distinct halving steps
-with sum at most 93 and minimum at most 29. Interval/cap classification
-remains incomplete. See [the proof record](results/2026-11-03-packing-lean.md).
+Latest advance (4 November, Sydney): Lean proves that the gcd of the two
+halving steps divides 54 or 55, using the paired shape of the seven exceptions.
+This reduces the necessary ordered-pair domain from 646 to 606, with the count
+also kernel checked. Interval/cap classification remains incomplete.
+See [the proof record](results/2026-11-04-common-divisor-lean.md).
 
 [![Verify proofs and certificates](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml/badge.svg)](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml)
 

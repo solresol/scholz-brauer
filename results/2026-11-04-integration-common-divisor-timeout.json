@@ -1,0 +1,30 @@
+{
+  "status": "inconclusive_timeout",
+  "base_commit": "4d351b1aa302819ceb0ff9b7f2832cbb69c37616",
+  "logical_invocation": "python3 scripts/verify_integration.py --output results/2026-11-04-integration-common-divisor.json",
+  "execution": "Temporary launcher used prepare.env_for('scholz'), installed_tools absolute Lean/Lake binaries, and the unchanged published guarded runner",
+  "guarded_runtime_seconds": 405.668,
+  "exit_code": 1,
+  "failed_action": "Run existing chain-9 evidence regression within its unchanged 180-second per-command limit",
+  "failed_argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "scripts/check_clift5784689.py",
+    "results/2026-10-19-clift5784689-chain9.json",
+    "--detour",
+    "results/2026-10-19-clift5784689-chain9-detour.json"
+  ],
+  "cwd": "/workspace/scholz-brauer",
+  "timeout_seconds": 180,
+  "subprocess_output": "",
+  "successful_prefix_in_script_order": [
+    "scripts/verify_integration_runner.py",
+    "scripts/experiment_clift109_early.py",
+    "scripts/experiment_clift109_neighborhood.py",
+    "scripts/experiment_clift109.py",
+    "scripts/check_clift109_box.py results/2026-10-18-clift109-box-exclusion.json"
+  ],
+  "prefix_evidence_limit": "These commands returned successfully before the failing action was reached; their captured outputs and individual runtimes were not published because the integration runner writes its report only on total success",
+  "full_integration_report_created": false,
+  "limits_changed": false,
+  "claim_boundary": "No full integration success or chain-9 exclusion result follows from this attempt; direct Lean build and axiom audit are recorded separately"
+}

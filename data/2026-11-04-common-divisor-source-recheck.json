@@ -1,0 +1,19 @@
+{
+  "accessed_at_utc": "2026-11-03T21:05:02.000103+00:00",
+  "accessed_at_australia_sydney": "2026-11-04T08:05:02.001007+11:00",
+  "version": "Live undated primary source; SHA-256 identifies version",
+  "claim_used": "Selected 109 parent graph only; common-divisor parity proof uses no new external theorem",
+  "weekly_literature_handoff": "Reviewed results/2026-10-30-literature-review.md; no external theorem imported",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+      "matches_3_november": true
+    },
+    {
+      "url": "https://www.additionchains.com/LargeNonHansen.png",
+      "sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6",
+      "matches_3_november": true
+    }
+  ]
+}

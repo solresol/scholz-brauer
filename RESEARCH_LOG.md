@@ -1,5 +1,47 @@
 # Research log
 
+## 2026-11-04 — Wednesday — common-divisor parity obstruction
+
+Milestone 3 advanced: Lean uses the paired shape of the seven source-side
+exceptions to prove that modulo any common divisor of u,d1, the full interval
+has exactly the odd-residue singleton {(A3+p) mod d}. The existing positivity
+and min(u,d1)≤29 reduce the gcd to thirty Fin cases; kernel checking proves
+that it divides 54 or 55. The restriction is transported to every original
+budget-108 labelling. Lean also checks the necessary ordered-pair domain has
+606 entries, removing 40 from the previous 646. This does not prove interval
+feasibility, min(u,d1)=1 or the complete selected-109 exclusion.
+
+Used the verified published theorem-provers configuration, whose Start gate
+passed without preparation. Clean branch work at 4d351b1 equalled live
+origin/main; ff-only refresh was already current. No competing run found;
+held the exclusive repository research lock. Only this checkout was edited;
+pins, installed tools, shared environment and sibling checkouts were unchanged.
+Reviewed the 30 October literature handoff; live primary Clift page/diagram
+hashes match 3 November. No new external theorem or literature-frontier claim.
+
+Standalone Lean passed without warnings in 44.071 guarded seconds. Independent
+Python 3.12.14 divisibility and residue-multiplicity recounts agree on all 606
+pairs in 0.041979 seconds, with explicit bounds and no random seed. No new
+solver, exporter, certificate format or dependency. Details and claim limits:
+`results/2026-11-04-common-divisor-lean.md`.
+
+The full integration attempt stopped after 405.668 guarded seconds when the
+existing chain-9 evidence regression reached its unchanged 180-second timeout,
+without output. This is inconclusive; no full success report was created and
+no limit was raised. Five preceding checks passed, including the saved 3,456
+selected-109 certificates. Direct pinned Lean build then passed 1,135 jobs in
+58.772 seconds, and the 328-entry axiom audit passed in 41.220 seconds with
+permitted standard axioms only. Rechecked pins, exact clean dependency HEADs
+and five vendor hashes. Full integration remains incomplete; the new formal
+reduction and domain cardinality are kernel checked.
+Full source, evidence and documentation diff reviewed; whitespace check passed.
+Remote CI was not checked.
+
+Next combine the 606-pair domain and exact common-divisor residue phase with
+both individual residue fingerprints, odd runs, twelve critical families and
+64 orientations to close the remaining interval/cap classification. No completed
+research enumeration was rerun; existing regressions remain integration checks.
+
 ## 2026-11-03 — Tuesday — joint halving-step packing
 
 Milestone 3 advanced: Lean proves the generic dissociated-box span bound,
