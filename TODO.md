@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-04 (Wednesday, Australia/Sydney).
+Updated 2026-11-05 (Thursday, Australia/Sydney).
 
 Latest weekly handoff: [30 October literature checkpoint](results/2026-10-30-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -177,7 +177,16 @@ Fin cases to remove the previous reduction bottleneck.
   divides 54 or 55. Apply it to every budget-108 labelling and kernel-check
   the resulting 606-pair necessary domain (40 fewer pairs).
   See [4 November result](results/2026-11-04-common-divisor-lean.md).
-- [ ] Combine the 606 necessary ordered step pairs and the exact fingerprints with
+- [x] Prove that each seven-weight exception has the shape of three pairs at
+  the opposite halving step plus one singleton; transport both resulting
+  finite residue tests to every budget-108 labelling. Two independent exact
+  evaluations retain 344 of the 606 pairs. The shape reduction is kernel
+  checked; the 344-pair evaluation is computational, not yet a Lean theorem.
+  See [5 November result](results/2026-11-05-sparse-residues.md).
+- [ ] Kernel-check the new sparse residue evaluation, or combine its proved
+  finite predicates directly with the remaining interval constraints. The
+  kernel-checked domain still has 606 pairs; the computational refinement has
+  344 and still includes (2,3). Combine the exact fingerprints with
   the odd-run restrictions, twelve critical families and 64 orientations to
   finish interval/cap classification. Neither feasibility nor min(u,d1)=1
   is established by these necessary restrictions. See

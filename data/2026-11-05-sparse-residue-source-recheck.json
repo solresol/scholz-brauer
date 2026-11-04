@@ -1,0 +1,20 @@
+{
+  "weekly_handoff": "results/2026-10-30-literature-review.md",
+  "weekly_handoff_status": "latest handoff in live main, six days old; no later review found; no fresh broad search performed",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "accessed_at_utc": "2026-11-04T21:09:10.243368+00:00",
+      "bytes": 24158,
+      "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef"
+    },
+    {
+      "url": "https://www.additionchains.com/LargeNonHansen.png",
+      "accessed_at_utc": "2026-11-04T21:09:10.679154+00:00",
+      "bytes": 31888,
+      "sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6"
+    }
+  ],
+  "use": "Only the selected parent graph and interpretation of the cap cost are used. No external optimality or universal theorem is assumed. Page and diagram hashes match the preceding recheck.",
+  "published_graph_version": "Undated live page; version identified by SHA-256, unchanged from previous recorded access."
+}

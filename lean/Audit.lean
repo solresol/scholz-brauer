@@ -1,5 +1,12 @@
 import ScholzBrauer
 
+#print axioms ScholzBrauer.Clift109.sourceExceptions_three_pairs
+#print axioms ScholzBrauer.Clift109.sinkExceptions_three_pairs
+#print axioms ScholzBrauer.Clift109.threePairWeights_emod
+#print axioms ScholzBrauer.Clift109.threePairCompatible_of_fingerprint
+#print axioms ScholzBrauer.Clift109.interval_three_pair_compatible
+#print axioms ScholzBrauer.Clift109.three_pair_constraints_of_budget
+
 #print axioms ScholzBrauer.append_sum
 #print axioms IsAdditionChain.prefix
 #print axioms ScholzBrauer.replay_sound

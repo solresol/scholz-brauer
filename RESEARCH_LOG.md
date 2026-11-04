@@ -1,5 +1,51 @@
 # Research log
 
+## 2026-11-05 — Thursday — sparse cyclic residue refinement
+
+The 4 November 21:00 UTC scheduled run advanced milestone 3. Each seven-weight
+exception is three pairs at the opposite halving step plus one singleton.
+Lean proves this exact shape, reduction of all four starting points modulo
+the tested step, and both finite necessary predicates for every original
+budget-108 labelling. No distinct-residue hypothesis is added; multiplicities
+are retained. Six public theorems enter the axiom audit.
+
+One bounded exact experiment evaluates the predicates on the prior 606-pair
+domain. Exhaustive odd supports of size one or three and an independent
+cyclic recurrence agree on all 606 directional decisions. Requiring both
+directions retains 344 pairs, removing 262. All 216 saved interval
+configurations pass the actual coordinate fingerprints. The count 344 is
+computational, not kernel checked; (2,3) survives. This does not establish
+min(u,d1)=1, cap feasibility or the full selected-109 exclusion.
+
+The published Start gate passed without preparation or shared-state changes.
+Clean branch work at fee6078 equalled freshly fetched live origin/main;
+ff-only refresh was current. Verified origin and repository ID 1368051643.
+No concurrent research process or research lock found; held the exclusive
+repository run marker. No applicable AGENTS.md or saved Start skill was found
+in the catalog or checkout; read the published theorem-provers START.md.
+Only this checkout was edited. Pins, installed tools, dependencies, sibling
+checkouts, schedules and published configuration were preserved.
+
+Reviewed the latest weekly handoff, 30 October UTC (six days old, no later
+handoff in main). No broad literature search or external theorem was needed.
+Clift's primary page and selected diagram were accessed 4 November UTC;
+their hashes match the previous recheck. Standalone Lean passed in 3.002
+guarded seconds; full build passed 1,136 jobs in 4.002 seconds; all 334 axiom
+audit entries passed in 16.008 seconds with permitted standard axioms only.
+The exact experiment took 0.290 seconds, standard library only, no random
+seed, with a 60-second bound. The existing selected-109 certificate checker
+also passed, including all 3,456 negative cycles and seven corruption checks.
+Pins, clean exact dependency HEADs and five vendor hashes were rechecked.
+
+The unchanged chain-9 full-integration timeout was not repeated: no new
+evidence addresses it. Whole-project integration remains inconclusive from
+the preceding run; no success or raised timeout is claimed. Details, commands,
+hashes and remaining proof obligations are in
+`results/2026-11-05-sparse-residues.md`. Next kernel-check the sparse evaluation
+or use its proved predicates with odd runs, twelve critical families and 64
+orientations to finish interval/cap classification. No completed enumeration
+was rerun, no new optimality or Scholz theorem is claimed.
+
 ## 2026-11-04 — Wednesday — common-divisor parity obstruction
 
 Milestone 3 advanced: Lean uses the paired shape of the seven source-side

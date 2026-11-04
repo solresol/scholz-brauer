@@ -1,0 +1,107 @@
+{
+  "recorded_at_utc": "2026-11-04T21:12:00.140278+00:00",
+  "base_commit": "fee607818c18f3a669e5a4451ddd124ed7897f2b",
+  "scope": "Kernel-checked three-pair necessary predicates; exact computational 344-pair refinement, not kernel-checked cardinality or selected-109 exclusion",
+  "toolchain": "leanprover/lean4:v4.27.0",
+  "mathlib_revision": "a3a10db0e9d66acbebf76c5e6a135066525ac900",
+  "environment": "Published prepare.env_for(scholz), absolute installed_tools binaries, LEAN_NUM_THREADS=2, Scholz cache",
+  "guard": {
+    "disk_reserve_gib": 2,
+    "process_group_rss_gib": 12,
+    "timeout_seconds": 1800
+  },
+  "standalone": {
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "env",
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+      "ScholzBrauer/Clift109SparseResidues.lean"
+    ],
+    "guarded_runtime_seconds": 3.0018684709999945,
+    "exit_code": 0,
+    "warnings": 0
+  },
+  "full_lean_build": {
+    "mode": "build",
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build"
+    ],
+    "seconds": 4.002276189999975,
+    "exit_code": 0,
+    "jobs": 1136
+  },
+  "axiom_audit": {
+    "mode": "audit",
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "env",
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+      "Audit.lean"
+    ],
+    "seconds": 16.00803932599996,
+    "exit_code": 0,
+    "audited_theorems": 334,
+    "new_theorems": 6,
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "transcript": "results/2026-11-05-sparse-residue-lean-audit.txt"
+  },
+  "exact_experiment": {
+    "argv": [
+      "python3",
+      "scripts/experiment_clift109_sparse_residues.py",
+      "--output",
+      "results/2026-11-05-sparse-residue-pairs.json"
+    ],
+    "exit_code": 0,
+    "seconds": 0.29027527799996733,
+    "input_pairs": 606,
+    "directional_survivors": 451,
+    "both_direction_survivors": 344,
+    "removed_pairs": 262,
+    "two_complete_algorithms_agree": true,
+    "all_positive_witnesses_replayed": true,
+    "seed": null
+  },
+  "saved_interval_positive_controls": {
+    "configurations": 216,
+    "both_actual_coordinate_fingerprints": "passed",
+    "new_enumeration": false
+  },
+  "saved_109_certificate_check": {
+    "argv": [
+      "python3",
+      "scripts/check_clift109_box.py",
+      "results/2026-10-18-clift109-box-exclusion.json"
+    ],
+    "exit_code": 0,
+    "configurations": 216,
+    "negative_cycles_checked": 3456,
+    "rejected_corruptions": 7,
+    "minimum_doublings": 109,
+    "replayed_additions": 120
+  },
+  "pins_match_published_allowlist": true,
+  "exact_dependency_heads_and_clean_tracked_sources": "verified",
+  "vendored_hashes_checked": 5,
+  "primary_source_hashes_match_previous": true,
+  "new_proof_has_no_placeholder_or_native_decide": true,
+  "full_integration": "Not rerun: preceding unchanged chain-9 180-second timeout remains inconclusive; no new evidence addresses it",
+  "input_sha256": {
+    "lean/ScholzBrauer/Clift109SparseResidues.lean": "106abab1f21e0aa34b525a0ffda594c73617373813eec40e56b24fa8cdc3b2d0",
+    "lean/ScholzBrauer.lean": "833bd7d25e9d71a09c37616f515e936914785c53d266f331574f897ba150859f",
+    "lean/Audit.lean": "7b109ff9d656e4aadc7ee49a40cfacecd22bca80267d9cc92f771b77e9a34105",
+    "scripts/experiment_clift109_sparse_residues.py": "8ccea6eeb78099117f57f1052f978e797691f5725827a9b9822adc003eea1dd5",
+    "results/2026-11-05-sparse-residue-pairs.json": "4c9ce9bafd676be265d58ee3c22d3489ee30197670246f2cafd77e383f30504a",
+    "results/2026-11-05-sparse-residue-lean-audit.txt": "f460bd23c7874f72f15ba826488c425dbe80bc6f0ca80fe1c54c9b10564d03d1",
+    "data/2026-11-05-sparse-residue-source-recheck.json": "ed586c6ed149a169d8310b98e024bb54f394a961c52944cfffe382ce70d3068f",
+    "results/2026-10-18-clift109-box-exclusion.json": "dca9a0be146137c95e6f251cdfd8f44abaf84364b4d026d2af0a628f8f875241",
+    "lean/lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "lean/lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8",
+    "lean/lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5"
+  }
+}

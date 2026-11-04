@@ -518,3 +518,14 @@ This completes the archived draft, not interval/cap classification or exclusion.
 `Clift109Packing.lean` proves the general dissociated-box span bound and
 transports joint step pruning to every budget-108 labelling: offset ≤45,
 u+d1 ≤93, u≠d1 and min(u,d1)≤29. These are necessary conditions only.
+
+`Clift109CommonDivisor.lean` proves that gcd(u,d1) divides 54 or 55 and
+kernel-checks the resulting 606-pair necessary domain. The next module,
+`Clift109SparseResidues.lean`, retains the shape of both seven-weight
+exceptions: three pairs at the opposite halving step and one singleton.
+It proves exact reduction to four residues in a finite interval and transports
+both necessary tests to every budget-108 labelling. Six new public theorems
+enter the audit. Two independent exact Python algorithms retain 344 ordered
+pairs; that finite evaluation is computational, not kernel checked. It still
+allows (2,3). Neither interval/cap feasibility nor the full selected-109
+exclusion follows. See `../results/2026-11-05-sparse-residues.md`.
