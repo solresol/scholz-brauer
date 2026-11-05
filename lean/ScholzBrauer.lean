@@ -30,3 +30,4 @@ import ScholzBrauer.Clift109Residues
 import ScholzBrauer.Clift109Packing
 import ScholzBrauer.Clift109CommonDivisor
 import ScholzBrauer.Clift109SparseResidues
+import ScholzBrauer.Clift109SparseDomain

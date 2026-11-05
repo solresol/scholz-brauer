@@ -1,0 +1,39 @@
+{
+  "recorded_at_utc": "2026-11-05T22:27:33.071246+00:00",
+  "python": "3.12.14",
+  "dependencies": "Python standard library only",
+  "random_seed": null,
+  "timeout_seconds": 60,
+  "elapsed_seconds": 0.5064271900000676,
+  "input_sha256": "4c9ce9bafd676be265d58ee3c22d3489ee30197670246f2cafd77e383f30504a",
+  "output_sha256": {
+    "Clift109SparseChecks00.lean": "c8c9cc35da7f81206fcde42a326bdddd88c25f44641e87769edaba634ea28e3d",
+    "Clift109SparseChecks01.lean": "0b9aecc702955ae45aaac9db534302c624b93eabc84f8569a739205083630f1a",
+    "Clift109SparseChecks02.lean": "96df662a22aaa92bbd51853e63246b3d022ae67e4929e08c25971ea33b015aed",
+    "Clift109SparseChecks03.lean": "eb02b7335274a86438f056f5a4659fd4107ecf288f713c5fe402bf6874f9a2f8",
+    "Clift109SparseChecks04.lean": "a5f47da5e0cf4effefe39f36c2252672c3b38503568c2770b3ebfee126eb631a",
+    "Clift109SparseChecks05.lean": "24e1d75468006d2a356b43e1ac7fcdd0fb5e1c90a1ec038e3e2ec25109db86d9",
+    "Clift109SparseChecks06.lean": "e2e2512f6611db7c7599edae291e8ed2c4de8ae9248a9c13bf5fbc5063002fd8",
+    "Clift109SparseChecks07.lean": "2383454c8f183c133f7839a8f2400e14e0c95846ad96ddf057fef3952750bb08",
+    "Clift109SparseChecks08.lean": "bd9e396aa6557510fcae05b3c1dc7b4e2ed9c2b8be50e8f68531be966fc3f010",
+    "Clift109SparseChecks09.lean": "ffe347b112fd5cdbb6a93f30a0816b977f288be8c66e3258200de77ce208d0cc",
+    "Clift109SparseChecks10.lean": "b1ba53e8607c674ea3805d5561d09726e531dce3b7ca8437640ed19fa91c1a43",
+    "Clift109SparseChecks11.lean": "52956a5e4e40f57496290e1a089f1e8e74defee96fb74217299b1f005b3dc9f2",
+    "Clift109SparseChecks12.lean": "d69c82367b612a3fc6612a54b7949affb150eb5eb6d4332d57dcd96eacd45a50",
+    "Clift109SparseChecks.lean": "eb67412efdf85cf373f715fb6d7a61f771c780ef0e0f55c2c6c73cda48540f1d"
+  },
+  "modulus_chunks": 13,
+  "directional_decisions_compared": 606,
+  "checked_directions_emitted": 131,
+  "ordered_pairs_covered": 262,
+  "bounds": {
+    "interval": [
+      0,
+      108
+    ],
+    "each_residue": "0 <= residue < modulus",
+    "largest_modulus": 58,
+    "targets_in_emitted_checks": 204792
+  },
+  "claim_boundary": "Reproducible proof-source generation and exact computational cross-check, not itself kernel validation, interval feasibility, cap classification or the full selected-109 exclusion."
+}

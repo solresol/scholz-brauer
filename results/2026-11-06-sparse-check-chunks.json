@@ -1,0 +1,148 @@
+[
+  {
+    "modulus": 13,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks00"
+    ],
+    "guarded_runtime_seconds": 14.012823500000195,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk00.txt"
+  },
+  {
+    "modulus": 14,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks01"
+    ],
+    "guarded_runtime_seconds": 6.008236748999934,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk01.txt"
+  },
+  {
+    "modulus": 17,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks02"
+    ],
+    "guarded_runtime_seconds": 27.034815332000107,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk02.txt"
+  },
+  {
+    "modulus": 19,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks03"
+    ],
+    "guarded_runtime_seconds": 23.0295800519998,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk03.txt"
+  },
+  {
+    "modulus": 26,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks04"
+    ],
+    "guarded_runtime_seconds": 82.07659817799959,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk04.txt"
+  },
+  {
+    "modulus": 28,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks05"
+    ],
+    "guarded_runtime_seconds": 22.03016072699984,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk05.txt"
+  },
+  {
+    "modulus": 29,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks06"
+    ],
+    "guarded_runtime_seconds": 42.03637644899982,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk06.txt"
+  },
+  {
+    "modulus": 51,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks07"
+    ],
+    "guarded_runtime_seconds": 553.8080489640001,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk07.txt"
+  },
+  {
+    "modulus": 52,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks08"
+    ],
+    "guarded_runtime_seconds": 2.0056829390005078,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk08-verify.txt",
+    "initial_lean_reported_compile_seconds": 504,
+    "initial_transcript": "results/2026-11-06-sparse-check-chunk08.txt",
+    "initial_guard_timing_lost_on_connection_refresh": true
+  },
+  {
+    "modulus": 53,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks09"
+    ],
+    "guarded_runtime_seconds": 482.7226448450001,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk09.txt"
+  },
+  {
+    "modulus": 56,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks10"
+    ],
+    "guarded_runtime_seconds": 78.11123138000039,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk10.txt"
+  },
+  {
+    "modulus": 57,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks11"
+    ],
+    "guarded_runtime_seconds": 177.14467637500002,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk11.txt"
+  },
+  {
+    "modulus": 58,
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109SparseChecks12"
+    ],
+    "guarded_runtime_seconds": 183.24230729900046,
+    "passed": true,
+    "transcript": "results/2026-11-06-sparse-check-chunk12.txt"
+  }
+]

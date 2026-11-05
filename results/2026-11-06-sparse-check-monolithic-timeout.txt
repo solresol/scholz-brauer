@@ -1,0 +1,7 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build
+Traceback (most recent call last):
+  File "/tmp/scholz_run.py", line 12, in <module>
+    prepare.m.run([str(lake), *args], root, env, (root, prepare.B))
+  File "/workspace/shared/theorem-provers/bootstrap-tested.py", line 76, in run
+    raise RuntimeError(f"timeout after {timeout}s: {shlex.join(map(str, argv))}")
+RuntimeError: timeout after 1800s: /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build

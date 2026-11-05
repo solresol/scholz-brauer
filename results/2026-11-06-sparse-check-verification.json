@@ -1,0 +1,272 @@
+{
+  "recorded_at_utc": "2026-11-05T22:29:18.644152+00:00",
+  "base_commit": "86d8906c7dbc9b495d7bc32cfa7325dbddc1034c",
+  "scope": "Kernel-checked 344-pair necessary domain for every original budget-108 labelling of the selected 109 graph; not interval/cap feasibility or the complete selected-109 exclusion.",
+  "toolchain": "leanprover/lean4:v4.27.0",
+  "mathlib_revision": "a3a10db0e9d66acbebf76c5e6a135066525ac900",
+  "environment": "Published prepare.env_for(scholz), absolute installed_tools binaries, LEAN_NUM_THREADS=2, Scholz archive cache; no preparation or publication",
+  "guard": {
+    "disk_reserve_gib": 2,
+    "process_group_rss_gib": 12,
+    "timeout_seconds": 1800
+  },
+  "finite_modulus_builds": [
+    {
+      "modulus": 13,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks00"
+      ],
+      "guarded_runtime_seconds": 14.012823500000195,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk00.txt"
+    },
+    {
+      "modulus": 14,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks01"
+      ],
+      "guarded_runtime_seconds": 6.008236748999934,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk01.txt"
+    },
+    {
+      "modulus": 17,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks02"
+      ],
+      "guarded_runtime_seconds": 27.034815332000107,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk02.txt"
+    },
+    {
+      "modulus": 19,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks03"
+      ],
+      "guarded_runtime_seconds": 23.0295800519998,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk03.txt"
+    },
+    {
+      "modulus": 26,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks04"
+      ],
+      "guarded_runtime_seconds": 82.07659817799959,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk04.txt"
+    },
+    {
+      "modulus": 28,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks05"
+      ],
+      "guarded_runtime_seconds": 22.03016072699984,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk05.txt"
+    },
+    {
+      "modulus": 29,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks06"
+      ],
+      "guarded_runtime_seconds": 42.03637644899982,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk06.txt"
+    },
+    {
+      "modulus": 51,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks07"
+      ],
+      "guarded_runtime_seconds": 553.8080489640001,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk07.txt"
+    },
+    {
+      "modulus": 52,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks08"
+      ],
+      "guarded_runtime_seconds": 2.0056829390005078,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk08-verify.txt",
+      "initial_lean_reported_compile_seconds": 504,
+      "initial_transcript": "results/2026-11-06-sparse-check-chunk08.txt",
+      "initial_guard_timing_lost_on_connection_refresh": true
+    },
+    {
+      "modulus": 53,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks09"
+      ],
+      "guarded_runtime_seconds": 482.7226448450001,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk09.txt"
+    },
+    {
+      "modulus": 56,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks10"
+      ],
+      "guarded_runtime_seconds": 78.11123138000039,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk10.txt"
+    },
+    {
+      "modulus": 57,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks11"
+      ],
+      "guarded_runtime_seconds": 177.14467637500002,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk11.txt"
+    },
+    {
+      "modulus": 58,
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build",
+        "ScholzBrauer.Clift109SparseChecks12"
+      ],
+      "guarded_runtime_seconds": 183.24230729900046,
+      "passed": true,
+      "transcript": "results/2026-11-06-sparse-check-chunk12.txt"
+    }
+  ],
+  "runtime_accounting": "Sum of recorded guarded command times excludes the first modulus-52 command, whose outer timing was lost during a connection refresh; Lake reports 504 compile seconds, and its matching source/artifact were then reverified by a cached build.",
+  "additional_lean_reported_compile_seconds": 504,
+  "monolithic_attempt": {
+    "outcome": "inconclusive timeout",
+    "timeout_seconds": 1800,
+    "transcript": "results/2026-11-06-sparse-check-monolithic-timeout.txt",
+    "superseded_by": "13 modulus modules and membership proof composition"
+  },
+  "full_lean_build": {
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build"
+    ],
+    "jobs": 1152,
+    "guarded_runtime_seconds": 37.049226,
+    "guarded_runner_completed_successfully": true,
+    "transcript": "results/2026-11-06-sparse-check-build.txt"
+  },
+  "axiom_audit": {
+    "argv": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "env",
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+      "Audit.lean"
+    ],
+    "guarded_runtime_seconds": 24.018533,
+    "audited_theorems": 362,
+    "new_public_entries": 28,
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "existing_fail_closed_audit_checker": "scripts/verify_integration.py:check_axioms",
+    "transcript": "results/2026-11-06-sparse-check-audit.txt"
+  },
+  "kernel_finite_scope": {
+    "failing_directions_checked": 131,
+    "ordered_pairs_removed": 262,
+    "input_pair_count": 606,
+    "necessary_domain_cardinality": 344,
+    "targets_checked": 204792,
+    "largest_modulus": 58,
+    "residues": "0 <= residue < modulus",
+    "pair_2_3_membership_kernel_checked": true,
+    "positive_predicate_equivalence_claimed": false
+  },
+  "generator": {
+    "argv": [
+      "python3",
+      "scripts/export_lean_sparse_checks.py",
+      "--check",
+      "--report",
+      "results/2026-11-06-sparse-check-chunk-export.json"
+    ],
+    "reproduction_check": [
+      "python3",
+      "scripts/export_lean_sparse_checks.py",
+      "--check"
+    ],
+    "all_606_saved_directional_decisions_agree_with_new_lookup": true,
+    "python": "3.12.14",
+    "dependencies": "Python standard library only",
+    "random_seed": null,
+    "timeout_seconds": 60
+  },
+  "saved_109_certificate_regression": {
+    "argv": [
+      "python3",
+      "scripts/check_clift109_box.py",
+      "results/2026-10-18-clift109-box-exclusion.json"
+    ],
+    "passed": true,
+    "configurations": 216,
+    "negative_cycles_checked": 3456,
+    "minimum_doublings_computational": 109,
+    "replayed_additions": 120,
+    "rejected_corruptions": 7
+  },
+  "pins_match_allowlist": true,
+  "exact_dependency_heads_and_clean_sources": true,
+  "vendored_hashes_checked": 5,
+  "full_integration": "Not rerun: unchanged prior chain-9 checker timeout at 180 seconds remains inconclusive; this increment does not address it.",
+  "source_limitation": "Latest available weekly handoff is dated 30 October; no later handoff found or fresh broad literature search performed.",
+  "input_sha256": {
+    "lean/ScholzBrauer/Clift109SparseCheck.lean": "5a4c53f49ce7d98779aed438976373db5e08401a3bdc1f962220731a5fbf2fb1",
+    "lean/ScholzBrauer/Clift109SparseChecks.lean": "eb67412efdf85cf373f715fb6d7a61f771c780ef0e0f55c2c6c73cda48540f1d",
+    "lean/ScholzBrauer/Clift109SparseDomain.lean": "bd20d4424c6963ce5038344ec764bc50042a58807a48247e9dc6d240a346d8b4",
+    "lean/ScholzBrauer/Clift109SparseResidues.lean": "106abab1f21e0aa34b525a0ffda594c73617373813eec40e56b24fa8cdc3b2d0",
+    "lean/ScholzBrauer.lean": "eb90bc0aa98ead60035c5e64270f946ac7180b36db395a5ebffa6a49a1d53e4d",
+    "lean/Audit.lean": "bad321203da70ada049158690c5c940b10379d62ec0482ea2f9f3f766fba6363",
+    "scripts/export_lean_sparse_checks.py": "c02af2c7fe970416513f6bca61d62ca21e03bacda412008841cc5d55182f73cb",
+    "results/2026-11-05-sparse-residue-pairs.json": "4c9ce9bafd676be265d58ee3c22d3489ee30197670246f2cafd77e383f30504a",
+    "results/2026-11-06-sparse-check-chunk-export.json": "ebffd1cec7b222588572456610ea7af3516216a0896d90c894d2ee67360b687c",
+    "results/2026-11-06-sparse-check-chunks.json": "bed64590975c3b8d1f59cf4d85fb8fce83c380cff7827ed3b175bafe2eeef909",
+    "data/2026-11-06-sparse-check-source-recheck.json": "3f4dba26cde21ebafbcc891423e8e9d88f518d8a1e0abbc22fbe1c0088decc11",
+    "lean/ScholzBrauer/Clift109SparseChecks00.lean": "c8c9cc35da7f81206fcde42a326bdddd88c25f44641e87769edaba634ea28e3d",
+    "lean/ScholzBrauer/Clift109SparseChecks01.lean": "0b9aecc702955ae45aaac9db534302c624b93eabc84f8569a739205083630f1a",
+    "lean/ScholzBrauer/Clift109SparseChecks02.lean": "96df662a22aaa92bbd51853e63246b3d022ae67e4929e08c25971ea33b015aed",
+    "lean/ScholzBrauer/Clift109SparseChecks03.lean": "eb02b7335274a86438f056f5a4659fd4107ecf288f713c5fe402bf6874f9a2f8",
+    "lean/ScholzBrauer/Clift109SparseChecks04.lean": "a5f47da5e0cf4effefe39f36c2252672c3b38503568c2770b3ebfee126eb631a",
+    "lean/ScholzBrauer/Clift109SparseChecks05.lean": "24e1d75468006d2a356b43e1ac7fcdd0fb5e1c90a1ec038e3e2ec25109db86d9",
+    "lean/ScholzBrauer/Clift109SparseChecks06.lean": "e2e2512f6611db7c7599edae291e8ed2c4de8ae9248a9c13bf5fbc5063002fd8",
+    "lean/ScholzBrauer/Clift109SparseChecks07.lean": "2383454c8f183c133f7839a8f2400e14e0c95846ad96ddf057fef3952750bb08",
+    "lean/ScholzBrauer/Clift109SparseChecks08.lean": "bd9e396aa6557510fcae05b3c1dc7b4e2ed9c2b8be50e8f68531be966fc3f010",
+    "lean/ScholzBrauer/Clift109SparseChecks09.lean": "ffe347b112fd5cdbb6a93f30a0816b977f288be8c66e3258200de77ce208d0cc",
+    "lean/ScholzBrauer/Clift109SparseChecks10.lean": "b1ba53e8607c674ea3805d5561d09726e531dce3b7ca8437640ed19fa91c1a43",
+    "lean/ScholzBrauer/Clift109SparseChecks11.lean": "52956a5e4e40f57496290e1a089f1e8e74defee96fb74217299b1f005b3dc9f2",
+    "lean/ScholzBrauer/Clift109SparseChecks12.lean": "d69c82367b612a3fc6612a54b7949affb150eb5eb6d4332d57dcd96eacd45a50"
+  },
+  "total_recorded_guarded_build_seconds": 1693.263182789001
+}

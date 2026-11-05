@@ -1,0 +1,23 @@
+{
+  "recorded_at_utc": "2026-11-05T21:14:26.293063+00:00",
+  "python": "3.12.14",
+  "dependencies": "Python standard library only",
+  "random_seed": null,
+  "timeout_seconds": 60,
+  "elapsed_seconds": 0.395885853999971,
+  "input_sha256": "4c9ce9bafd676be265d58ee3c22d3489ee30197670246f2cafd77e383f30504a",
+  "output_sha256": "5c6f0716b2d4d63b5b2a7e216dd7ff3262219e9ab36d28e712d6604ae81396ff",
+  "directional_decisions_compared": 606,
+  "checked_directions_emitted": 131,
+  "ordered_pairs_covered": 262,
+  "bounds": {
+    "interval": [
+      0,
+      108
+    ],
+    "each_residue": "0 <= residue < modulus",
+    "largest_modulus": 58,
+    "targets_in_emitted_checks": 204792
+  },
+  "claim_boundary": "Reproducible proof-source generation and exact computational cross-check, not itself kernel validation, interval feasibility, cap classification or the full selected-109 exclusion."
+}

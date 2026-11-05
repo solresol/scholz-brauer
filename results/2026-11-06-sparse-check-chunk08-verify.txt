@@ -1,0 +1,2 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109SparseChecks08
+Build completed successfully (1102 jobs).

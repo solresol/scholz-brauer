@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-05 (Thursday, Australia/Sydney).
+Updated 2026-11-06 (Friday, Australia/Sydney).
 
 Latest weekly handoff: [30 October literature checkpoint](results/2026-10-30-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -180,17 +180,23 @@ Fin cases to remove the previous reduction bottleneck.
 - [x] Prove that each seven-weight exception has the shape of three pairs at
   the opposite halving step plus one singleton; transport both resulting
   finite residue tests to every budget-108 labelling. Two independent exact
-  evaluations retain 344 of the 606 pairs. The shape reduction is kernel
-  checked; the 344-pair evaluation is computational, not yet a Lean theorem.
-  See [5 November result](results/2026-11-05-sparse-residues.md).
-- [ ] Kernel-check the new sparse residue evaluation, or combine its proved
-  finite predicates directly with the remaining interval constraints. The
-  kernel-checked domain still has 606 pairs; the computational refinement has
-  344 and still includes (2,3). Combine the exact fingerprints with
-  the odd-run restrictions, twelve critical families and 64 orientations to
-  finish interval/cap classification. Neither feasibility nor min(u,d1)=1
-  is established by these necessary restrictions. See
-  [2 November result](results/2026-11-02-residues-lean.md).
+  evaluations retain 344 of the 606 pairs. See
+  [5 November result](results/2026-11-05-sparse-residues.md).
+- [x] Kernel-check the sparse refinement: prove the parity-mask translation
+  and complete top-bit recognition of one and two edges, then kernel-check
+  131 failing directions covering 262 ordered pairs. Prove the remaining
+  domain has 344 pairs and transport membership to every original budget-108
+  labelling. This is a necessary domain, not a feasibility count or a full
+  positive-predicate equivalence theorem. See
+  [6 November result](results/2026-11-06-sparse-domain-lean.md).
+- [ ] Combine the kernel-checked 344-pair domain (still containing (2,3)) and
+  actual exceptional positions with box dissociation, both odd-run restrictions,
+  twelve critical families and 64 orientations to finish interval/cap
+  classification. Neither feasibility nor min(u,d1)=1 follows from these
+  necessary restrictions. Keep the top-pinned box branch separate from the
+  branch missing 8, which visits 5,7,15. See
+  [2 November result](results/2026-11-02-residues-lean.md) and the current
+  [sparse domain proof](results/2026-11-06-sparse-domain-lean.md).
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).

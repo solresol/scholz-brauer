@@ -1,5 +1,59 @@
 # Research log
 
+## 2026-11-06 — Friday — kernel-checked sparse halving-step domain
+
+The 5 November 21:00 UTC scheduled run kernel-checks the sparse necessary
+refinement from 606 ordered pairs to 344. Lean proves multiplicity-preserving
+parity masks, the two possible starts of an edge at a set bit, and complete
+recognition of every XOR of two edges. A structural bounded top-bit scan avoids
+the sorting reduction blocker and expensive direct triple enumeration. The 131 checked
+failing directions remove 262 ordered pairs. The resulting 344 cardinality and
+membership for every original selected-109 budget-108 labelling are theorems.
+Negative normalized coordinates and repeated residues remain allowed. The
+domain still contains (2,3); feasibility, min(u,d1)=1 and the full selected-109
+exclusion are not proved. Its exact minimum 109 remains computational.
+
+The generator reproduces all 606 saved directional decisions with a third
+top-bit implementation in 0.506 seconds, standard library only, no seed, hard
+60-second bound. The emitted checks cover 204,792 residue targets, modulus at most 58.
+Every negative Lean statement is checked independently of Python. The saved
+109 certificate regression passed all 3,456 negative cycles, a 120-addition
+witness replay and seven corruption controls; no completed search was rerun.
+
+Published Start readiness passed without preparation. Clean work at 86d8906
+equalled freshly fetched live main; ff-only refresh was current. Verified the
+authorized origin and public repository ID 1368051643. No competing run was
+found; held the exclusive repository marker. Pins, exact tools and caches,
+siblings, shared state and schedules were preserved. Five vendored hashes and
+all exact clean dependency HEADs were rechecked.
+
+The first monolithic build timed out at the unchanged 1,800-second bound,
+without a completed module or exclusion claim. Splitting by modulus and
+composing membership proofs removed that build blocker. Thirteen finite
+modules passed, with 1693.263 seconds of recorded guarded times plus
+a modulus-52 compile reported by Lake as 504 seconds (outer timing lost during
+a connection refresh; matching source and artifact reverified from cache).
+The final pinned build passed 1,152 jobs in 37.049 seconds;
+the 362-entry axiom audit passed in 24.019 seconds with standard
+axioms only. Twenty-eight public entries cover the checker and finite reduction;
+the 131 private finite facts are included transitively. No placeholder,
+project-defined axiom, native_decide or assumed target occurs. The unchanged
+chain-9 integration timeout at 180 seconds was not repeated; whole-project
+integration remains inconclusive. No limit was raised or remote CI success
+claimed. Full diff and whitespace checks are reviewed before commit.
+
+Reviewed the latest available handoff, dated 30 October; no later handoff was
+present and no fresh broad literature search or novelty claim is made. Clift's
+live page and diagram were accessed 5 November UTC; both hashes match the
+previous access. No new external theorem is used. Details, exact commands,
+source versions, hashes and limits are in
+`results/2026-11-06-sparse-domain-lean.md` and its verification JSON.
+
+Next combine the 344-pair domain with actual exceptional positions, box
+dissociation, both odd-run restrictions, twelve critical families and 64
+orientations to finish interval/cap classification. No further complete
+enumeration or larger timeout is justified by this increment.
+
 ## 2026-11-05 — Thursday — sparse cyclic residue refinement
 
 The 4 November 21:00 UTC scheduled run advanced milestone 3. Each seven-weight

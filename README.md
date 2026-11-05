@@ -1,10 +1,11 @@
 # Scholz–Brauer research
 
-Latest advance (4 November, Sydney): Lean proves that the gcd of the two
-halving steps divides 54 or 55, using the paired shape of the seven exceptions.
-This reduces the necessary ordered-pair domain from 646 to 606, with the count
-also kernel checked. Interval/cap classification remains incomplete.
-See [the proof record](results/2026-11-04-common-divisor-lean.md).
+Latest advance (6 November, Sydney): Lean kernel-checks a 344-pair necessary
+domain for the two halving steps, removing 262 pairs from the previous 606.
+A proved sparse-mask checker supplies every rejection and transports the domain
+to every original budget-108 labelling. Interval/cap classification remains
+incomplete; (2,3) still survives this restriction.
+See [the proof record](results/2026-11-06-sparse-domain-lean.md).
 
 [![Verify proofs and certificates](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml/badge.svg)](https://github.com/solresol/scholz-brauer/actions/workflows/verify.yml)
 
@@ -25,15 +26,16 @@ where `ℓ(n)` is the minimum number of additions in an addition chain for `n`.
 Computational claims must have independently checkable certificates; a short
 witness, its optimality, and the Scholz upper bound are separate claims.
 
-## Verified status — 2 November 2026
+## Verified status — 6 November 2026
 
-Lean now restricts each of the two halving steps for the selected 109 graph
-to an explicit 27-value domain. Combining the box and remainder gives 51
-translated pairs and seven exceptions; residue parity proves both finite
-restrictions and exact exceptional-residue fingerprints for every budget-108
-labelling. The archived residue attempt is completed with a cheaper finite-set
-representation. These are necessary conditions; full interval/cap classification
-and exclusion remain incomplete. See `results/2026-11-02-residues-lean.md`.
+Every budget-108 labelling of the selected 109 graph has its two normalized
+halving steps in the kernel-checked 344-pair domain. The proof retains repeated
+residues and parity cancellation, recognizes all two-edge masks via their top
+bit, and checks 131 failing directions covering 262 ordered pairs. Both the
+domain cardinality and its application to the original production/cap hypotheses
+are Lean theorems. These are necessary conditions: full interval/cap
+classification and the selected-109 exclusion remain incomplete. See
+`results/2026-11-06-sparse-domain-lean.md`.
 
 ### Previous reduction — 27 October
 

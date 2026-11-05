@@ -1,5 +1,34 @@
 import ScholzBrauer
 
+#print axioms ScholzBrauer.Clift109.testBit_parityMask
+#print axioms ScholzBrauer.Clift109.parityMask_eq_of_oddLabels
+#print axioms ScholzBrauer.Clift109.threePairCompatible_mask
+#print axioms ScholzBrauer.Clift109.topBit_zero
+#print axioms ScholzBrauer.Clift109.topBit_testBit
+#print axioms ScholzBrauer.Clift109.residueEdgeMask_lt
+#print axioms ScholzBrauer.Clift109.residueEdgeMask_at_bit
+#print axioms ScholzBrauer.Clift109.edgeLookup_of_edge
+#print axioms ScholzBrauer.Clift109.pairLookup_of_edges
+#print axioms ScholzBrauer.Clift109.sparseExcluded_sound
+#print axioms ScholzBrauer.Clift109.sparseRejectedDirections_checked
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod13
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod14
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod17
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod19
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod26
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod28
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod29
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod51
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod52
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod53
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod56
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod57
+#print axioms ScholzBrauer.Clift109.sparseRejected_mod58
+#print axioms ScholzBrauer.Clift109.card_sparseStepPairs
+#print axioms ScholzBrauer.Clift109.two_three_mem_sparseStepPairs
+#print axioms ScholzBrauer.Clift109.sparse_pairs_of_constraints
+#print axioms ScholzBrauer.Clift109.sparse_pairs_of_budget
+
 #print axioms ScholzBrauer.Clift109.sourceExceptions_three_pairs
 #print axioms ScholzBrauer.Clift109.sinkExceptions_three_pairs
 #print axioms ScholzBrauer.Clift109.threePairWeights_emod
