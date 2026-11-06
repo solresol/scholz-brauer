@@ -25,7 +25,7 @@ does not enable or modify any schedule.
 
 Updated 2026-11-06 (Friday, Australia/Sydney).
 
-Latest weekly handoff: [30 October literature checkpoint](results/2026-10-30-literature-review.md).
+Latest weekly handoff: [6 November literature checkpoint](results/2026-11-06-literature-review.md).
 No new validated result changes the current reductions. The two August
 multi-step-optimization copies have different hypotheses and do not supply an
 unrestricted proof; the earlier counting and sigma/tau/star-chain limitations
