@@ -529,3 +529,13 @@ enter the audit. Two independent exact Python algorithms retain 344 ordered
 pairs; that finite evaluation is computational, not kernel checked. It still
 allows (2,3). Neither interval/cap feasibility nor the full selected-109
 exclusion follows. See `../results/2026-11-05-sparse-residues.md`.
+
+`Clift109PlacedPairs.lean` retains actual exception positions: every
+budget-108 labelling partitions the whole interval into 51 u-pairs, three
+d1-pairs and a singleton, and into the reverse arrangement at the same
+singleton A3+p. Distinctness, finite position bounds and transport from the
+original graph are kernel checked and audited. Two independent exhaustive
+evaluations retain 278 of the proved 344 pairs; this new finite count is
+computational, not kernel checked. The two directional halves need not fit
+one box or compatible remaining coordinates. The complete Lean exclusion
+remains open. See `../results/2026-11-09-placed-pairs.md`.

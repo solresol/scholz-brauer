@@ -1,5 +1,65 @@
 # Research log
 
+## 2026-11-09 — Monday — actual exception positions and shared singleton
+
+The 8 November 21:00 UTC scheduled run advances the selected-109 Lean
+exclusion. `Clift109PlacedPairs.lean` proves that every hypothetical
+budget-108 labelling partitions [0,108] into 51 pairs at u, three pairs at
+d1 and one singleton, and also into the reverse arrangement at the same
+singleton A3+p. It proves distinctness and finite bounds on all seven
+exceptions. The result retains the existing kernel-checked 344-pair domain;
+no finite enumeration or target assumption enters the proof.
+
+One bounded exact experiment evaluates all actual singleton positions in
+both directions. C++ arithmetic-run peeling and independent Python integer
+division agree on all 344 domains, examining 42,758,315 disjoint triples
+each. Requiring a shared singleton leaves **278 ordered pairs**, removing
+52 by an empty directional domain and 14 more by disjoint singleton domains.
+For example (4,27) passes both individual tests but has no shared singleton;
+(2,3) survives at every odd position 1..107. The 278 count is computational,
+not kernel checked. The halves and other coordinates need not agree, so
+neither box/cap feasibility nor the full selected-109 exclusion follows.
+
+Direct set replay validates all 6,678 singleton witnesses. A third complete
+matching recurrence agrees on 344 small cases (interval sizes 7,9,11,13),
+four corrupt placements are rejected, and all 216 saved configurations
+retain their 432 actual placements. The deterministic standard-library/C++
+experiment takes 25.788 seconds within a 180-second bound, with no seed.
+The existing 3,456 selected-109 negative-cycle regression and seven corruption
+controls pass; the sparse proof exporter reproduces the unchanged 344-domain
+sources. No completed graph enumeration or unrestricted solver is rerun.
+
+The complete published startup gate passes, including Scholz; no receipt
+repair, preparation, shared-state change or publication is needed. Clean
+work at e82b987 equals freshly fetched live main. Verified equal ancestry,
+created tracking main while preserving work, and held the repository research
+marker; no competing research process was found. Origin is the authorized
+HTTPS solresol/scholz-brauer repository. Only this checkout is edited.
+
+Pinned standalone Lean passes in 3.003 guarded seconds. The full build
+passes 1,153 jobs in 5.060 seconds, and the fail-closed axiom audit passes
+365 entries in 19.054 seconds, including the three new public theorems and
+their dependencies. Only propext, Quot.sound and Classical.choice occur.
+An initial local proof had a shadowed membership-hypothesis name; renaming
+that binder fixed elaboration before these successful checks. No placeholder,
+project axiom, native decision shortcut, assumed exclusion or pin upgrade is
+used. Exact clean dependency HEADs, reviewed pin hashes and five vendored
+source hashes are rechecked. The unchanged chain-9 integration timeout is
+not repeated; whole-project integration remains inconclusive. No remote CI
+success is claimed.
+
+Reviewed the 6 November weekly handoff, including its access limitations.
+No new external theorem is used. Clift's primary account and selected diagram
+are accessed 8 November UTC and both content hashes are unchanged. Source
+versions, URLs, dates, commands, timings and exact evidence are in
+`results/2026-11-09-placed-pairs.md` and its linked JSON records.
+
+Next kernel-check the new finite placement reduction or combine its proved
+predicates directly with the actual box, both odd-run restrictions, twelve
+critical families and 64 orientations. Preserve the top-pinned branch and
+the branch missing 8 as distinct cases. This run stops at the coherent
+verified increment; schedules and published environment remain unchanged.
+
 ## 2026-11-06 — Friday — kernel-checked sparse halving-step domain
 
 The 5 November 21:00 UTC scheduled run kernel-checks the sparse necessary

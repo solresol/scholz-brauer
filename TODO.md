@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-06 (Friday, Australia/Sydney).
+Updated 2026-11-09 (Monday, Australia/Sydney).
 
 Latest weekly handoff: [6 November literature checkpoint](results/2026-11-06-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -189,14 +189,24 @@ Fin cases to remove the previous reduction bottleneck.
   labelling. This is a necessary domain, not a feasibility count or a full
   positive-predicate equivalence theorem. See
   [6 November result](results/2026-11-06-sparse-domain-lean.md).
-- [ ] Combine the kernel-checked 344-pair domain (still containing (2,3)) and
-  actual exceptional positions with box dissociation, both odd-run restrictions,
+- [x] Prove exact full-interval placement of three opposite-step pairs and
+  one singleton, including finite position bounds and the same singleton in
+  both directions. Two independent complete evaluations of this necessary
+  test retain 278 of the 344 pairs: 52 fail a direction, and 14 more have
+  disjoint singleton domains. The 278 count is computational, not kernel
+  checked; (2,3) still survives. See
+  [9 November result](results/2026-11-09-placed-pairs.md).
+- [ ] Kernel-check the placed-pair finite reduction, or use its proved
+  necessary predicates directly with the kernel-checked 344-pair domain.
+  Combine actual exceptional positions with box dissociation, both odd-run restrictions,
   twelve critical families and 64 orientations to finish interval/cap
   classification. Neither feasibility nor min(u,d1)=1 follows from these
   necessary restrictions. Keep the top-pinned box branch separate from the
   branch missing 8, which visits 5,7,15. See
   [2 November result](results/2026-11-02-residues-lean.md) and the current
-  [sparse domain proof](results/2026-11-06-sparse-domain-lean.md).
+  [placed-pair reduction](results/2026-11-09-placed-pairs.md). The two
+  directional halves in the new test need not be compatible with a common
+  box or the other coordinates; singleton matching alone does not settle this.
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).
@@ -376,7 +386,11 @@ The normalized weight equation alone does not establish cap feasibility.
 Do not repeat orientation reconstruction or remainder normalization.
 See `results/2026-10-24-critical-families-lean.md`.
 (2) Find a classification of the interval configurations small
-enough for the kernel. With the box pinned at the top, the current search
+enough for the kernel. The placed-pair/shared-singleton refinement leaves
+278 necessary ordered pairs computationally, while 344 remains the
+kernel-checked finite domain. Use the proved placed-pair predicates or
+kernel-check their finite evaluation before relying on 278 in Lean.
+With the box pinned at the top, the earlier search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that
 min(u,d1)=1 would be a natural next lemma, but remains unproved. Both exact

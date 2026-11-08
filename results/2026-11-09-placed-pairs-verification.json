@@ -1,0 +1,89 @@
+{
+  "recorded_at_utc": "2026-11-08T21:11:40.574043+00:00",
+  "base_commit": "e82b987ed509618e4a94ca25eaff93adc6a3f6f6",
+  "toolchain": "leanprover/lean4:v4.27.0",
+  "mathlib_revision": "a3a10db0e9d66acbebf76c5e6a135066525ac900",
+  "guard": {
+    "disk_reserve_gib": 2,
+    "process_group_rss_gib": 12,
+    "timeout_seconds": 1800
+  },
+  "commands": [
+    {
+      "label": "build",
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build"
+      ],
+      "guarded_seconds": 5.059588560999941,
+      "exit_code": 0,
+      "transcript": "results/2026-11-09-placed-pairs-build.txt"
+    },
+    {
+      "label": "audit",
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "env",
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+        "Audit.lean"
+      ],
+      "guarded_seconds": 19.054046398000082,
+      "exit_code": 0,
+      "transcript": "results/2026-11-09-placed-pairs-audit.txt"
+    }
+  ],
+  "audited_entries": 365,
+  "pins": {
+    "lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5",
+    "lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8"
+  },
+  "clean_exact_dependencies_verified": true,
+  "vendored_hashes_checked": 5,
+  "input_sha256": {
+    "lean/ScholzBrauer/Clift109PlacedPairs.lean": "431997f5ca9024fbab0385580877c8794affcb2ea43b8b390a3c16d28d392095",
+    "lean/ScholzBrauer.lean": "69a1760a15145a1c8b4950db5c4bec842bba4e16e68337f00f9987f941df00a7",
+    "lean/Audit.lean": "aca4b73af131fc27ad887200a840740aed058185a634164f7bc76007af729c2f",
+    "scripts/clift109_placed_pairs.cpp": "db1f6c22c71f4e15e3097579bc517cb28b6effb47674d3dc640ff099b5566e9e",
+    "scripts/experiment_clift109_placed_pairs.py": "812b647d20b39457c72bc00699981649f84d28f778db9979857af85db06f58fa",
+    "results/2026-11-09-placed-pairs.json": "59b714c824d7588b6e3d674c2add2ed446ad6cf79c85c02c7afd13a212c416c3",
+    "data/2026-11-09-placed-pairs-source-recheck.json": "1c1cb28dfc347ee8a024c93d31dd6e12b5bc7b13e8ad57d266b0a044d97fb5fb"
+  },
+  "claim_boundary": "General necessary placed-pair reduction is kernel checked; the independent finite 278-pair computation is not. Full selected-109 exclusion remains open in Lean.",
+  "startup_gate": {
+    "argv": [
+      "python3",
+      "/workspace/shared/theorem-provers/check.py"
+    ],
+    "source_environment": "/workspace/shared/theorem-provers/env.sh",
+    "status": "passed all thesis, littlewood and scholz targets before research",
+    "environment_id": "ccarenv_b64_Y2NhcmVudl9lMWRlNzE4NTNjM2M4MTkxOWU1MjExYmFiMmQ3Y2ZjZA"
+  },
+  "regressions": [
+    {
+      "argv": [
+        "python3",
+        "scripts/check_clift109_box.py",
+        "results/2026-10-18-clift109-box-exclusion.json"
+      ],
+      "status": "passed",
+      "configurations": 216,
+      "negative_cycles": 3456,
+      "computational_minimum": 109,
+      "replayed_additions": 120,
+      "rejected_corruptions": 7
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/export_lean_sparse_checks.py",
+        "--check"
+      ],
+      "status": "passed",
+      "directional_decisions_compared": 606,
+      "source_modules_reproduced": 14,
+      "elapsed_seconds": 0.44673449000003984
+    }
+  ],
+  "full_integration_status": "Not rerun: unchanged chain-9 evidence checker previously timed out at 180 seconds. Full integration remains inconclusive; no remote CI claim."
+}

@@ -398,3 +398,7 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.gcd_restriction_of_budget
 #print axioms ScholzBrauer.Clift109.card_commonDivisorPairs
 #print axioms ScholzBrauer.Clift109.common_divisor_pairs_of_budget
+
+#print axioms ScholzBrauer.Clift109.interval_three_pair_bounds
+#print axioms ScholzBrauer.Clift109.interval_three_pair_placements
+#print axioms ScholzBrauer.Clift109.placed_pairs_of_budget
