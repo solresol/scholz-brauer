@@ -535,7 +535,20 @@ budget-108 labelling partitions the whole interval into 51 u-pairs, three
 d1-pairs and a singleton, and into the reverse arrangement at the same
 singleton A3+p. Distinctness, finite position bounds and transport from the
 original graph are kernel checked and audited. Two independent exhaustive
-evaluations retain 278 of the proved 344 pairs; this new finite count is
-computational, not kernel checked. The two directional halves need not fit
+evaluations retain 278 of the proved 344 pairs; at that checkpoint the finite
+count was computational. The two directional halves need not fit
 one box or compatible remaining coordinates. The complete Lean exclusion
 remains open. See `../results/2026-11-09-placed-pairs.md`.
+
+`Clift109Alternating.lean` proves that signed radix-four residue sums cancel
+every regular pair and gives a sound finite certificate checker. Nineteen
+`Clift109AlternatingChecks*.lean` modules kernel-check all 34 empty directional
+domains and seven unordered singleton incompatibilities. Generated lookup
+classifiers have explicitly checked edge and two-edge-sum coverage, so their
+sorting and Python generation are not proof assumptions.
+`Clift109AlternatingDomain.lean` proves cardinality 278, retains (2,3), and
+transports domain membership to every original budget-108 labelling. The
+58 new public audit entries and their private dependencies use only the
+permitted standard axioms. This is a necessary domain, without a sufficient
+placement equivalence, common box, feasible caps or full selected-109 exclusion.
+See `../results/2026-11-10-alternating-domain.md`.

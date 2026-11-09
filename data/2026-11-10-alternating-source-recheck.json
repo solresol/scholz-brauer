@@ -1,0 +1,22 @@
+{
+  "weekly_handoff": "results/2026-11-06-literature-review.md",
+  "weekly_handoff_status": "Three UTC days old; reviewed with its HAL and publisher full-text access limits. No broad literature search repeated.",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "accessed_at_utc": "2026-11-09T21:02:53.966899+00:00",
+      "bytes": 24158,
+      "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+      "matches_previous": true
+    },
+    {
+      "url": "https://www.additionchains.com/LargeNonHansen.png",
+      "accessed_at_utc": "2026-11-09T21:02:54.683872+00:00",
+      "bytes": 31888,
+      "sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6",
+      "matches_previous": true
+    }
+  ],
+  "published_graph_version": "Undated live account; content version identified by SHA-256.",
+  "use": "Only the selected parent graph and outgoing cap interpretation. No external exclusion or optimality theorem is assumed."
+}

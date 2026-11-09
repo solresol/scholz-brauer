@@ -1,0 +1,173 @@
+[
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks54"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0009149710001566
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks04"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0007700579999437
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks05"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0009872100001758
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks06"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0008938159999161
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks07"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0008254080000825
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks08"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0007597010001064
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks11"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0012019860000692
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks13"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 1.0009328270000424
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks14"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 12.009721895999974
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks17"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 22.02130669500002
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks18"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 11.010796304999985
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks19"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 27.02396367999995
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks26"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 24.02347590999989
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks27"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 10.007922693999944
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks28"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 35.0349903880001
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks29"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 29.03108401899999
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks53"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 41.03079466500003
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks55"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 54.048034388999895
+  },
+  {
+    "command": [
+      "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+      "build",
+      "ScholzBrauer.Clift109AlternatingChecks56"
+    ],
+    "status": "passed",
+    "elapsed_seconds": 41.030514767999875
+  }
+]

@@ -1,0 +1,76 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks54
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks54 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks04
+⚠ [1119/1119] Replayed ScholzBrauer.Clift109AlternatingChecks04
+warning: ScholzBrauer/Clift109AlternatingChecks04.lean:30:48: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp only [List.all_append, Bool.and_eq_true,̵ ̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks04 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks05
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks05 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks06
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks06 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks07
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks07 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks08
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks08 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks11
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks11 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks13
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks13 seconds=1.001
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks14
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks14 (10s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks14 seconds=12.010
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks17
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks17 (20s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks17 seconds=22.021
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks18
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks18 (9.5s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks18 seconds=11.011
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks19
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks19 (26s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks19 seconds=27.024
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks26
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks26 (23s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks26 seconds=24.023
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks27
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks27 (8.9s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks27 seconds=10.008
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks28
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks28 (33s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks28 seconds=35.035
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks29
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks29 (27s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks29 seconds=29.031
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks53
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks53 (39s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks53 seconds=41.031
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks55
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks55 (52s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks55 seconds=54.048
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks56
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks56 (39s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=Clift109AlternatingChecks56 seconds=41.031

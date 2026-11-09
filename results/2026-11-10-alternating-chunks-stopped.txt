@@ -1,0 +1,426 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks54
+✖ [1119/1119] Building ScholzBrauer.Clift109AlternatingChecks54 (166s)
+trace: .> LEAN_PATH=/workspace/scholz-brauer/lean/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/build/lib/lean /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean /workspace/scholz-brauer/lean/ScholzBrauer/Clift109AlternatingChecks54.lean -o /workspace/scholz-brauer/lean/.lake/build/lib/lean/ScholzBrauer/Clift109AlternatingChecks54.olean -i /workspace/scholz-brauer/lean/.lake/build/lib/lean/ScholzBrauer/Clift109AlternatingChecks54.ilean -c /workspace/scholz-brauer/lean/.lake/build/ir/ScholzBrauer/Clift109AlternatingChecks54.c --setup /workspace/scholz-brauer/lean/.lake/build/ir/ScholzBrauer/Clift109AlternatingChecks54.setup.json --json
+error: ScholzBrauer/Clift109AlternatingChecks54.lean:889:9: Application type mismatch: The argument
+  alternatingSums_54_5_0
+has type
+  ([-81208866577120946033382549094400, -20302216644280236508345637273600, -5075554161070059127086409318400,
+          -1268888540267514781771602329600].all
+      fun x => alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+    true
+but is expected to have type
+  (((((((((((((((((((((((([-81208866577120946033382549094400, -20302216644280236508345637273600,
+                                                          -5075554161070059127086409318400,
+                                                          -1268888540267514781771602329600].all
+                                                      fun x =>
+                                                      alternatingCert_54_5.edges.all fun y =>
+                                                        alternatingCert_54_5.pairs.contains (x + y)) =
+                                                    true ∧
+                                                  ([-317222135066878695442900582400, -316912650057057350374175801343,
+                                                          -79305533766719673860725145600,
+                                                          -19826383441679918465181286400].all
+                                                      fun x =>
+                                                      alternatingCert_54_5.edges.all fun y =>
+                                                        alternatingCert_54_5.pairs.contains (x + y)) =
+                                                    true) ∧
+                                                ([-4956595860419979616295321600, -1239148965104994904073830400,
+                                                        -309787241276248726018457600, -77446810319062181504614400].all
+                                                    fun x =>
+                                                    alternatingCert_54_5.edges.all fun y =>
+                                                      alternatingCert_54_5.pairs.contains (x + y)) =
+                                                  true) ∧
+                                              ([-19361702579765545376153600, -4840425644941386344038400,
+                                                      -1210106411235346586009600, -302526602808836646502400].all
+                                                  fun x =>
+                                                  alternatingCert_54_5.edges.all fun y =>
+                                                    alternatingCert_54_5.pairs.contains (x + y)) =
+                                                true) ∧
+                                            ([-75631650702209161625600, -18907912675552290406400,
+                                                    -4726978168888072601600, -1181744542222018150400].all
+                                                fun x =>
+                                                alternatingCert_54_5.edges.all fun y =>
+                                                  alternatingCert_54_5.pairs.contains (x + y)) =
+                                              true) ∧
+                                          ([-295436135555504537600, -73859033888876134400, -18464758472219033600,
+                                                  -4616189618054758400].all
+                                              fun x =>
+                                              alternatingCert_54_5.edges.all fun y =>
+                                                alternatingCert_54_5.pairs.contains (x + y)) =
+                                            true) ∧
+                                        ([-1154047404513689600, -288511851128422400, -72127962782105600,
+                                                -18031990695526400].all
+                                            fun x =>
+                                            alternatingCert_54_5.edges.all fun y =>
+                                              alternatingCert_54_5.pairs.contains (x + y)) =
+                                          true) ∧
+                                      ([-4507997673881600, -1126999418470400, -281749854617600, -70437463654400].all
+                                          fun x =>
+                                          alternatingCert_54_5.edges.all fun y =>
+                                            alternatingCert_54_5.pairs.contains (x + y)) =
+                                        true) ∧
+                                    ([-17609365913600, -4402341478400, -1100585369600, -275146342400].all fun x =>
+                                        alternatingCert_54_5.edges.all fun y =>
+                                          alternatingCert_54_5.pairs.contains (x + y)) =
+                                      true) ∧
+                                  ([-68786585600, -17196646400, -4299161600, -1074790400].all fun x =>
+                                      alternatingCert_54_5.edges.all fun y =>
+                                        alternatingCert_54_5.pairs.contains (x + y)) =
+                                    true) ∧
+                                ([-268697600, -67174400, -16793600, -4198400].all fun x =>
+                                    alternatingCert_54_5.edges.all fun y =>
+                                      alternatingCert_54_5.pairs.contains (x + y)) =
+                                  true) ∧
+                              ([-1049600, -262400, -65600, -16400].all fun x =>
+                                  alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                                true) ∧
+                            ([-4100, -1025, 1025, 4100].all fun x =>
+                                alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                              true) ∧
+                          ([16400, 65600, 262400, 1049600].all fun x =>
+                              alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                            true) ∧
+                        ([4198400, 16793600, 67174400, 268697600].all fun x =>
+                            alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                          true) ∧
+                      ([1074790400, 4299161600, 17196646400, 68786585600].all fun x =>
+                          alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                        true) ∧
+                    ([275146342400, 1100585369600, 4402341478400, 17609365913600].all fun x =>
+                        alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                      true) ∧
+                  ([70437463654400, 281749854617600, 1126999418470400, 4507997673881600].all fun x =>
+                      alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                    true) ∧
+                ([18031990695526400, 72127962782105600, 288511851128422400, 1154047404513689600].all fun x =>
+                    alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                  true) ∧
+              ([4616189618054758400, 18464758472219033600, 73859033888876134400, 295436135555504537600].all fun x =>
+                  alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+                true) ∧
+            ([1181744542222018150400, 4726978168888072601600, 18907912675552290406400, 75631650702209161625600].all
+                fun x => alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+              true) ∧
+          ([302526602808836646502400, 1210106411235346586009600, 4840425644941386344038400,
+                  19361702579765545376153600].all
+              fun x => alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+            true) ∧
+        ([77446810319062181504614400, 309787241276248726018457600, 1239148965104994904073830400,
+                4956595860419979616295321600].all
+            fun x => alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+          true) ∧
+      ([19826383441679918465181286400, 79305533766719673860725145600, 316912650057057350374175801343,
+              317222135066878695442900582400].all
+          fun x => alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+        true) ∧
+    ([1267650600228229401496703205372, 1268888540267514781771602329600, 5070602400912917605986812821488,
+            5075554161070059127086409318400].all
+        fun x => alternatingCert_54_5.edges.all fun y => alternatingCert_54_5.pairs.contains (x + y)) =
+      true
+in the application
+  And.intro alternatingSums_54_5_0
+error: ScholzBrauer/Clift109AlternatingChecks54.lean:889:8: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 25 were provided
+error: ScholzBrauer/Clift109AlternatingChecks54.lean:1007:9: Application type mismatch: The argument
+  alternatingSingletons_54_5_0
+has type
+  ([0, 1, 2, 3].all fun s =>
+      alternatingCert_54_5.edges.all fun z =>
+        !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+          alternatingCert_54_5.singletons.contains s) =
+    true
+but is expected to have type
+  (((((((((((((((((((((((((([0, 1, 2, 3].all fun s =>
+                                                          alternatingCert_54_5.edges.all fun z =>
+                                                            !alternatingCert_54_5.pairs.contains
+                                                                  (alternatingCert_54_5.target - z -
+                                                                    alternatingDigit 54 ↑s) ||
+                                                              alternatingCert_54_5.singletons.contains s) =
+                                                        true ∧
+                                                      ([4, 5, 6, 7].all fun s =>
+                                                          alternatingCert_54_5.edges.all fun z =>
+                                                            !alternatingCert_54_5.pairs.contains
+                                                                  (alternatingCert_54_5.target - z -
+                                                                    alternatingDigit 54 ↑s) ||
+                                                              alternatingCert_54_5.singletons.contains s) =
+                                                        true) ∧
+                                                    ([8, 9, 10, 11].all fun s =>
+                                                        alternatingCert_54_5.edges.all fun z =>
+                                                          !alternatingCert_54_5.pairs.contains
+                                                                (alternatingCert_54_5.target - z -
+                                                                  alternatingDigit 54 ↑s) ||
+                                                            alternatingCert_54_5.singletons.contains s) =
+                                                      true) ∧
+                                                  ([12, 13, 14, 15].all fun s =>
+                                                      alternatingCert_54_5.edges.all fun z =>
+                                                        !alternatingCert_54_5.pairs.contains
+                                                              (alternatingCert_54_5.target - z -
+                                                                alternatingDigit 54 ↑s) ||
+                                                          alternatingCert_54_5.singletons.contains s) =
+                                                    true) ∧
+                                                ([16, 17, 18, 19].all fun s =>
+                                                    alternatingCert_54_5.edges.all fun z =>
+                                                      !alternatingCert_54_5.pairs.contains
+                                                            (alternatingCert_54_5.target - z -
+                                                              alternatingDigit 54 ↑s) ||
+                                                        alternatingCert_54_5.singletons.contains s) =
+                                                  true) ∧
+                                              ([20, 21, 22, 23].all fun s =>
+                                                  alternatingCert_54_5.edges.all fun z =>
+                                                    !alternatingCert_54_5.pairs.contains
+                                                          (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                                      alternatingCert_54_5.singletons.contains s) =
+                                                true) ∧
+                                            ([24, 25, 26, 27].all fun s =>
+                                                alternatingCert_54_5.edges.all fun z =>
+                                                  !alternatingCert_54_5.pairs.contains
+                                                        (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                                    alternatingCert_54_5.singletons.contains s) =
+                                              true) ∧
+                                          ([28, 29, 30, 31].all fun s =>
+                                              alternatingCert_54_5.edges.all fun z =>
+                                                !alternatingCert_54_5.pairs.contains
+                                                      (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                                  alternatingCert_54_5.singletons.contains s) =
+                                            true) ∧
+                                        ([32, 33, 34, 35].all fun s =>
+                                            alternatingCert_54_5.edges.all fun z =>
+                                              !alternatingCert_54_5.pairs.contains
+                                                    (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                                alternatingCert_54_5.singletons.contains s) =
+                                          true) ∧
+                                      ([36, 37, 38, 39].all fun s =>
+                                          alternatingCert_54_5.edges.all fun z =>
+                                            !alternatingCert_54_5.pairs.contains
+                                                  (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                              alternatingCert_54_5.singletons.contains s) =
+                                        true) ∧
+                                    ([40, 41, 42, 43].all fun s =>
+                                        alternatingCert_54_5.edges.all fun z =>
+                                          !alternatingCert_54_5.pairs.contains
+                                                (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                            alternatingCert_54_5.singletons.contains s) =
+                                      true) ∧
+                                  ([44, 45, 46, 47].all fun s =>
+                                      alternatingCert_54_5.edges.all fun z =>
+                                        !alternatingCert_54_5.pairs.contains
+                                              (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                          alternatingCert_54_5.singletons.contains s) =
+                                    true) ∧
+                                ([48, 49, 50, 51].all fun s =>
+                                    alternatingCert_54_5.edges.all fun z =>
+                                      !alternatingCert_54_5.pairs.contains
+                                            (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                        alternatingCert_54_5.singletons.contains s) =
+                                  true) ∧
+                              ([52, 53, 54, 55].all fun s =>
+                                  alternatingCert_54_5.edges.all fun z =>
+                                    !alternatingCert_54_5.pairs.contains
+                                          (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                      alternatingCert_54_5.singletons.contains s) =
+                                true) ∧
+                            ([56, 57, 58, 59].all fun s =>
+                                alternatingCert_54_5.edges.all fun z =>
+                                  !alternatingCert_54_5.pairs.contains
+                                        (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                    alternatingCert_54_5.singletons.contains s) =
+                              true) ∧
+                          ([60, 61, 62, 63].all fun s =>
+                              alternatingCert_54_5.edges.all fun z =>
+                                !alternatingCert_54_5.pairs.contains
+                                      (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                  alternatingCert_54_5.singletons.contains s) =
+                            true) ∧
+                        ([64, 65, 66, 67].all fun s =>
+                            alternatingCert_54_5.edges.all fun z =>
+                              !alternatingCert_54_5.pairs.contains
+                                    (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                                alternatingCert_54_5.singletons.contains s) =
+                          true) ∧
+                      ([68, 69, 70, 71].all fun s =>
+                          alternatingCert_54_5.edges.all fun z =>
+                            !alternatingCert_54_5.pairs.contains
+                                  (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                              alternatingCert_54_5.singletons.contains s) =
+                        true) ∧
+                    ([72, 73, 74, 75].all fun s =>
+                        alternatingCert_54_5.edges.all fun z =>
+                          !alternatingCert_54_5.pairs.contains
+                                (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                            alternatingCert_54_5.singletons.contains s) =
+                      true) ∧
+                  ([76, 77, 78, 79].all fun s =>
+                      alternatingCert_54_5.edges.all fun z =>
+                        !alternatingCert_54_5.pairs.contains
+                              (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                          alternatingCert_54_5.singletons.contains s) =
+                    true) ∧
+                ([80, 81, 82, 83].all fun s =>
+                    alternatingCert_54_5.edges.all fun z =>
+                      !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                        alternatingCert_54_5.singletons.contains s) =
+                  true) ∧
+              ([84, 85, 86, 87].all fun s =>
+                  alternatingCert_54_5.edges.all fun z =>
+                    !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                      alternatingCert_54_5.singletons.contains s) =
+                true) ∧
+            ([88, 89, 90, 91].all fun s =>
+                alternatingCert_54_5.edges.all fun z =>
+                  !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                    alternatingCert_54_5.singletons.contains s) =
+              true) ∧
+          ([92, 93, 94, 95].all fun s =>
+              alternatingCert_54_5.edges.all fun z =>
+                !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                  alternatingCert_54_5.singletons.contains s) =
+            true) ∧
+        ([96, 97, 98, 99].all fun s =>
+            alternatingCert_54_5.edges.all fun z =>
+              !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+                alternatingCert_54_5.singletons.contains s) =
+          true) ∧
+      ([100, 101, 102, 103].all fun s =>
+          alternatingCert_54_5.edges.all fun z =>
+            !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+              alternatingCert_54_5.singletons.contains s) =
+        true) ∧
+    ([104, 105, 106, 107].all fun s =>
+        alternatingCert_54_5.edges.all fun z =>
+          !alternatingCert_54_5.pairs.contains (alternatingCert_54_5.target - z - alternatingDigit 54 ↑s) ||
+            alternatingCert_54_5.singletons.contains s) =
+      true
+in the application
+  And.intro alternatingSingletons_54_5_0
+error: ScholzBrauer/Clift109AlternatingChecks54.lean:1007:8: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 27 were provided
+error: ScholzBrauer/Clift109AlternatingChecks54.lean:1900:9: Application type mismatch: The argument
+  alternatingSums_54_8_0
+has type
+  ([-81130876354645967076063904268288, -20282719088661491769015976067072, -5070679772165372942253994016768,
+          -1267669943041343235563498504192].all
+      fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+    true
+but is expected to have type
+  (((((((((((((((((((((((([-81130876354645967076063904268288, -20282719088661491769015976067072,
+                                                          -5070679772165372942253994016768,
+                                                          -1267669943041343235563498504192].all
+                                                      fun x =>
+                                                      alternatingCert_54_8.edges.all fun y =>
+                                                        alternatingCert_54_8.pairs.contains (x + y)) =
+                                                    true ∧
+                                                  ([-316917485760335808890874626048, -79229371440083952222718656512,
+                                                          -19807342860020988055679664128,
+                                                          -4951835715005247013919916032].all
+                                                      fun x =>
+                                                      alternatingCert_54_8.edges.all fun y =>
+                                                        alternatingCert_54_8.pairs.contains (x + y)) =
+                                                    true) ∧
+                                                ([-4951760157141521099596496895, -1237958928751311753479979008,
+                                                        -309489732187827938369994752, -77372433046956984592498688].all
+                                                    fun x =>
+                                                    alternatingCert_54_8.edges.all fun y =>
+                                                      alternatingCert_54_8.pairs.contains (x + y)) =
+                                                  true) ∧
+                                              ([-19343108261739246148124672, -4835777065434811537031168,
+                                                      -1208944266358702884257792, -302236066589675721064448].all
+                                                  fun x =>
+                                                  alternatingCert_54_8.edges.all fun y =>
+                                                    alternatingCert_54_8.pairs.contains (x + y)) =
+                                                true) ∧
+                                            ([-75559016647418930266112, -18889754161854732566528,
+                                                    -4722438540463683141632, -1180609635115920785408].all
+                                                fun x =>
+                                                alternatingCert_54_8.edges.all fun y =>
+                                                  alternatingCert_54_8.pairs.contains (x + y)) =
+                                              true) ∧
+                                          ([-295152408778980196352, -73788102194745049088, -18447025548686262272,
+                                                  -4611756387171565568].all
+                                              fun x =>
+                                              alternatingCert_54_8.edges.all fun y =>
+                                                alternatingCert_54_8.pairs.contains (x + y)) =
+                                            true) ∧
+                                        ([-1152939096792891392, -288234774198222848, -72058693549555712,
+                                                -18014673387388928].all
+                                            fun x =>
+                                            alternatingCert_54_8.edges.all fun y =>
+                                              alternatingCert_54_8.pairs.contains (x + y)) =
+                                          true) ∧
+                                      ([-4503668346847232, -1125917086711808, -281479271677952, -70369817919488].all
+                                          fun x =>
+                                          alternatingCert_54_8.edges.all fun y =>
+                                            alternatingCert_54_8.pairs.contains (x + y)) =
+                                        true) ∧
+                                    ([-17592454479872, -4398113619968, -1099528404992, -274882101248].all fun x =>
+                                        alternatingCert_54_8.edges.all fun y =>
+                                          alternatingCert_54_8.pairs.contains (x + y)) =
+                                      true) ∧
+                                  ([-68720525312, -17180131328, -4295032832, -1073758208].all fun x =>
+                                      alternatingCert_54_8.edges.all fun y =>
+                                        alternatingCert_54_8.pairs.contains (x + y)) =
+                                    true) ∧
+                                ([-268439552, -67109888, -16777472, -4194368].all fun x =>
+                                    alternatingCert_54_8.edges.all fun y =>
+                                      alternatingCert_54_8.pairs.contains (x + y)) =
+                                  true) ∧
+                              ([-1048592, -262148, -65537, 65537].all fun x =>
+                                  alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                                true) ∧
+                            ([262148, 1048592, 4194368, 16777472].all fun x =>
+                                alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                              true) ∧
+                          ([67109888, 268439552, 1073758208, 4295032832].all fun x =>
+                              alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                            true) ∧
+                        ([17180131328, 68720525312, 274882101248, 1099528404992].all fun x =>
+                            alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                          true) ∧
+                      ([4398113619968, 17592454479872, 70369817919488, 281479271677952].all fun x =>
+                          alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                        true) ∧
+                    ([1125917086711808, 4503668346847232, 18014673387388928, 72058693549555712].all fun x =>
+                        alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                      true) ∧
+                  ([288234774198222848, 1152939096792891392, 4611756387171565568, 18447025548686262272].all fun x =>
+                      alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                    true) ∧
+                ([73788102194745049088, 295152408778980196352, 1180609635115920785408, 4722438540463683141632].all
+                    fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                  true) ∧
+              ([18889754161854732566528, 75559016647418930266112, 302236066589675721064448,
+                      1208944266358702884257792].all
+                  fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+                true) ∧
+            ([4835777065434811537031168, 19343108261739246148124672, 77372433046956984592498688,
+                    309489732187827938369994752].all
+                fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+              true) ∧
+          ([1237958928751311753479979008, 4951760157141521099596496895, 4951835715005247013919916032,
+                  19807040628566084398385987580].all
+              fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+            true) ∧
+        ([19807342860020988055679664128, 79228162514264337593543950320, 79229371440083952222718656512,
+                316912650057057350374175801280].all
+            fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+          true) ∧
+      ([316917485760335808890874626048, 1267650600228229401496703205120, 1267669943041343235563498504192,
+              5070602400912917605986812820480].all
+          fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+        true) ∧
+    ([5070679772165372942253994016768, 20282409603651670423947251281920, 20282719088661491769015976067072,
+            81129638414606681695789005127680].all
+        fun x => alternatingCert_54_8.edges.all fun y => alternatingCert_54_8.pairs.contains (x + y)) =
+      true
+in the application
+  And.intro alternatingSums_54_8_0
+error: ScholzBrauer/Clift109AlternatingChecks54.lean:1900:8: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 25 were provided
+info: stdout:
+{"caption":"","data":"Application type mismatch: The argument\n  alternatingSingletons_54_8_0\nhas type\n  ([0, 1, 2, 3].all fun s =>\n      alternatingCert_54_8.edges.all fun z =>\n        !alternatingCert_54_8.pairs.contains (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n          alternatingCert_54_8.singletons.contains s) =\n    true\nbut is expected to have type\n  (((((((((((((((((((((((((([0, 1, 2, 3].all fun s =>\n                                                          alternatingCert_54_8.edges.all fun z =>\n                                                            !alternatingCert_54_8.pairs.contains\n                                                                  (alternatingCert_54_8.target - z -\n                                                                    alternatingDigit 54 ↑s) ||\n                                                              alternatingCert_54_8.singletons.contains s) =\n                                                        true ∧\n                                                      ([4, 5, 6, 7].all fun s =>\n                                                          alternatingCert_54_8.edges.all fun z =>\n                                                            !alternatingCert_54_8.pairs.contains\n                                                                  (alternatingCert_54_8.target - z -\n                                                                    alternatingDigit 54 ↑s) ||\n                                                              alternatingCert_54_8.singletons.contains s) =\n                                                        true) ∧\n                                                    ([8, 9, 10, 11].all fun s =>\n                                                        alternatingCert_54_8.edges.all fun z =>\n                                                          !alternatingCert_54_8.pairs.contains\n                                                                (alternatingCert_54_8.target - z -\n                                                                  alternatingDigit 54 ↑s) ||\n                                                            alternatingCert_54_8.singletons.contains s) =\n                                                      true) ∧\n                                                  ([12, 13, 14, 15].all fun s =>\n                                                      alternatingCert_54_8.edges.all fun z =>\n                                                        !alternatingCert_54_8.pairs.contains\n                                                              (alternatingCert_54_8.target - z -\n                                                                alternatingDigit 54 ↑s) ||\n                                                          alternatingCert_54_8.singletons.contains s) =\n                                                    true) ∧\n                                                ([16, 17, 18, 19].all fun s =>\n                                                    alternatingCert_54_8.edges.all fun z =>\n                                                      !alternatingCert_54_8.pairs.contains\n                                                            (alternatingCert_54_8.target - z -\n                                                              alternatingDigit 54 ↑s) ||\n                                                        alternatingCert_54_8.singletons.contains s) =\n                                                  true) ∧\n                                              ([20, 21, 22, 23].all fun s =>\n                                                  alternatingCert_54_8.edges.all fun z =>\n                                                    !alternatingCert_54_8.pairs.contains\n                                                          (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                                      alternatingCert_54_8.singletons.contains s) =\n                                                true) ∧\n                                            ([24, 25, 26, 27].all fun s =>\n                                                alternatingCert_54_8.edges.all fun z =>\n                                                  !alternatingCert_54_8.pairs.contains\n                                                        (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                                    alternatingCert_54_8.singletons.contains s) =\n                                              true) ∧\n                                          ([28, 29, 30, 31].all fun s =>\n                                              alternatingCert_54_8.edges.all fun z =>\n                                                !alternatingCert_54_8.pairs.contains\n                                                      (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                                  alternatingCert_54_8.singletons.contains s) =\n                                            true) ∧\n                                        ([32, 33, 34, 35].all fun s =>\n                                            alternatingCert_54_8.edges.all fun z =>\n                                              !alternatingCert_54_8.pairs.contains\n                                                    (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                                alternatingCert_54_8.singletons.contains s) =\n                                          true) ∧\n                                      ([36, 37, 38, 39].all fun s =>\n                                          alternatingCert_54_8.edges.all fun z =>\n                                            !alternatingCert_54_8.pairs.contains\n                                                  (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                              alternatingCert_54_8.singletons.contains s) =\n                                        true) ∧\n                                    ([40, 41, 42, 43].all fun s =>\n                                        alternatingCert_54_8.edges.all fun z =>\n                                          !alternatingCert_54_8.pairs.contains\n                                                (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                            alternatingCert_54_8.singletons.contains s) =\n                                      true) ∧\n                                  ([44, 45, 46, 47].all fun s =>\n                                      alternatingCert_54_8.edges.all fun z =>\n                                        !alternatingCert_54_8.pairs.contains\n                                              (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                          alternatingCert_54_8.singletons.contains s) =\n                                    true) ∧\n                                ([48, 49, 50, 51].all fun s =>\n                                    alternatingCert_54_8.edges.all fun z =>\n                                      !alternatingCert_54_8.pairs.contains\n                                            (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                        alternatingCert_54_8.singletons.contains s) =\n                                  true) ∧\n                              ([52, 53, 54, 55].all fun s =>\n                                  alternatingCert_54_8.edges.all fun z =>\n                                    !alternatingCert_54_8.pairs.contains\n                                          (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                      alternatingCert_54_8.singletons.contains s) =\n                                true) ∧\n                            ([56, 57, 58, 59].all fun s =>\n                                alternatingCert_54_8.edges.all fun z =>\n                                  !alternatingCert_54_8.pairs.contains\n                                        (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                    alternatingCert_54_8.singletons.contains s) =\n                              true) ∧\n                          ([60, 61, 62, 63].all fun s =>\n                              alternatingCert_54_8.edges.all fun z =>\n                                !alternatingCert_54_8.pairs.contains\n                                      (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                  alternatingCert_54_8.singletons.contains s) =\n                            true) ∧\n                        ([64, 65, 66, 67].all fun s =>\n                            alternatingCert_54_8.edges.all fun z =>\n                              !alternatingCert_54_8.pairs.contains\n                                    (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                                alternatingCert_54_8.singletons.contains s) =\n                          true) ∧\n                      ([68, 69, 70, 71].all fun s =>\n                          alternatingCert_54_8.edges.all fun z =>\n                            !alternatingCert_54_8.pairs.contains\n                                  (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                              alternatingCert_54_8.singletons.contains s) =\n                        true) ∧\n                    ([72, 73, 74, 75].all fun s =>\n                        alternatingCert_54_8.edges.all fun z =>\n                          !alternatingCert_54_8.pairs.contains\n                                (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                            alternatingCert_54_8.singletons.contains s) =\n                      true) ∧\n                  ([76, 77, 78, 79].all fun s =>\n                      alternatingCert_54_8.edges.all fun z =>\n                        !alternatingCert_54_8.pairs.contains\n                              (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                          alternatingCert_54_8.singletons.contains s) =\n                    true) ∧\n                ([80, 81, 82, 83].all fun s =>\n                    alternatingCert_54_8.edges.all fun z =>\n                      !alternatingCert_54_8.pairs.contains (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                        alternatingCert_54_8.singletons.contains s) =\n                  true) ∧\n              ([84, 85, 86, 87].all fun s =>\n                  alternatingCert_54_8.edges.all fun z =>\n                    !alternatingCert_54_8.pairs.contains (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                      alternatingCert_54_8.singletons.contains s) =\n                true) ∧\n            ([88, 89, 90, 91].all fun s =>\n                alternatingCert_54_8.edges.all fun z =>\n                  !alternatingCert_54_8.pairs.contains (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                    alternatingCert_54_8.singletons.contains s) =\n              true) ∧\n          ([92, 93, 94, 95].all fun s =>\n              alternatingCert_54_8.edges.all fun z =>\n                !alternatingCert_54_8.pairs.contains (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                  alternatingCert_54_8.singletons.contains s) =\n            true) ∧\n        ([96, 97, 98, 99].all fun s =>\n            alternatingCert_54_8.edges.all fun z =>\n              !alternatingCert_54_8.pairs.contains (alternatingCert_54_8.target - z - alternatingDigit 54 ↑s) ||\n                alternatingCert_54_8.singletons.contains s) =\n          true) ∧\n      ([100, 101, 102, 103].all fun s =>\n          alternatingCert_54_8.edges.all fun z =>\n            !alternatingCert_54_8.pairs.cont
+
+error: Lean exited with code 143
+Some required targets logged failures:
+- ScholzBrauer.Clift109AlternatingChecks54
+error: build failed
+Traceback (most recent call last):
+  File "/tmp/run-scholz-step.py", line 13, in <module>
+    prepare.m.run(cmd, root, env, (root, prepare.B))
+  File "/workspace/shared/theorem-provers/bootstrap-tested.py", line 79, in run
+    raise subprocess.CalledProcessError(proc.returncode, argv)
+subprocess.CalledProcessError: Command '['/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake', 'build', 'ScholzBrauer.Clift109AlternatingChecks54']' returned non-zero exit status 1.

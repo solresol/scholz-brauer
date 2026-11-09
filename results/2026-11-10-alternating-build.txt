@@ -1,0 +1,13 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build
+⚠ [1153/1175] Replayed ScholzBrauer.Clift109AlternatingChecks04
+warning: ScholzBrauer/Clift109AlternatingChecks04.lean:30:48: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp only [List.all_append, Bool.and_eq_true,̵ ̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [1172/1175] Built ScholzBrauer.Clift109AlternatingChecks (1.0s)
+✔ [1173/1175] Built ScholzBrauer.Clift109AlternatingDomain (24s)
+✔ [1174/1175] Built ScholzBrauer (1.6s)
+Build completed successfully (1175 jobs).

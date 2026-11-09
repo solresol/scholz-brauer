@@ -1,0 +1,53 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks54
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks54 (83s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=54 seconds=84.065
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks04
+⚠ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks04 (2.7s)
+warning: ScholzBrauer/Clift109AlternatingChecks04.lean:30:48: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  simp only [List.all_append, Bool.and_eq_true,̵ ̵a̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=4 seconds=4.002
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks05
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks05 (2.7s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=5 seconds=4.003
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks06
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks06 (2.7s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=6 seconds=4.003
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks07
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks07 (4.3s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=7 seconds=6.008
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks08
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks08 (7.0s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=8 seconds=9.007
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks11
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks11 (6.1s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=11 seconds=7.010
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks13
+✔ [1119/1119] Built ScholzBrauer.Clift109AlternatingChecks13 (6.9s)
+Build completed successfully (1119 jobs).
+CHECKPOINT modulus=13 seconds=8.006
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks14
+✖ [2/2] Running ScholzBrauer.Clift109AlternatingChecks14
+error: no such file or directory (error code: 2)
+  file: /workspace/scholz-brauer/lean/ScholzBrauer/Clift109AlternatingChecks14.lean
+Some required targets logged failures:
+- ScholzBrauer.Clift109AlternatingChecks14
+error: build failed
+Traceback (most recent call last):
+  File "/tmp/run-alternating-batches.py", line 18, in <module>
+    start = time.monotonic()
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/shared/theorem-provers/bootstrap-tested.py", line 79, in run
+    raise subprocess.CalledProcessError(proc.returncode, argv)
+subprocess.CalledProcessError: Command '['/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake', 'build', 'ScholzBrauer.Clift109AlternatingChecks14']' returned non-zero exit status 1.

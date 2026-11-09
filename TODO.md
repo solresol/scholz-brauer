@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-09 (Monday, Australia/Sydney).
+Updated 2026-11-10 (Tuesday, Australia/Sydney).
 
 Latest weekly handoff: [6 November literature checkpoint](results/2026-11-06-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -193,18 +193,24 @@ Fin cases to remove the previous reduction bottleneck.
   one singleton, including finite position bounds and the same singleton in
   both directions. Two independent complete evaluations of this necessary
   test retain 278 of the 344 pairs: 52 fail a direction, and 14 more have
-  disjoint singleton domains. The 278 count is computational, not kernel
-  checked; (2,3) still survives. See
+  disjoint singleton domains. At this checkpoint the 278 count was
+  computational; (2,3) still survives. See
   [9 November result](results/2026-11-09-placed-pairs.md).
-- [ ] Kernel-check the placed-pair finite reduction, or use its proved
-  necessary predicates directly with the kernel-checked 344-pair domain.
-  Combine actual exceptional positions with box dissociation, both odd-run restrictions,
+- [x] Kernel-check the placed-pair finite reduction through an alternating
+  signed residue invariant. All 34 empty directional domains and seven
+  unordered shared-singleton incompatibilities are checked, removing 66
+  ordered pairs. The 278 cardinality and transport to every original
+  budget-108 labelling are Lean theorems; (2,3) still survives. No sufficient
+  placement equivalence or feasibility follows. See
+  [10 November result](results/2026-11-10-alternating-domain.md).
+- [ ] Combine the kernel-checked 278-pair necessary domain and actual
+  exceptional positions with box dissociation, both odd-run restrictions,
   twelve critical families and 64 orientations to finish interval/cap
   classification. Neither feasibility nor min(u,d1)=1 follows from these
   necessary restrictions. Keep the top-pinned box branch separate from the
   branch missing 8, which visits 5,7,15. See
   [2 November result](results/2026-11-02-residues-lean.md) and the current
-  [placed-pair reduction](results/2026-11-09-placed-pairs.md). The two
+  [alternating reduction](results/2026-11-10-alternating-domain.md). The two
   directional halves in the new test need not be compatible with a common
   box or the other coordinates; singleton matching alone does not settle this.
 

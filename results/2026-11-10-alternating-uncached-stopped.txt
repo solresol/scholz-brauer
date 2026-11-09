@@ -1,0 +1,13 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109AlternatingChecks54
+✖ [1119/1119] Building ScholzBrauer.Clift109AlternatingChecks54 (216s)
+trace: .> LEAN_PATH=/workspace/scholz-brauer/lean/.lake/packages/Cli/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/batteries/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/Qq/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/aesop/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/plausible/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/scholz-brauer/lean/.lake/build/lib/lean /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean /workspace/scholz-brauer/lean/ScholzBrauer/Clift109AlternatingChecks54.lean -o /workspace/scholz-brauer/lean/.lake/build/lib/lean/ScholzBrauer/Clift109AlternatingChecks54.olean -i /workspace/scholz-brauer/lean/.lake/build/lib/lean/ScholzBrauer/Clift109AlternatingChecks54.ilean -c /workspace/scholz-brauer/lean/.lake/build/ir/ScholzBrauer/Clift109AlternatingChecks54.c --setup /workspace/scholz-brauer/lean/.lake/build/ir/ScholzBrauer/Clift109AlternatingChecks54.setup.json --json
+error: Lean exited with code 143
+Some required targets logged failures:
+- ScholzBrauer.Clift109AlternatingChecks54
+error: build failed
+Traceback (most recent call last):
+  File "/tmp/run-scholz-step.py", line 13, in <module>
+    prepare.m.run(cmd, root, env, (root, prepare.B))
+  File "/workspace/shared/theorem-provers/bootstrap-tested.py", line 79, in run
+    raise subprocess.CalledProcessError(proc.returncode, argv)
+subprocess.CalledProcessError: Command '['/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake', 'build', 'ScholzBrauer.Clift109AlternatingChecks54']' returned non-zero exit status 1.

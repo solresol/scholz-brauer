@@ -1,0 +1,73 @@
+{
+  "base_commit": "64947275a177ca571c21bb1ef9111182d4136004",
+  "lean": "4.27.0",
+  "mathlib": "a3a10db0e9d66acbebf76c5e6a135066525ac900",
+  "startup_gate": "passed for thesis, littlewood and scholz before research; no preparation or repair",
+  "certificate_modules": 19,
+  "certificate_domains": 48,
+  "formal_necessary_domain_cardinality": 278,
+  "two_three_retained": true,
+  "audited_entries": 423,
+  "new_audit_entries": 58,
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "commands": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/run-scholz-step.py",
+        "build"
+      ],
+      "elapsed_seconds": 30.13149622800006,
+      "log": "results/2026-11-10-alternating-build.txt",
+      "status": "passed"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/run-scholz-step.py",
+        "Audit.lean"
+      ],
+      "elapsed_seconds": 21.134195309000006,
+      "log": "results/2026-11-10-alternating-audit.txt",
+      "status": "passed"
+    }
+  ],
+  "source_integrity": "Reviewed pins, exact clean dependency HEADs, shared deployment integrity and five vendored hashes rechecked.",
+  "input_sha256": {
+    "lean/Audit.lean": "03ddf55e065d1f4662407b0aa5639a849e49651a75936c9fca9295ec97924ec8",
+    "lean/ScholzBrauer/Clift109Alternating.lean": "59192ae1267bfce89b5fe3f22bdd77f7fa91b9264f69e60ada9bb21c02dc3039",
+    "lean/ScholzBrauer/Clift109AlternatingChecks.lean": "e56d933d61f05753c5c379663f31c064214b921b7d6014059d64a2faaab63a8d",
+    "lean/ScholzBrauer/Clift109AlternatingChecks04.lean": "ba5df4da241f499444452ea149c854632a2b88e3cf3073148e1e6f5a652dfb86",
+    "lean/ScholzBrauer/Clift109AlternatingChecks05.lean": "8699625e3dc68e93ae08a2df551675ad399f609550f4bf3c7d6f7aaafb4ac52e",
+    "lean/ScholzBrauer/Clift109AlternatingChecks06.lean": "b814992468523225f03eed3d59cbeacc05deafc1902ae0a741ae7c78e0c0703d",
+    "lean/ScholzBrauer/Clift109AlternatingChecks07.lean": "8e753b6200a90e91dbc25f108c70f7b21dfb6de94b16a3173f9c74bb50d21e1c",
+    "lean/ScholzBrauer/Clift109AlternatingChecks08.lean": "32e6b558ce93159daa8cc74317770a963eaf4d4d4c166a900cf815956c1a2eed",
+    "lean/ScholzBrauer/Clift109AlternatingChecks11.lean": "ccdde3d79ee7a777e73c29e1c8071f2f149a5930d107f46da0599c14f5202613",
+    "lean/ScholzBrauer/Clift109AlternatingChecks13.lean": "3b08a771b38e617b8f041de9b11170fc69e5e9e9fd98151ca9cfbc637c1aaebe",
+    "lean/ScholzBrauer/Clift109AlternatingChecks14.lean": "349a97c86d0f49fc40a59cee8009a2bcd563762e226c9990d92489099c20c861",
+    "lean/ScholzBrauer/Clift109AlternatingChecks17.lean": "ac6931c0802ff5e2ff43c094477c06f81f527f6fd12d9cd510ffaa3915d3ba2d",
+    "lean/ScholzBrauer/Clift109AlternatingChecks18.lean": "602db43ae2cb8eec0bfc99b38dccb8a831bb9eadad4f8c3bc7099d0658ba73cb",
+    "lean/ScholzBrauer/Clift109AlternatingChecks19.lean": "1808fa41b8b74a65a873e159c4181ed099074e2c2f8b4df543503be1f0377fc2",
+    "lean/ScholzBrauer/Clift109AlternatingChecks26.lean": "29e4703db1a4db374a5484f1596ec79d715e821d04ccb147b2d4b4cf55d1bd0b",
+    "lean/ScholzBrauer/Clift109AlternatingChecks27.lean": "e0c8d8fcea6de43d995344d9df000d17297afbd5a4d95d2b5d540b74653c4646",
+    "lean/ScholzBrauer/Clift109AlternatingChecks28.lean": "e4bd30921894d88a49c4f55a67fc03c20ee28cab1f5f8f8cee4073e8bc6e30f9",
+    "lean/ScholzBrauer/Clift109AlternatingChecks29.lean": "96f53d4cc607b6195dd72ec9557e0c47adae2bd1fb8d4f8da0cc07a3c76b0217",
+    "lean/ScholzBrauer/Clift109AlternatingChecks53.lean": "f9ca7bde782610860c287e577b3a9016522280339405ebc87b48200a46cedf64",
+    "lean/ScholzBrauer/Clift109AlternatingChecks54.lean": "19f45b2af2c12c217931f308ab85e344b70bb91bb67ac89cf788be0798997302",
+    "lean/ScholzBrauer/Clift109AlternatingChecks55.lean": "2b25156224fa36b1d6bcefc1a95eaad96f9521cc1e50c2650fefe9a599392eac",
+    "lean/ScholzBrauer/Clift109AlternatingChecks56.lean": "d819eeb5f63a128b6ae287ef653d6f64cbe7fb2549ceb20459fcce20e6e9f4d3",
+    "lean/ScholzBrauer/Clift109AlternatingDomain.lean": "027b0ee4b30bd20af541bc95fb00632cc82e2a599a8145d0f180f5803a71ca62",
+    "lean/ScholzBrauer.lean": "82bbae0258c6504e9620dc22016c954c87a710eeae89b822bc8b3c9e19afef78",
+    "lean/lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5",
+    "lean/lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8",
+    "lean/lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "results/2026-11-09-placed-pairs.json": "59b714c824d7588b6e3d674c2add2ed446ad6cf79c85c02c7afd13a212c416c3",
+    "scripts/export_lean_alternating_checks.py": "067ff238d28ec0bd1d4aeeac8df3698fc38d0ceec8046667ae8fa5584e1fc8ff"
+  },
+  "claim_boundary": "Necessary domain only; no sufficient placement equivalence, box/cap feasibility, full selected-109 exclusion or new Scholz instance.",
+  "whole_integration": "Not repeated: the unchanged chain-9 timeout remains inconclusive."
+}

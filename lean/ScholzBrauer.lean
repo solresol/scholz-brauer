@@ -32,3 +32,4 @@ import ScholzBrauer.Clift109CommonDivisor
 import ScholzBrauer.Clift109SparseResidues
 import ScholzBrauer.Clift109SparseDomain
 import ScholzBrauer.Clift109PlacedPairs
+import ScholzBrauer.Clift109AlternatingDomain
