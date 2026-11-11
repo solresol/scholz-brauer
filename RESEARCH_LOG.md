@@ -1,5 +1,60 @@
 # Research log
 
+## 2026-11-12 — Thursday — mandatory startup gate blocked
+
+The 11 November 21:00 UTC / 12 November 08:00 Sydney run makes **no
+substantive mathematical progress**. The selected theorem-provers executor
+starts, but the unchanged mandatory full gate exits 1:
+
+```text
+source /workspace/shared/theorem-provers/env.sh
+PYTHONDONTWRITEBYTECODE=1 python3 /workspace/shared/theorem-provers/check.py
+RuntimeError: Missing readiness receipt: /workspace/shared/theorem-provers/scholz-ready.json. Preparation did not complete. When repair is authorized, run python3 /workspace/shared/theorem-provers/prepare.py scholz, then rerun check.py. No installation attempted; do not fabricate a receipt.
+```
+
+Thesis and Littlewood pass their exact installed-tool, pin, dependency and
+representative-import checks before this failure. Scholz's toolchain,
+manifest and Lake configuration hashes match the reviewed allowlist; its
+receipt, dependency/import readiness and project build are not established
+by this run. No Scholz Lean build, axiom audit or exact experiment is run.
+
+Read `START.md`, the referenced setup README, TODO, the latest result and
+`Clift109Alternating.lean`. No applicable AGENTS.md is present. The setup
+instructions require the full gate before Lean work and report missing
+readiness instead of repairing it on ordinary startup. The named repair
+command writes shared preparation state, including `scholz-imports.lean`
+and, only after successful verification and build, `scholz-ready.json`.
+That conflicts with this run's explicit read-only shared-state scope. No
+preparation, replacement receipt, dependency installation, sibling edit or
+environment/publication change is attempted. This repeats the reported
+missing-receipt diagnostic; it does not invalidate or reproduce the passing
+build and audit recorded on 10 November, or establish why readiness is absent
+from this executor.
+
+The authorized origin is `https://github.com/solresol/scholz-brauer.git`.
+The clean `work` checkout and live main both equal
+`d88e212bcf6c00a771922f220133af7c2218cb46`. No competing local research
+process or research marker is present. After acquiring this run's exclusive
+marker, fetch confirms the same main; equal ancestry is verified before
+creating tracking `main`, preserving `work`. Only this checkout's research
+documentation changes. All three Scholz pin hashes remain unchanged.
+
+Read the 6 November weekly handoff, the latest linked weekly review, and
+retain its HAL and publisher full-text access limitations. No external
+theorem or published chain data is used, no new source access is claimed,
+and no literature-wide conclusion is drawn from this blocked run.
+
+The active mathematical obligation remains Lean exclusion of every
+108-doubling labelling of Clift's selected 109 graph. The latest recorded
+necessary domain is **278 ordered pairs**, including (2,3), rather than the
+older 646-pair checkpoint. Its kernel checks and the separate computational
+minimum 109 are prior evidence, not fresh verification today. First restore
+genuine readiness through the separately authorized setup procedure and pass
+the full gate. Then combine actual exception positions, a common dissociated
+box, both odd-run restrictions, twelve critical families and 64 orientations
+to finish interval/cap classification, keeping the branch through 8 separate
+from the branch missing 8. No target assumption or proof standard changes.
+
 ## 2026-11-10 — Tuesday — kernel-checked alternating placement domain
 
 The 9 November 21:00 UTC scheduled run kernel-checks the necessary reduction

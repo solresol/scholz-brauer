@@ -23,7 +23,14 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-10 (Tuesday, Australia/Sydney).
+Updated 2026-11-12 (Thursday, Australia/Sydney).
+
+Startup prerequisite (12 November): the mandatory full theorem-provers gate
+fails because `/workspace/shared/theorem-provers/scholz-ready.json` is absent.
+This research run cannot repair shared preparation state under its read-only
+scope. A separately authorized setup repair must produce genuine readiness
+and pass the full gate before Lean work resumes. See the dated research-log
+entry. No mathematical obligation is discharged by this blocked run.
 
 Latest weekly handoff: [6 November literature checkpoint](results/2026-11-06-literature-review.md).
 No new validated result changes the current reductions. The two August
