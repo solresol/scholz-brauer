@@ -23,14 +23,12 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-12 (Thursday, Australia/Sydney).
+Updated 2026-11-13 (Friday, Australia/Sydney).
 
-Startup prerequisite (12 November): the mandatory full theorem-provers gate
-fails because `/workspace/shared/theorem-provers/scholz-ready.json` is absent.
-This research run cannot repair shared preparation state under its read-only
-scope. A separately authorized setup repair must produce genuine readiness
-and pass the full gate before Lean work resumes. See the dated research-log
-entry. No mathematical obligation is discharged by this blocked run.
+The full published startup gate passes on 12 November UTC / 13 November Sydney,
+reusing the prepared runtime after its separate repair. This research invocation
+does not repair shared state. The earlier missing-receipt failure remains in
+the research log as historical evidence.
 
 Latest weekly handoff: [6 November literature checkpoint](results/2026-11-06-literature-review.md).
 No new validated result changes the current reductions. The two August
@@ -210,7 +208,16 @@ Fin cases to remove the previous reduction bottleneck.
   budget-108 labelling are Lean theorems; (2,3) still survives. No sufficient
   placement equivalence or feasibility follows. See
   [10 November result](results/2026-11-10-alternating-domain.md).
-- [ ] Combine the kernel-checked 278-pair necessary domain and actual
+- [x] Independently count common dissociated boxes passing both odd-run
+  bounds: 246 of the 278 ordered pairs remain computationally, with the same
+  pair domain when the box is pinned at 108. The 32 removals are not yet Lean
+  theorems. Kernel-check an explicit (2,3) tuple whose SAME common box and
+  actual source/sink exceptions admit both relaxed partitions and both odd-run
+  bounds, but whose prescribed nineteen-weight halves fail. Thus matching the
+  box and even the actual exceptions still does not settle compatibility. See
+  [13 November result](results/2026-11-13-common-box.md).
+- [ ] Combine the kernel-checked 278-pair necessary domain, computational
+  246-pair common-box refinement and actual
   exceptional positions with box dissociation, both odd-run restrictions,
   twelve critical families and 64 orientations to finish interval/cap
   classification. Neither feasibility nor min(u,d1)=1 follows from these
@@ -218,8 +225,10 @@ Fin cases to remove the previous reduction bottleneck.
   branch missing 8, which visits 5,7,15. See
   [2 November result](results/2026-11-02-residues-lean.md) and the current
   [alternating reduction](results/2026-11-10-alternating-domain.md). The two
-  directional halves in the new test need not be compatible with a common
-  box or the other coordinates; singleton matching alone does not settle this.
+  directional halves in the alternating test need not be compatible with a common
+  box or the other coordinates. Even a common box and the actual exceptions
+  of one coordinate tuple permit unrelated halves: retain the prescribed
+  `sourceHalf c` and `sinkHalf c`, alongside critical-path/cap constraints.
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).

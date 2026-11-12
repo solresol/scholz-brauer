@@ -1,0 +1,42 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build"
+      ],
+      "cwd": "/workspace/scholz-brauer/lean",
+      "exit_code": 0,
+      "seconds": 7.009668756000053,
+      "log": "results/2026-11-13-common-box-build.txt"
+    },
+    {
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "env",
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+        "Audit.lean"
+      ],
+      "cwd": "/workspace/scholz-brauer/lean",
+      "exit_code": 0,
+      "seconds": 22.017205769999975,
+      "log": "results/2026-11-13-common-box-audit.txt"
+    }
+  ],
+  "audit_entries": 429,
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "lean_version": "Lean (version 4.27.0, x86_64-unknown-linux-gnu, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)",
+  "source_sha256": {
+    "lean/lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "lean/lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5",
+    "lean/lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8",
+    "lean/ScholzBrauer/Clift109CommonBoxExample.lean": "a9a7c76070e4ee7631dc2fbd723957fabfa14a62a52cdd7e48741609a277e1cd",
+    "lean/ScholzBrauer.lean": "4ad77c1a2db2137dac2c531f6786155ce66d99a817b8c51d2814990ceb9c7391",
+    "lean/Audit.lean": "6572707ef5038721fa0ae226526aa1cf0fe14587cefea6f680354bac24538c7b"
+  },
+  "claim_boundary": "Six new exact witness theorems. The 246-pair enumeration is computational, not kernel checked. Full exclusion remains open."
+}

@@ -1,0 +1,4733 @@
+{
+  "started_at_utc": "2026-11-12T21:07:49.504064+00:00",
+  "base_commit": "c5fa59e8faaf519785003049824527dcded639ff",
+  "python": "3.12.14",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "compile_argv": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "/workspace/scholz-brauer/scripts/clift109_common_box.cpp",
+    "-o",
+    "/tmp/clift109-common-box-c79g8gqs/common-box"
+  ],
+  "random_seed": null,
+  "timeout_seconds": 180,
+  "cpp_timeout_seconds": 60,
+  "dependencies": "Python standard library and existing project modules; g++ C++17",
+  "bounds": {
+    "interval": [
+      0,
+      108
+    ],
+    "box_dimensions": 6,
+    "distinct_subset_sum_sets": 31048,
+    "set_offsets": 263256,
+    "ordered_input_pairs": 278,
+    "odd_runs_each_step_at_most": 7
+  },
+  "retained_pair_count": 246,
+  "rejected_pairs": [
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      14
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      18
+    ],
+    [
+      8,
+      14
+    ],
+    [
+      9,
+      3
+    ],
+    [
+      9,
+      11
+    ],
+    [
+      9,
+      14
+    ],
+    [
+      9,
+      27
+    ],
+    [
+      11,
+      9
+    ],
+    [
+      11,
+      27
+    ],
+    [
+      11,
+      55
+    ],
+    [
+      14,
+      2
+    ],
+    [
+      14,
+      8
+    ],
+    [
+      14,
+      9
+    ],
+    [
+      14,
+      18
+    ],
+    [
+      18,
+      6
+    ],
+    [
+      18,
+      14
+    ],
+    [
+      18,
+      27
+    ],
+    [
+      18,
+      28
+    ],
+    [
+      18,
+      54
+    ],
+    [
+      27,
+      9
+    ],
+    [
+      27,
+      11
+    ],
+    [
+      27,
+      18
+    ],
+    [
+      28,
+      18
+    ],
+    [
+      54,
+      18
+    ],
+    [
+      55,
+      11
+    ]
+  ],
+  "retained_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      1,
+      14
+    ],
+    [
+      1,
+      17
+    ],
+    [
+      1,
+      18
+    ],
+    [
+      1,
+      19
+    ],
+    [
+      1,
+      26
+    ],
+    [
+      1,
+      27
+    ],
+    [
+      1,
+      28
+    ],
+    [
+      1,
+      29
+    ],
+    [
+      1,
+      51
+    ],
+    [
+      1,
+      52
+    ],
+    [
+      1,
+      53
+    ],
+    [
+      1,
+      54
+    ],
+    [
+      1,
+      55
+    ],
+    [
+      1,
+      56
+    ],
+    [
+      1,
+      57
+    ],
+    [
+      1,
+      58
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      11
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      2,
+      17
+    ],
+    [
+      2,
+      18
+    ],
+    [
+      2,
+      19
+    ],
+    [
+      2,
+      26
+    ],
+    [
+      2,
+      27
+    ],
+    [
+      2,
+      28
+    ],
+    [
+      2,
+      29
+    ],
+    [
+      2,
+      51
+    ],
+    [
+      2,
+      52
+    ],
+    [
+      2,
+      53
+    ],
+    [
+      2,
+      54
+    ],
+    [
+      2,
+      55
+    ],
+    [
+      2,
+      56
+    ],
+    [
+      2,
+      57
+    ],
+    [
+      2,
+      58
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      3,
+      17
+    ],
+    [
+      3,
+      18
+    ],
+    [
+      3,
+      19
+    ],
+    [
+      3,
+      26
+    ],
+    [
+      3,
+      27
+    ],
+    [
+      3,
+      29
+    ],
+    [
+      3,
+      51
+    ],
+    [
+      3,
+      52
+    ],
+    [
+      3,
+      54
+    ],
+    [
+      3,
+      55
+    ],
+    [
+      3,
+      57
+    ],
+    [
+      3,
+      58
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      4,
+      17
+    ],
+    [
+      4,
+      18
+    ],
+    [
+      4,
+      29
+    ],
+    [
+      4,
+      51
+    ],
+    [
+      4,
+      54
+    ],
+    [
+      4,
+      55
+    ],
+    [
+      4,
+      58
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      5,
+      18
+    ],
+    [
+      5,
+      27
+    ],
+    [
+      5,
+      55
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      6,
+      3
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      11
+    ],
+    [
+      6,
+      14
+    ],
+    [
+      6,
+      27
+    ],
+    [
+      6,
+      54
+    ],
+    [
+      7,
+      1
+    ],
+    [
+      7,
+      2
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      7,
+      5
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      7,
+      18
+    ],
+    [
+      7,
+      27
+    ],
+    [
+      7,
+      54
+    ],
+    [
+      7,
+      55
+    ],
+    [
+      8,
+      1
+    ],
+    [
+      8,
+      2
+    ],
+    [
+      8,
+      3
+    ],
+    [
+      8,
+      5
+    ],
+    [
+      8,
+      6
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      8,
+      18
+    ],
+    [
+      8,
+      27
+    ],
+    [
+      9,
+      1
+    ],
+    [
+      9,
+      2
+    ],
+    [
+      9,
+      4
+    ],
+    [
+      9,
+      5
+    ],
+    [
+      9,
+      6
+    ],
+    [
+      9,
+      7
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      9,
+      54
+    ],
+    [
+      9,
+      55
+    ],
+    [
+      11,
+      1
+    ],
+    [
+      11,
+      2
+    ],
+    [
+      11,
+      3
+    ],
+    [
+      11,
+      4
+    ],
+    [
+      11,
+      5
+    ],
+    [
+      11,
+      6
+    ],
+    [
+      11,
+      7
+    ],
+    [
+      11,
+      8
+    ],
+    [
+      13,
+      1
+    ],
+    [
+      13,
+      2
+    ],
+    [
+      13,
+      3
+    ],
+    [
+      13,
+      27
+    ],
+    [
+      13,
+      28
+    ],
+    [
+      13,
+      54
+    ],
+    [
+      13,
+      55
+    ],
+    [
+      14,
+      1
+    ],
+    [
+      14,
+      6
+    ],
+    [
+      14,
+      27
+    ],
+    [
+      14,
+      54
+    ],
+    [
+      14,
+      55
+    ],
+    [
+      17,
+      1
+    ],
+    [
+      17,
+      2
+    ],
+    [
+      17,
+      3
+    ],
+    [
+      17,
+      4
+    ],
+    [
+      18,
+      1
+    ],
+    [
+      18,
+      2
+    ],
+    [
+      18,
+      3
+    ],
+    [
+      18,
+      4
+    ],
+    [
+      18,
+      5
+    ],
+    [
+      18,
+      7
+    ],
+    [
+      18,
+      8
+    ],
+    [
+      18,
+      9
+    ],
+    [
+      19,
+      1
+    ],
+    [
+      19,
+      2
+    ],
+    [
+      19,
+      3
+    ],
+    [
+      26,
+      1
+    ],
+    [
+      26,
+      2
+    ],
+    [
+      26,
+      3
+    ],
+    [
+      26,
+      53
+    ],
+    [
+      26,
+      54
+    ],
+    [
+      26,
+      55
+    ],
+    [
+      27,
+      1
+    ],
+    [
+      27,
+      2
+    ],
+    [
+      27,
+      3
+    ],
+    [
+      27,
+      5
+    ],
+    [
+      27,
+      6
+    ],
+    [
+      27,
+      7
+    ],
+    [
+      27,
+      8
+    ],
+    [
+      27,
+      13
+    ],
+    [
+      27,
+      14
+    ],
+    [
+      27,
+      53
+    ],
+    [
+      27,
+      54
+    ],
+    [
+      27,
+      55
+    ],
+    [
+      27,
+      56
+    ],
+    [
+      28,
+      1
+    ],
+    [
+      28,
+      2
+    ],
+    [
+      28,
+      13
+    ],
+    [
+      28,
+      54
+    ],
+    [
+      28,
+      55
+    ],
+    [
+      29,
+      1
+    ],
+    [
+      29,
+      2
+    ],
+    [
+      29,
+      3
+    ],
+    [
+      29,
+      4
+    ],
+    [
+      29,
+      54
+    ],
+    [
+      29,
+      55
+    ],
+    [
+      29,
+      56
+    ],
+    [
+      51,
+      1
+    ],
+    [
+      51,
+      2
+    ],
+    [
+      51,
+      3
+    ],
+    [
+      51,
+      4
+    ],
+    [
+      52,
+      1
+    ],
+    [
+      52,
+      2
+    ],
+    [
+      52,
+      3
+    ],
+    [
+      53,
+      1
+    ],
+    [
+      53,
+      2
+    ],
+    [
+      53,
+      26
+    ],
+    [
+      53,
+      27
+    ],
+    [
+      54,
+      1
+    ],
+    [
+      54,
+      2
+    ],
+    [
+      54,
+      3
+    ],
+    [
+      54,
+      4
+    ],
+    [
+      54,
+      6
+    ],
+    [
+      54,
+      7
+    ],
+    [
+      54,
+      9
+    ],
+    [
+      54,
+      13
+    ],
+    [
+      54,
+      14
+    ],
+    [
+      54,
+      26
+    ],
+    [
+      54,
+      27
+    ],
+    [
+      54,
+      28
+    ],
+    [
+      54,
+      29
+    ],
+    [
+      55,
+      1
+    ],
+    [
+      55,
+      2
+    ],
+    [
+      55,
+      3
+    ],
+    [
+      55,
+      4
+    ],
+    [
+      55,
+      5
+    ],
+    [
+      55,
+      7
+    ],
+    [
+      55,
+      9
+    ],
+    [
+      55,
+      13
+    ],
+    [
+      55,
+      14
+    ],
+    [
+      55,
+      26
+    ],
+    [
+      55,
+      27
+    ],
+    [
+      55,
+      28
+    ],
+    [
+      55,
+      29
+    ],
+    [
+      56,
+      1
+    ],
+    [
+      56,
+      2
+    ],
+    [
+      56,
+      27
+    ],
+    [
+      56,
+      29
+    ],
+    [
+      57,
+      1
+    ],
+    [
+      57,
+      2
+    ],
+    [
+      57,
+      3
+    ],
+    [
+      58,
+      1
+    ],
+    [
+      58,
+      2
+    ],
+    [
+      58,
+      3
+    ],
+    [
+      58,
+      4
+    ]
+  ],
+  "top_pinned_retained_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      1,
+      14
+    ],
+    [
+      1,
+      17
+    ],
+    [
+      1,
+      18
+    ],
+    [
+      1,
+      19
+    ],
+    [
+      1,
+      26
+    ],
+    [
+      1,
+      27
+    ],
+    [
+      1,
+      28
+    ],
+    [
+      1,
+      29
+    ],
+    [
+      1,
+      51
+    ],
+    [
+      1,
+      52
+    ],
+    [
+      1,
+      53
+    ],
+    [
+      1,
+      54
+    ],
+    [
+      1,
+      55
+    ],
+    [
+      1,
+      56
+    ],
+    [
+      1,
+      57
+    ],
+    [
+      1,
+      58
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      11
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      2,
+      17
+    ],
+    [
+      2,
+      18
+    ],
+    [
+      2,
+      19
+    ],
+    [
+      2,
+      26
+    ],
+    [
+      2,
+      27
+    ],
+    [
+      2,
+      28
+    ],
+    [
+      2,
+      29
+    ],
+    [
+      2,
+      51
+    ],
+    [
+      2,
+      52
+    ],
+    [
+      2,
+      53
+    ],
+    [
+      2,
+      54
+    ],
+    [
+      2,
+      55
+    ],
+    [
+      2,
+      56
+    ],
+    [
+      2,
+      57
+    ],
+    [
+      2,
+      58
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      3,
+      17
+    ],
+    [
+      3,
+      18
+    ],
+    [
+      3,
+      19
+    ],
+    [
+      3,
+      26
+    ],
+    [
+      3,
+      27
+    ],
+    [
+      3,
+      29
+    ],
+    [
+      3,
+      51
+    ],
+    [
+      3,
+      52
+    ],
+    [
+      3,
+      54
+    ],
+    [
+      3,
+      55
+    ],
+    [
+      3,
+      57
+    ],
+    [
+      3,
+      58
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      4,
+      17
+    ],
+    [
+      4,
+      18
+    ],
+    [
+      4,
+      29
+    ],
+    [
+      4,
+      51
+    ],
+    [
+      4,
+      54
+    ],
+    [
+      4,
+      55
+    ],
+    [
+      4,
+      58
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      5,
+      18
+    ],
+    [
+      5,
+      27
+    ],
+    [
+      5,
+      55
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      6,
+      3
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      11
+    ],
+    [
+      6,
+      14
+    ],
+    [
+      6,
+      27
+    ],
+    [
+      6,
+      54
+    ],
+    [
+      7,
+      1
+    ],
+    [
+      7,
+      2
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      7,
+      5
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      7,
+      18
+    ],
+    [
+      7,
+      27
+    ],
+    [
+      7,
+      54
+    ],
+    [
+      7,
+      55
+    ],
+    [
+      8,
+      1
+    ],
+    [
+      8,
+      2
+    ],
+    [
+      8,
+      3
+    ],
+    [
+      8,
+      5
+    ],
+    [
+      8,
+      6
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      8,
+      18
+    ],
+    [
+      8,
+      27
+    ],
+    [
+      9,
+      1
+    ],
+    [
+      9,
+      2
+    ],
+    [
+      9,
+      4
+    ],
+    [
+      9,
+      5
+    ],
+    [
+      9,
+      6
+    ],
+    [
+      9,
+      7
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      9,
+      54
+    ],
+    [
+      9,
+      55
+    ],
+    [
+      11,
+      1
+    ],
+    [
+      11,
+      2
+    ],
+    [
+      11,
+      3
+    ],
+    [
+      11,
+      4
+    ],
+    [
+      11,
+      5
+    ],
+    [
+      11,
+      6
+    ],
+    [
+      11,
+      7
+    ],
+    [
+      11,
+      8
+    ],
+    [
+      13,
+      1
+    ],
+    [
+      13,
+      2
+    ],
+    [
+      13,
+      3
+    ],
+    [
+      13,
+      27
+    ],
+    [
+      13,
+      28
+    ],
+    [
+      13,
+      54
+    ],
+    [
+      13,
+      55
+    ],
+    [
+      14,
+      1
+    ],
+    [
+      14,
+      6
+    ],
+    [
+      14,
+      27
+    ],
+    [
+      14,
+      54
+    ],
+    [
+      14,
+      55
+    ],
+    [
+      17,
+      1
+    ],
+    [
+      17,
+      2
+    ],
+    [
+      17,
+      3
+    ],
+    [
+      17,
+      4
+    ],
+    [
+      18,
+      1
+    ],
+    [
+      18,
+      2
+    ],
+    [
+      18,
+      3
+    ],
+    [
+      18,
+      4
+    ],
+    [
+      18,
+      5
+    ],
+    [
+      18,
+      7
+    ],
+    [
+      18,
+      8
+    ],
+    [
+      18,
+      9
+    ],
+    [
+      19,
+      1
+    ],
+    [
+      19,
+      2
+    ],
+    [
+      19,
+      3
+    ],
+    [
+      26,
+      1
+    ],
+    [
+      26,
+      2
+    ],
+    [
+      26,
+      3
+    ],
+    [
+      26,
+      53
+    ],
+    [
+      26,
+      54
+    ],
+    [
+      26,
+      55
+    ],
+    [
+      27,
+      1
+    ],
+    [
+      27,
+      2
+    ],
+    [
+      27,
+      3
+    ],
+    [
+      27,
+      5
+    ],
+    [
+      27,
+      6
+    ],
+    [
+      27,
+      7
+    ],
+    [
+      27,
+      8
+    ],
+    [
+      27,
+      13
+    ],
+    [
+      27,
+      14
+    ],
+    [
+      27,
+      53
+    ],
+    [
+      27,
+      54
+    ],
+    [
+      27,
+      55
+    ],
+    [
+      27,
+      56
+    ],
+    [
+      28,
+      1
+    ],
+    [
+      28,
+      2
+    ],
+    [
+      28,
+      13
+    ],
+    [
+      28,
+      54
+    ],
+    [
+      28,
+      55
+    ],
+    [
+      29,
+      1
+    ],
+    [
+      29,
+      2
+    ],
+    [
+      29,
+      3
+    ],
+    [
+      29,
+      4
+    ],
+    [
+      29,
+      54
+    ],
+    [
+      29,
+      55
+    ],
+    [
+      29,
+      56
+    ],
+    [
+      51,
+      1
+    ],
+    [
+      51,
+      2
+    ],
+    [
+      51,
+      3
+    ],
+    [
+      51,
+      4
+    ],
+    [
+      52,
+      1
+    ],
+    [
+      52,
+      2
+    ],
+    [
+      52,
+      3
+    ],
+    [
+      53,
+      1
+    ],
+    [
+      53,
+      2
+    ],
+    [
+      53,
+      26
+    ],
+    [
+      53,
+      27
+    ],
+    [
+      54,
+      1
+    ],
+    [
+      54,
+      2
+    ],
+    [
+      54,
+      3
+    ],
+    [
+      54,
+      4
+    ],
+    [
+      54,
+      6
+    ],
+    [
+      54,
+      7
+    ],
+    [
+      54,
+      9
+    ],
+    [
+      54,
+      13
+    ],
+    [
+      54,
+      14
+    ],
+    [
+      54,
+      26
+    ],
+    [
+      54,
+      27
+    ],
+    [
+      54,
+      28
+    ],
+    [
+      54,
+      29
+    ],
+    [
+      55,
+      1
+    ],
+    [
+      55,
+      2
+    ],
+    [
+      55,
+      3
+    ],
+    [
+      55,
+      4
+    ],
+    [
+      55,
+      5
+    ],
+    [
+      55,
+      7
+    ],
+    [
+      55,
+      9
+    ],
+    [
+      55,
+      13
+    ],
+    [
+      55,
+      14
+    ],
+    [
+      55,
+      26
+    ],
+    [
+      55,
+      27
+    ],
+    [
+      55,
+      28
+    ],
+    [
+      55,
+      29
+    ],
+    [
+      56,
+      1
+    ],
+    [
+      56,
+      2
+    ],
+    [
+      56,
+      27
+    ],
+    [
+      56,
+      29
+    ],
+    [
+      57,
+      1
+    ],
+    [
+      57,
+      2
+    ],
+    [
+      57,
+      3
+    ],
+    [
+      58,
+      1
+    ],
+    [
+      58,
+      2
+    ],
+    [
+      58,
+      3
+    ],
+    [
+      58,
+      4
+    ]
+  ],
+  "two_three_counts": [
+    23065,
+    5982,
+    505
+  ],
+  "counts": [
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "packing_boxes": 69477,
+      "both_odd_run_boxes": 20227,
+      "top_pinned_boxes": 1969
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "packing_boxes": 9649,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "packing_boxes": 47620,
+      "both_odd_run_boxes": 8119,
+      "top_pinned_boxes": 864
+    },
+    {
+      "pair": [
+        1,
+        5
+      ],
+      "packing_boxes": 30231,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        1,
+        6
+      ],
+      "packing_boxes": 19198,
+      "both_odd_run_boxes": 3622,
+      "top_pinned_boxes": 470
+    },
+    {
+      "pair": [
+        1,
+        7
+      ],
+      "packing_boxes": 10667,
+      "both_odd_run_boxes": 26,
+      "top_pinned_boxes": 4
+    },
+    {
+      "pair": [
+        1,
+        8
+      ],
+      "packing_boxes": 24453,
+      "both_odd_run_boxes": 1814,
+      "top_pinned_boxes": 256
+    },
+    {
+      "pair": [
+        1,
+        9
+      ],
+      "packing_boxes": 23759,
+      "both_odd_run_boxes": 988,
+      "top_pinned_boxes": 136
+    },
+    {
+      "pair": [
+        1,
+        11
+      ],
+      "packing_boxes": 18449,
+      "both_odd_run_boxes": 1065,
+      "top_pinned_boxes": 147
+    },
+    {
+      "pair": [
+        1,
+        13
+      ],
+      "packing_boxes": 10421,
+      "both_odd_run_boxes": 1349,
+      "top_pinned_boxes": 184
+    },
+    {
+      "pair": [
+        1,
+        14
+      ],
+      "packing_boxes": 8775,
+      "both_odd_run_boxes": 939,
+      "top_pinned_boxes": 149
+    },
+    {
+      "pair": [
+        1,
+        17
+      ],
+      "packing_boxes": 7169,
+      "both_odd_run_boxes": 608,
+      "top_pinned_boxes": 57
+    },
+    {
+      "pair": [
+        1,
+        18
+      ],
+      "packing_boxes": 10671,
+      "both_odd_run_boxes": 614,
+      "top_pinned_boxes": 69
+    },
+    {
+      "pair": [
+        1,
+        19
+      ],
+      "packing_boxes": 9641,
+      "both_odd_run_boxes": 555,
+      "top_pinned_boxes": 74
+    },
+    {
+      "pair": [
+        1,
+        26
+      ],
+      "packing_boxes": 7285,
+      "both_odd_run_boxes": 2194,
+      "top_pinned_boxes": 278
+    },
+    {
+      "pair": [
+        1,
+        27
+      ],
+      "packing_boxes": 5460,
+      "both_odd_run_boxes": 1928,
+      "top_pinned_boxes": 253
+    },
+    {
+      "pair": [
+        1,
+        28
+      ],
+      "packing_boxes": 4538,
+      "both_odd_run_boxes": 1356,
+      "top_pinned_boxes": 211
+    },
+    {
+      "pair": [
+        1,
+        29
+      ],
+      "packing_boxes": 3228,
+      "both_odd_run_boxes": 1050,
+      "top_pinned_boxes": 159
+    },
+    {
+      "pair": [
+        1,
+        51
+      ],
+      "packing_boxes": 5911,
+      "both_odd_run_boxes": 3042,
+      "top_pinned_boxes": 257
+    },
+    {
+      "pair": [
+        1,
+        52
+      ],
+      "packing_boxes": 5890,
+      "both_odd_run_boxes": 2788,
+      "top_pinned_boxes": 298
+    },
+    {
+      "pair": [
+        1,
+        53
+      ],
+      "packing_boxes": 5512,
+      "both_odd_run_boxes": 2827,
+      "top_pinned_boxes": 298
+    },
+    {
+      "pair": [
+        1,
+        54
+      ],
+      "packing_boxes": 5106,
+      "both_odd_run_boxes": 2411,
+      "top_pinned_boxes": 343
+    },
+    {
+      "pair": [
+        1,
+        55
+      ],
+      "packing_boxes": 4358,
+      "both_odd_run_boxes": 2276,
+      "top_pinned_boxes": 343
+    },
+    {
+      "pair": [
+        1,
+        56
+      ],
+      "packing_boxes": 3610,
+      "both_odd_run_boxes": 1787,
+      "top_pinned_boxes": 298
+    },
+    {
+      "pair": [
+        1,
+        57
+      ],
+      "packing_boxes": 2976,
+      "both_odd_run_boxes": 1635,
+      "top_pinned_boxes": 267
+    },
+    {
+      "pair": [
+        1,
+        58
+      ],
+      "packing_boxes": 2426,
+      "both_odd_run_boxes": 1270,
+      "top_pinned_boxes": 226
+    },
+    {
+      "pair": [
+        2,
+        1
+      ],
+      "packing_boxes": 69477,
+      "both_odd_run_boxes": 20227,
+      "top_pinned_boxes": 1969
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "packing_boxes": 23065,
+      "both_odd_run_boxes": 5982,
+      "top_pinned_boxes": 505
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "packing_boxes": 84045,
+      "both_odd_run_boxes": 15441,
+      "top_pinned_boxes": 1580
+    },
+    {
+      "pair": [
+        2,
+        5
+      ],
+      "packing_boxes": 32197,
+      "both_odd_run_boxes": 2981,
+      "top_pinned_boxes": 268
+    },
+    {
+      "pair": [
+        2,
+        6
+      ],
+      "packing_boxes": 13022,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        2,
+        7
+      ],
+      "packing_boxes": 12710,
+      "both_odd_run_boxes": 2593,
+      "top_pinned_boxes": 233
+    },
+    {
+      "pair": [
+        2,
+        8
+      ],
+      "packing_boxes": 44061,
+      "both_odd_run_boxes": 2456,
+      "top_pinned_boxes": 367
+    },
+    {
+      "pair": [
+        2,
+        9
+      ],
+      "packing_boxes": 24289,
+      "both_odd_run_boxes": 401,
+      "top_pinned_boxes": 72
+    },
+    {
+      "pair": [
+        2,
+        11
+      ],
+      "packing_boxes": 19875,
+      "both_odd_run_boxes": 534,
+      "top_pinned_boxes": 92
+    },
+    {
+      "pair": [
+        2,
+        13
+      ],
+      "packing_boxes": 12000,
+      "both_odd_run_boxes": 633,
+      "top_pinned_boxes": 111
+    },
+    {
+      "pair": [
+        2,
+        14
+      ],
+      "packing_boxes": 8942,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        2,
+        17
+      ],
+      "packing_boxes": 7670,
+      "both_odd_run_boxes": 446,
+      "top_pinned_boxes": 54
+    },
+    {
+      "pair": [
+        2,
+        18
+      ],
+      "packing_boxes": 18640,
+      "both_odd_run_boxes": 404,
+      "top_pinned_boxes": 75
+    },
+    {
+      "pair": [
+        2,
+        19
+      ],
+      "packing_boxes": 10359,
+      "both_odd_run_boxes": 404,
+      "top_pinned_boxes": 63
+    },
+    {
+      "pair": [
+        2,
+        26
+      ],
+      "packing_boxes": 8719,
+      "both_odd_run_boxes": 1468,
+      "top_pinned_boxes": 224
+    },
+    {
+      "pair": [
+        2,
+        27
+      ],
+      "packing_boxes": 6277,
+      "both_odd_run_boxes": 1471,
+      "top_pinned_boxes": 190
+    },
+    {
+      "pair": [
+        2,
+        28
+      ],
+      "packing_boxes": 5523,
+      "both_odd_run_boxes": 1056,
+      "top_pinned_boxes": 162
+    },
+    {
+      "pair": [
+        2,
+        29
+      ],
+      "packing_boxes": 3902,
+      "both_odd_run_boxes": 832,
+      "top_pinned_boxes": 126
+    },
+    {
+      "pair": [
+        2,
+        51
+      ],
+      "packing_boxes": 6828,
+      "both_odd_run_boxes": 2411,
+      "top_pinned_boxes": 246
+    },
+    {
+      "pair": [
+        2,
+        52
+      ],
+      "packing_boxes": 7094,
+      "both_odd_run_boxes": 2117,
+      "top_pinned_boxes": 279
+    },
+    {
+      "pair": [
+        2,
+        53
+      ],
+      "packing_boxes": 6353,
+      "both_odd_run_boxes": 2340,
+      "top_pinned_boxes": 264
+    },
+    {
+      "pair": [
+        2,
+        54
+      ],
+      "packing_boxes": 5848,
+      "both_odd_run_boxes": 2145,
+      "top_pinned_boxes": 292
+    },
+    {
+      "pair": [
+        2,
+        55
+      ],
+      "packing_boxes": 5005,
+      "both_odd_run_boxes": 1780,
+      "top_pinned_boxes": 299
+    },
+    {
+      "pair": [
+        2,
+        56
+      ],
+      "packing_boxes": 4162,
+      "both_odd_run_boxes": 1315,
+      "top_pinned_boxes": 240
+    },
+    {
+      "pair": [
+        2,
+        57
+      ],
+      "packing_boxes": 3461,
+      "both_odd_run_boxes": 1372,
+      "top_pinned_boxes": 223
+    },
+    {
+      "pair": [
+        2,
+        58
+      ],
+      "packing_boxes": 2840,
+      "both_odd_run_boxes": 1154,
+      "top_pinned_boxes": 194
+    },
+    {
+      "pair": [
+        3,
+        1
+      ],
+      "packing_boxes": 9649,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        3,
+        2
+      ],
+      "packing_boxes": 23065,
+      "both_odd_run_boxes": 5982,
+      "top_pinned_boxes": 505
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "packing_boxes": 29502,
+      "both_odd_run_boxes": 4001,
+      "top_pinned_boxes": 347
+    },
+    {
+      "pair": [
+        3,
+        5
+      ],
+      "packing_boxes": 19050,
+      "both_odd_run_boxes": 821,
+      "top_pinned_boxes": 62
+    },
+    {
+      "pair": [
+        3,
+        6
+      ],
+      "packing_boxes": 27321,
+      "both_odd_run_boxes": 3936,
+      "top_pinned_boxes": 534
+    },
+    {
+      "pair": [
+        3,
+        7
+      ],
+      "packing_boxes": 10966,
+      "both_odd_run_boxes": 247,
+      "top_pinned_boxes": 73
+    },
+    {
+      "pair": [
+        3,
+        8
+      ],
+      "packing_boxes": 19500,
+      "both_odd_run_boxes": 950,
+      "top_pinned_boxes": 136
+    },
+    {
+      "pair": [
+        3,
+        9
+      ],
+      "packing_boxes": 1216,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        3,
+        11
+      ],
+      "packing_boxes": 13373,
+      "both_odd_run_boxes": 221,
+      "top_pinned_boxes": 34
+    },
+    {
+      "pair": [
+        3,
+        13
+      ],
+      "packing_boxes": 7136,
+      "both_odd_run_boxes": 349,
+      "top_pinned_boxes": 74
+    },
+    {
+      "pair": [
+        3,
+        17
+      ],
+      "packing_boxes": 4958,
+      "both_odd_run_boxes": 38,
+      "top_pinned_boxes": 10
+    },
+    {
+      "pair": [
+        3,
+        18
+      ],
+      "packing_boxes": 3510,
+      "both_odd_run_boxes": 230,
+      "top_pinned_boxes": 32
+    },
+    {
+      "pair": [
+        3,
+        19
+      ],
+      "packing_boxes": 6826,
+      "both_odd_run_boxes": 47,
+      "top_pinned_boxes": 9
+    },
+    {
+      "pair": [
+        3,
+        26
+      ],
+      "packing_boxes": 4622,
+      "both_odd_run_boxes": 1485,
+      "top_pinned_boxes": 217
+    },
+    {
+      "pair": [
+        3,
+        27
+      ],
+      "packing_boxes": 3366,
+      "both_odd_run_boxes": 185,
+      "top_pinned_boxes": 44
+    },
+    {
+      "pair": [
+        3,
+        29
+      ],
+      "packing_boxes": 1665,
+      "both_odd_run_boxes": 230,
+      "top_pinned_boxes": 60
+    },
+    {
+      "pair": [
+        3,
+        51
+      ],
+      "packing_boxes": 3810,
+      "both_odd_run_boxes": 1708,
+      "top_pinned_boxes": 180
+    },
+    {
+      "pair": [
+        3,
+        52
+      ],
+      "packing_boxes": 3751,
+      "both_odd_run_boxes": 1661,
+      "top_pinned_boxes": 213
+    },
+    {
+      "pair": [
+        3,
+        54
+      ],
+      "packing_boxes": 3005,
+      "both_odd_run_boxes": 1189,
+      "top_pinned_boxes": 195
+    },
+    {
+      "pair": [
+        3,
+        55
+      ],
+      "packing_boxes": 2510,
+      "both_odd_run_boxes": 1016,
+      "top_pinned_boxes": 194
+    },
+    {
+      "pair": [
+        3,
+        57
+      ],
+      "packing_boxes": 1612,
+      "both_odd_run_boxes": 804,
+      "top_pinned_boxes": 157
+    },
+    {
+      "pair": [
+        3,
+        58
+      ],
+      "packing_boxes": 1269,
+      "both_odd_run_boxes": 632,
+      "top_pinned_boxes": 128
+    },
+    {
+      "pair": [
+        4,
+        1
+      ],
+      "packing_boxes": 47620,
+      "both_odd_run_boxes": 8119,
+      "top_pinned_boxes": 864
+    },
+    {
+      "pair": [
+        4,
+        2
+      ],
+      "packing_boxes": 84045,
+      "both_odd_run_boxes": 15441,
+      "top_pinned_boxes": 1580
+    },
+    {
+      "pair": [
+        4,
+        3
+      ],
+      "packing_boxes": 29502,
+      "both_odd_run_boxes": 4001,
+      "top_pinned_boxes": 347
+    },
+    {
+      "pair": [
+        4,
+        5
+      ],
+      "packing_boxes": 19853,
+      "both_odd_run_boxes": 2129,
+      "top_pinned_boxes": 123
+    },
+    {
+      "pair": [
+        4,
+        6
+      ],
+      "packing_boxes": 19913,
+      "both_odd_run_boxes": 2508,
+      "top_pinned_boxes": 206
+    },
+    {
+      "pair": [
+        4,
+        7
+      ],
+      "packing_boxes": 14212,
+      "both_odd_run_boxes": 1938,
+      "top_pinned_boxes": 174
+    },
+    {
+      "pair": [
+        4,
+        9
+      ],
+      "packing_boxes": 19718,
+      "both_odd_run_boxes": 187,
+      "top_pinned_boxes": 42
+    },
+    {
+      "pair": [
+        4,
+        11
+      ],
+      "packing_boxes": 15999,
+      "both_odd_run_boxes": 50,
+      "top_pinned_boxes": 10
+    },
+    {
+      "pair": [
+        4,
+        17
+      ],
+      "packing_boxes": 6860,
+      "both_odd_run_boxes": 191,
+      "top_pinned_boxes": 35
+    },
+    {
+      "pair": [
+        4,
+        18
+      ],
+      "packing_boxes": 16694,
+      "both_odd_run_boxes": 134,
+      "top_pinned_boxes": 30
+    },
+    {
+      "pair": [
+        4,
+        29
+      ],
+      "packing_boxes": 3327,
+      "both_odd_run_boxes": 179,
+      "top_pinned_boxes": 32
+    },
+    {
+      "pair": [
+        4,
+        51
+      ],
+      "packing_boxes": 6025,
+      "both_odd_run_boxes": 1219,
+      "top_pinned_boxes": 157
+    },
+    {
+      "pair": [
+        4,
+        54
+      ],
+      "packing_boxes": 4855,
+      "both_odd_run_boxes": 1038,
+      "top_pinned_boxes": 159
+    },
+    {
+      "pair": [
+        4,
+        55
+      ],
+      "packing_boxes": 4161,
+      "both_odd_run_boxes": 792,
+      "top_pinned_boxes": 135
+    },
+    {
+      "pair": [
+        4,
+        58
+      ],
+      "packing_boxes": 2377,
+      "both_odd_run_boxes": 640,
+      "top_pinned_boxes": 115
+    },
+    {
+      "pair": [
+        5,
+        1
+      ],
+      "packing_boxes": 30231,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        5,
+        2
+      ],
+      "packing_boxes": 32197,
+      "both_odd_run_boxes": 2981,
+      "top_pinned_boxes": 268
+    },
+    {
+      "pair": [
+        5,
+        3
+      ],
+      "packing_boxes": 19050,
+      "both_odd_run_boxes": 821,
+      "top_pinned_boxes": 62
+    },
+    {
+      "pair": [
+        5,
+        4
+      ],
+      "packing_boxes": 19853,
+      "both_odd_run_boxes": 2129,
+      "top_pinned_boxes": 123
+    },
+    {
+      "pair": [
+        5,
+        6
+      ],
+      "packing_boxes": 14354,
+      "both_odd_run_boxes": 1220,
+      "top_pinned_boxes": 128
+    },
+    {
+      "pair": [
+        5,
+        7
+      ],
+      "packing_boxes": 12160,
+      "both_odd_run_boxes": 146,
+      "top_pinned_boxes": 21
+    },
+    {
+      "pair": [
+        5,
+        8
+      ],
+      "packing_boxes": 15905,
+      "both_odd_run_boxes": 473,
+      "top_pinned_boxes": 58
+    },
+    {
+      "pair": [
+        5,
+        9
+      ],
+      "packing_boxes": 14226,
+      "both_odd_run_boxes": 100,
+      "top_pinned_boxes": 13
+    },
+    {
+      "pair": [
+        5,
+        11
+      ],
+      "packing_boxes": 10751,
+      "both_odd_run_boxes": 73,
+      "top_pinned_boxes": 16
+    },
+    {
+      "pair": [
+        5,
+        18
+      ],
+      "packing_boxes": 7108,
+      "both_odd_run_boxes": 160,
+      "top_pinned_boxes": 18
+    },
+    {
+      "pair": [
+        5,
+        27
+      ],
+      "packing_boxes": 3230,
+      "both_odd_run_boxes": 268,
+      "top_pinned_boxes": 37
+    },
+    {
+      "pair": [
+        5,
+        55
+      ],
+      "packing_boxes": 2648,
+      "both_odd_run_boxes": 100,
+      "top_pinned_boxes": 15
+    },
+    {
+      "pair": [
+        6,
+        1
+      ],
+      "packing_boxes": 19198,
+      "both_odd_run_boxes": 3622,
+      "top_pinned_boxes": 470
+    },
+    {
+      "pair": [
+        6,
+        2
+      ],
+      "packing_boxes": 13022,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        6,
+        3
+      ],
+      "packing_boxes": 27321,
+      "both_odd_run_boxes": 3936,
+      "top_pinned_boxes": 534
+    },
+    {
+      "pair": [
+        6,
+        4
+      ],
+      "packing_boxes": 19913,
+      "both_odd_run_boxes": 2508,
+      "top_pinned_boxes": 206
+    },
+    {
+      "pair": [
+        6,
+        5
+      ],
+      "packing_boxes": 14354,
+      "both_odd_run_boxes": 1220,
+      "top_pinned_boxes": 128
+    },
+    {
+      "pair": [
+        6,
+        8
+      ],
+      "packing_boxes": 23401,
+      "both_odd_run_boxes": 690,
+      "top_pinned_boxes": 97
+    },
+    {
+      "pair": [
+        6,
+        9
+      ],
+      "packing_boxes": 4484,
+      "both_odd_run_boxes": 115,
+      "top_pinned_boxes": 12
+    },
+    {
+      "pair": [
+        6,
+        11
+      ],
+      "packing_boxes": 9868,
+      "both_odd_run_boxes": 59,
+      "top_pinned_boxes": 11
+    },
+    {
+      "pair": [
+        6,
+        14
+      ],
+      "packing_boxes": 6339,
+      "both_odd_run_boxes": 21,
+      "top_pinned_boxes": 8
+    },
+    {
+      "pair": [
+        6,
+        18
+      ],
+      "packing_boxes": 360,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        6,
+        27
+      ],
+      "packing_boxes": 2825,
+      "both_odd_run_boxes": 49,
+      "top_pinned_boxes": 22
+    },
+    {
+      "pair": [
+        6,
+        54
+      ],
+      "packing_boxes": 2549,
+      "both_odd_run_boxes": 32,
+      "top_pinned_boxes": 16
+    },
+    {
+      "pair": [
+        7,
+        1
+      ],
+      "packing_boxes": 10667,
+      "both_odd_run_boxes": 26,
+      "top_pinned_boxes": 4
+    },
+    {
+      "pair": [
+        7,
+        2
+      ],
+      "packing_boxes": 12710,
+      "both_odd_run_boxes": 2593,
+      "top_pinned_boxes": 233
+    },
+    {
+      "pair": [
+        7,
+        3
+      ],
+      "packing_boxes": 10966,
+      "both_odd_run_boxes": 247,
+      "top_pinned_boxes": 73
+    },
+    {
+      "pair": [
+        7,
+        4
+      ],
+      "packing_boxes": 14212,
+      "both_odd_run_boxes": 1938,
+      "top_pinned_boxes": 174
+    },
+    {
+      "pair": [
+        7,
+        5
+      ],
+      "packing_boxes": 12160,
+      "both_odd_run_boxes": 146,
+      "top_pinned_boxes": 21
+    },
+    {
+      "pair": [
+        7,
+        9
+      ],
+      "packing_boxes": 9028,
+      "both_odd_run_boxes": 8,
+      "top_pinned_boxes": 1
+    },
+    {
+      "pair": [
+        7,
+        11
+      ],
+      "packing_boxes": 6634,
+      "both_odd_run_boxes": 16,
+      "top_pinned_boxes": 4
+    },
+    {
+      "pair": [
+        7,
+        18
+      ],
+      "packing_boxes": 5266,
+      "both_odd_run_boxes": 94,
+      "top_pinned_boxes": 13
+    },
+    {
+      "pair": [
+        7,
+        27
+      ],
+      "packing_boxes": 1705,
+      "both_odd_run_boxes": 207,
+      "top_pinned_boxes": 55
+    },
+    {
+      "pair": [
+        7,
+        54
+      ],
+      "packing_boxes": 1659,
+      "both_odd_run_boxes": 606,
+      "top_pinned_boxes": 114
+    },
+    {
+      "pair": [
+        7,
+        55
+      ],
+      "packing_boxes": 1355,
+      "both_odd_run_boxes": 186,
+      "top_pinned_boxes": 60
+    },
+    {
+      "pair": [
+        8,
+        1
+      ],
+      "packing_boxes": 24453,
+      "both_odd_run_boxes": 1814,
+      "top_pinned_boxes": 256
+    },
+    {
+      "pair": [
+        8,
+        2
+      ],
+      "packing_boxes": 44061,
+      "both_odd_run_boxes": 2456,
+      "top_pinned_boxes": 367
+    },
+    {
+      "pair": [
+        8,
+        3
+      ],
+      "packing_boxes": 19500,
+      "both_odd_run_boxes": 950,
+      "top_pinned_boxes": 136
+    },
+    {
+      "pair": [
+        8,
+        5
+      ],
+      "packing_boxes": 15905,
+      "both_odd_run_boxes": 473,
+      "top_pinned_boxes": 58
+    },
+    {
+      "pair": [
+        8,
+        6
+      ],
+      "packing_boxes": 23401,
+      "both_odd_run_boxes": 690,
+      "top_pinned_boxes": 97
+    },
+    {
+      "pair": [
+        8,
+        11
+      ],
+      "packing_boxes": 7365,
+      "both_odd_run_boxes": 8,
+      "top_pinned_boxes": 2
+    },
+    {
+      "pair": [
+        8,
+        14
+      ],
+      "packing_boxes": 6342,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        8,
+        18
+      ],
+      "packing_boxes": 11134,
+      "both_odd_run_boxes": 2,
+      "top_pinned_boxes": 1
+    },
+    {
+      "pair": [
+        8,
+        27
+      ],
+      "packing_boxes": 2824,
+      "both_odd_run_boxes": 23,
+      "top_pinned_boxes": 3
+    },
+    {
+      "pair": [
+        9,
+        1
+      ],
+      "packing_boxes": 23759,
+      "both_odd_run_boxes": 988,
+      "top_pinned_boxes": 136
+    },
+    {
+      "pair": [
+        9,
+        2
+      ],
+      "packing_boxes": 24289,
+      "both_odd_run_boxes": 401,
+      "top_pinned_boxes": 72
+    },
+    {
+      "pair": [
+        9,
+        3
+      ],
+      "packing_boxes": 1216,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        9,
+        4
+      ],
+      "packing_boxes": 19718,
+      "both_odd_run_boxes": 187,
+      "top_pinned_boxes": 42
+    },
+    {
+      "pair": [
+        9,
+        5
+      ],
+      "packing_boxes": 14226,
+      "both_odd_run_boxes": 100,
+      "top_pinned_boxes": 13
+    },
+    {
+      "pair": [
+        9,
+        6
+      ],
+      "packing_boxes": 4484,
+      "both_odd_run_boxes": 115,
+      "top_pinned_boxes": 12
+    },
+    {
+      "pair": [
+        9,
+        7
+      ],
+      "packing_boxes": 9028,
+      "both_odd_run_boxes": 8,
+      "top_pinned_boxes": 1
+    },
+    {
+      "pair": [
+        9,
+        11
+      ],
+      "packing_boxes": 4367,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        9,
+        14
+      ],
+      "packing_boxes": 3551,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        9,
+        18
+      ],
+      "packing_boxes": 11011,
+      "both_odd_run_boxes": 373,
+      "top_pinned_boxes": 61
+    },
+    {
+      "pair": [
+        9,
+        27
+      ],
+      "packing_boxes": 1143,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        9,
+        54
+      ],
+      "packing_boxes": 1482,
+      "both_odd_run_boxes": 359,
+      "top_pinned_boxes": 56
+    },
+    {
+      "pair": [
+        9,
+        55
+      ],
+      "packing_boxes": 1252,
+      "both_odd_run_boxes": 180,
+      "top_pinned_boxes": 37
+    },
+    {
+      "pair": [
+        11,
+        1
+      ],
+      "packing_boxes": 18449,
+      "both_odd_run_boxes": 1065,
+      "top_pinned_boxes": 147
+    },
+    {
+      "pair": [
+        11,
+        2
+      ],
+      "packing_boxes": 19875,
+      "both_odd_run_boxes": 534,
+      "top_pinned_boxes": 92
+    },
+    {
+      "pair": [
+        11,
+        3
+      ],
+      "packing_boxes": 13373,
+      "both_odd_run_boxes": 221,
+      "top_pinned_boxes": 34
+    },
+    {
+      "pair": [
+        11,
+        4
+      ],
+      "packing_boxes": 15999,
+      "both_odd_run_boxes": 50,
+      "top_pinned_boxes": 10
+    },
+    {
+      "pair": [
+        11,
+        5
+      ],
+      "packing_boxes": 10751,
+      "both_odd_run_boxes": 73,
+      "top_pinned_boxes": 16
+    },
+    {
+      "pair": [
+        11,
+        6
+      ],
+      "packing_boxes": 9868,
+      "both_odd_run_boxes": 59,
+      "top_pinned_boxes": 11
+    },
+    {
+      "pair": [
+        11,
+        7
+      ],
+      "packing_boxes": 6634,
+      "both_odd_run_boxes": 16,
+      "top_pinned_boxes": 4
+    },
+    {
+      "pair": [
+        11,
+        8
+      ],
+      "packing_boxes": 7365,
+      "both_odd_run_boxes": 8,
+      "top_pinned_boxes": 2
+    },
+    {
+      "pair": [
+        11,
+        9
+      ],
+      "packing_boxes": 4367,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        11,
+        27
+      ],
+      "packing_boxes": 1553,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        11,
+        55
+      ],
+      "packing_boxes": 1318,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        13,
+        1
+      ],
+      "packing_boxes": 10421,
+      "both_odd_run_boxes": 1349,
+      "top_pinned_boxes": 184
+    },
+    {
+      "pair": [
+        13,
+        2
+      ],
+      "packing_boxes": 12000,
+      "both_odd_run_boxes": 633,
+      "top_pinned_boxes": 111
+    },
+    {
+      "pair": [
+        13,
+        3
+      ],
+      "packing_boxes": 7136,
+      "both_odd_run_boxes": 349,
+      "top_pinned_boxes": 74
+    },
+    {
+      "pair": [
+        13,
+        27
+      ],
+      "packing_boxes": 1031,
+      "both_odd_run_boxes": 559,
+      "top_pinned_boxes": 118
+    },
+    {
+      "pair": [
+        13,
+        28
+      ],
+      "packing_boxes": 756,
+      "both_odd_run_boxes": 381,
+      "top_pinned_boxes": 91
+    },
+    {
+      "pair": [
+        13,
+        54
+      ],
+      "packing_boxes": 1005,
+      "both_odd_run_boxes": 556,
+      "top_pinned_boxes": 97
+    },
+    {
+      "pair": [
+        13,
+        55
+      ],
+      "packing_boxes": 810,
+      "both_odd_run_boxes": 441,
+      "top_pinned_boxes": 99
+    },
+    {
+      "pair": [
+        14,
+        1
+      ],
+      "packing_boxes": 8775,
+      "both_odd_run_boxes": 939,
+      "top_pinned_boxes": 149
+    },
+    {
+      "pair": [
+        14,
+        2
+      ],
+      "packing_boxes": 8942,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        14,
+        6
+      ],
+      "packing_boxes": 6339,
+      "both_odd_run_boxes": 21,
+      "top_pinned_boxes": 8
+    },
+    {
+      "pair": [
+        14,
+        8
+      ],
+      "packing_boxes": 6342,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        14,
+        9
+      ],
+      "packing_boxes": 3551,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        14,
+        18
+      ],
+      "packing_boxes": 4032,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        14,
+        27
+      ],
+      "packing_boxes": 776,
+      "both_odd_run_boxes": 349,
+      "top_pinned_boxes": 83
+    },
+    {
+      "pair": [
+        14,
+        54
+      ],
+      "packing_boxes": 829,
+      "both_odd_run_boxes": 363,
+      "top_pinned_boxes": 76
+    },
+    {
+      "pair": [
+        14,
+        55
+      ],
+      "packing_boxes": 658,
+      "both_odd_run_boxes": 283,
+      "top_pinned_boxes": 78
+    },
+    {
+      "pair": [
+        17,
+        1
+      ],
+      "packing_boxes": 7169,
+      "both_odd_run_boxes": 608,
+      "top_pinned_boxes": 57
+    },
+    {
+      "pair": [
+        17,
+        2
+      ],
+      "packing_boxes": 7670,
+      "both_odd_run_boxes": 446,
+      "top_pinned_boxes": 54
+    },
+    {
+      "pair": [
+        17,
+        3
+      ],
+      "packing_boxes": 4958,
+      "both_odd_run_boxes": 38,
+      "top_pinned_boxes": 10
+    },
+    {
+      "pair": [
+        17,
+        4
+      ],
+      "packing_boxes": 6860,
+      "both_odd_run_boxes": 191,
+      "top_pinned_boxes": 35
+    },
+    {
+      "pair": [
+        18,
+        1
+      ],
+      "packing_boxes": 10671,
+      "both_odd_run_boxes": 614,
+      "top_pinned_boxes": 69
+    },
+    {
+      "pair": [
+        18,
+        2
+      ],
+      "packing_boxes": 18640,
+      "both_odd_run_boxes": 404,
+      "top_pinned_boxes": 75
+    },
+    {
+      "pair": [
+        18,
+        3
+      ],
+      "packing_boxes": 3510,
+      "both_odd_run_boxes": 230,
+      "top_pinned_boxes": 32
+    },
+    {
+      "pair": [
+        18,
+        4
+      ],
+      "packing_boxes": 16694,
+      "both_odd_run_boxes": 134,
+      "top_pinned_boxes": 30
+    },
+    {
+      "pair": [
+        18,
+        5
+      ],
+      "packing_boxes": 7108,
+      "both_odd_run_boxes": 160,
+      "top_pinned_boxes": 18
+    },
+    {
+      "pair": [
+        18,
+        6
+      ],
+      "packing_boxes": 360,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        18,
+        7
+      ],
+      "packing_boxes": 5266,
+      "both_odd_run_boxes": 94,
+      "top_pinned_boxes": 13
+    },
+    {
+      "pair": [
+        18,
+        8
+      ],
+      "packing_boxes": 11134,
+      "both_odd_run_boxes": 2,
+      "top_pinned_boxes": 1
+    },
+    {
+      "pair": [
+        18,
+        9
+      ],
+      "packing_boxes": 11011,
+      "both_odd_run_boxes": 373,
+      "top_pinned_boxes": 61
+    },
+    {
+      "pair": [
+        18,
+        14
+      ],
+      "packing_boxes": 4032,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        18,
+        27
+      ],
+      "packing_boxes": 465,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        18,
+        28
+      ],
+      "packing_boxes": 491,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        18,
+        54
+      ],
+      "packing_boxes": 624,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        19,
+        1
+      ],
+      "packing_boxes": 9641,
+      "both_odd_run_boxes": 555,
+      "top_pinned_boxes": 74
+    },
+    {
+      "pair": [
+        19,
+        2
+      ],
+      "packing_boxes": 10359,
+      "both_odd_run_boxes": 404,
+      "top_pinned_boxes": 63
+    },
+    {
+      "pair": [
+        19,
+        3
+      ],
+      "packing_boxes": 6826,
+      "both_odd_run_boxes": 47,
+      "top_pinned_boxes": 9
+    },
+    {
+      "pair": [
+        26,
+        1
+      ],
+      "packing_boxes": 7285,
+      "both_odd_run_boxes": 2194,
+      "top_pinned_boxes": 278
+    },
+    {
+      "pair": [
+        26,
+        2
+      ],
+      "packing_boxes": 8719,
+      "both_odd_run_boxes": 1468,
+      "top_pinned_boxes": 224
+    },
+    {
+      "pair": [
+        26,
+        3
+      ],
+      "packing_boxes": 4622,
+      "both_odd_run_boxes": 1485,
+      "top_pinned_boxes": 217
+    },
+    {
+      "pair": [
+        26,
+        53
+      ],
+      "packing_boxes": 820,
+      "both_odd_run_boxes": 820,
+      "top_pinned_boxes": 123
+    },
+    {
+      "pair": [
+        26,
+        54
+      ],
+      "packing_boxes": 740,
+      "both_odd_run_boxes": 740,
+      "top_pinned_boxes": 133
+    },
+    {
+      "pair": [
+        26,
+        55
+      ],
+      "packing_boxes": 607,
+      "both_odd_run_boxes": 607,
+      "top_pinned_boxes": 133
+    },
+    {
+      "pair": [
+        27,
+        1
+      ],
+      "packing_boxes": 5460,
+      "both_odd_run_boxes": 1928,
+      "top_pinned_boxes": 253
+    },
+    {
+      "pair": [
+        27,
+        2
+      ],
+      "packing_boxes": 6277,
+      "both_odd_run_boxes": 1471,
+      "top_pinned_boxes": 190
+    },
+    {
+      "pair": [
+        27,
+        3
+      ],
+      "packing_boxes": 3366,
+      "both_odd_run_boxes": 185,
+      "top_pinned_boxes": 44
+    },
+    {
+      "pair": [
+        27,
+        5
+      ],
+      "packing_boxes": 3230,
+      "both_odd_run_boxes": 268,
+      "top_pinned_boxes": 37
+    },
+    {
+      "pair": [
+        27,
+        6
+      ],
+      "packing_boxes": 2825,
+      "both_odd_run_boxes": 49,
+      "top_pinned_boxes": 22
+    },
+    {
+      "pair": [
+        27,
+        7
+      ],
+      "packing_boxes": 1705,
+      "both_odd_run_boxes": 207,
+      "top_pinned_boxes": 55
+    },
+    {
+      "pair": [
+        27,
+        8
+      ],
+      "packing_boxes": 2824,
+      "both_odd_run_boxes": 23,
+      "top_pinned_boxes": 3
+    },
+    {
+      "pair": [
+        27,
+        9
+      ],
+      "packing_boxes": 1143,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        27,
+        11
+      ],
+      "packing_boxes": 1553,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        27,
+        13
+      ],
+      "packing_boxes": 1031,
+      "both_odd_run_boxes": 559,
+      "top_pinned_boxes": 118
+    },
+    {
+      "pair": [
+        27,
+        14
+      ],
+      "packing_boxes": 776,
+      "both_odd_run_boxes": 349,
+      "top_pinned_boxes": 83
+    },
+    {
+      "pair": [
+        27,
+        18
+      ],
+      "packing_boxes": 465,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        27,
+        53
+      ],
+      "packing_boxes": 697,
+      "both_odd_run_boxes": 697,
+      "top_pinned_boxes": 116
+    },
+    {
+      "pair": [
+        27,
+        54
+      ],
+      "packing_boxes": 627,
+      "both_odd_run_boxes": 627,
+      "top_pinned_boxes": 130
+    },
+    {
+      "pair": [
+        27,
+        55
+      ],
+      "packing_boxes": 497,
+      "both_odd_run_boxes": 497,
+      "top_pinned_boxes": 130
+    },
+    {
+      "pair": [
+        27,
+        56
+      ],
+      "packing_boxes": 367,
+      "both_odd_run_boxes": 367,
+      "top_pinned_boxes": 107
+    },
+    {
+      "pair": [
+        28,
+        1
+      ],
+      "packing_boxes": 4538,
+      "both_odd_run_boxes": 1356,
+      "top_pinned_boxes": 211
+    },
+    {
+      "pair": [
+        28,
+        2
+      ],
+      "packing_boxes": 5523,
+      "both_odd_run_boxes": 1056,
+      "top_pinned_boxes": 162
+    },
+    {
+      "pair": [
+        28,
+        13
+      ],
+      "packing_boxes": 756,
+      "both_odd_run_boxes": 381,
+      "top_pinned_boxes": 91
+    },
+    {
+      "pair": [
+        28,
+        18
+      ],
+      "packing_boxes": 491,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        28,
+        54
+      ],
+      "packing_boxes": 474,
+      "both_odd_run_boxes": 474,
+      "top_pinned_boxes": 107
+    },
+    {
+      "pair": [
+        28,
+        55
+      ],
+      "packing_boxes": 367,
+      "both_odd_run_boxes": 367,
+      "top_pinned_boxes": 107
+    },
+    {
+      "pair": [
+        29,
+        1
+      ],
+      "packing_boxes": 3228,
+      "both_odd_run_boxes": 1050,
+      "top_pinned_boxes": 159
+    },
+    {
+      "pair": [
+        29,
+        2
+      ],
+      "packing_boxes": 3902,
+      "both_odd_run_boxes": 832,
+      "top_pinned_boxes": 126
+    },
+    {
+      "pair": [
+        29,
+        3
+      ],
+      "packing_boxes": 1665,
+      "both_odd_run_boxes": 230,
+      "top_pinned_boxes": 60
+    },
+    {
+      "pair": [
+        29,
+        4
+      ],
+      "packing_boxes": 3327,
+      "both_odd_run_boxes": 179,
+      "top_pinned_boxes": 32
+    },
+    {
+      "pair": [
+        29,
+        54
+      ],
+      "packing_boxes": 338,
+      "both_odd_run_boxes": 338,
+      "top_pinned_boxes": 78
+    },
+    {
+      "pair": [
+        29,
+        55
+      ],
+      "packing_boxes": 260,
+      "both_odd_run_boxes": 260,
+      "top_pinned_boxes": 78
+    },
+    {
+      "pair": [
+        29,
+        56
+      ],
+      "packing_boxes": 182,
+      "both_odd_run_boxes": 182,
+      "top_pinned_boxes": 61
+    },
+    {
+      "pair": [
+        51,
+        1
+      ],
+      "packing_boxes": 5911,
+      "both_odd_run_boxes": 3042,
+      "top_pinned_boxes": 257
+    },
+    {
+      "pair": [
+        51,
+        2
+      ],
+      "packing_boxes": 6828,
+      "both_odd_run_boxes": 2411,
+      "top_pinned_boxes": 246
+    },
+    {
+      "pair": [
+        51,
+        3
+      ],
+      "packing_boxes": 3810,
+      "both_odd_run_boxes": 1708,
+      "top_pinned_boxes": 180
+    },
+    {
+      "pair": [
+        51,
+        4
+      ],
+      "packing_boxes": 6025,
+      "both_odd_run_boxes": 1219,
+      "top_pinned_boxes": 157
+    },
+    {
+      "pair": [
+        52,
+        1
+      ],
+      "packing_boxes": 5890,
+      "both_odd_run_boxes": 2788,
+      "top_pinned_boxes": 298
+    },
+    {
+      "pair": [
+        52,
+        2
+      ],
+      "packing_boxes": 7094,
+      "both_odd_run_boxes": 2117,
+      "top_pinned_boxes": 279
+    },
+    {
+      "pair": [
+        52,
+        3
+      ],
+      "packing_boxes": 3751,
+      "both_odd_run_boxes": 1661,
+      "top_pinned_boxes": 213
+    },
+    {
+      "pair": [
+        53,
+        1
+      ],
+      "packing_boxes": 5512,
+      "both_odd_run_boxes": 2827,
+      "top_pinned_boxes": 298
+    },
+    {
+      "pair": [
+        53,
+        2
+      ],
+      "packing_boxes": 6353,
+      "both_odd_run_boxes": 2340,
+      "top_pinned_boxes": 264
+    },
+    {
+      "pair": [
+        53,
+        26
+      ],
+      "packing_boxes": 820,
+      "both_odd_run_boxes": 820,
+      "top_pinned_boxes": 123
+    },
+    {
+      "pair": [
+        53,
+        27
+      ],
+      "packing_boxes": 697,
+      "both_odd_run_boxes": 697,
+      "top_pinned_boxes": 116
+    },
+    {
+      "pair": [
+        54,
+        1
+      ],
+      "packing_boxes": 5106,
+      "both_odd_run_boxes": 2411,
+      "top_pinned_boxes": 343
+    },
+    {
+      "pair": [
+        54,
+        2
+      ],
+      "packing_boxes": 5848,
+      "both_odd_run_boxes": 2145,
+      "top_pinned_boxes": 292
+    },
+    {
+      "pair": [
+        54,
+        3
+      ],
+      "packing_boxes": 3005,
+      "both_odd_run_boxes": 1189,
+      "top_pinned_boxes": 195
+    },
+    {
+      "pair": [
+        54,
+        4
+      ],
+      "packing_boxes": 4855,
+      "both_odd_run_boxes": 1038,
+      "top_pinned_boxes": 159
+    },
+    {
+      "pair": [
+        54,
+        6
+      ],
+      "packing_boxes": 2549,
+      "both_odd_run_boxes": 32,
+      "top_pinned_boxes": 16
+    },
+    {
+      "pair": [
+        54,
+        7
+      ],
+      "packing_boxes": 1659,
+      "both_odd_run_boxes": 606,
+      "top_pinned_boxes": 114
+    },
+    {
+      "pair": [
+        54,
+        9
+      ],
+      "packing_boxes": 1482,
+      "both_odd_run_boxes": 359,
+      "top_pinned_boxes": 56
+    },
+    {
+      "pair": [
+        54,
+        13
+      ],
+      "packing_boxes": 1005,
+      "both_odd_run_boxes": 556,
+      "top_pinned_boxes": 97
+    },
+    {
+      "pair": [
+        54,
+        14
+      ],
+      "packing_boxes": 829,
+      "both_odd_run_boxes": 363,
+      "top_pinned_boxes": 76
+    },
+    {
+      "pair": [
+        54,
+        18
+      ],
+      "packing_boxes": 624,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        54,
+        26
+      ],
+      "packing_boxes": 740,
+      "both_odd_run_boxes": 740,
+      "top_pinned_boxes": 133
+    },
+    {
+      "pair": [
+        54,
+        27
+      ],
+      "packing_boxes": 627,
+      "both_odd_run_boxes": 627,
+      "top_pinned_boxes": 130
+    },
+    {
+      "pair": [
+        54,
+        28
+      ],
+      "packing_boxes": 474,
+      "both_odd_run_boxes": 474,
+      "top_pinned_boxes": 107
+    },
+    {
+      "pair": [
+        54,
+        29
+      ],
+      "packing_boxes": 338,
+      "both_odd_run_boxes": 338,
+      "top_pinned_boxes": 78
+    },
+    {
+      "pair": [
+        55,
+        1
+      ],
+      "packing_boxes": 4358,
+      "both_odd_run_boxes": 2276,
+      "top_pinned_boxes": 343
+    },
+    {
+      "pair": [
+        55,
+        2
+      ],
+      "packing_boxes": 5005,
+      "both_odd_run_boxes": 1780,
+      "top_pinned_boxes": 299
+    },
+    {
+      "pair": [
+        55,
+        3
+      ],
+      "packing_boxes": 2510,
+      "both_odd_run_boxes": 1016,
+      "top_pinned_boxes": 194
+    },
+    {
+      "pair": [
+        55,
+        4
+      ],
+      "packing_boxes": 4161,
+      "both_odd_run_boxes": 792,
+      "top_pinned_boxes": 135
+    },
+    {
+      "pair": [
+        55,
+        5
+      ],
+      "packing_boxes": 2648,
+      "both_odd_run_boxes": 100,
+      "top_pinned_boxes": 15
+    },
+    {
+      "pair": [
+        55,
+        7
+      ],
+      "packing_boxes": 1355,
+      "both_odd_run_boxes": 186,
+      "top_pinned_boxes": 60
+    },
+    {
+      "pair": [
+        55,
+        9
+      ],
+      "packing_boxes": 1252,
+      "both_odd_run_boxes": 180,
+      "top_pinned_boxes": 37
+    },
+    {
+      "pair": [
+        55,
+        11
+      ],
+      "packing_boxes": 1318,
+      "both_odd_run_boxes": 0,
+      "top_pinned_boxes": 0
+    },
+    {
+      "pair": [
+        55,
+        13
+      ],
+      "packing_boxes": 810,
+      "both_odd_run_boxes": 441,
+      "top_pinned_boxes": 99
+    },
+    {
+      "pair": [
+        55,
+        14
+      ],
+      "packing_boxes": 658,
+      "both_odd_run_boxes": 283,
+      "top_pinned_boxes": 78
+    },
+    {
+      "pair": [
+        55,
+        26
+      ],
+      "packing_boxes": 607,
+      "both_odd_run_boxes": 607,
+      "top_pinned_boxes": 133
+    },
+    {
+      "pair": [
+        55,
+        27
+      ],
+      "packing_boxes": 497,
+      "both_odd_run_boxes": 497,
+      "top_pinned_boxes": 130
+    },
+    {
+      "pair": [
+        55,
+        28
+      ],
+      "packing_boxes": 367,
+      "both_odd_run_boxes": 367,
+      "top_pinned_boxes": 107
+    },
+    {
+      "pair": [
+        55,
+        29
+      ],
+      "packing_boxes": 260,
+      "both_odd_run_boxes": 260,
+      "top_pinned_boxes": 78
+    },
+    {
+      "pair": [
+        56,
+        1
+      ],
+      "packing_boxes": 3610,
+      "both_odd_run_boxes": 1787,
+      "top_pinned_boxes": 298
+    },
+    {
+      "pair": [
+        56,
+        2
+      ],
+      "packing_boxes": 4162,
+      "both_odd_run_boxes": 1315,
+      "top_pinned_boxes": 240
+    },
+    {
+      "pair": [
+        56,
+        27
+      ],
+      "packing_boxes": 367,
+      "both_odd_run_boxes": 367,
+      "top_pinned_boxes": 107
+    },
+    {
+      "pair": [
+        56,
+        29
+      ],
+      "packing_boxes": 182,
+      "both_odd_run_boxes": 182,
+      "top_pinned_boxes": 61
+    },
+    {
+      "pair": [
+        57,
+        1
+      ],
+      "packing_boxes": 2976,
+      "both_odd_run_boxes": 1635,
+      "top_pinned_boxes": 267
+    },
+    {
+      "pair": [
+        57,
+        2
+      ],
+      "packing_boxes": 3461,
+      "both_odd_run_boxes": 1372,
+      "top_pinned_boxes": 223
+    },
+    {
+      "pair": [
+        57,
+        3
+      ],
+      "packing_boxes": 1612,
+      "both_odd_run_boxes": 804,
+      "top_pinned_boxes": 157
+    },
+    {
+      "pair": [
+        58,
+        1
+      ],
+      "packing_boxes": 2426,
+      "both_odd_run_boxes": 1270,
+      "top_pinned_boxes": 226
+    },
+    {
+      "pair": [
+        58,
+        2
+      ],
+      "packing_boxes": 2840,
+      "both_odd_run_boxes": 1154,
+      "top_pinned_boxes": 194
+    },
+    {
+      "pair": [
+        58,
+        3
+      ],
+      "packing_boxes": 1269,
+      "both_odd_run_boxes": 632,
+      "top_pinned_boxes": 128
+    },
+    {
+      "pair": [
+        58,
+        4
+      ],
+      "packing_boxes": 2377,
+      "both_odd_run_boxes": 640,
+      "top_pinned_boxes": 115
+    }
+  ],
+  "saved_configurations_preserved": 216,
+  "compatibility_gap_witness": {
+    "coordinates": [
+      2,
+      16,
+      8,
+      3,
+      4,
+      32,
+      0,
+      -63,
+      2,
+      129,
+      132,
+      64
+    ],
+    "singleton": 1,
+    "source_starts": [
+      64,
+      68,
+      66
+    ],
+    "sink_starts": [
+      66,
+      82,
+      69
+    ],
+    "source_half": [
+      70,
+      73,
+      74,
+      77,
+      78,
+      81,
+      82,
+      85,
+      86,
+      89,
+      90,
+      93,
+      94,
+      97,
+      98,
+      101,
+      102,
+      105,
+      106
+    ],
+    "sink_half": [
+      64,
+      70,
+      72,
+      74,
+      76,
+      78,
+      80,
+      85,
+      86,
+      87,
+      91,
+      92,
+      93,
+      97,
+      98,
+      99,
+      103,
+      104,
+      105
+    ],
+    "common_box_span": 65,
+    "whole_interval_equation": false,
+    "corrupt_witnesses_rejected": 3
+  },
+  "timings": {
+    "cpp_seconds": 0.10027987799998073,
+    "python_seconds": 8.14071149199998
+  },
+  "elapsed_seconds": 9.074238903000037,
+  "input_sha256": {
+    "scripts/experiment_clift109_common_box.py": "b4e375f821d86b9afc7cd5467eeec00058160e2e425447d0c25ed9e6f94088e1",
+    "scripts/clift109_common_box.cpp": "77907e7d3f096696a62477317fc9505a94c71138b554603f164255f67fb30d9b",
+    "results/2026-11-09-placed-pairs.json": "59b714c824d7588b6e3d674c2add2ed446ad6cf79c85c02c7afd13a212c416c3",
+    "results/2026-10-18-clift109-box-exclusion.json": "dca9a0be146137c95e6f251cdfd8f44abaf84364b4d026d2af0a628f8f875241",
+    "scripts/clift109_box_search.cpp": "c133f5bc1779b7a23af7a7d09f3cc181d0306ab3cc2c8c6092596615b75e6892",
+    "scripts/clift109_box_dual.py": "41da5587861ef99fc9d631cc6a44b98dde3c4a641091085c79c0f86f9965496d",
+    "scripts/experiment_clift109_box.py": "3dc59dac47c4a596710491ae104fb6c81a161f9f9754b7e7a051e0c960feca99",
+    "lean/ScholzBrauer/Clift109CommonBoxExample.lean": "3509f2bde9ea59b30b5a16820f786515716dd2805236c0bb59a2a846668d5e19"
+  },
+  "claim_boundary": "The 246-pair reduction is exact computational evidence, not a Lean theorem. The explicit common-box witness is kernel checked separately. Neither relaxation establishes feasibility, cap compatibility or the selected-109 exclusion."
+}

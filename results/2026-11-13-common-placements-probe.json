@@ -1,0 +1,36 @@
+{
+  "accessed_at_utc": "2026-11-12T21:11:09.637755+00:00",
+  "compile_argv": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "scripts/probe_clift109_common_placements.cpp",
+    "-o",
+    "/tmp/clift109-common-placement-zwuv7n4n/probe"
+  ],
+  "run_argv": [
+    "/tmp/clift109-common-placement-zwuv7n4n/probe"
+  ],
+  "counts": {
+    "common_odd_run_boxes": 5982,
+    "source_placement": 4633,
+    "both_placements": 4633,
+    "shared_singleton": 4633,
+    "distinct_v_d2_roles_and_shared_singleton": 4235
+  },
+  "run_seconds": 1.1491311059999134,
+  "total_seconds": 2.1157371319999356,
+  "timeout_seconds": 120,
+  "random_seed": null,
+  "dependencies": "g++ C++17; existing exact box and singleton helpers",
+  "bounds": "Only (u,d1)=(2,3); all six-difference dissociated boxes with nonnegative offset and top <=108; three disjoint opposite-step pairs in the 45-point complement",
+  "source_sha256": {
+    "scripts/probe_clift109_common_placements.cpp": "7843a591ced98fdd1328d0d630f68d33aa4a77707fe397ebe91cc631ecf8e887",
+    "scripts/clift109_box_search.cpp": "c133f5bc1779b7a23af7a7d09f3cc181d0306ab3cc2c8c6092596615b75e6892",
+    "scripts/clift109_placed_pairs.cpp": "db1f6c22c71f4e15e3097579bc517cb28b6effb47674d3dc640ff099b5566e9e"
+  },
+  "claim_boundary": "Single-algorithm exploratory complete count; no independent count or Lean enumeration theorem. The separate explicit same-coordinate witness, not these counts, proves the compatibility gap in Lean."
+}

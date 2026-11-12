@@ -1,0 +1,29 @@
+{
+  "weekly_handoff": "results/2026-11-06-literature-review.md",
+  "weekly_handoff_status": "Six UTC days old; most recent committed weekly handoff. Read before choosing work. HAL and publisher full-text access limits retained. No broad literature search repeated.",
+  "accessed_at_utc": "2026-11-12T21:09:44.401412+00:00",
+  "version": "Undated live account; SHA-256 identifies content",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "bytes": 24158,
+      "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+      "matches_previous": true
+    },
+    {
+      "url": "https://www.additionchains.com/LargeNonHansen.png",
+      "bytes": 31888,
+      "sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6",
+      "matches_previous": true
+    }
+  ],
+  "published_chain_checks": {
+    "chains_parsed": 16,
+    "matches_saved_ordered_chains": true,
+    "additions_each": 27,
+    "all_strictly_increasing_and_valid": true,
+    "selected109_parent_sums_checked": 11
+  },
+  "use": "Selected parent graph and outgoing-cap interpretation only. Diagram hash matches the prior visual reconstruction. No external exclusion, optimum or universal theorem is assumed.",
+  "access_limitation": "The image viewer failed with exec-server transport closed; no fresh visual inspection claimed. Hash and selected-parent arithmetic checks succeed."
+}

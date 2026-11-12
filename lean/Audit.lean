@@ -461,3 +461,10 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.two_three_mem_alternatingStepPairs
 #print axioms ScholzBrauer.Clift109.alternating_pairs_of_placements
 #print axioms ScholzBrauer.Clift109.alternating_pairs_of_budget
+
+#print axioms ScholzBrauer.Clift109.common_box_example_box
+#print axioms ScholzBrauer.Clift109.common_box_example_source_partition
+#print axioms ScholzBrauer.Clift109.common_box_example_sink_partition
+#print axioms ScholzBrauer.Clift109.common_box_example_odd_runs
+#print axioms ScholzBrauer.Clift109.common_box_example_halves_mismatch
+#print axioms ScholzBrauer.Clift109.common_box_example_not_interval
