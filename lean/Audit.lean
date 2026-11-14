@@ -468,3 +468,17 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.common_box_example_odd_runs
 #print axioms ScholzBrauer.Clift109.common_box_example_halves_mismatch
 #print axioms ScholzBrauer.Clift109.common_box_example_not_interval
+
+#print axioms ScholzBrauer.Clift109.sum_sinkHalf
+#print axioms ScholzBrauer.Clift109.anchor_mem_sinkHalf
+#print axioms ScholzBrauer.Clift109.sinkRecoveredQ_eq
+#print axioms ScholzBrauer.Clift109.sink_anchor_residue
+#print axioms ScholzBrauer.Clift109.sink_coordinates_unique
+#print axioms ScholzBrauer.Clift109.reconstructSink_eq
+#print axioms ScholzBrauer.Clift109.interval_sinkHalf_bounds
+#print axioms ScholzBrauer.Clift109.interval_sink_reconstruction
+#print axioms ScholzBrauer.Clift109.sink_reconstruction_of_budget
+#print axioms ScholzBrauer.Clift109.fourteen_five_moments_at_most_two
+#print axioms ScholzBrauer.Clift109.sink_moments_of_prescribed_half
+#print axioms ScholzBrauer.Clift109.sink_moments_at_most_two_anchors
+#print axioms ScholzBrauer.Clift109.sink_reconstruction_at_most_two_anchors

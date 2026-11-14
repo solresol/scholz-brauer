@@ -552,3 +552,20 @@ transports domain membership to every original budget-108 labelling. The
 permitted standard axioms. This is a necessary domain, without a sufficient
 placement equivalence, common box, feasible caps or full selected-109 exclusion.
 See `../results/2026-11-10-alternating-domain.md`.
+
+## Prescribed sink-half reconstruction — 14 November 2026 UTC
+
+`Clift109HalfReconstruction.lean` recovers q by the first moment once the
+actual sink exception positions and A3 are fixed, proves a necessary anchor
+residue modulo 5, and reconstructs the entire coordinate tuple. Exact halving
+of any budget-108 labelling yields nineteen bounded distinct anchor candidates.
+The fourteen-plus-five factorization and first two moments prove that at most
+two anchors pass the moment test for fixed box roles, exception positions and
+half. Every prescribed half passes; the test does not establish the full shape
+or cap feasibility. All thirteen public theorems enter `Audit.lean`.
+
+A scan of the saved 216 interval fixtures agrees with an independent integer
+quadratic calculation and retains one anchor per fixture. This is a fixture
+check, without a new enumeration or Lean completeness theorem. The necessary
+pair domain remains 278 kernel-checked / 246 computational. Full selected-109
+exclusion remains open. See `../results/2026-11-14-half-reconstruction.md`.

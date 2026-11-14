@@ -23,14 +23,14 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-13 (Friday, Australia/Sydney).
+Updated 2026-11-14 UTC / 15 November (Sunday, Australia/Sydney).
 
-The full published startup gate passes on 12 November UTC / 13 November Sydney,
+The full published startup gate passes again on 14 November UTC / 15 November Sydney,
 reusing the prepared runtime after its separate repair. This research invocation
 does not repair shared state. The earlier missing-receipt failure remains in
 the research log as historical evidence.
 
-Latest weekly handoff: [6 November literature checkpoint](results/2026-11-06-literature-review.md).
+Latest weekly handoff: [13 November literature checkpoint](results/2026-11-06-literature-review.md#13-november-2026-checkpoint).
 No new validated result changes the current reductions. The two August
 multi-step-optimization copies have different hypotheses and do not supply an
 unrestricted proof; the earlier counting and sigma/tau/star-chain limitations
@@ -216,6 +216,16 @@ Fin cases to remove the previous reduction bottleneck.
   bounds, but whose prescribed nineteen-weight halves fail. Thus matching the
   box and even the actual exceptions still does not settle compatibility. See
   [13 November result](results/2026-11-13-common-box.md).
+- [x] Kernel-check reconstruction of the prescribed sink half: its first
+  moment recovers q from the actual exception positions and A3, with a
+  necessary anchor residue modulo 5. Prove that first and second moments
+  leave at most TWO anchors for each fixed box-role/exception/half choice,
+  and each anchor determines at most one coordinate tuple. Transport exact
+  recovery and nineteen bounded distinct anchor candidates to every original
+  budget-108 labelling. Independent moment scans and quadratic roots recover
+  the actual anchor uniquely in all 216 saved fixtures; this last uniqueness
+  count is computational and does not certify fixture completeness. See
+  [14 November result](results/2026-11-14-half-reconstruction.md).
 - [ ] Combine the kernel-checked 278-pair necessary domain, computational
   246-pair common-box refinement and actual
   exceptional positions with box dissociation, both odd-run restrictions,
@@ -229,6 +239,9 @@ Fin cases to remove the previous reduction bottleneck.
   box or the other coordinates. Even a common box and the actual exceptions
   of one coordinate tuple permit unrelated halves: retain the prescribed
   `sourceHalf c` and `sinkHalf c`, alongside critical-path/cap constraints.
+  Use the proved moment test to reduce each fixed sink reconstruction to at
+  most two anchors, then check its full nineteen-weight shape; neither the
+  moments nor the existing fixture list certify interval enumeration completeness.
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).
@@ -409,9 +422,12 @@ Do not repeat orientation reconstruction or remainder normalization.
 See `results/2026-10-24-critical-families-lean.md`.
 (2) Find a classification of the interval configurations small
 enough for the kernel. The placed-pair/shared-singleton refinement leaves
-278 necessary ordered pairs computationally, while 344 remains the
-kernel-checked finite domain. Use the proved placed-pair predicates or
-kernel-check their finite evaluation before relying on 278 in Lean.
+278 necessary ordered pairs in Lean, with a further common-box refinement
+to 246 still computational. The prescribed sink half now has at most two
+moment-compatible anchors per fixed box-role/exception/half choice; q and
+all three offsets are reconstructed exactly. Carry this into a sound finite
+interval classifier, retaining the full nineteen-weight shape and cap checks.
+Neither the 246 domain nor completeness of the 216 saved fixtures is a Lean theorem.
 With the box pinned at the top, the earlier search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that

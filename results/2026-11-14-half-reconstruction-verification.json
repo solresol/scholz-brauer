@@ -1,0 +1,41 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build"
+      ],
+      "cwd": "/workspace/scholz-brauer/lean",
+      "exit_code": 0,
+      "seconds": 16.01335226499998,
+      "log": "results/2026-11-14-half-reconstruction-build.txt"
+    },
+    {
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "env",
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+        "Audit.lean"
+      ],
+      "cwd": "/workspace/scholz-brauer/lean",
+      "exit_code": 0,
+      "seconds": 27.02684035499999,
+      "log": "results/2026-11-14-half-reconstruction-audit.txt"
+    }
+  ],
+  "audit_entries": 442,
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "source_sha256": {
+    "lean/lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "lean/lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5",
+    "lean/lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8",
+    "lean/ScholzBrauer/Clift109HalfReconstruction.lean": "c99cf3cece491a56281b7363e8fc639a76d2b5289eac7b4c6b070c56b96085a4",
+    "lean/ScholzBrauer.lean": "740fd59632ee7aef6d5de3209469b404ccdf069b6c14039b619b2eb3666364f1",
+    "lean/Audit.lean": "56cd261db32e00a207c061f27bcfadb97184c7b3b9ae4754ddc2f9f262da5a18"
+  },
+  "claim_boundary": "Exact half reconstruction and at most two moment-compatible anchors; full interval/cap classification and 108-doubling exclusion remain open."
+}

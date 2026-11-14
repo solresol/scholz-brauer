@@ -1,5 +1,71 @@
 # Research log
 
+## 2026-11-14 UTC — prescribed sink-half recovery and at most two anchors
+
+The authorized 14 November 21:00 UTC / Sunday 15 November Sydney run advances
+Lean exclusion of budget 108 for Clift's selected 109 graph. Thirteen new
+public theorems in `Clift109HalfReconstruction.lean` retain the prescribed
+nineteen-weight sink shape. Its first moment recovers q from the actual
+sink exception positions and A3 and forces an anchor residue modulo five.
+Each anchor determines the whole coordinate tuple uniquely. Exact halving
+of any original budget-108 labelling recovers nineteen bounded distinct
+anchor candidates, including its actual A3.
+
+The half factors into fixed fourteen- and five-weight shapes translated by
+A3 and A3+q. Their first two moments force A3 to satisfy a quadratic with
+leading coefficient 266. Lean proves that at most TWO anchors pass even
+these moment tests for each fixed box-role/exception/half choice. Every
+prescribed half passes. Signed weights and multiplicities are allowed in
+the general lemma. The full nineteen-weight equality and the outer interval,
+critical-family, orientation and cap classification remain obligations.
+No pair is removed: 278 remains kernel-checked, 246 computational. The exact
+minimum 109 remains computational; the full Lean exclusion is still open.
+
+A bounded check reads the 216 saved interval fixtures, without repeating
+any enumeration. Independent direct nineteen-anchor moment scans and exact
+integer quadratic roots agree: the actual coordinates are recovered for all
+216, with one passing anchor each. That uniqueness and fixture count remain
+computational, without an enumeration-completeness theorem. All 432 q and
+balanced endpoint corruption controls detect their intended moment changes.
+Reproduce with `python3 scripts/experiment_clift109_half_reconstruction.py
+--output /tmp/half-reconstruction.json` at an unused path. Python 3.12.14,
+standard library/existing modules, no seed, 60-second bound, 0.102 seconds.
+Commands, input bounds, source hashes and per-fixture anchors are saved.
+
+The full published Start gate passes for all three projects before Lean.
+Read START.md; no applicable AGENTS.md is present. Clean work, fetched and
+live main initially equal e49500b296a35658d683b8c950dac3dd328498f8. Verify
+origin `https://github.com/solresol/scholz-brauer.git` and equal ancestry;
+the fast-forward-only update is already current. No competing research
+process or marker is found; this run uses its own local exclusive marker.
+The failed 13 November launch supplies no assumed increment. Keep all
+Lean/mathlib/Lake pins and use the installed absolute 4.27.0 tools with
+`prepare.env_for('scholz')`, two Lean threads, isolated cache, 2 GiB reserve
+and 12 GiB RSS guard. The 300-second-bounded full build passes 1,177 jobs
+in 16.013 seconds; the fail-closed axiom audit passes 442 entries in 27.027
+seconds, including thirteen new entries and private dependencies, with only
+propext, Quot.sound and Classical.choice. No placeholders, project axioms,
+native acceptance or target assumptions. Only a pre-existing generated simp
+warning remains. An unavailable optional tactic object is avoided by using
+the installed ring tactic; no dependency preparation or pin change is needed.
+
+Read the current 13 November literature checkpoint, one UTC day old, with
+its recorded HAL/publisher access limits. No external theorem or broad search
+is used. Clift's undated primary page and selected PNG are accessed 14 November:
+content hashes match, the diagram is visually rechecked, all eleven selected
+sums check, and all sixteen published 5,784,689 chains match the archive and
+pass increasing-chain/27-addition witness checks. Published optimality and
+exclusion are not assumed. See the dated source record for URLs, hashes,
+versions and timestamp. No sibling, published runtime, configuration,
+credential or schedule change; no whole-integration or remote CI claim.
+
+See [result and next obligations](results/2026-11-14-half-reconstruction.md),
+fixture JSON, build/audit logs, verification JSON and
+[data source record](data/2026-11-14-half-reconstruction-sources.json).
+Next: carry the two-anchor reconstruction into a sound finite interval
+classifier, retain both prescribed halves and signed cap/critical constraints,
+and separately certify the 32 common-box removals if they are used in Lean.
+
 ## 2026-11-13 — Friday — common-box refinement and a checked compatibility gap
 
 The authorized 12 November UTC invocation advances the active selected-109

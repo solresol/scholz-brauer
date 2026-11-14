@@ -1,0 +1,28 @@
+{
+  "accessed_at_utc": "2026-11-14T21:12:11.198375+00:00",
+  "weekly_handoff": "results/2026-11-06-literature-review.md#13-november-2026-checkpoint",
+  "handoff_status": "Read current 13 November checkpoint; one UTC day old. Existing HAL/publisher access limits retained. No external proof or broad literature search used.",
+  "sources": [
+    {
+      "url": "https://www.additionchains.com/ScholzBrauer.html",
+      "bytes": 24158,
+      "sha256": "d8a9482f19403d42110b52462f88aee41bf291e2a908a203fb9efb8320bd9eef",
+      "matches_previous": true
+    },
+    {
+      "url": "https://www.additionchains.com/LargeNonHansen.png",
+      "bytes": 31888,
+      "sha256": "58a2ef45e38701676b1621f38f2995ea3f08f18f410eb44dd129da9163b005a6",
+      "matches_previous": true
+    }
+  ],
+  "version": "Undated live source; content identified by SHA-256",
+  "checks": {
+    "published_chains": 16,
+    "matches_saved_ordered_lists": true,
+    "strict_valid_27_addition_witnesses": true,
+    "selected109_parent_sums": 11,
+    "diagram_visually_rechecked": true
+  },
+  "scope": "Use selected parent graph and outgoing cap interpretation only. No published optimum or exclusion is assumed."
+}
