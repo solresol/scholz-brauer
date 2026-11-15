@@ -1,0 +1,62 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "build"
+      ],
+      "cwd": "/workspace/scholz-brauer/lean",
+      "exit_code": 0,
+      "seconds": 3.0031565880000244,
+      "log": "results/2026-11-15-sink-classifier-build.txt"
+    },
+    {
+      "argv": [
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake",
+        "env",
+        "/workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean",
+        "Audit.lean"
+      ],
+      "cwd": "/workspace/scholz-brauer/lean",
+      "exit_code": 0,
+      "seconds": 34.04837183199999,
+      "log": "results/2026-11-15-sink-classifier-audit.txt"
+    }
+  ],
+  "audit_entries": 459,
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "source_sha256": {
+    "lean/lean-toolchain": "d55ca0039a5479db5b38919d005b2c427b89b3be4f0184a20f2f4eae931f5bdb",
+    "lean/lake-manifest.json": "e61c4eb369fbd3376e38e9c1089f91d8139725ebf94c08c12af1b9fbd3ebade5",
+    "lean/lakefile.toml": "999d40df6d9c208fc92daadf573b2d2684aab5d19d98f83ed369cbba28fab7e8",
+    "lean/ScholzBrauer.lean": "7065edc4a28723c8572080a189e0f38a5a899764787a2e6d19bb6fe7b10dce88",
+    "lean/Audit.lean": "385eecab1533ca70b1095541f1022e9b81b1993ba5c7f5ca90ffa1a2f80364a1",
+    "lean/ScholzBrauer/Clift109SinkClassifier.lean": "e6a93a43d55ea7267bf90cde09306f93937e3e62c37f6fd07e07188a3370c731",
+    "lean/ScholzBrauer/Clift109SinkClassifierChecks.lean": "e0e2aebd02654b8593b5c118b16dc202c06e1f5cde05880f2be5754ff09856ae"
+  },
+  "guards": {
+    "timeout_seconds_each": 300,
+    "reserve_GiB": 2,
+    "process_group_RSS_GiB": 12,
+    "LEAN_NUM_THREADS": "2",
+    "MATHLIB_CACHE_DIR": "/workspace/shared/theorem-provers/cache/scholz"
+  },
+  "claim_boundary": "Sound and complete fixed-box/actual-sink-position interval classifier, at most two anchors, and checked rejection of one relaxed common-box input. Outer interval/cap classification and full 108-doubling exclusion remain open.",
+  "saved_regression": {
+    "argv": [
+      "python3",
+      "scripts/check_clift109_box.py",
+      "results/2026-10-18-clift109-box-exclusion.json"
+    ],
+    "exit_code": 0,
+    "configurations": 216,
+    "negative_cycles_checked": 3456,
+    "replayed_additions": 120,
+    "rejected_corruptions": 7,
+    "scope": "Saved cases checked; outer enumeration completeness and optimum remain computational."
+  }
+}

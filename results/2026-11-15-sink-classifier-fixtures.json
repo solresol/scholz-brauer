@@ -1,0 +1,1413 @@
+{
+  "accessed_at_utc": "2026-11-15T21:13:49.513734+00:00",
+  "base_commit": "2e9f5b5693abb125e2c5ace067106b6bcf469690",
+  "command": [
+    "python3",
+    "scripts/experiment_clift109_sink_classifier.py",
+    "--output",
+    "results/2026-11-15-sink-classifier-fixtures.json"
+  ],
+  "python": "3.12.14",
+  "random_seed": null,
+  "dependencies": "Python standard library and existing project modules",
+  "timeout_seconds": 60,
+  "elapsed_seconds": 1.1470070560000067,
+  "bounds": {
+    "interval": [
+      0,
+      108
+    ],
+    "saved_fixtures": 216,
+    "direct_anchor": [
+      0,
+      108
+    ],
+    "direct_q": [
+      -108,
+      108
+    ],
+    "direct_fixed_inputs": 3
+  },
+  "saved_configurations_recovered": 216,
+  "corruptions_rejected": 648,
+  "fixtures": [
+    {
+      "fixture_index": 0,
+      "anchors": [
+        22
+      ]
+    },
+    {
+      "fixture_index": 1,
+      "anchors": [
+        18
+      ]
+    },
+    {
+      "fixture_index": 2,
+      "anchors": [
+        20
+      ]
+    },
+    {
+      "fixture_index": 3,
+      "anchors": [
+        16
+      ]
+    },
+    {
+      "fixture_index": 4,
+      "anchors": [
+        27
+      ]
+    },
+    {
+      "fixture_index": 5,
+      "anchors": [
+        23
+      ]
+    },
+    {
+      "fixture_index": 6,
+      "anchors": [
+        25
+      ]
+    },
+    {
+      "fixture_index": 7,
+      "anchors": [
+        21
+      ]
+    },
+    {
+      "fixture_index": 8,
+      "anchors": [
+        29
+      ]
+    },
+    {
+      "fixture_index": 9,
+      "anchors": [
+        25
+      ]
+    },
+    {
+      "fixture_index": 10,
+      "anchors": [
+        27
+      ]
+    },
+    {
+      "fixture_index": 11,
+      "anchors": [
+        23
+      ]
+    },
+    {
+      "fixture_index": 12,
+      "anchors": [
+        6
+      ]
+    },
+    {
+      "fixture_index": 13,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 14,
+      "anchors": [
+        4
+      ]
+    },
+    {
+      "fixture_index": 15,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 16,
+      "anchors": [
+        34
+      ]
+    },
+    {
+      "fixture_index": 17,
+      "anchors": [
+        30
+      ]
+    },
+    {
+      "fixture_index": 18,
+      "anchors": [
+        32
+      ]
+    },
+    {
+      "fixture_index": 19,
+      "anchors": [
+        28
+      ]
+    },
+    {
+      "fixture_index": 20,
+      "anchors": [
+        11
+      ]
+    },
+    {
+      "fixture_index": 21,
+      "anchors": [
+        7
+      ]
+    },
+    {
+      "fixture_index": 22,
+      "anchors": [
+        9
+      ]
+    },
+    {
+      "fixture_index": 23,
+      "anchors": [
+        5
+      ]
+    },
+    {
+      "fixture_index": 24,
+      "anchors": [
+        13
+      ]
+    },
+    {
+      "fixture_index": 25,
+      "anchors": [
+        9
+      ]
+    },
+    {
+      "fixture_index": 26,
+      "anchors": [
+        11
+      ]
+    },
+    {
+      "fixture_index": 27,
+      "anchors": [
+        7
+      ]
+    },
+    {
+      "fixture_index": 28,
+      "anchors": [
+        18
+      ]
+    },
+    {
+      "fixture_index": 29,
+      "anchors": [
+        14
+      ]
+    },
+    {
+      "fixture_index": 30,
+      "anchors": [
+        16
+      ]
+    },
+    {
+      "fixture_index": 31,
+      "anchors": [
+        12
+      ]
+    },
+    {
+      "fixture_index": 32,
+      "anchors": [
+        14
+      ]
+    },
+    {
+      "fixture_index": 33,
+      "anchors": [
+        10
+      ]
+    },
+    {
+      "fixture_index": 34,
+      "anchors": [
+        12
+      ]
+    },
+    {
+      "fixture_index": 35,
+      "anchors": [
+        8
+      ]
+    },
+    {
+      "fixture_index": 36,
+      "anchors": [
+        19
+      ]
+    },
+    {
+      "fixture_index": 37,
+      "anchors": [
+        15
+      ]
+    },
+    {
+      "fixture_index": 38,
+      "anchors": [
+        17
+      ]
+    },
+    {
+      "fixture_index": 39,
+      "anchors": [
+        13
+      ]
+    },
+    {
+      "fixture_index": 40,
+      "anchors": [
+        21
+      ]
+    },
+    {
+      "fixture_index": 41,
+      "anchors": [
+        17
+      ]
+    },
+    {
+      "fixture_index": 42,
+      "anchors": [
+        19
+      ]
+    },
+    {
+      "fixture_index": 43,
+      "anchors": [
+        15
+      ]
+    },
+    {
+      "fixture_index": 44,
+      "anchors": [
+        26
+      ]
+    },
+    {
+      "fixture_index": 45,
+      "anchors": [
+        22
+      ]
+    },
+    {
+      "fixture_index": 46,
+      "anchors": [
+        24
+      ]
+    },
+    {
+      "fixture_index": 47,
+      "anchors": [
+        20
+      ]
+    },
+    {
+      "fixture_index": 48,
+      "anchors": [
+        22
+      ]
+    },
+    {
+      "fixture_index": 49,
+      "anchors": [
+        18
+      ]
+    },
+    {
+      "fixture_index": 50,
+      "anchors": [
+        20
+      ]
+    },
+    {
+      "fixture_index": 51,
+      "anchors": [
+        16
+      ]
+    },
+    {
+      "fixture_index": 52,
+      "anchors": [
+        29
+      ]
+    },
+    {
+      "fixture_index": 53,
+      "anchors": [
+        25
+      ]
+    },
+    {
+      "fixture_index": 54,
+      "anchors": [
+        27
+      ]
+    },
+    {
+      "fixture_index": 55,
+      "anchors": [
+        23
+      ]
+    },
+    {
+      "fixture_index": 56,
+      "anchors": [
+        6
+      ]
+    },
+    {
+      "fixture_index": 57,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 58,
+      "anchors": [
+        4
+      ]
+    },
+    {
+      "fixture_index": 59,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 60,
+      "anchors": [
+        13
+      ]
+    },
+    {
+      "fixture_index": 61,
+      "anchors": [
+        9
+      ]
+    },
+    {
+      "fixture_index": 62,
+      "anchors": [
+        11
+      ]
+    },
+    {
+      "fixture_index": 63,
+      "anchors": [
+        7
+      ]
+    },
+    {
+      "fixture_index": 64,
+      "anchors": [
+        14
+      ]
+    },
+    {
+      "fixture_index": 65,
+      "anchors": [
+        10
+      ]
+    },
+    {
+      "fixture_index": 66,
+      "anchors": [
+        12
+      ]
+    },
+    {
+      "fixture_index": 67,
+      "anchors": [
+        8
+      ]
+    },
+    {
+      "fixture_index": 68,
+      "anchors": [
+        21
+      ]
+    },
+    {
+      "fixture_index": 69,
+      "anchors": [
+        17
+      ]
+    },
+    {
+      "fixture_index": 70,
+      "anchors": [
+        19
+      ]
+    },
+    {
+      "fixture_index": 71,
+      "anchors": [
+        15
+      ]
+    },
+    {
+      "fixture_index": 72,
+      "anchors": [
+        22
+      ]
+    },
+    {
+      "fixture_index": 73,
+      "anchors": [
+        18
+      ]
+    },
+    {
+      "fixture_index": 74,
+      "anchors": [
+        20
+      ]
+    },
+    {
+      "fixture_index": 75,
+      "anchors": [
+        16
+      ]
+    },
+    {
+      "fixture_index": 76,
+      "anchors": [
+        27
+      ]
+    },
+    {
+      "fixture_index": 77,
+      "anchors": [
+        23
+      ]
+    },
+    {
+      "fixture_index": 78,
+      "anchors": [
+        25
+      ]
+    },
+    {
+      "fixture_index": 79,
+      "anchors": [
+        21
+      ]
+    },
+    {
+      "fixture_index": 80,
+      "anchors": [
+        6
+      ]
+    },
+    {
+      "fixture_index": 81,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 82,
+      "anchors": [
+        4
+      ]
+    },
+    {
+      "fixture_index": 83,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 84,
+      "anchors": [
+        11
+      ]
+    },
+    {
+      "fixture_index": 85,
+      "anchors": [
+        7
+      ]
+    },
+    {
+      "fixture_index": 86,
+      "anchors": [
+        9
+      ]
+    },
+    {
+      "fixture_index": 87,
+      "anchors": [
+        5
+      ]
+    },
+    {
+      "fixture_index": 88,
+      "anchors": [
+        14
+      ]
+    },
+    {
+      "fixture_index": 89,
+      "anchors": [
+        10
+      ]
+    },
+    {
+      "fixture_index": 90,
+      "anchors": [
+        12
+      ]
+    },
+    {
+      "fixture_index": 91,
+      "anchors": [
+        8
+      ]
+    },
+    {
+      "fixture_index": 92,
+      "anchors": [
+        19
+      ]
+    },
+    {
+      "fixture_index": 93,
+      "anchors": [
+        15
+      ]
+    },
+    {
+      "fixture_index": 94,
+      "anchors": [
+        17
+      ]
+    },
+    {
+      "fixture_index": 95,
+      "anchors": [
+        13
+      ]
+    },
+    {
+      "fixture_index": 96,
+      "anchors": [
+        22
+      ]
+    },
+    {
+      "fixture_index": 97,
+      "anchors": [
+        18
+      ]
+    },
+    {
+      "fixture_index": 98,
+      "anchors": [
+        20
+      ]
+    },
+    {
+      "fixture_index": 99,
+      "anchors": [
+        16
+      ]
+    },
+    {
+      "fixture_index": 100,
+      "anchors": [
+        6
+      ]
+    },
+    {
+      "fixture_index": 101,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 102,
+      "anchors": [
+        4
+      ]
+    },
+    {
+      "fixture_index": 103,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 104,
+      "anchors": [
+        14
+      ]
+    },
+    {
+      "fixture_index": 105,
+      "anchors": [
+        10
+      ]
+    },
+    {
+      "fixture_index": 106,
+      "anchors": [
+        12
+      ]
+    },
+    {
+      "fixture_index": 107,
+      "anchors": [
+        8
+      ]
+    },
+    {
+      "fixture_index": 108,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 109,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 110,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 111,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 112,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 113,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 114,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 115,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 116,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 117,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 118,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 119,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 120,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 121,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 122,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 123,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 124,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 125,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 126,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 127,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 128,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 129,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 130,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 131,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 132,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 133,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 134,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 135,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 136,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 137,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 138,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 139,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 140,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 141,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 142,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 143,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 144,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 145,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 146,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 147,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 148,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 149,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 150,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 151,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 152,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 153,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 154,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 155,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 156,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 157,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 158,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 159,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 160,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 161,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 162,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 163,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 164,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 165,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 166,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 167,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 168,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 169,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 170,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 171,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 172,
+      "anchors": [
+        105
+      ]
+    },
+    {
+      "fixture_index": 173,
+      "anchors": [
+        103
+      ]
+    },
+    {
+      "fixture_index": 174,
+      "anchors": [
+        104
+      ]
+    },
+    {
+      "fixture_index": 175,
+      "anchors": [
+        102
+      ]
+    },
+    {
+      "fixture_index": 176,
+      "anchors": [
+        3
+      ]
+    },
+    {
+      "fixture_index": 177,
+      "anchors": [
+        1
+      ]
+    },
+    {
+      "fixture_index": 178,
+      "anchors": [
+        2
+      ]
+    },
+    {
+      "fixture_index": 179,
+      "anchors": [
+        0
+      ]
+    },
+    {
+      "fixture_index": 180,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 181,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 182,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 183,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 184,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 185,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 186,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 187,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 188,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 189,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 190,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 191,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 192,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 193,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 194,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 195,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 196,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 197,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 198,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 199,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 200,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 201,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 202,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 203,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 204,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 205,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 206,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 207,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 208,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 209,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 210,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 211,
+      "anchors": [
+        51
+      ]
+    },
+    {
+      "fixture_index": 212,
+      "anchors": [
+        54
+      ]
+    },
+    {
+      "fixture_index": 213,
+      "anchors": [
+        52
+      ]
+    },
+    {
+      "fixture_index": 214,
+      "anchors": [
+        53
+      ]
+    },
+    {
+      "fixture_index": 215,
+      "anchors": [
+        51
+      ]
+    }
+  ],
+  "independent_direct_comparisons": [
+    {
+      "box_roles": [
+        1,
+        2,
+        4,
+        51,
+        23,
+        8,
+        0
+      ],
+      "positions": [
+        104,
+        102,
+        108
+      ],
+      "direct_coordinate_pairs_checked": 23653,
+      "accepted_coordinates": [
+        [
+          1,
+          2,
+          4,
+          51,
+          23,
+          8,
+          0,
+          86,
+          28,
+          18,
+          16,
+          22
+        ]
+      ]
+    },
+    {
+      "box_roles": [
+        2,
+        16,
+        8,
+        3,
+        4,
+        32,
+        0
+      ],
+      "positions": [
+        66,
+        69,
+        1
+      ],
+      "direct_coordinate_pairs_checked": 23653,
+      "accepted_coordinates": []
+    },
+    {
+      "box_roles": [
+        1,
+        2,
+        4,
+        51,
+        23,
+        8,
+        0
+      ],
+      "positions": [
+        104,
+        102,
+        109
+      ],
+      "direct_coordinate_pairs_checked": 23653,
+      "accepted_coordinates": []
+    }
+  ],
+  "input_sha256": {
+    "scripts/experiment_clift109_sink_classifier.py": "61a81956b62ebfd7c1d071dcaaf94aafc12b973141b9f4a0393a62df8b8d3355",
+    "results/2026-10-18-clift109-box-exclusion.json": "dca9a0be146137c95e6f251cdfd8f44abaf84364b4d026d2af0a628f8f875241",
+    "scripts/clift109_box_dual.py": "41da5587861ef99fc9d631cc6a44b98dde3c4a641091085c79c0f86f9965496d",
+    "scripts/experiment_clift109_box.py": "3dc59dac47c4a596710491ae104fb6c81a161f9f9754b7e7a051e0c960feca99",
+    "scripts/experiment_clift109_common_box.py": "b4e375f821d86b9afc7cd5467eeec00058160e2e425447d0c25ed9e6f94088e1",
+    "scripts/experiment_clift109_half_reconstruction.py": "f71e69893bad6795d88fb578ae8dea72bea4781efd88f2c6df8f763e63758db1",
+    "lean/ScholzBrauer/Clift109SinkClassifier.lean": "e6a93a43d55ea7267bf90cde09306f93937e3e62c37f6fd07e07188a3370c731",
+    "lean/ScholzBrauer/Clift109SinkClassifierChecks.lean": "e0e2aebd02654b8593b5c118b16dc202c06e1f5cde05880f2be5754ff09856ae"
+  },
+  "claim_boundary": "Fixed-input classifier checks only; the local iff and at-most-two bound are proved separately in Lean. No outer enumeration completeness, pair removal, cap feasibility, full 108-doubling exclusion or new Scholz instance follows."
+}

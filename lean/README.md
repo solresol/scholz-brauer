@@ -569,3 +569,20 @@ quadratic calculation and retains one anchor per fixture. This is a fixture
 check, without a new enumeration or Lean completeness theorem. The necessary
 pair domain remains 278 kernel-checked / 246 computational. Full selected-109
 exclusion remains open. See `../results/2026-11-14-half-reconstruction.md`.
+
+## Fixed-box sink interval classification — 15 November 2026 UTC
+
+`Clift109SinkClassifier.lean` turns exact halving and reconstruction into a
+sound and complete finite classifier for fixed box roles and actual sink
+exception positions. `mem_sinkIntervalAnchors_iff` characterizes accepted
+anchors by existence of a complete coordinate interval tuple. The explicit
+partition check preserves multiplicities and guards multiset subtraction.
+At most two anchors survive, with bounded positions; every original
+budget-108 labelling is retained at its actual inputs.
+
+`Clift109SinkClassifierChecks.lean` kernel-checks a positive interval fixture
+and rules out all completions of the earlier relaxed common-box example at
+its fixed box roles and exception positions. Seventeen new public theorems
+enter the 459-entry axiom audit. The outer box/position enumeration and cap
+exclusion remain open; the pair domains and computational minimum are
+unchanged. See `../results/2026-11-15-sink-classifier.md`.

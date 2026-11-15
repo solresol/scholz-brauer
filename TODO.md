@@ -23,9 +23,9 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-14 UTC / 15 November (Sunday, Australia/Sydney).
+Updated 2026-11-15 UTC / 16 November (Monday, Australia/Sydney).
 
-The full published startup gate passes again on 14 November UTC / 15 November Sydney,
+The full published startup gate passes on 15 November UTC / 16 November Sydney,
 reusing the prepared runtime after its separate repair. This research invocation
 does not repair shared state. The earlier missing-receipt failure remains in
 the research log as historical evidence.
@@ -226,6 +226,16 @@ Fin cases to remove the previous reduction bottleneck.
   the actual anchor uniquely in all 216 saved fixtures; this last uniqueness
   count is computational and does not certify fixture completeness. See
   [14 November result](results/2026-11-14-half-reconstruction.md).
+- [x] Prove a sound and complete finite interval classifier for fixed box
+  roles and actual sink exception positions. Exact halving plus the full
+  prescribed nineteen-weight shape retains at most two anchors; every
+  original budget-108 labelling is retained. Kernel-check a positive fixture
+  and exclude EVERY interval completion of the earlier relaxed common-box
+  example at its fixed positions, including different anchors. All 216 saved
+  fixtures pass; three independent bounded anchor/q enumerations agree.
+  These are local classifications, without outer enumeration completeness,
+  cap feasibility or a pair removal. See
+  [15 November result](results/2026-11-15-sink-classifier.md).
 - [ ] Combine the kernel-checked 278-pair necessary domain, computational
   246-pair common-box refinement and actual
   exceptional positions with box dissociation, both odd-run restrictions,
@@ -239,9 +249,12 @@ Fin cases to remove the previous reduction bottleneck.
   box or the other coordinates. Even a common box and the actual exceptions
   of one coordinate tuple permit unrelated halves: retain the prescribed
   `sourceHalf c` and `sinkHalf c`, alongside critical-path/cap constraints.
-  Use the proved moment test to reduce each fixed sink reconstruction to at
-  most two anchors, then check its full nineteen-weight shape; neither the
-  moments nor the existing fixture list certify interval enumeration completeness.
+  The proved `sinkIntervalAnchors` classifier now checks the full prescribed
+  shape and has an exact fixed-input iff with at most two anchors. Prove
+  coverage of the OUTER box-role/actual-position choices and kernel-check the
+  surviving inputs, then apply the oriented critical/cap constraints. Neither
+  the local iff nor the existing fixture list certifies outer enumeration
+  completeness. The 32 common-box removals remain computational if used.
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).

@@ -1,5 +1,71 @@
 # Research log
 
+## 2026-11-15 UTC — complete fixed-box sink interval classifier
+
+The authorized 15 November 21:00 UTC / Monday 16 November Sydney run advances
+Lean exclusion of a 108-doubling labelling for Clift's selected 109 graph.
+Seventeen new public theorems turn the existing exact half reconstruction
+into `sinkIntervalAnchors`: a sound and complete finite classifier for fixed
+seven box-role coordinates and actual sink exception positions. It checks
+the complete multiset partition and prescribed nineteen-weight shape, retaining
+at most two anchors. The exact iff quantifies over all coordinate tuples at
+those inputs; it is not a moment-only relaxation. Completeness requires
+positive d1, and every original budget-108 labelling is retained. Accepted
+anchors satisfy 0<=a and a+d1<109.
+
+Kernel evaluation returns exactly {22} for one saved interval fixture and
+the empty set for the earlier relaxed common-box example at positions
+(66,69,1). A resulting theorem rules out EVERY interval completion of that
+fixed example, even with a different anchor. It does not remove the whole
+pair (2,3). Outer box/position coverage and cap exclusion remain open.
+The pair domains remain 278 kernel-checked / 246 computational; the exact
+minimum 109 remains computational, without a new Scholz instance.
+
+A bounded fixture check recovers all 216 saved interval tuples, one anchor
+each, and rejects 648 invalid partitions. Independent direct anchor/q
+enumeration on three fixed inputs checks 23,653 coordinate pairs each and
+agrees on the entire accepted tuple list. Bounds: anchor 0..108, q -108..108,
+interval 0..108; Python 3.12.14, standard library and existing modules,
+no seed, 60-second timeout, 1.147 seconds. Reproduce with
+`PYTHONDONTWRITEBYTECODE=1 python3 scripts/experiment_clift109_sink_classifier.py
+--output /tmp/sink-classifier.json` at an unused path. The saved graph
+regression separately verifies 3,456 negative cycles, 120-addition replay,
+and seven corruptions. No outer enumeration is repeated or certified here.
+
+Read START.md; no applicable AGENTS.md is present. The full published startup
+gate passes before Lean. Clean work, fetched origin/main and live main equal
+2e9f5b5693abb125e2c5ace067106b6bcf469690 at entry; exact solresol origin and
+ancestry are verified, and the ff-only update is already current. No competing
+research process/marker is found; a local exclusive marker protects this run.
+Use the installed absolute 4.27.0 tools with prepare.env_for('scholz'), two
+threads, isolated cache, 2 GiB reserve and 12 GiB RSS guard. Final recorded
+incremental build: 1,179 jobs, 3.003 seconds; the two new modules were compiled
+successfully beforehand. Fail-closed audit: 459 entries, 34.048 seconds,
+including seventeen new public theorems and transitive dependencies, with
+only propext, Quot.sound and Classical.choice. No placeholder, project axiom,
+native shortcut or target assumption. Only the old generated simp warning
+remains. Lean/mathlib/Lake/manifest pins remain unchanged. An initial
+simplifier attempt exhausted its heartbeat limit; ordered rewriting resolves
+it without raising the theorem's limit. No timeout is used as an exclusion.
+
+Read the current 13 November human literature checkpoint, two UTC days old,
+with existing HAL/publisher full-text limitations. No external theorem or
+broad search is used. Clift's undated primary page and selected PNG are
+accessed 15 November: hashes match the previous source record; the existing
+diagram reconstruction is reused without a fresh visual-inspection claim.
+All eleven selected sums check. All sixteen published 5,784,689 chains match
+the archive and pass fresh strict 27-addition witness checks; published
+optimality/exclusion are not assumed. URLs, versions, hashes and access time
+are recorded in data/2026-11-15-sink-classifier-sources.json. No sibling,
+published runtime, environment setting, credential or schedule changes;
+no whole-integration or remote CI claim.
+
+See [result and next obligation](results/2026-11-15-sink-classifier.md), fixture
+JSON, build/audit logs and verification JSON. Next: prove outer box-role and
+actual-position coverage, kernel-check surviving classifier inputs, and apply
+the twelve critical families, 64 orientations and signed gauge/cap constraints.
+The 32 computational common-box removals still need certification if used.
+
 ## 2026-11-14 UTC — prescribed sink-half recovery and at most two anchors
 
 The authorized 14 November 21:00 UTC / Sunday 15 November Sydney run advances

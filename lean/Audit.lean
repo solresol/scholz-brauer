@@ -482,3 +482,21 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.sink_moments_of_prescribed_half
 #print axioms ScholzBrauer.Clift109.sink_moments_at_most_two_anchors
 #print axioms ScholzBrauer.Clift109.sink_reconstruction_at_most_two_anchors
+
+#print axioms ScholzBrauer.Clift109.reconstructSink_same_box
+#print axioms ScholzBrauer.Clift109.reconstructSink_positions
+#print axioms ScholzBrauer.Clift109.reconstructSink_box
+#print axioms ScholzBrauer.Clift109.sinkExceptions_eq_placed
+#print axioms ScholzBrauer.Clift109.reconstructSink_exceptions
+#print axioms ScholzBrauer.Clift109.reconstructSink_eq_of_same_box
+#print axioms ScholzBrauer.Clift109.mem_sinkShapeAnchors
+#print axioms ScholzBrauer.Clift109.card_sinkShapeAnchors_le_two
+#print axioms ScholzBrauer.Clift109.sinkIntervalAnchors_sound
+#print axioms ScholzBrauer.Clift109.card_sinkIntervalAnchors_le_two
+#print axioms ScholzBrauer.Clift109.sinkIntervalAnchors_complete
+#print axioms ScholzBrauer.Clift109.mem_sinkIntervalAnchors_iff
+#print axioms ScholzBrauer.Clift109.sinkIntervalAnchors_bounds
+#print axioms ScholzBrauer.Clift109.sink_classifier_of_budget
+#print axioms ScholzBrauer.Clift109.sink_classifier_fixture_checked
+#print axioms ScholzBrauer.Clift109.sink_classifier_gap_checked
+#print axioms ScholzBrauer.Clift109.common_box_gap_no_interval_completion

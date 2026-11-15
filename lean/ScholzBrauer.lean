@@ -35,3 +35,5 @@ import ScholzBrauer.Clift109PlacedPairs
 import ScholzBrauer.Clift109AlternatingDomain
 import ScholzBrauer.Clift109CommonBoxExample
 import ScholzBrauer.Clift109HalfReconstruction
+import ScholzBrauer.Clift109SinkClassifier
+import ScholzBrauer.Clift109SinkClassifierChecks
