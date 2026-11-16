@@ -23,9 +23,9 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-15 UTC / 16 November (Monday, Australia/Sydney).
+Updated 2026-11-16 UTC / 17 November (Tuesday, Australia/Sydney).
 
-The full published startup gate passes on 15 November UTC / 16 November Sydney,
+The full published startup gate passes on 16 November UTC / 17 November Sydney,
 reusing the prepared runtime after its separate repair. This research invocation
 does not repair shared state. The earlier missing-receipt failure remains in
 the research log as historical evidence.
@@ -236,6 +236,16 @@ Fin cases to remove the previous reduction bottleneck.
   These are local classifications, without outer enumeration completeness,
   cap feasibility or a pair removal. See
   [15 November result](results/2026-11-15-sink-classifier.md).
+- [x] Prove complete actual sink-position coverage for arbitrary fixed box
+  roles, using staged multiset inclusion and the existing signed fingerprint.
+  Prove saturated odd-residue position pruning. Kernel-classify ALL positions
+  and anchors for roles (1,2,4,51,23,8,0): exactly four interval tuples.
+  Exclude every budget-108 labelling at those roles, including all 64
+  orientations, every endpoint-fixed gauge and every natural cap allocation.
+  This is a fixed-role exclusion, not a pair removal. Bounded scans of the
+  48 saved role inputs recover exactly 216 configurations; their outer
+  coverage is not assumed. See
+  [16 November result](results/2026-11-16-sink-positions.md).
 - [ ] Combine the kernel-checked 278-pair necessary domain, computational
   246-pair common-box refinement and actual
   exceptional positions with box dissociation, both odd-run restrictions,
@@ -250,11 +260,14 @@ Fin cases to remove the previous reduction bottleneck.
   of one coordinate tuple permit unrelated halves: retain the prescribed
   `sourceHalf c` and `sinkHalf c`, alongside critical-path/cap constraints.
   The proved `sinkIntervalAnchors` classifier now checks the full prescribed
-  shape and has an exact fixed-input iff with at most two anchors. Prove
-  coverage of the OUTER box-role/actual-position choices and kernel-check the
-  surviving inputs, then apply the oriented critical/cap constraints. Neither
-  the local iff nor the existing fixture list certifies outer enumeration
-  completeness. The 32 common-box removals remain computational if used.
+  shape and has an exact fixed-input iff with at most two anchors.
+  `sinkPositionChoices` now covers ALL actual positions at each fixed box;
+  one complete ordered box-role subclass is also cap-excluded. Prove coverage
+  of the OUTER box-role choices and kernel-check the other surviving inputs,
+  then apply oriented critical/cap constraints. The 48 saved box-role inputs
+  do not certify outer box completeness. Saturated-residue pruning is inactive
+  when fewer than seven odd residues occur. The 32 common-box removals remain
+  computational if used.
 
 - [x] Recheck and validate Clift's `[1,2,4,8,9,13,16,29]`, including unique
   parent pairs and exclusion of every Hansen marking (also kernel checked).

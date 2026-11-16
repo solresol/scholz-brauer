@@ -1,0 +1,4 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake build ScholzBrauer.Clift109SinkPositionCapChecks02
+✔ [1123/1123] Built ScholzBrauer.Clift109SinkPositionCapChecks02 (104s)
+Build completed successfully (1123 jobs).
+Guarded elapsed seconds: 106.074

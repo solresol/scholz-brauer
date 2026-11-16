@@ -1,5 +1,87 @@
 # Research log
 
+## 2026-11-16 UTC — complete fixed-box positions and local cap exclusion
+
+The authorized 16 November 21:00 UTC / Tuesday 17 November Sydney run advances
+kernel exclusion of a 108-doubling labelling for Clift's selected 109 graph.
+`Clift109SinkPositions.lean` proves complete actual sink-position coverage at
+arbitrary fixed seven box roles, using staged multiset inclusion, the existing
+signed fingerprint and the full prescribed nineteen-weight classifier.
+When seven exceptions must supply seven odd residues, a new general cardinality
+argument forces every exception into those residues. Exact halving also makes
+an interval tuple unique once box roles, actual positions and anchor are fixed.
+Both coverage and classification transport to original budget-108 labellings.
+
+For ordered roles (u,v,w,d1,d2,d3,t)=(1,2,4,51,23,8,0), kernel checks reduce
+all actual positions to six inputs and then exactly four complete coordinate
+tuples. The list has an exact membership iff with the interval equation,
+without assuming a saved fixture enumeration. Four separate cap-check modules
+exclude all 64 orientations of each tuple, every endpoint-fixed integer gauge,
+and every natural cap allocation of budget at most 108. Linear arithmetic uses
+all 22 existing oriented edge constraints. `sink_position_box_no_budget`
+therefore excludes EVERY original budget-108 labelling at these seven roles.
+Twenty public theorems and their private dependencies enter the axiom audit.
+This is one fixed-role subclass, not a pair removal; swapping w/d3 is another
+input. The global minimum 109 remains computational and the necessary pair
+domains remain 278 kernel-checked / 246 computational. No new Scholz instance.
+
+The bounded driver scans every structural position placement at 48 saved
+box-role inputs and the relaxed (2,3) example's box: 1,157,247 placements.
+Pruned and unpruned scans recover exactly the 216 saved interval configurations
+at those 48 choices. The relaxed box has no interval completion at ANY actual
+positions computationally, with 1,089 remaining fingerprint inputs. The scans
+share the existing full-shape classifier; they are not independent acceptance
+algorithms and do not prove outer box completeness. Bounds: interval 0..108,
+all disjoint seven-point shapes in the 45-point complement, 49 fixed role inputs;
+Python 3.12.14, standard library/existing modules, no seed, 120-second bound,
+26.078 seconds. Reproduce using
+`PYTHONDONTWRITEBYTECODE=1 python3 scripts/experiment_clift109_sink_positions.py
+--output /tmp/sink-positions.json` at an unused path. Exact input hashes,
+per-role counts, position digests and accepted tuples accompany the result.
+The saved graph regression independently rechecks all 3,456 negative cycles,
+120-addition replay and seven corruption controls; no global optimum is promoted.
+
+Read START.md; no applicable AGENTS.md exists. Clean work, fetched origin/main
+and live main equal 2ee054076c137817a15bb22f5a0cffac95321179 at entry. Verify exact
+solresol origin, ancestry and the ff-only update. No competing local process or
+marker is found; this run uses an exclusive checkout-local marker. The full
+published startup gate passes before Lean. Reuse installed absolute 4.27.0
+Lean/Lake, prepare.env_for('scholz'), two threads, isolated cache, 2 GiB reserve
+and 12 GiB process-group RSS guard. All Lean/mathlib/Lake/manifest pins remain
+unchanged. Final build, individual cap builds, fail-closed audit and runtime/
+source-hash verification are saved with the result. Final incremental build:
+1,186 jobs in 4.003 guarded seconds. Cap batches: 108.074, 105.062, 106.074,
+104.085 seconds; composition: 4.005 seconds. Fail-closed audit: all 479 entries
+in 28.349 seconds, only propext, Quot.sound and Classical.choice, including all
+new transitive dependencies. Only the old generated simp warning remains.
+No placeholders, project
+axioms, native acceptance or target assumption are introduced.
+
+The monolithic position check hits the unchanged memory guard after about
+104 seconds; separate rectangle branches and reifying their common remainder
+still each time out at 300 seconds. Saturated odd-residue pruning reduces
+33 rectangle starts to four, and the revised complete position module compiles
+in 16 seconds. The combined cap command also hits 300 seconds; separate
+64-orientation proof files keep each check within the same bound. Exact
+commands and failure reasons are retained. No timeout establishes exclusion.
+
+Read the 13 November weekly human literature checkpoint, three UTC dates old,
+retaining HAL/publisher access limits. No external theorem or broad search is
+used. Clift's primary page and selected PNG, accessed 16 November, match the
+previous hashes; reuse the already checked graph without claiming a new visual
+inspection. All eleven selected sums and all sixteen published ordered
+5,784,689 chains pass fresh witness checks. Source URLs, versions, access time
+and scope are in data/2026-11-16-sink-positions-sources.json. Published optimality
+is not assumed. No sibling, shared runtime, environment, credentials, security,
+schedule or user-machine change; no whole-integration or remote-CI claim.
+
+See [result and next obligation](results/2026-11-16-sink-positions.md). Next:
+prove complete OUTER box-role coverage, then certify the other position inputs
+and cap systems, keeping both prescribed halves, both odd-run restrictions,
+twelve critical families and 64 orientations. The 32 common-box removals remain
+computational if used. Saturated-residue pruning is inactive for fewer than
+seven odd residues; small-step compatibility, including (2,3), remains open.
+
 ## 2026-11-15 UTC — complete fixed-box sink interval classifier
 
 The authorized 15 November 21:00 UTC / Monday 16 November Sydney run advances

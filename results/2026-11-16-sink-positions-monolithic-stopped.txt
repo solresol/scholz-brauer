@@ -1,0 +1,7 @@
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake env /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean ScholzBrauer/Clift109SinkPositionChecks.lean
+Traceback (most recent call last):
+  File "/tmp/scholz-guarded-run.py", line 12, in <module>
+    p.m.run(args,root,env,(root,p.B),timeout=int(os.environ.get('SCHOLZ_TIMEOUT','300')))
+  File "/workspace/shared/theorem-provers/bootstrap-tested.py", line 74, in run
+    raise RuntimeError("memory guard: command group exceeds 12 GiB RSS")
+RuntimeError: memory guard: command group exceeds 12 GiB RSS

@@ -37,3 +37,6 @@ import ScholzBrauer.Clift109CommonBoxExample
 import ScholzBrauer.Clift109HalfReconstruction
 import ScholzBrauer.Clift109SinkClassifier
 import ScholzBrauer.Clift109SinkClassifierChecks
+import ScholzBrauer.Clift109SinkPositions
+import ScholzBrauer.Clift109SinkPositionChecks
+import ScholzBrauer.Clift109SinkPositionCaps

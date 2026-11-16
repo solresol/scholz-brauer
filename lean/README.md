@@ -586,3 +586,26 @@ its fixed box roles and exception positions. Seventeen new public theorems
 enter the 459-entry axiom audit. The outer box/position enumeration and cap
 exclusion remain open; the pair domains and computational minimum are
 unchanged. See `../results/2026-11-15-sink-classifier.md`.
+
+## Complete fixed-box positions and cap exclusion — 16 November 2026 UTC
+
+`Clift109SinkPositions.lean` proves finite coverage of every actual sink
+rectangle/pair/singleton position at arbitrary fixed box roles. It retains
+multiset multiplicities and the signed fingerprint, and proves that seven
+required odd residues force every exception into one of them. The result
+transports to every original budget-108 labelling; exact halving makes a
+fixed position/anchor completion unique.
+
+`Clift109SinkPositionChecks.lean` completely classifies roles
+`(u,v,w,d1,d2,d3,t)=(1,2,4,51,23,8,0)`: all positions reduce to six inputs,
+and the full prescribed shape leaves exactly four whole coordinate tuples.
+`Clift109SinkPositionCapChecks*.lean` excludes all 64 orientations and every
+endpoint-fixed gauge/natural cap allocation of budget at most 108 for each
+tuple. `Clift109SinkPositionCaps.lean` transports the resulting local exclusion
+to the original natural labelling. Twenty new public theorems enter the audit.
+
+The global outer box-role enumeration remains unproved. Necessary pair domains
+are unchanged at 278 kernel-checked / 246 computational, and the selected
+graph's global minimum 109 remains computational. See
+`../results/2026-11-16-sink-positions.md` for exact scope, bounded scans and
+resource failures that led to saturated-residue pruning and split cap checks.

@@ -500,3 +500,25 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.sink_classifier_fixture_checked
 #print axioms ScholzBrauer.Clift109.sink_classifier_gap_checked
 #print axioms ScholzBrauer.Clift109.common_box_gap_no_interval_completion
+
+#print axioms ScholzBrauer.Clift109.mem_oddLabels_of_card_eq
+#print axioms ScholzBrauer.Clift109.interval_sink_allowed_positions
+#print axioms ScholzBrauer.Clift109.interval_sink_position_fingerprint
+#print axioms ScholzBrauer.Clift109.sinkPositionChoices_complete
+#print axioms ScholzBrauer.Clift109.sink_outer_positions_complete
+#print axioms ScholzBrauer.Clift109.interval_same_sink_inputs_unique
+#print axioms ScholzBrauer.Clift109.sink_positions_of_budget
+#print axioms ScholzBrauer.Clift109.sink_position_rectangle_starts_checked
+#print axioms ScholzBrauer.Clift109.sink_position_box_choices_checked
+#print axioms ScholzBrauer.Clift109.sink_position_box_anchors_checked
+#print axioms ScholzBrauer.Clift109.sink_position_box_complete
+#print axioms ScholzBrauer.Clift109.sink_position_completions_valid
+#print axioms ScholzBrauer.Clift109.sink_position_completions_complete
+#print axioms ScholzBrauer.Clift109.mem_sinkPositionCompletions_iff
+#print axioms ScholzBrauer.Clift109.sink_position_completions_cap_exclusion
+#print axioms ScholzBrauer.Clift109.sink_position_box_no_budget
+
+#print axioms ScholzBrauer.Clift109.sink_position_cap_check_0
+#print axioms ScholzBrauer.Clift109.sink_position_cap_check_1
+#print axioms ScholzBrauer.Clift109.sink_position_cap_check_2
+#print axioms ScholzBrauer.Clift109.sink_position_cap_check_3
