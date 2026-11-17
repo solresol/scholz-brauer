@@ -1,5 +1,85 @@
 # Research log
 
+## 2026-11-17 UTC — complete outer box-role input coverage
+
+The authorized 17 November 21:00 UTC / Wednesday 18 November Sydney run advances
+Lean exclusion of budget 108 for Clift's selected 109 graph. Thirteen new public
+theorems prove complete OUTER input coverage and transport it through the existing
+actual-position and prescribed-half classifier. `Clift109OuterBoxes.lean` proves
+an exact iff for the generic sorted dissociated dimension generator, permutation
+invariance of subset sums with multiplicities, all ordered role/translation
+coverage and soundness, and agreement with the original natural gap/offset
+readout. Every original budget-108 labelling reaches a generated box, the checked
+278-pair domain, both odd-run bounds, its actual sink positions and the full
+nineteen-weight shape. The twelve critical families transport to that same box,
+retaining cap saturation and zero caps away from the critical path. Visiting 8
+pins its translated span at 108; missing 8 retains 5,7,15. Existing all-64-oriented
+signed gauge/cap constraints remain subsequent tests. Two small kernel dimension
+checks and replay of the earlier ordered box preserve roles, including w/d3.
+
+This proves complete input coverage, NOT classification of every outer interval
+output or a new cap exclusion. The global minimum 109 remains computational;
+pair domains remain 278 kernel-checked / 246 computational. No new pair removal,
+Scholz instance, universal lift, novelty or minimum Mersenne-length claim.
+
+A complete new suffix generator agrees with the existing independent prefix
+bit-popcount generator on all 31,048 dimension sets; each output's 64 subset
+sums is separately replayed. There are 263,256 set/translation pairs. Lean
+`#eval` also returns 31,048 in 159.303 guarded seconds; this cardinality remains
+computational. The generator definition is unchanged after that evaluation;
+subsequent module changes add proof declarations only. All 216 saved fixtures
+at 48 ordered role inputs lie in the proved domain; their output completeness
+is not assumed. Bounds: six positive dimensions, total at most 108, all allowed
+translations, 278 necessary ordered step pairs. Reproduce with
+`PYTHONDONTWRITEBYTECODE=1 python3 scripts/experiment_clift109_outer_boxes.py
+--output /tmp/outer-boxes.json` at an unused path. Python 3.12.14, standard
+library/existing module, no seed, 90-second bound, 9.153 seconds; source hashes,
+commands, output digest and timing accompany the result. Existing-output
+refusal preserves bytes. The unchanged graph checker rechecks all 3,456 negative
+cycles, its 120-addition replay and seven corruptions.
+
+The remaining certification scale is now explicit: 189,544,320 ordered roles
+with translations before filters, 60,622,992 after the checked pair domain.
+Fresh packing projections agree with the saved independent exact counts. Saved
+common-box odd-run counts further project to 7,749,936 ordered role inputs, or
+984,480 in the top-pinned branch. Those odd-run counts are NOT rerun and remain
+computational. They are not feasible labellings or a kernel 246-pair reduction.
+The remaining obstacle is scalable kernel certification of pruned outer branches,
+their interval outputs and cap systems, especially small-step compatibility.
+
+Read START.md; no applicable AGENTS.md or checkout `.agents/skills` is present.
+Clean work, correct exact solresol origin, fetched/live main and HEAD all equal
+587fd0e21d5e23e84849f284b038ede18d2f8726 at entry; equal ancestry and ff-only
+update verified. No competing local research process/marker; this run uses an
+exclusive checkout-local marker. The full published startup gate passes before
+Lean. Reuse installed absolute Lean/Lake 4.27.0, prepare.env_for('scholz'), two
+threads, isolated cache, 2 GiB reserve and 12 GiB RSS guard. Build the one missing
+exact-pinned Mathlib permutation object in this checkout only: 502 jobs, 6.013
+guarded seconds. All Lean/mathlib/Lake/manifest pins and clean dependency sources
+are preserved. New modules: 13.020 guarded seconds. Final full build: 1,189 jobs,
+5.008 seconds. Fail-closed audit: all 492 entries, 39.055 seconds, only propext,
+Quot.sound and Classical.choice, including all thirteen new public theorems and
+private dependencies. No placeholder, project axiom, native theorem acceptance
+or target assumption. Only the old generated simp warning remains. Initial
+elaboration/API errors are corrected; no timeout is interpreted as exclusion.
+
+Read the 13 November human literature handoff, four UTC dates old; retain
+HAL/publisher access limitations. No external theorem is relied on and no broad
+search is repeated. Fresh 17 November access to Clift's primary page and selected
+PNG matches the prior hashes; reuse the existing graph reconstruction without a
+fresh visual-inspection claim. All eleven selected sums and all sixteen published
+ordered 5,784,689 chains pass fresh witness checks. URLs, versions/hashes, access
+date and scope are in data/2026-11-17-outer-boxes-sources.json. Published optimality
+is not assumed. No sibling, shared runtime, environment, credential, schedule or
+user-machine changes; no whole-integration or remote-CI claim.
+
+See [result and next obligation](results/2026-11-17-outer-boxes.md). Next: certify
+pruning/evaluation of the staged complete outer domain, the remaining prescribed
+interval outputs and their signed cap systems. Keep both halves, both odd-run
+bounds, twelve families, all 64 orientations and the distinct top/missing-8
+branches. The 32 common-box removals need certification if used; saturated-residue
+pruning is inactive below seven odd residues, and (2,3) remains open.
+
 ## 2026-11-16 UTC — complete fixed-box positions and local cap exclusion
 
 The authorized 16 November 21:00 UTC / Tuesday 17 November Sydney run advances

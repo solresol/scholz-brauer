@@ -23,9 +23,9 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-16 UTC / 17 November (Tuesday, Australia/Sydney).
+Updated 2026-11-17 UTC / 18 November (Wednesday, Australia/Sydney).
 
-The full published startup gate passes on 16 November UTC / 17 November Sydney,
+The full published startup gate passes on 17 November UTC / 18 November Sydney,
 reusing the prepared runtime after its separate repair. This research invocation
 does not repair shared state. The earlier missing-receipt failure remains in
 the research log as historical evidence.
@@ -246,6 +246,17 @@ Fin cases to remove the previous reduction bottleneck.
   48 saved role inputs recover exactly 216 configurations; their outer
   coverage is not assumed. See
   [16 November result](results/2026-11-16-sink-positions.md).
+- [x] Prove complete OUTER box-role coverage: an exact sorted dissociated
+  dimension generator, all role permutations and all permitted translations.
+  Every original budget-108 labelling reaches this domain, the checked
+  278-pair filter, both odd-run bounds, its actual sink positions and the
+  prescribed-half classifier. Transport all twelve critical families to the
+  covered box, keeping the through-8/top-pinned and missing-8/5,7,15 branches
+  separate. Thirteen public theorems are kernel checked and audited.
+  Independent prefix/suffix generators and Lean `#eval` count 31,048 dimension
+  sets; the count and 263,256 translations remain computational. This proves
+  input coverage, without classifying the outer interval/cap outputs. See
+  [17 November result](results/2026-11-17-outer-boxes.md).
 - [ ] Combine the kernel-checked 278-pair necessary domain, computational
   246-pair common-box refinement and actual
   exceptional positions with box dissociation, both odd-run restrictions,
@@ -262,10 +273,14 @@ Fin cases to remove the previous reduction bottleneck.
   The proved `sinkIntervalAnchors` classifier now checks the full prescribed
   shape and has an exact fixed-input iff with at most two anchors.
   `sinkPositionChoices` now covers ALL actual positions at each fixed box;
-  one complete ordered box-role subclass is also cap-excluded. Prove coverage
-  of the OUTER box-role choices and kernel-check the other surviving inputs,
-  then apply oriented critical/cap constraints. The 48 saved box-role inputs
-  do not certify outer box completeness. Saturated-residue pruning is inactive
+  one complete ordered box-role subclass is also cap-excluded. The exact
+  `dissociatedDimensions`/`outerPairRolesAt` domain now has proved OUTER input
+  coverage. Kernel-check its remaining pruned branches and interval-classifier
+  outputs, then apply oriented critical/cap constraints. The 48 saved box-role
+  inputs do not certify the outputs on this full domain. Saved exact odd-run
+  counts imply 7,749,936 ordered role inputs before interval classification,
+  or 984,480 in the top-pinned branch; these counts remain computational.
+  Saturated-residue pruning is inactive
   when fewer than seven odd residues occur. The 32 common-box removals remain
   computational if used.
 

@@ -1,5 +1,19 @@
 import ScholzBrauer
 
+#print axioms ScholzBrauer.CliftLabelling.subsetSums_perm
+#print axioms ScholzBrauer.CliftLabelling.mem_dissociatedDimensions
+#print axioms ScholzBrauer.CliftLabelling.sorted_dimensions_complete
+#print axioms ScholzBrauer.Clift109.outerBoxRoles_complete
+#print axioms ScholzBrauer.Clift109.outerBoxRoles_sound
+#print axioms ScholzBrauer.Clift109.minimumCoordinates_same_outer_box
+#print axioms ScholzBrauer.Clift109.minimumCoordinates_box_span
+#print axioms ScholzBrauer.Clift109.outer_sink_coverage_of_budget
+#print axioms ScholzBrauer.Clift109.pruned_outer_sink_coverage_of_budget
+#print axioms ScholzBrauer.Clift109.outer_critical_branch_of_budget
+#print axioms ScholzBrauer.Clift109.outer_dimensions_two_checked
+#print axioms ScholzBrauer.Clift109.outer_dimensions_three_checked
+#print axioms ScholzBrauer.Clift109.sink_position_box_mem_outer_branch
+
 #print axioms ScholzBrauer.Clift109.testBit_parityMask
 #print axioms ScholzBrauer.Clift109.parityMask_eq_of_oddLabels
 #print axioms ScholzBrauer.Clift109.threePairCompatible_mask

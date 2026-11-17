@@ -1,0 +1,11 @@
+Computational evaluation only; no kernel theorem of this cardinality.
+Source /tmp/outer-count.lean:
+import ScholzBrauer.Clift109OuterBoxes
+#eval (ScholzBrauer.CliftLabelling.dissociatedDimensions 6 1 108).length
+
+The imported module was built successfully before this evaluation. Subsequent
+module changes added proofs only; the evaluated generator definition is unchanged.
+
++ /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lake env /workspace/shared/theorem-provers/runtime/elan/toolchains/leanprover--lean4---v4.27.0/bin/lean /tmp/outer-count.lean
+31048
+Guarded elapsed seconds: 159.303

@@ -609,3 +609,29 @@ are unchanged at 278 kernel-checked / 246 computational, and the selected
 graph's global minimum 109 remains computational. See
 `../results/2026-11-16-sink-positions.md` for exact scope, bounded scans and
 resource failures that led to saturated-residue pruning and split cap checks.
+
+## Complete outer box-role coverage — 17 November 2026 UTC
+
+`Clift109OuterBoxes.lean` proves an exact specification of a finite generator
+of sorted positive dissociated dimension lists within a span budget. Subset
+sums preserve multiplicity under dimension permutations. At six dimensions
+and span 108, every permitted role permutation and translation is covered,
+and every generated input has the stated box conditions. The original
+natural box data match the seven minimum-coordinate roles exactly.
+
+Every original budget-108 labelling therefore reaches a generated outer box,
+the already checked 278-pair filter, BOTH odd-run bounds, its actual sink
+positions and the full prescribed nineteen-weight classifier. The twelve
+critical families transport to the same box with cap saturation/zero-cap
+conditions retained: visiting 8 pins the box at 108; missing 8 requires 5,7,15.
+Existing signed orientation/gauge cap theorems remain the subsequent tests.
+
+`Clift109OuterBoxChecks.lean` adds two small kernel evaluations and checks
+the ordered roles of the previously classified box. Thirteen public theorems
+enter the 492-entry fail-closed axiom audit. Full-domain cardinalities are
+computational: independent prefix/suffix enumeration and Lean `#eval` agree
+on 31,048 dimension sets, with 263,256 translations. No complete outer
+interval-output classification or additional cap exclusion is proved.
+The selected graph's minimum 109 remains computational, and the necessary
+pair domains remain 278 kernel-checked / 246 computational. See
+`../results/2026-11-17-outer-boxes.md` for evidence and the next obligation.

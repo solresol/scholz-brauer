@@ -1,0 +1,51 @@
+{
+  "started_at_utc": "2026-11-17T21:13:21.575426+00:00",
+  "base_commit": "587fd0e21d5e23e84849f284b038ede18d2f8726",
+  "command": [
+    "python3",
+    "scripts/experiment_clift109_outer_boxes.py",
+    "--output",
+    "results/2026-11-17-outer-boxes.json"
+  ],
+  "python": "3.12.14",
+  "random_seed": null,
+  "dependencies": "Python standard library and existing project module",
+  "timeout_seconds": 90,
+  "bounds": {
+    "dimensions": 6,
+    "minimum_dimension": 1,
+    "dimension_sum_max": 108,
+    "translation": "0 <= t <= 108 - sum(dimensions)",
+    "ordered_step_pairs": 278
+  },
+  "dimension_sets": 31048,
+  "dimension_set_offsets": 263256,
+  "dimension_sets_sha256": "7ce2078bbb7baa01abeb7a1ab02d75dde6a8fbbc2ceac34f84917a5f78607007",
+  "complete_prefix_suffix_equality": true,
+  "every_subset_sum_support_independently_replayed": true,
+  "unpruned_ordered_role_inputs": 189544320,
+  "checked_pair_ordered_role_inputs": 60622992,
+  "saved_common_box_projections": {
+    "both_odd_run_ordered_role_inputs": 7749936,
+    "top_pinned_ordered_role_inputs": 984480,
+    "scope": "Derived from saved independent exact common-box counts; odd-run counts not rerun here."
+  },
+  "saved_fixture_membership": {
+    "coordinate_tuples": 216,
+    "ordered_role_inputs": 48
+  },
+  "timings": {
+    "suffix_seconds": 5.603264631000002,
+    "prefix_seconds": 1.7747663420000208
+  },
+  "elapsed_seconds": 9.153140458999928,
+  "input_sha256": {
+    "scripts/experiment_clift109_outer_boxes.py": "8a7c96017cf27b2dcac00b2606141692d384f006a2e7e8ab11634652e9f90c9c",
+    "scripts/clift109_box_dual.py": "41da5587861ef99fc9d631cc6a44b98dde3c4a641091085c79c0f86f9965496d",
+    "results/2026-11-09-placed-pairs.json": "59b714c824d7588b6e3d674c2add2ed446ad6cf79c85c02c7afd13a212c416c3",
+    "results/2026-11-13-common-box.json": "954546c1f27a075995256b094eb95c8a14d7e4286657971bbcd8f1bf47de56a1",
+    "results/2026-10-18-clift109-box-exclusion.json": "dca9a0be146137c95e6f251cdfd8f44abaf84364b4d026d2af0a628f8f875241",
+    "lean/ScholzBrauer/Clift109OuterBoxes.lean": "f8c9bbe9873fb2087a3b6969f692cd03671579fdde15b2a0f36e97d86841d27e"
+  },
+  "claim_boundary": "Lean separately proves exact generator specification and complete outer-role coverage. These cardinalities and the prefix/suffix equality are computational. No full kernel cardinality, outer interval-output classification, new cap exclusion, pair removal, full 108 exclusion or new Scholz instance."
+}
