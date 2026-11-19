@@ -1,0 +1,26 @@
+{
+  "counts": {
+    "role_inputs": 1056,
+    "odd_run_surviving_inputs": 1056,
+    "disjoint_position_triples_before_role_expansion": 4874064,
+    "fingerprint_triples_before_role_expansion": 136280,
+    "halvable_triples_before_role_expansion": 1444
+  },
+  "solutions": [],
+  "free_dimensions": [
+    16,
+    8,
+    4,
+    32
+  ],
+  "ordered_steps": [
+    2,
+    3
+  ],
+  "translations": [
+    0,
+    43
+  ],
+  "python": "3.12.14",
+  "seconds": 5.783964676000011
+}

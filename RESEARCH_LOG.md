@@ -1,5 +1,41 @@
 # Research log
 
+## 2026-11-19 UTC — exact singleton pruning on the relaxed (2,3) dimensions
+
+All 1,056 ordered box inputs obtained by holding (u,d1)=(2,3) and permuting
+4,8,16,32 over v,w,d2,d3, with every translation 0..43, pass both odd-run
+bounds. None has a prescribed interval output. This extends the single relaxed
+compatibility fixture to its whole dimension set for this ordered pair.
+It includes the top-pinned translation 43. Other dimensions and the exchanged
+step order remain outside this calculation.
+
+After removing the box, rectangle and pair, a singleton deletion permits
+exact step-d1 halving iff there is one odd-length run and the singleton has
+even zero-based index within it. Indeed, deletion splits its run into two,
+and halving requires every remaining run to have even length. On all
+4,874,064 disjoint (r,s,z) choices (grouped by t,v), this rule agreed with
+direct bitmask peeling. The alternating fingerprint admitted 136,280 choices,
+of which exactly 1,444 permitted halving. Each was fed to the existing full
+classifier for all six remaining role orders. No cap test was needed on this
+slice. The deletion rule also agreed with peeling on every subset of 0..7
+and every step 1..8 (2,048 comparisons). These are deterministic Python
+checks. Kernel certification of the deletion rule and its use in the complete
+outer classifier remains open.
+
+Reproduce from the repository root with
+`PYTHONDONTWRITEBYTECODE=1 timeout 240 python3 scripts/experiment_clift109_gap_slice.py`.
+Python 3.12.14, standard library and project modules, no seed, 5.784 seconds.
+[Saved counts](results/2026-11-19-gap-slice.json).
+Primary inputs consulted 19 November 2026 at
+[revision 58f1022](https://github.com/solresol/scholz-brauer/tree/58f1022daa5336285a76076252cf23a123693c98):
+the 13 November weekly checkpoint and relaxed witness, and 17 November outer
+coverage. The checker replays the relaxed witness using both actual placements.
+No external theorem or published chain data enters the calculation.
+Live main equalled the clean checkout, with no cap-flow draft in the working
+tree or stash. The published startup check passed with the installed exact
+pins. No Lean source changed. The selected-graph budget-108 exclusion and the
+complete outer interval-output obligation remain open in Lean.
+
 ## 2026-11-17 UTC — complete outer box-role input coverage
 
 The authorized 17 November 21:00 UTC / Wednesday 18 November Sydney run advances

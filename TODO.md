@@ -216,6 +216,10 @@ Fin cases to remove the previous reduction bottleneck.
   bounds, but whose prescribed nineteen-weight halves fail. Thus matching the
   box and even the actual exceptions still does not settle compatibility. See
   [13 November result](results/2026-11-13-common-box.md).
+- [x] Compute all interval outputs for the relaxed (2,3) dimension set across
+  all 24 remaining role orders and 44 translations (none). Kernel-checking
+  the unique-odd-run singleton deletion rule is a next pruning obligation.
+  See [19 November counts](results/2026-11-19-gap-slice.json).
 - [x] Kernel-check reconstruction of the prescribed sink half: its first
   moment recovers q from the actual exception positions and A3, with a
   necessary anchor residue modulo 5. Prove that first and second moments
