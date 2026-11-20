@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-17 UTC / 18 November (Wednesday, Australia/Sydney).
+Updated 2026-11-20 UTC / 21 November (Saturday, Australia/Sydney).
 
 The full published startup gate passes on 17 November UTC / 18 November Sydney,
 reusing the prepared runtime after its separate repair. This research invocation
@@ -217,9 +217,15 @@ Fin cases to remove the previous reduction bottleneck.
   box and even the actual exceptions still does not settle compatibility. See
   [13 November result](results/2026-11-13-common-box.md).
 - [x] Compute all interval outputs for the relaxed (2,3) dimension set across
-  all 24 remaining role orders and 44 translations (none). Kernel-checking
-  the unique-odd-run singleton deletion rule is a next pruning obligation.
+  all 24 remaining role orders and 44 translations (none).
   See [19 November counts](results/2026-11-19-gap-slice.json).
+- [x] Prove in Lean that on the actual interval after box, rectangle and pair
+  removal, the singleton lies in the unique odd run with even counts on
+  either side. See `interval_sink_singleton_runs`.
+- [ ] Certify an executable singleton-position filter against the run
+  condition and use it in complete outer interval classification. The
+  converse (the parity test guarantees an unrestricted translated half)
+  remains open in Lean. Prescribed-half and cap checks are still required.
 - [x] Kernel-check reconstruction of the prescribed sink half: its first
   moment recovers q from the actual exception positions and A3, with a
   necessary anchor residue modulo 5. Prove that first and second moments

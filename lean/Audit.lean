@@ -536,3 +536,6 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.sink_position_cap_check_1
 #print axioms ScholzBrauer.Clift109.sink_position_cap_check_2
 #print axioms ScholzBrauer.Clift109.sink_position_cap_check_3
+#print axioms ScholzBrauer.Clift109.singleton_odd_class
+#print axioms ScholzBrauer.Clift109.singleton_run_side_even
+#print axioms ScholzBrauer.Clift109.interval_sink_singleton_runs

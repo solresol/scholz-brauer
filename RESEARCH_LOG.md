@@ -1,5 +1,41 @@
 # Research log
 
+## 2026-11-20 UTC — kernel-checked necessary singleton-position rule
+
+For every exact interval tuple with positive sink step, remove its box,
+actual rectangle and actual pair. In the remaining multiset, the run
+containing the actual singleton is the unique odd run. The number of
+weights in that run strictly below the singleton and the number strictly
+above it are both even. This quantifies over all interval tuples and is
+independent of the (2,3) slice. It gives a rejection condition for the
+outer classifier. Its converse and an executable run filter remain open.
+
+The generic lemmas use the existing step-connected component quotient.
+A translated pair contributes twice to its component count. In the
+singleton's component its endpoints are congruent to the singleton
+modulo the step. A one-step pair therefore cannot strictly straddle the
+singleton, and duplicate-freeness rules out equality at either endpoint.
+Counting pairs separately on either side gives even cardinalities.
+The interval specialization cancels the placed rectangle and pair to
+identify the residual multiset with the prescribed sink double plus
+the singleton. This uses the interval equality, without assuming an
+exclusion or searching candidate labellings. The computational minimum
+109 and the open Lean budget-108 exclusion retain their previous status.
+
+Primary inputs read 20 November 2026 at
+[checkout c7a9a07](https://github.com/solresol/scholz-brauer/tree/c7a9a0793177a253ebeb8eac47585a8789cbf8b3)
+were the 19 November slice report and script, the project's run and
+sink-position definitions, and the weekly handoff dated 13 November.
+The checkout contains no newer weekly handoff. This proof uses no
+external mathematical theorem from that review or published chain data.
+
+The published startup check passed. With pinned Lean 4.27.0 and mathlib
+`a3a10db0e9d66acbebf76c5e6a135066525ac900`, the guarded `lake build` in
+`lean/` passed all 1,190 jobs in 7.17 seconds using the prepared cache.
+The full `lake env lean Audit.lean` passed in 33.18 seconds. All three
+new public theorems depend only on `propext`, `Classical.choice`, and
+`Quot.sound`. No experiment was rerun.
+
 ## 2026-11-19 UTC — exact singleton pruning on the relaxed (2,3) dimensions
 
 All 1,056 ordered box inputs obtained by holding (u,d1)=(2,3) and permuting

@@ -42,3 +42,4 @@ import ScholzBrauer.Clift109SinkPositionChecks
 import ScholzBrauer.Clift109SinkPositionCaps
 import ScholzBrauer.Clift109OuterBoxes
 import ScholzBrauer.Clift109OuterBoxChecks
+import ScholzBrauer.Clift109Singleton
