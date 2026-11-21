@@ -97,4 +97,42 @@ theorem interval_sink_singleton_runs (c : GaugeCoordinates) (hd : 0 < c.d1)
   rw [hs]
   exact ⟨singleton_odd_class _ _ _, singleton_run_side_even _ hd _ _ hn⟩
 
+/-- A local converse inside an already tiled run. If the next weight exists,
+it starts a forced pair. Moving that pair back one step moves the unpaired
+weight forward two steps, with an explicit new unrestricted half. -/
+theorem singleton_slide (d z : ℤ) (hd : 0 < d) (a : Multiset ℤ)
+    (hn : (zbranch a d + {z}).Nodup) (hnext : z + d ∈ zbranch a d + {z}) :
+    zbranch a d + {z} = zbranch (z ::ₘ a.erase (z+d)) d + {z+d+d} := by
+  have hz : z ∉ zbranch a d :=
+    fun h => Multiset.disjoint_left.mp (Multiset.nodup_add.mp hn).2.2 h (by simp)
+  have hbase : z+d ∈ a := by
+    rcases Multiset.mem_add.mp hnext with h | h
+    · rcases Multiset.mem_add.mp h with h | h
+      · exact h
+      · obtain ⟨x, hx, he⟩ := Multiset.mem_map.mp h
+        have hxz : x = z := by change x + d = z + d at he; omega
+        exact (hz (Multiset.mem_add.mpr (.inl (hxz ▸ hx)))).elim
+    · simp only [Multiset.mem_singleton] at h
+      omega
+  conv_lhs => rw [← Multiset.cons_erase hbase]
+  simp only [zbranch, zshift, ← Multiset.singleton_add, Multiset.map_add, Multiset.map_singleton]
+  ac_rfl
+
+/-- From one unrestricted tiling, every even forward offset reachable through
+the intervening odd-index weights also admits a tiling. -/
+theorem singleton_slide_many (d z : ℤ) (hd : 0 < d) (a : Multiset ℤ)
+    (hn : (zbranch a d + {z}).Nodup) (n : ℕ)
+    (hsteps : ∀ i : ℕ, i < n → z + (i : ℤ) * (2*d) + d ∈ zbranch a d + {z}) :
+    ∃ b, zbranch a d + {z} = zbranch b d + {z + (n : ℤ) * (2*d)} := by
+  induction n with
+  | zero => exact ⟨a, by simp⟩
+  | succ n ih =>
+    obtain ⟨b, hb⟩ := ih (fun i hi => hsteps i (Nat.lt_succ_of_lt hi))
+    have hnext := hsteps n (Nat.lt_succ_self n)
+    rw [hb] at hn hnext
+    have h := singleton_slide d _ hd b hn hnext
+    rw [show z + ((n+1 : ℕ) : ℤ) * (2*d) = z + (n : ℤ) * (2*d) + d + d by
+      push_cast; ring]
+    exact ⟨_, hb.trans h⟩
+
 end ScholzBrauer.Clift109

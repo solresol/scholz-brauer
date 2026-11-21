@@ -1,5 +1,50 @@
 # Research log
 
+## 2026-11-21 UTC / 22 November Sydney — moving a singleton and closing one dimension set
+
+For a duplicate-free translated double plus a singleton at z, with positive
+step d, membership of z+d forces it to be a base weight. Its predecessor z
+is already occupied by the singleton. Replacing base z+d by z therefore
+moves the singleton to z+2d and preserves the entire multiset.
+`singleton_slide` constructs this half. By induction, `singleton_slide_many`
+realizes z+2nd for any natural n provided each of the n intervening odd-index
+weights belongs to the initial multiset. This is a local converse starting
+with a known unrestricted tiling. Obtaining a first tiling directly from
+the run parity test, recovering the prescribed half, and solving caps are
+separate obligations.
+
+Extended the 19 November exact scan of dimensions {2,3,4,8,16,32} to
+all 30 ordered step choices, 24 permutations of the remaining roles and
+translations 0 through 43. Of 31,680 inputs, 9,216 pass both odd-run bounds.
+Before expanding the last three roles, the scan tests 36,997,116 disjoint
+rectangle/pair/singleton triples. The signed fingerprint retains 645,162.
+Exactly 10,492 admit an unrestricted half, including 5,636 in the exchanged
+(3,2) slice. The run test and independent bit peeling agree on every deletion.
+The prescribed-half classifier returns zero whole-interval tuples. This
+computational result closes one of the 31,048 dimension sets including
+its top-pinned cases. It removes no ordered step pair globally. The general
+budget-108 Lean exclusion remains open and the exact minimum 109 is computational.
+
+Reproduction from the repository root:
+`timeout 1200 python3 scripts/experiment_clift109_gap_slice.py --all-roles`.
+Python 3.12.14, standard library, exact integers, deterministic, no seed.
+The 30 measured slice runtimes sum to 29.83 seconds. The saved
+[per-pair counts](results/2026-11-22-gap-all-roles.json) reproduce the 19 November
+(2,3) row. The October fixture file has no tuple with this dimension set.
+Neither fixture completeness nor cap feasibility is assumed.
+
+Primary sources accessed 22 November Sydney at
+[21cf296](https://github.com/solresol/scholz-brauer/tree/21cf2961fd4291af02d8da4bc3ac688c9ea0130c)
+were the project's singleton, odd-run, sink-position and outer-box reductions,
+the gap-slice driver and the fixed-input prescribed-half classifier. The
+Nov 21 weekly handoff supplied with this run reports no relevant new result.
+The [repository handoff](results/2026-11-06-literature-review.md#13-november-2026-checkpoint)
+still ends on Nov 13. No external theorem or published chain data is used.
+The published startup gate and pinned Lean 4.27.0 build passed (1,190 jobs),
+using the existing mathlib a3a10db0e9d66acbebf76c5e6a135066525ac900.
+The full audit passed the repository allowlist for all 497 entries. Both
+new theorems use only propext, Classical.choice and Quot.sound.
+
 ## 2026-11-20 UTC — kernel-checked necessary singleton-position rule
 
 For every exact interval tuple with positive sink step, remove its box,

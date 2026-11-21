@@ -1,0 +1,708 @@
+[
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 1056,
+      "disjoint_position_triples_before_role_expansion": 4874064,
+      "fingerprint_triples_before_role_expansion": 136280,
+      "halvable_triples_before_role_expansion": 1444
+    },
+    "solutions": [],
+    "free_dimensions": [
+      16,
+      8,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      2,
+      3
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 4.082922323999995
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      8,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      2,
+      16
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0006655789999996387
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 480,
+      "disjoint_position_triples_before_role_expansion": 2430090,
+      "fingerprint_triples_before_role_expansion": 2118,
+      "halvable_triples_before_role_expansion": 82
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      16,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      2,
+      8
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 1.7532128679999914
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 1056,
+      "disjoint_position_triples_before_role_expansion": 4926246,
+      "fingerprint_triples_before_role_expansion": 19612,
+      "halvable_triples_before_role_expansion": 368
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      16,
+      8,
+      32
+    ],
+    "ordered_steps": [
+      2,
+      4
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 3.628114529000001
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      16,
+      8,
+      4
+    ],
+    "ordered_steps": [
+      2,
+      32
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.000490197000004855
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 1056,
+      "disjoint_position_triples_before_role_expansion": 4297488,
+      "fingerprint_triples_before_role_expansion": 164000,
+      "halvable_triples_before_role_expansion": 5636
+    },
+    "solutions": [],
+    "free_dimensions": [
+      16,
+      8,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      3,
+      2
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 5.441795245999998
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      8,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      3,
+      16
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0004300060000019812
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 480,
+      "disjoint_position_triples_before_role_expansion": 2205372,
+      "fingerprint_triples_before_role_expansion": 972,
+      "halvable_triples_before_role_expansion": 30
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      16,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      3,
+      8
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 1.5161366370000025
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 1056,
+      "disjoint_position_triples_before_role_expansion": 4503408,
+      "fingerprint_triples_before_role_expansion": 10960,
+      "halvable_triples_before_role_expansion": 280
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      16,
+      8,
+      32
+    ],
+    "ordered_steps": [
+      3,
+      4
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 3.1322174289999936
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      16,
+      8,
+      4
+    ],
+    "ordered_steps": [
+      3,
+      32
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0006748659999971096
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      8,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      16,
+      2
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00030920300000047973
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      8,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      16,
+      3
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0002777459999947496
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      16,
+      8
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0004669970000037438
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      8,
+      32
+    ],
+    "ordered_steps": [
+      16,
+      4
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0002733410000104186
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      8,
+      4
+    ],
+    "ordered_steps": [
+      16,
+      32
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0005313360000087641
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 480,
+      "disjoint_position_triples_before_role_expansion": 1202526,
+      "fingerprint_triples_before_role_expansion": 34768,
+      "halvable_triples_before_role_expansion": 488
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      16,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      8,
+      2
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 1.076407302000007
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 480,
+      "disjoint_position_triples_before_role_expansion": 1237626,
+      "fingerprint_triples_before_role_expansion": 34878,
+      "halvable_triples_before_role_expansion": 516
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      16,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      8,
+      3
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 1.0628624349999996
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      4,
+      32
+    ],
+    "ordered_steps": [
+      8,
+      16
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0004340280000008079
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 480,
+      "disjoint_position_triples_before_role_expansion": 1272882,
+      "fingerprint_triples_before_role_expansion": 1158
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      16,
+      32
+    ],
+    "ordered_steps": [
+      8,
+      4
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.8498297029999975
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      16,
+      4
+    ],
+    "ordered_steps": [
+      8,
+      32
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00043469899999593054
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 1056,
+      "disjoint_position_triples_before_role_expansion": 3960840,
+      "fingerprint_triples_before_role_expansion": 114268,
+      "halvable_triples_before_role_expansion": 440
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      16,
+      8,
+      32
+    ],
+    "ordered_steps": [
+      4,
+      2
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 2.802175390000002
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 1056,
+      "disjoint_position_triples_before_role_expansion": 4056936,
+      "fingerprint_triples_before_role_expansion": 126148,
+      "halvable_triples_before_role_expansion": 1208
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      16,
+      8,
+      32
+    ],
+    "ordered_steps": [
+      4,
+      3
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 3.160630691999998
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      8,
+      32
+    ],
+    "ordered_steps": [
+      4,
+      16
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00043911200000934514
+  },
+  {
+    "counts": {
+      "role_inputs": 1056,
+      "odd_run_surviving_inputs": 480,
+      "disjoint_position_triples_before_role_expansion": 2029638,
+      "fingerprint_triples_before_role_expansion": 0
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      16,
+      32
+    ],
+    "ordered_steps": [
+      4,
+      8
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 1.312516107999997
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      16,
+      8
+    ],
+    "ordered_steps": [
+      4,
+      32
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.0005746039999934283
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      3,
+      16,
+      8,
+      4
+    ],
+    "ordered_steps": [
+      32,
+      2
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00029635599999267015
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      16,
+      8,
+      4
+    ],
+    "ordered_steps": [
+      32,
+      3
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00032077200000912853
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      8,
+      4
+    ],
+    "ordered_steps": [
+      32,
+      16
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00028928999999777716
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      16,
+      4
+    ],
+    "ordered_steps": [
+      32,
+      8
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00029053700001213656
+  },
+  {
+    "counts": {
+      "role_inputs": 1056
+    },
+    "solutions": [],
+    "free_dimensions": [
+      2,
+      3,
+      16,
+      8
+    ],
+    "ordered_steps": [
+      32,
+      4
+    ],
+    "translations": [
+      0,
+      43
+    ],
+    "python": "3.12.14",
+    "seconds": 0.00031096300000399424
+  }
+]

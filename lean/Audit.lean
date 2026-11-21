@@ -539,3 +539,5 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.singleton_odd_class
 #print axioms ScholzBrauer.Clift109.singleton_run_side_even
 #print axioms ScholzBrauer.Clift109.interval_sink_singleton_runs
+#print axioms ScholzBrauer.Clift109.singleton_slide
+#print axioms ScholzBrauer.Clift109.singleton_slide_many

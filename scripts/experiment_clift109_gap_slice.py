@@ -1,4 +1,5 @@
 """Exact interval-output slice through the relaxed (2,3) compatibility witness."""
+import argparse
 from collections import Counter
 from itertools import permutations
 import json
@@ -26,10 +27,8 @@ def singleton_choices(points, step):
     return set(candidates or ())
 
 
-def run():
+def classify_slice(u, d, free):
     start = time.monotonic()
-    u, v0, w0, d, d20, d30, *_ = compatibility_gap()['coordinates']
-    free = (v0, w0, d20, d30)
     sums = {0}
     for k in (u, d, *free):
         sums |= {x+k for x in sums}
@@ -79,5 +78,18 @@ def run():
                 python=platform.python_version(), seconds=time.monotonic()-start)
 
 
+def run(all_roles=False):
+    u, v, w, d, d2, d3, *_ = compatibility_gap()['coordinates']
+    free = (v, w, d2, d3)
+    if not all_roles:
+        return classify_slice(u, d, free)
+    dimensions = (u, d, *free)
+    return [classify_slice(a, b, tuple(k for k in dimensions if k not in (a, b)))
+            for a, b in permutations(dimensions, 2)]
+
+
 if __name__ == '__main__':
-    print(json.dumps(run(), indent=2))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--all-roles', action='store_true',
+                        help='exhaust every ordered choice of the source and sink steps')
+    print(json.dumps(run(parser.parse_args().all_roles), indent=2))

@@ -23,7 +23,7 @@ is not evidence that a literature check occurred. Do not contact authors, change
 dependencies or broaden the research target without authorization. This section
 does not enable or modify any schedule.
 
-Updated 2026-11-20 UTC / 21 November (Saturday, Australia/Sydney).
+Updated 2026-11-21 UTC / 22 November (Sunday, Australia/Sydney).
 
 The full published startup gate passes on 17 November UTC / 18 November Sydney,
 reusing the prepared runtime after its separate repair. This research invocation
@@ -222,10 +222,17 @@ Fin cases to remove the previous reduction bottleneck.
 - [x] Prove in Lean that on the actual interval after box, rectangle and pair
   removal, the singleton lies in the unique odd run with even counts on
   either side. See `interval_sink_singleton_runs`.
+- [x] Extend the relaxed witness dimension-set scan to all 720 role orders and
+  44 translations. No interval tuple survives for this set. The run test
+  agrees with independent peeling on every tested singleton deletion.
+  See [all role counts](results/2026-11-22-gap-all-roles.json).
+- [x] Prove a local converse for the singleton rule. From a known tiling,
+  move the singleton forward by any even number of steps with all intervening
+  odd-index weights present (`singleton_slide_many`).
 - [ ] Certify an executable singleton-position filter against the run
   condition and use it in complete outer interval classification. The
-  converse (the parity test guarantees an unrestricted translated half)
-  remains open in Lean. Prescribed-half and cap checks are still required.
+  general converse still needs a first tiling from the parity condition alone.
+  Prescribed-half and cap checks are still required.
 - [x] Kernel-check reconstruction of the prescribed sink half: its first
   moment recovers q from the actual exception positions and A3, with a
   necessary anchor residue modulo 5. Prove that first and second moments
