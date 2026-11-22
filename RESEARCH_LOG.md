@@ -1,5 +1,42 @@
 # Research log
 
+## 2026-11-23 Sydney — six global ordered-pair eliminations by singleton pruning
+
+Both orders of each of {7,9}, {8,11}, and {8,18} fail the sink singleton
+test for every box. These are all ordered pairs with one through eight
+surviving translated boxes in the 13 November common-box table. For each
+pair the suffix generator enumerated every six-dimensional dissociated box
+with positive dimensions, sum at most 108, and all translations from zero
+through 108 minus the sum. The two independent November 13 projection
+counts (packing and both odd-run tests) were reproduced for every pair.
+
+Across 1,321,296 ordered box-role inputs, 864 pass both odd-run tests.
+Enumerating the actual disjoint rectangle, pair and singleton in [0,108]
+gave 1,306,266 position triples before expanding the final three roles.
+928 match the signed fingerprint. Zero pass deletion and unrestricted
+halving; the unique-odd-run test agrees with bit peeling on every deletion.
+Thus the obstruction already occurs before the nineteen-weight shape and
+caps. The computational necessary domain drops from 246 to 240. This does
+not change the 278-pair Lean theorem or establish the budget-108 exclusion.
+
+Reproduce with `timeout 300 python3 scripts/experiment_clift109_sparse_pairs.py`.
+Exact integers, Python 3.12.14, standard library and existing project modules,
+deterministic with no seed. Per-pair counts and elapsed seconds are in
+[the report](results/2026-11-23-sparse-pairs.json). The published startup
+gate passed with the existing 4.27.0 pin. No new Lean theorem or dependency.
+
+Primary implementation and hypotheses were checked on 23 November Sydney
+against [base 0b39f9c](https://github.com/solresol/scholz-brauer/tree/0b39f9c061bcc04da4c03fe3ad725955f12d154f):
+Clift109OuterBoxes requires positive dissociated interval-box dimensions;
+Clift109Singleton requires a positive sink step and the full interval;
+the gap-slice checker tests the complete prescribed half on every successful
+deletion. The November 21 supplied weekly handoff found no change; the
+repository's linked human-literature checkpoint still ends November 13.
+No external theorem or published chain data was used. Next construct the
+initial unrestricted half from run parity alone, then certify singleton
+pruning in the complete outer classifier and retain prescribed-half and cap
+checks on surviving branches.
+
 ## 2026-11-21 UTC / 22 November Sydney — moving a singleton and closing one dimension set
 
 For a duplicate-free translated double plus a singleton at z, with positive

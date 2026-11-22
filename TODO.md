@@ -229,6 +229,11 @@ Fin cases to remove the previous reduction bottleneck.
 - [x] Prove a local converse for the singleton rule. From a known tiling,
   move the singleton forward by any even number of steps with all intervening
   odd-index weights present (`singleton_slide_many`).
+- [x] Exhaust all boxes and placements for the six ordered step pairs having
+  one to eight common boxes after the odd-run tests. None admits a singleton
+  deletion with a tiled remainder. This reduces the computational necessary
+  domain from 246 to 240; the Lean domain remains 278.
+  See [pair counts](results/2026-11-23-sparse-pairs.json).
 - [ ] Certify an executable singleton-position filter against the run
   condition and use it in complete outer interval classification. The
   general converse still needs a first tiling from the parity condition alone.
