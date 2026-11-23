@@ -234,10 +234,13 @@ Fin cases to remove the previous reduction bottleneck.
   deletion with a tiled remainder. This reduces the computational necessary
   domain from 246 to 240; the Lean domain remains 278.
   See [pair counts](results/2026-11-23-sparse-pairs.json).
-- [ ] Certify an executable singleton-position filter against the run
-  condition and use it in complete outer interval classification. The
-  general converse still needs a first tiling from the parity condition alone.
-  Prescribed-half and cap checks are still required.
+- [x] Certify an executable singleton-position filter for nonnegative interval
+  weights. Equality of backward roots decides equality of run classes.
+  `sinkRunPositionChoices_complete` preserves every actual triple of every
+  matching box prototype after the fingerprint and parity filters.
+- [ ] Construct the first unrestricted tiling from run parity alone. Use the
+  filtered position list to kernel-check the remaining outer branches, then
+  test the prescribed half and signed caps on survivors.
 - [x] Kernel-check reconstruction of the prescribed sink half: its first
   moment recovers q from the actual exception positions and A3, with a
   necessary anchor residue modulo 5. Prove that first and second moments

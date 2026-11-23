@@ -1,5 +1,33 @@
 # Research log
 
+## 2026-11-24 Sydney — executable singleton pruning in Lean
+
+For a positive step on a finite multiset of nonnegative integers,
+`runRoot_eq_iff` proves that walking backwards to the first missing
+predecessor labels members equally exactly when they belong to the same
+step-connected component. The walk terminates by decreasing the natural
+value of its current weight. The executable filter counts each represented
+root and the weights below the proposed singleton in its own run.
+`singletonRunFilter_of_tiling` proves necessity for every duplicate-free
+translated double plus singleton. It assumes no upper bound on the weights.
+
+`sinkRunPositionChoices_complete` applies that test to the actual remainder
+after the box, rectangle and pair are removed. For every matching prototype
+and every full interval tuple with positive sink step, the actual triple
+survives both the existing fingerprint and the new filter. A smoke check at
+step 2 retained precisely 0 and 4 on [0,4], and no singleton on {0,4}.
+No new pairs were counted. The computational domain remains 240 and the
+Lean domain 278. Constructing a half from parity, checking remaining boxes,
+and enforcing the prescribed half and signed caps are open.
+
+Reviewed the [primary Lean definitions and prior exact experiment](https://github.com/solresol/scholz-brauer/tree/0c8dd6316f8ae1b58e25e3deee54ee4f7a36ca2c)
+on 24 November Sydney. The linked weekly human-literature checkpoint still
+ends on 13 November. No external theorem or published chain data was needed.
+Used the prepared Lean 4.27.0 and locked mathlib with the published startup
+check and full Lake build (1,190 jobs). The repository integration command
+`python3 scripts/verify_integration.py --output /tmp/clift1124-integration.json`
+passed in 310.50 seconds, including the allowlist audit of 500 theorems.
+
 ## 2026-11-23 Sydney — six global ordered-pair eliminations by singleton pruning
 
 Both orders of each of {7,9}, {8,11}, and {8,18} fail the sink singleton

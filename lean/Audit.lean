@@ -541,3 +541,6 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.interval_sink_singleton_runs
 #print axioms ScholzBrauer.Clift109.singleton_slide
 #print axioms ScholzBrauer.Clift109.singleton_slide_many
+#print axioms ScholzBrauer.Clift109.runRoot_eq_iff
+#print axioms ScholzBrauer.Clift109.singletonRunFilter_of_tiling
+#print axioms ScholzBrauer.Clift109.sinkRunPositionChoices_complete

@@ -68,6 +68,21 @@ theorem singleton_run_side_even (d : ℤ) (hd : 0 < d) (a : Multiset ℤ) (z : �
   rw [← hcount, hc]
   simp [hp]
 
+private theorem staged_singleton_remainder (c : GaugeCoordinates)
+    (hi : coordinateWeights c = (Multiset.range 109).map Int.ofNat) :
+    (Multiset.range 109).map Int.ofNat - coordinateBox c -
+      sinkRectangle c (c.A1 + c.p) - sinkPair c (c.A2 + c.p) =
+      zbranch (sinkHalf c) c.d1 + {c.A3 + c.p} := by
+  let r := sinkRectangle c (c.A1 + c.p)
+  let t := sinkPair c (c.A2 + c.p)
+  let z := c.A3 + c.p
+  have hex : sinkExceptions c = r + t + {z} := sinkExceptions_eq_placed c
+  rw [← hi]
+  simp only [coordinateWeights, add_tsub_cancel_left, remainder_sink_factor, hex]
+  rw [show zbranch (sinkHalf c) c.d1 + (r + t + {z}) =
+    r + (t + (zbranch (sinkHalf c) c.d1 + {z})) by ac_rfl]
+  simp [r, t, z]
+
 /-- Necessary singleton test directly on the staged sink-position remainder. -/
 theorem interval_sink_singleton_runs (c : GaugeCoordinates) (hd : 0 < c.d1)
     (hi : coordinateWeights c = (Multiset.range 109).map Int.ofNat) :
@@ -78,17 +93,8 @@ theorem interval_sink_singleton_runs (c : GaugeCoordinates) (hd : 0 < c.d1)
       ∀ lower : Bool, (s.filter (fun x => runClass c.d1 s x = runClass c.d1 s z ∧
         (if lower then x < z else z < x))).card % 2 = 0 := by
   dsimp only
-  let r := sinkRectangle c (c.A1 + c.p)
-  let t := sinkPair c (c.A2 + c.p)
   let z := c.A3 + c.p
-  have hex : sinkExceptions c = r + t + {z} := sinkExceptions_eq_placed c
-  have hs : (Multiset.range 109).map Int.ofNat - coordinateBox c - r - t =
-      zbranch (sinkHalf c) c.d1 + {z} := by
-    rw [← hi]
-    simp only [coordinateWeights, add_tsub_cancel_left, remainder_sink_factor, hex]
-    rw [show zbranch (sinkHalf c) c.d1 + (r + t + {z}) =
-      r + (t + (zbranch (sinkHalf c) c.d1 + {z})) by ac_rfl]
-    simp
+  have hs := staged_singleton_remainder c hi
   have hn : (zbranch (sinkHalf c) c.d1 + {z}).Nodup := by
     rw [← hs]
     apply Multiset.nodup_of_le ((Multiset.sub_le_self _ _).trans
@@ -134,5 +140,106 @@ theorem singleton_slide_many (d z : ℤ) (hd : 0 < d) (a : Multiset ℤ)
     rw [show z + ((n+1 : ℕ) : ℤ) * (2*d) = z + (n : ℤ) * (2*d) + d + d by
       push_cast; ring]
     exact ⟨_, hb.trans h⟩
+
+/-- Least member reached by walking backwards in a nonnegative run. -/
+def runRoot (d : ℤ) (s : Multiset ℤ) (x : ℤ) : ℤ :=
+  if 0 < d ∧ 0 ≤ x-d ∧ x-d ∈ s then runRoot d s (x-d) else x
+termination_by x.toNat
+decreasing_by omega
+
+private theorem runRoot_class (d : ℤ) (s : Multiset ℤ) (x : ℤ) (hx : x ∈ s) :
+    runClass d s (runRoot d s x) = runClass d s x := by
+  rw [runRoot]
+  split
+  · rename_i h
+    rw [runRoot_class d s (x-d) h.2.2]
+    simpa using (runClass_step d s (x-d) h.2.2 (by simpa using hx)).symm
+  · rfl
+termination_by x.toNat
+decreasing_by omega
+
+/-- Equality of computed roots decides connectedness on nonnegative inputs. -/
+theorem runRoot_eq_iff (d : ℤ) (hd : 0 < d) (s : Multiset ℤ)
+    (hs : ∀ x ∈ s, 0 ≤ x) {x y : ℤ} (hx : x ∈ s) (hy : y ∈ s) :
+    runRoot d s x = runRoot d s y ↔ runClass d s x = runClass d s y := by
+  constructor
+  · intro h
+    rw [← runRoot_class d s x hx, h, runRoot_class d s y hy]
+  · intro h
+    have hr : Relation.EqvGen (fun i j => i ∈ s ∧ j ∈ s ∧ j = i + d) x y :=
+      Quotient.exact h
+    clear hx hy h
+    induction hr with
+    | rel i j he =>
+      obtain ⟨hi, _, rfl⟩ := he
+      conv_rhs => rw [runRoot]
+      simp [hd, hs i hi, hi]
+    | refl => rfl
+    | symm _ _ _ ih => exact ih.symm
+    | trans _ _ _ _ _ ih ij => exact ih.trans ij
+
+/-- Test the parity of each represented run and the candidate's index in its run. -/
+def singletonRunFilter (d : ℤ) (s : Multiset ℤ) (z : ℤ) : Bool :=
+  let root := runRoot d s
+  let roots := s.map root
+  decide (z ∈ s ∧ (∀ x ∈ s, roots.count (root x) % 2 = 1 ↔ root x = root z) ∧
+    (s.filter (fun x => root x = root z ∧ x < z)).card % 2 = 0)
+
+theorem singletonRunFilter_of_tiling (d : ℤ) (hd : 0 < d) (a : Multiset ℤ) (z : ℤ)
+    (hn : (zbranch a d + {z}).Nodup) (hs : ∀ x ∈ zbranch a d + {z}, 0 ≤ x) :
+    singletonRunFilter d (zbranch a d + {z}) z = true := by
+  classical
+  let s := zbranch a d + {z}
+  have hz : z ∈ s := by simp [s]
+  have eqr := fun {x y : ℤ} (hx : x ∈ s) (hy : y ∈ s) => runRoot_eq_iff d hd s hs hx hy
+  unfold singletonRunFilter
+  rw [decide_eq_true_eq]
+  refine ⟨hz, ?_, ?_⟩
+  · intro x hx
+    have hc : (s.map (runRoot d s)).count (runRoot d s x) =
+        (s.map (runClass d s)).count (runClass d s x) := by
+      simp only [Multiset.count_map]
+      congr 1
+      apply Multiset.filter_congr
+      intro i hi
+      exact eqr hx hi
+    rw [hc, eqr hx hz]
+    exact singleton_odd_class d a z _
+  · have hf : s.filter (fun x => runRoot d s x = runRoot d s z ∧ x < z) =
+        s.filter (fun x => runClass d s x = runClass d s z ∧ x < z) := by
+      apply Multiset.filter_congr
+      intro x hx
+      rw [eqr hx hz]
+    rw [hf]
+    simpa [s] using singleton_run_side_even d hd a z hn true
+
+/-- Apply the executable run test after the signed position fingerprint. -/
+def sinkRunPositionChoices (box : GaugeCoordinates) : List (ℤ × ℤ × ℤ) :=
+  (sinkPositionChoices box).filter fun (r, t, z) =>
+    singletonRunFilter box.d1 ((Multiset.range 109).map Int.ofNat - coordinateBox box -
+      sinkRectangle box r - sinkPair box t) z
+
+theorem sinkRunPositionChoices_complete (c box : GaugeCoordinates)
+    (hb : SameSinkBox c box) (hd : 0 < c.d1)
+    (hi : coordinateWeights c = (Multiset.range 109).map Int.ofNat) :
+    (c.A1 + c.p, c.A2 + c.p, c.A3 + c.p) ∈ sinkRunPositionChoices box := by
+  apply List.mem_filter.mpr
+  refine ⟨sinkPositionChoices_complete c box hb hd hi, ?_⟩
+  obtain ⟨hu, hv, hw, hd1, hd2, hd3, ht⟩ := hb
+  simp only [← hu, ← hv, ← hw, ← hd1, ← hd2, ← hd3, ← ht, coordinateBox,
+    sinkRectangle, sinkPair]
+  change singletonRunFilter c.d1 ((Multiset.range 109).map Int.ofNat - coordinateBox c -
+    sinkRectangle c (c.A1 + c.p) - sinkPair c (c.A2 + c.p)) _ = true
+  rw [staged_singleton_remainder c hi]
+  have hsub : zbranch (sinkHalf c) c.d1 + {c.A3 + c.p} ≤
+      (Multiset.range 109).map Int.ofNat := by
+    rw [← staged_singleton_remainder c hi]
+    exact (Multiset.sub_le_self _ _).trans
+      ((Multiset.sub_le_self _ _).trans (Multiset.sub_le_self _ _))
+  apply singletonRunFilter_of_tiling _ hd _ _
+    (Multiset.nodup_of_le hsub ((Multiset.nodup_range 109).map Int.ofNat_injective))
+  intro x hx
+  obtain ⟨i, _, rfl⟩ := Multiset.mem_map.mp (Multiset.mem_of_le hsub hx)
+  exact Int.natCast_nonneg _
 
 end ScholzBrauer.Clift109
