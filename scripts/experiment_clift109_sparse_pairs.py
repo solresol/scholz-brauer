@@ -1,4 +1,5 @@
 """Exhaust the interval classifier for the sparsest nonempty common-box pairs."""
+import argparse
 from collections import Counter
 import json
 from pathlib import Path
@@ -10,13 +11,19 @@ from experiment_clift109_outer_boxes import dimensions
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--min-boxes", type=int, default=1)
+    parser.add_argument("--max-boxes", type=int, default=8)
+    args = parser.parse_args()
+    if not 1 <= args.min_boxes <= args.max_boxes:
+        parser.error("require 1 <= min-boxes <= max-boxes")
     started = time.monotonic()
     root = Path(__file__).resolve().parents[1]
     rows = json.loads((root / 'results/2026-11-13-common-box.json').read_text())['counts']
     boxes = dimensions(6, 1, 108)
     results = []
     for row in rows:
-        if not 0 < row['both_odd_run_boxes'] <= 8:
+        if not args.min_boxes <= row['both_odd_run_boxes'] <= args.max_boxes:
             continue
         u, d = row['pair']
         counts = Counter(halvable_triples_before_role_expansion=0)

@@ -238,6 +238,11 @@ Fin cases to remove the previous reduction bottleneck.
   weights. Equality of backward roots decides equality of run classes.
   `sinkRunPositionChoices_complete` preserves every actual triple of every
   matching box prototype after the fingerprint and parity filters.
+- [x] Exhaust the next six ordered pairs (9 through 23 common boxes).
+  Five fail singleton deletion. For (8,27), 14 deletions admit unrestricted
+  halves, but none realizes the prescribed half under any remaining role
+  order. The computational interval domain is now 234 ordered pairs.
+  See [pair counts](results/2026-11-25-sparse-pairs.json).
 - [ ] Construct the first unrestricted tiling from run parity alone. Use the
   filtered position list to kernel-check the remaining outer branches, then
   test the prescribed half and signed caps on survivors.
@@ -489,11 +494,11 @@ See `results/2026-10-24-critical-families-lean.md`.
 (2) Find a classification of the interval configurations small
 enough for the kernel. The placed-pair/shared-singleton refinement leaves
 278 necessary ordered pairs in Lean, with a further common-box refinement
-to 246 still computational. The prescribed sink half now has at most two
+to 246 and sparse-branch exclusions to 234 still computational. The prescribed sink half now has at most two
 moment-compatible anchors per fixed box-role/exception/half choice; q and
 all three offsets are reconstructed exactly. Carry this into a sound finite
 interval classifier, retaining the full nineteen-weight shape and cap checks.
-Neither the 246 domain nor completeness of the 216 saved fixtures is a Lean theorem.
+Neither the 234 domain nor completeness of the 216 saved fixtures is a Lean theorem.
 With the box pinned at the top, the earlier search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that

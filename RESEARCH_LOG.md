@@ -1,5 +1,47 @@
 # Research log
 
+## 2026-11-25 Sydney — an unrestricted half survives on the (8,27) branch
+
+Exhausted both step orders of {6,14}, {7,11}, and {8,27}, the complete
+next band of the common-box table (9 through 23 boxes after both odd-run
+tests). Each ordered pair used all positive dissociated six-dimensional
+boxes of dimension sum at most 108 and every translation from 0 through
+108 minus that sum. Both packing and odd-run projections matched the
+13 November counts. There were 758,256 role inputs, 2,880 after the odd-run
+tests, and 3,799,692 disjoint rectangle/pair/singleton triples before final
+role expansion. The signed fingerprint accepted 3,604. Independent peeling
+and run parity agreed for every deletion.
+
+Only (8,27) admitted an unrestricted half: 14 position triples, each with
+six remaining role assignments. None realized the prescribed nineteen
+weights. Five ordered pairs thus close by singleton pruning, and the sixth
+requires a stronger test. This reduces the computational necessary domain
+from 240 to 234. The Lean domain remains 278. No cap calculation was needed
+for these six pairs. For the Lean outer-branch work, the five empty
+singleton branches are candidates for kernel evaluation; (8,27) supplies
+a separate test of the prescribed-half stage. A converse to the run filter
+would certify existence of unrestricted halves but would leave that stage open.
+
+Reproduce with `timeout 300 python3 scripts/experiment_clift109_sparse_pairs.py
+--min-boxes 9 --max-boxes 23` (single shell line). Python 3.12.14, standard
+library and project modules, deterministic, no seed, 6.87 seconds.
+[Per-pair counts](results/2026-11-25-sparse-pairs.json).
+Default arguments reproduced the six earlier rows exactly. A second run
+wrapped each call to `classify` in the gap-slice module with an equality
+check against `experiment_clift109_sink_classifier.direct(box,r,s,z)`.
+All 84 comparisons passed in 32.50 seconds including the outer scan.
+This independently tries every anchor from 0 through 108 and every q from
+−108 through 108, replaying the full interval for each candidate.
+
+Primary sources checked 25 November 2026 Sydney: the repository's
+[fixed-box classifier and direct enumeration](https://github.com/solresol/scholz-brauer/blob/a9d7531462437813f2af8921c14d47083bfc6934/scripts/experiment_clift109_sink_classifier.py)
+and [singleton necessity theorem](https://github.com/solresol/scholz-brauer/blob/a9d7531462437813f2af8921c14d47083bfc6934/lean/ScholzBrauer/Clift109Singleton.lean).
+The former checks actual disjoint interval positions and all nineteen
+weights; the latter assumes a matching box, positive sink step and full
+interval equation. The linked weekly literature checkpoint still ends
+13 November. No external theorem or published chain data enters this scan.
+The published startup check passed with the retained pins.
+
 ## 2026-11-24 Sydney — executable singleton pruning in Lean
 
 For a positive step on a finite multiset of nonnegative integers,
