@@ -243,6 +243,13 @@ Fin cases to remove the previous reduction bottleneck.
   halves, but none realizes the prescribed half under any remaining role
   order. The computational interval domain is now 234 ordered pairs.
   See [pair counts](results/2026-11-25-sparse-pairs.json).
+- [x] For the fourteen unrestricted halves on (8,27), kernel-check the
+  partitions and exclude the prescribed half for all six remaining role
+  orders per row. Subtracting the common p from the seven actual exception
+  positions gives seven compulsory half members; none of these halves
+  admits such a translate (`sparse827_no_interval`).
+- [ ] Prove outer coverage of those fourteen rows on (8,27), including the
+  cases with no unrestricted half. This would close the ordered branch in Lean.
 - [ ] Construct the first unrestricted tiling from run parity alone. Use the
   filtered position list to kernel-check the remaining outer branches, then
   test the prescribed half and signed caps on survivors.

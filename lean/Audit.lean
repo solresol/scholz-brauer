@@ -544,3 +544,7 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.runRoot_eq_iff
 #print axioms ScholzBrauer.Clift109.singletonRunFilter_of_tiling
 #print axioms ScholzBrauer.Clift109.sinkRunPositionChoices_complete
+
+#print axioms ScholzBrauer.Clift109.translatedExceptions_mem_half
+#print axioms ScholzBrauer.Clift109.sparse827_halves_checked
+#print axioms ScholzBrauer.Clift109.sparse827_no_interval

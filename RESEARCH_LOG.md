@@ -1,5 +1,46 @@
 # Research log
 
+## 2026-11-26 Sydney — seven compulsory weights exclude the (8,27) half fixtures
+
+If the three exception starts are r, s and z, their common shift is
+p = z − A3. Subtract p from each of the seven actual exceptional positions.
+All seven results must belong to the prescribed nineteen-weight sink half:
+the rectangle comes from the zero term in the A1 block, the pair from
+the zero term in the A2 block, and the singleton from the A3 block.
+`translatedExceptions_mem_half` proves this directly for signed coordinates.
+
+For each of the fourteen (8,27) position triples found on 25 November,
+`sparse827_halves_checked` verifies the multiset partition of 0 through 108
+with the displayed unrestricted half and checks every anchor in that half.
+None contains the requisite translate. Positive-step injectivity identifies
+this witness with any putative prescribed half. Thus `sparse827_no_interval`
+excludes all six orders of the remaining roles for each triple, using the
+permutation invariance of subset sums. The box dimensions are
+{1,5,8,11,27,54} and the translation is 1. No orientation or cap assumption
+is needed. The fourteen-row outer coverage remains computational, leaving
+278 ordered pairs in the Lean domain and 234 in the computational domain.
+
+Primary project sources inspected at revision `0f1ef326` on 26 November
+Sydney: the [previous exact scan](https://github.com/solresol/scholz-brauer/blob/0f1ef326/results/2026-11-25-sparse-pairs.json),
+[ordered gap-slice enumeration](https://github.com/solresol/scholz-brauer/blob/0f1ef326/scripts/experiment_clift109_gap_slice.py),
+and [signed half and injectivity theorem](https://github.com/solresol/scholz-brauer/blob/0f1ef326/lean/ScholzBrauer/Clift109Halving.lean).
+Replayed the (8,27) slice over every sorted positive dissociated dimension
+list with sum at most 108 containing both steps, using the existing
+`dimensions(6,1,108)` and `classify_slice` with its classifier callback
+collecting inputs. This recovered 84 role inputs in 4.30 seconds (wall
+time including interpreter startup); the fourteen half witnesses themselves
+are explicit Lean inputs. The linked weekly literature handoff is stale
+(13 November). This proof uses no external theorem or published chain data.
+
+The published startup gate passed. The pinned Lean 4.27.0 `lake build`
+passed all 1191 jobs (5.8 seconds for the new module). The repository check
+`python3 scripts/verify_integration.py --output /tmp/clift-nov26-integration.json`
+passed in 303.63 seconds with Python 3.12.14, including all 503 axiom audits.
+The three new public theorems use only `propext`, `Classical.choice`, and
+`Quot.sound`. Reproduction is
+deterministic and requires no seed. Next, certify that the (8,27) outer
+branch either fails halving or reaches one of these rows.
+
 ## 2026-11-25 Sydney — an unrestricted half survives on the (8,27) branch
 
 Exhausted both step orders of {6,14}, {7,11}, and {8,27}, the complete
