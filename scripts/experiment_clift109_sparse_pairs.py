@@ -14,6 +14,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--min-boxes", type=int, default=1)
     parser.add_argument("--max-boxes", type=int, default=8)
+    parser.add_argument("--count-translates", action="store_true",
+                        help="count unrestricted halves admitting all seven translated exceptions")
     args = parser.parse_args()
     if not 1 <= args.min_boxes <= args.max_boxes:
         parser.error("require 1 <= min-boxes <= max-boxes")
@@ -31,7 +33,7 @@ def main():
         for ds, _ in boxes:
             if u in ds and d in ds:
                 free = tuple(k for k in ds if k not in (u, d))
-                part = classify_slice(u, d, free)
+                part = classify_slice(u, d, free, count_translates=args.count_translates)
                 counts.update(part['counts'])
                 solutions.extend(part['solutions'])
         if (counts['role_inputs'] != 24 * row['packing_boxes'] or

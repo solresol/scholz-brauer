@@ -1,5 +1,53 @@
 # Research log
 
+## 2026-11-27 Sydney — six more ordered pairs fail the translated-exception test
+
+The common-box table has six ordered pairs in the next band (24–38 boxes
+after both odd-run tests). The exact interval scan covers every positive
+dissociated six-dimension set containing the two steps with sum ≤ 108,
+every translation from zero through 108 minus that sum, and all remaining
+role assignments. Across 872,352 role inputs, the two odd-run bounds retain
+4,608. The 9,223,110 disjoint position triples give 485,738 fingerprint
+matches. Run parity and independent peeling agree on every singleton.
+
+| Ordered steps | Triples admitting a half | Triples admitting a seven-weight translate |
+|---|---:|---:|
+| (1,7) | 24 | 0 |
+| (7,1) | 0 | 0 |
+| (3,17) | 30 | 0 |
+| (17,3) | 418 | 0 |
+| (6,54) | 40 | 0 |
+| (54,6) | 34 | 0 |
+
+For each surviving half H and exception set E with singleton z, test every
+a in H for E − z + a ⊆ H. The seven-weight necessity theorem applies with
+a = A3. This test is independent of the six remaining role orders. The full
+prescribed-half classifier also ran on all 3,276 role expansions and returned
+no interval configuration. The computational necessary domain falls from
+234 to 228. The Lean domain remains 278. The next proof obligation is outer
+coverage for (8,27), where the fourteen listed triples already fail in Lean.
+No cap or orientation computation is needed for these six exclusions.
+
+Reproduce with `timeout 300 python3 scripts/experiment_clift109_sparse_pairs.py --min-boxes 24 --max-boxes 38 --count-translates`.
+Python 3.12.14, standard library and project modules, deterministic, no seed,
+12.59 seconds. [Full counts](results/2026-11-27-sparse-pairs.json).
+A separate replay rebuilt each box and half at the role-expanded classifier
+entry and obtained zero translating anchors on all 3,276 calls. The previous
+two sparse bands reproduced their saved rows with the default counting mode.
+As a positive control, `classify_slice(1,51,(2,4,23,8),count_translates=True)`
+found 208 of 638 halvable triples passed translation and recovered 64 interval
+tuples including the first saved October 18 configuration.
+
+Primary project sources read on 27 November Sydney at revision 812d683a:
+[common-box input](https://github.com/solresol/scholz-brauer/blob/812d683a/results/2026-11-13-common-box.json),
+[interval scan](https://github.com/solresol/scholz-brauer/blob/812d683a/scripts/experiment_clift109_gap_slice.py),
+[translated-exception theorem](https://github.com/solresol/scholz-brauer/blob/812d683a/lean/ScholzBrauer/Clift109TranslatedExceptions.lean).
+The latest linked weekly handoff remains 13 November and is stale. This
+experiment uses no external theorem or published chain data. The published
+theorem-provers startup check passed with the existing pins. Repository
+integration (`python3 scripts/verify_integration.py --output /tmp/sb27-integration.json`)
+passed in 312.09 seconds, including the Lean 4.27.0 build and all 503 audits.
+
 ## 2026-11-26 Sydney — seven compulsory weights exclude the (8,27) half fixtures
 
 If the three exception starts are r, s and z, their common shift is

@@ -27,7 +27,7 @@ def singleton_choices(points, step):
     return set(candidates or ())
 
 
-def classify_slice(u, d, free):
+def classify_slice(u, d, free, *, count_translates=False):
     start = time.monotonic()
     sums = {0}
     for k in (u, d, *free):
@@ -62,7 +62,8 @@ def classify_slice(u, d, free):
                         counts['disjoint_position_triples_before_role_expansion'] += 1
                         matches = six_score + digit[z] == target
                         counts['fingerprint_triples_before_role_expansion'] += int(matches)
-                        halvable = halve(rem ^ (1 << z), d) is not None
+                        half = halve(rem ^ (1 << z), d)
+                        halvable = half is not None
                         if halvable != (z in candidates):
                             raise ValueError('odd-run singleton selection disagrees with peeling')
                         if not halvable:
@@ -70,6 +71,12 @@ def classify_slice(u, d, free):
                         if not matches:
                             raise ValueError('fingerprint dropped a halvable triple')
                         counts['halvable_triples_before_role_expansion'] += 1
+                        if count_translates:
+                            points = {x for x in range(109) if half >> x & 1}
+                            exceptions = six | {z}
+                            survives = any(all(x-z+a in points for x in exceptions)
+                                           for a in points)
+                            counts['translated_exception_triples'] += int(survives)
                         for w, d2, d3 in orders:
                             box = [u, v, w, d, d2, d3, t] + [0]*5
                             solutions.extend(classify(box, r, s, z))

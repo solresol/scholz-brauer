@@ -248,6 +248,10 @@ Fin cases to remove the previous reduction bottleneck.
   orders per row. Subtracting the common p from the seven actual exception
   positions gives seven compulsory half members; none of these halves
   admits such a translate (`sparse827_no_interval`).
+- [x] Exhaust both orders of {1,7}, {3,17} and {6,54}. Of 546 position
+  triples admitting an unrestricted half, zero admit a common translation
+  of the seven exceptions into that half. This leaves 228 computational
+  pairs and 278 in Lean. See [pair counts](results/2026-11-27-sparse-pairs.json).
 - [ ] Prove outer coverage of those fourteen rows on (8,27), including the
   cases with no unrestricted half. This would close the ordered branch in Lean.
 - [ ] Construct the first unrestricted tiling from run parity alone. Use the
@@ -501,11 +505,11 @@ See `results/2026-10-24-critical-families-lean.md`.
 (2) Find a classification of the interval configurations small
 enough for the kernel. The placed-pair/shared-singleton refinement leaves
 278 necessary ordered pairs in Lean, with a further common-box refinement
-to 246 and sparse-branch exclusions to 234 still computational. The prescribed sink half now has at most two
+to 246 and sparse-branch exclusions to 228 still computational. The prescribed sink half now has at most two
 moment-compatible anchors per fixed box-role/exception/half choice; q and
 all three offsets are reconstructed exactly. Carry this into a sound finite
 interval classifier, retaining the full nineteen-weight shape and cap checks.
-Neither the 234 domain nor completeness of the 216 saved fixtures is a Lean theorem.
+Neither the 228 domain nor completeness of the 216 saved fixtures is a Lean theorem.
 With the box pinned at the top, the earlier search
 still has 466,380 E-candidates; the 12509 exclusion needed 263 s for 29,865
 contexts, so a direct replay is unrealistic. A short argument that

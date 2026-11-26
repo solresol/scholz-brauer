@@ -1,0 +1,95 @@
+{
+  "rows": [
+    {
+      "pair": [
+        1,
+        7
+      ],
+      "counts": {
+        "halvable_triples_before_role_expansion": 24,
+        "role_inputs": 256008,
+        "odd_run_surviving_inputs": 624,
+        "disjoint_position_triples_before_role_expansion": 912756,
+        "fingerprint_triples_before_role_expansion": 1364,
+        "translated_exception_triples": 0
+      },
+      "solutions": []
+    },
+    {
+      "pair": [
+        3,
+        17
+      ],
+      "counts": {
+        "halvable_triples_before_role_expansion": 30,
+        "role_inputs": 118992,
+        "odd_run_surviving_inputs": 912,
+        "disjoint_position_triples_before_role_expansion": 2357862,
+        "fingerprint_triples_before_role_expansion": 114,
+        "translated_exception_triples": 0
+      },
+      "solutions": []
+    },
+    {
+      "pair": [
+        6,
+        54
+      ],
+      "counts": {
+        "halvable_triples_before_role_expansion": 40,
+        "role_inputs": 61176,
+        "odd_run_surviving_inputs": 768,
+        "disjoint_position_triples_before_role_expansion": 3015714,
+        "fingerprint_triples_before_role_expansion": 40,
+        "translated_exception_triples": 0
+      },
+      "solutions": []
+    },
+    {
+      "pair": [
+        7,
+        1
+      ],
+      "counts": {
+        "halvable_triples_before_role_expansion": 0,
+        "role_inputs": 256008,
+        "odd_run_surviving_inputs": 624,
+        "disjoint_position_triples_before_role_expansion": 783978,
+        "fingerprint_triples_before_role_expansion": 402040
+      },
+      "solutions": []
+    },
+    {
+      "pair": [
+        17,
+        3
+      ],
+      "counts": {
+        "halvable_triples_before_role_expansion": 418,
+        "role_inputs": 118992,
+        "odd_run_surviving_inputs": 912,
+        "disjoint_position_triples_before_role_expansion": 1068600,
+        "fingerprint_triples_before_role_expansion": 29642,
+        "translated_exception_triples": 0
+      },
+      "solutions": []
+    },
+    {
+      "pair": [
+        54,
+        6
+      ],
+      "counts": {
+        "halvable_triples_before_role_expansion": 34,
+        "role_inputs": 61176,
+        "odd_run_surviving_inputs": 768,
+        "disjoint_position_triples_before_role_expansion": 1084200,
+        "fingerprint_triples_before_role_expansion": 52538,
+        "translated_exception_triples": 0
+      },
+      "solutions": []
+    }
+  ],
+  "python": "3.12.14",
+  "seconds": 12.593819703000008
+}
