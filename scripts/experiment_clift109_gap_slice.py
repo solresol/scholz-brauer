@@ -27,7 +27,7 @@ def singleton_choices(points, step):
     return set(candidates or ())
 
 
-def classify_slice(u, d, free, *, count_translates=False):
+def classify_slice(u, d, free, *, count_translates=False, on_fingerprint=None):
     start = time.monotonic()
     sums = {0}
     for k in (u, d, *free):
@@ -63,6 +63,8 @@ def classify_slice(u, d, free, *, count_translates=False):
                         matches = six_score + digit[z] == target
                         counts['fingerprint_triples_before_role_expansion'] += int(matches)
                         half = halve(rem ^ (1 << z), d)
+                        if matches and on_fingerprint is not None:
+                            on_fingerprint(t, v, r, s, z, rem ^ (1 << z), half)
                         halvable = half is not None
                         if halvable != (z in candidates):
                             raise ValueError('odd-run singleton selection disagrees with peeling')

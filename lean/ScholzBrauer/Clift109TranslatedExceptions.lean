@@ -74,7 +74,7 @@ theorem sparse827_halves_checked : ∀ k ∈ sparse827Rows,
     ∀ a ∈ k.half, ¬ (∀ x ∈ translatedExceptions 8 k.v k.r k.s k.z a, x ∈ k.half) := by
   decide +kernel
 
-private theorem zSS_perm {xs ys : List ℤ} (hp : xs.Perm ys) : zSS xs = zSS ys := by
+theorem zSS_perm {xs ys : List ℤ} (hp : xs.Perm ys) : zSS xs = zSS ys := by
   induction hp with
   | nil => rfl
   | cons _ _ ih => simp only [zSS, ih]

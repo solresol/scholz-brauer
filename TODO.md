@@ -252,8 +252,13 @@ Fin cases to remove the previous reduction bottleneck.
   triples admitting an unrestricted half, zero admit a common translation
   of the seven exceptions into that half. This leaves 228 computational
   pairs and 278 in Lean. See [pair counts](results/2026-11-27-sparse-pairs.json).
-- [ ] Prove outer coverage of those fourteen rows on (8,27), including the
-  cases with no unrestricted half. This would close the ordered branch in Lean.
+- [x] Certify a point without a ±27 neighbor in each of the other 64
+  fingerprint matches on (8,27). `isolated827_no_half` excludes even an
+  unrestricted half, and `isolated827_no_interval` transports the obstruction
+  across dimension roles. Exact replay matches both Lean tables entry by entry.
+- [ ] Prove in Lean that every actual (8,27) interval tuple reaches one of the
+  78 tabulated matches (64 isolated rows or 14 translated-exception rows).
+  This outer coverage would close the ordered branch in Lean.
 - [ ] Construct the first unrestricted tiling from run parity alone. Use the
   filtered position list to kernel-check the remaining outer branches, then
   test the prescribed half and signed caps on survivors.

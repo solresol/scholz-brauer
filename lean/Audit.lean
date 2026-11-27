@@ -548,3 +548,6 @@ import ScholzBrauer
 #print axioms ScholzBrauer.Clift109.translatedExceptions_mem_half
 #print axioms ScholzBrauer.Clift109.sparse827_halves_checked
 #print axioms ScholzBrauer.Clift109.sparse827_no_interval
+#print axioms ScholzBrauer.Clift109.zbranch_has_neighbor
+#print axioms ScholzBrauer.Clift109.isolated827_no_half
+#print axioms ScholzBrauer.Clift109.isolated827_no_interval

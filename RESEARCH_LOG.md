@@ -1,5 +1,45 @@
 # Research log
 
+## 2026-11-28 Sydney — isolated points exclude 64 fingerprint matches on (8,27)
+
+After deleting the translated box and the seven exceptions, any point x in
+an unrestricted half together with its translate must have x−27 or x+27 in
+the remainder. This necessary condition follows from multiset membership
+even with repeated or signed weights. The new certificate gives one isolated
+point for each of 64 concrete rows. `isolated827_no_half` excludes all halves
+on each row. `isolated827_no_interval` applies the result to any matching
+gauge coordinates, including every permutation of the unassigned roles.
+
+The deterministic replay enumerates positive sorted dissociated sextuples
+containing 8 and 27 with sum ≤108, offsets from 0 through 108 minus the
+sum, and the four possible rectangle steps. With both odd-run bounds ≤7,
+it checks the disjoint positions and signed fingerprint before comparing the
+full surviving halves and least isolated witnesses to the Lean literals.
+Of the 78 matches, 10 have two isolated points, 14 have four, 24 have six,
+12 have eight, and four have ten. The remaining 14 have none and reproduce
+the earlier nineteen-weight halves exactly. Run
+`timeout 120 python3 scripts/check_clift109_sparse827_rows.py` (4.53 s,
+Python 3.12.14, standard library and existing project modules, no seed).
+
+The certificate checks individual rows. Exhaustiveness of the 78 rows is
+still computational. The next obligation is to transport every actual tuple
+through the outer box and position enumerators into their union. The domains
+remain 228 ordered pairs computationally and 278 in Lean. The full selected
+graph exclusion and the conjecture remain open in this development.
+
+Primary project sources inspected on 28 November Sydney at
+[6fae668](https://github.com/solresol/scholz-brauer/tree/6fae668b3e5cb947e835dc545157ca3fedbb6103):
+[the outer domain](https://github.com/solresol/scholz-brauer/blob/6fae668/scripts/experiment_clift109_outer_boxes.py),
+[exact scan](https://github.com/solresol/scholz-brauer/blob/6fae668/scripts/experiment_clift109_gap_slice.py),
+[translated-exception hypotheses and rows](https://github.com/solresol/scholz-brauer/blob/6fae668/lean/ScholzBrauer/Clift109TranslatedExceptions.lean).
+The latest linked weekly handoff is still 13 November and is stale. This
+increment uses no external theorem or published chain data.
+
+The published startup check passed. The pinned Lean 4.27.0 target build
+completed all 1,098 jobs (45 s for the new module). Repository integration,
+`python3 scripts/verify_integration.py --output /tmp/sb28-integration.json`,
+passed in 241.08 s, including the full build and all 506 axiom audits.
+
 ## 2026-11-27 Sydney — six more ordered pairs fail the translated-exception test
 
 The common-box table has six ordered pairs in the next band (24–38 boxes
